@@ -2950,6 +2950,68 @@ Table caption: Screenshot and visual asset matrix for current extension UI evide
 | Performance benchmark export | `—` | `docs/ui-feature-guide.html` performance benchmark section | N/A (no screenshot) | Not visible in current verified public build surface; documented as conditional/if visible. | Yes (bounded status verified) | N/A |
 | Release discussion summary export | `—` | `docs/ui-feature-guide.html` release discussion section | N/A (no screenshot) | Screenshot pending: control exists in runtime path but not included in current public screenshot pack. | Yes (feature verified) | N/A |
 
+## 7D. Coverage assurance checklist
+
+This checklist is the explicit coverage gate for this guide. Every required user-facing feature must be represented here as documented, documented-conditional, or documented-not-visible.
+
+Table caption: Required feature coverage checklist for the current extension documentation release.
+| Required feature | Coverage status in this guide | Visibility status | Notes |
+| --- | --- | --- | --- |
+| Scan Results | Documented | Visible | Covered in feature sections, matrices, and screenshots. |
+| Confirmed Issues | Documented | Visible | Classified as confirmed findings. |
+| axe-core findings | Documented | Visible in findings | Covered under source/provenance sections and matrices. |
+| Raw axe provenance | Documented | Visible in details/exports | Covered as metadata/evidence source. |
+| Manual / Incomplete / Review Items | Documented | Visible | Covered as non-confirmed review output. |
+| Advisory Notes | Documented | Visible | Covered as guidance, not automatic failure. |
+| Scan Limitations | Documented | Visible | Covered as diagnostic/coverage boundary output. |
+| Severity filters | Documented | Visible | Covered with confirmed-only count behavior. |
+| Critical / Serious / Moderate / Minor | Documented | Visible | Covered in severity section and matrix. |
+| Visual Composition Review | Documented | Visible | Covered with classification and next actions. |
+| Human Judgement Review | Documented | Visible | Covered with manual-judgement boundary. |
+| Engine-limited Review | Documented | Visible | Covered as incomplete/engine-limited review output. |
+| State-limited Review | Documented | Visible | Covered as state-boundary review output. |
+| Deterministic Failures | Documented | Visible in issue taxonomy | Covered as confirmed deterministic class. |
+| Corroborated Failures | Documented | Visible in issue taxonomy | Covered as confirmed corroborated class. |
+| Previous Scan Comparison | Documented | Visible | Covered with same-scope matching rules. |
+| Local History | Documented | Visible | Covered with retention and storage keys. |
+| Local Data Clearing | Documented | Visible | Covered with clear-all behavior and scope. |
+| Broken Links | Documented | Visible | Covered with same-origin/cross-origin behavior. |
+| Metadata Check | Documented | Visible | Covered as advisory/review metadata checks. |
+| Language Mismatch | Documented | Visible | Covered with language constraints and review handling. |
+| Spelling Check | Documented | Visible | Covered with supported-language boundaries. |
+| Page Text Scale / Reflow surface | Documented | Visible | Current visible label documented as Page Text Scale. |
+| Alt Text Analysis | Documented | Visible | Covered in dedicated feature section. |
+| Heading Structure | Documented | Visible | Covered in dedicated feature section. |
+| Screen Reader Review | Documented | Visible | Covered as virtual aid, not real AT sign-off. |
+| Diagnostics | Documented | Visible | Covered with troubleshooting boundary language. |
+| CSV issue export | Documented | Visible | Covered with format/contents/limitations. |
+| JSON evidence export | Documented | Visible | Covered with structure and sensitivity notes. |
+| Local issue-state import/export | Documented | Visible | Covered as local workflow portability. |
+| Diagnostics export/copy | Documented | Visible | Covered as support troubleshooting export surface. |
+| Screen Reader Review export | Documented | Visible | Covered in export section with limitations. |
+| Performance benchmark export | Documented (conditional) | Visibility depends on build/surface | Documented explicitly as conditional/if visible. |
+| Release discussion summary export | Documented | Visible runtime path | Covered as local aid export, not formal sign-off. |
+| Highlight element | Documented | Visible | Covered as issue action. |
+| Turn into ticket / handoff action | Documented | Visible (label can vary by surface) | Covered with current label behavior. |
+| Issue workflow controls | Documented | Visible | Covered with local-status and annotation behavior. |
+| Settings/theme controls | Documented | Visible | Covered with local settings persistence. |
+| Panel open/close controls | Documented | Visible | Covered in interaction controls section. |
+| Panel resize/move controls | Documented | Visible | Covered with keyboard/pointer control notes. |
+| Unsupported/restricted contexts | Documented | Visible | Covered as limitation classification. |
+| File access behaviour | Documented | Context-dependent | Covered with permission/runtime constraints. |
+| iframe/protected frame behaviour | Documented | Context-dependent | Covered with frame-access limitations. |
+| Manual AT sign-off status | Documented | Visible as boundary statement | Covered as non-sign-off limit. |
+| Privacy and local storage | Documented | Visible | Covered with key storage/export behavior. |
+| Beta limitations | Documented | Visible | Covered as current scope boundary. |
+| Review critical issues button | Documented | Visible | Covered in quick-action sections. |
+| Review manual/incomplete items button | Documented | Visible | Covered in quick-action sections. |
+| Inspect scan limitations button | Documented | Visible | Covered in quick-action sections. |
+| Compare with previous scan button | Documented | Visible | Covered in quick-action sections. |
+| Search/filter controls | Documented | Visible | Covered with search/severity/issue-type filtering notes. |
+| History filters | Documented | Visible | Covered with domain/path/sort behavior. |
+| Dashboard/history comparison | Documented | Visible | Covered with baseline and delta explanation. |
+| Dev Sandbox | Documented | Visible | Covered as non-primary workflow surface. |
+
 ## What A11Y Cat does not prove
 
 A11Y Cat does not prove:
