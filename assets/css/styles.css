@@ -100,6 +100,7 @@ pre {
 pre {
   margin: 1rem 0;
   padding: 1rem 1.15rem;
+  max-width: 100%;
   overflow-x: auto;
   border-radius: var(--radius-md);
   background: #0d1117;
@@ -372,7 +373,7 @@ pre code {
 .badge--local,
 .status-pill--success {
   background: var(--success-muted);
-  color: var(--success-emphasis);
+  color: #187a34;
   border-color: rgba(31, 136, 61, 0.22);
 }
 
@@ -605,6 +606,9 @@ figcaption {
 }
 
 .docs-main table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
