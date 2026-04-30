@@ -2784,6 +2784,120 @@ These matrices provide a fast technical reference for developers, QA, accessibil
 | `file://` behaviour | Partial support | Yes | Yes | Requires explicit file-URL permission and may still be limited |
 | Windows packaged runtime | Pending evidence | Recommended | Yes | Cross-platform runtime evidence still required per release candidate |
 
+## 7B. Diagrams
+
+These are static, text-first flow diagrams intended for quick technical orientation.
+
+### 1. Scanner pipeline diagram
+
+Shows the end-to-end path from panel action to classified output, export, and local history.
+
+```text
+Toolbar click
+  -> service worker
+  -> local bundled axe injection
+  -> shared scanner bundle
+  -> axe.run(document)
+  -> raw axe results
+  -> normalisation
+  -> classification
+  -> UI
+  -> export
+  -> local history
+```
+
+Text equivalent: one user-initiated scan feeds both UI rendering and user-triggered exports, while local history stores scan snapshots for same-scope comparison.
+
+### 2. Result classification flow diagram
+
+Shows how findings are routed into confirmed, review, advisory, or limitation output.
+
+```text
+Raw finding
+  -> axe violation?
+     -> confirmed issue
+
+Raw finding
+  -> axe incomplete?
+     -> review/manual item
+
+Raw finding
+  -> custom heuristic?
+     -> review/advisory unless deterministic
+
+Runtime limitation
+  -> diagnostics/scan limitation
+```
+
+Text equivalent: only deterministic/corroborated findings are treated as confirmed; incomplete, heuristic, and runtime-limited findings remain separated from confirmed failures.
+
+### 3. Local data flow diagram
+
+Shows processing, optional storage, user-controlled export, and clear-data flow.
+
+```text
+Page scan
+  -> local processing
+  -> optional local storage
+  -> export controlled by user
+  -> clear local data
+
+No developer server
+No developer database
+No analytics/telemetry
+```
+
+Text equivalent: processing is local-first, storage is browser-local, and data leaves the machine only when the user explicitly exports or shares it.
+
+### 4. Export flow diagram
+
+Shows export destinations from current scan state and sensitivity reminder.
+
+```text
+Current scan results
+  -> CSV issue log
+  -> JSON evidence bundle
+  -> diagnostics export
+  -> local issue-state bundle
+
+Exports may contain:
+  selectors
+  snippets
+  page URL
+  page title
+```
+
+Text equivalent: each export format is generated from current local scan/workflow state and can include page-derived technical context.
+
+### 5. Previous scan comparison diagram
+
+Shows baseline matching behavior used by the implementation.
+
+```text
+Current scan
+  -> origin + pathname scope
+  -> compare with previous saved scan in same scope
+  -> query/hash ignored
+  -> no unrelated scan fallback
+```
+
+Text equivalent: comparison uses same-scope history only and does not fall back to unrelated URLs when no matching prior baseline exists.
+
+### 6. Screen Reader Review limitation diagram
+
+Shows the separation between the virtual review aid and required real AT evidence.
+
+```text
+Virtual Screen Reader Review
+  -> review aid / structured notes / export
+
+Separate from:
+Real VoiceOver / NVDA / JAWS testing
+  -> required manual AT evidence
+```
+
+Text equivalent: virtual screen reader output supports review workflow documentation but is not assistive-technology sign-off evidence.
+
 ## What A11Y Cat does not prove
 
 A11Y Cat does not prove:
