@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A11Y Cat Docs Introduction</title>
+    <meta name="description" content="Introduction to the A11Y Cat extension documentation site.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <span class="brand__mark" aria-hidden="true">A</span>
+          <span>A11Y Cat Docs</span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+        </nav>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+        <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li><a href="intro.html" aria-current="page">Introduction</a></li>
+            <li><a href="ui-feature-guide.html">Extension UI feature guide</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
+            <li><a href="limitations.html">Known limitations</a></li>
+            <li><a href="beta-testing.html">Beta testing guide</a></li>
+            <li><a href="changelog.html">Release notes and status</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main id="main-content" class="docs-main">
+        <h1>What A11Y Cat is</h1>
+        <p class="lead">
+          A11Y Cat is a Chrome MV3 extension for local-first accessibility inspection on the current page.
+          It combines deterministic live-page checks with structured review workflows, local history, and local evidence export.
+        </p>
+
+        <h2>Who it is for</h2>
+        <ul class="doc-list">
+          <li>Accessibility engineers reviewing live page issues in the browser</li>
+          <li>QA and release reviewers who need local evidence exports and honest limitation reporting</li>
+          <li>Product and design teams who need a structured way to work through confirmed issues, review items, and limitations</li>
+        </ul>
+
+        <h2>What it helps with</h2>
+        <ul class="doc-list">
+          <li>Deterministic WCAG scan results on the current page state</li>
+          <li>Manual-review buckets such as visual composition, human judgement, engine-limited, and state-limited review</li>
+          <li>Headings, language, spelling, alt text, metadata, broken links, and Screen Reader Review workflows</li>
+          <li>Local exports for CSV issue logs, JSON evidence bundles, diagnostics, and review handoff artifacts</li>
+        </ul>
+
+        <h2>What it does not prove</h2>
+        <ul class="doc-list">
+          <li>full WCAG compliance</li>
+          <li>that manual accessibility testing is unnecessary</li>
+          <li>that real screen reader testing is unnecessary</li>
+          <li>that every interaction state was tested automatically</li>
+          <li>that restricted pages or protected frames were fully inspected</li>
+          <li>that all accessibility issues were found</li>
+        </ul>
+
+        <h2>How to start using it</h2>
+        <ol>
+          <li>Install the unpacked extension or the current beta package.</li>
+          <li>Open the extension from the browser toolbar on a supported page.</li>
+          <li>Run the deterministic scan.</li>
+          <li>Review Confirmed Issues first, then review buckets and scan limitations.</li>
+          <li>Use the UI guide when a label, count, export, or workflow control is unclear.</li>
+        </ol>
+
+        <div class="callout">
+          <strong>Source of truth:</strong> the extension UI feature guide remains the authoritative user-facing reference for visible UI labels,
+          scanner taxonomy, result categories, exports, local storage behaviour, and release limitations.
+        </div>
+      </main>
+    </div>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="../index.html">Landing page</a></span></div></footer>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A11Y Cat Docs</title>
+    <meta name="description" content="A11Y Cat documentation site for the Chrome extension: installation, UI guide, privacy, beta testing, and known limitations.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">A</span>
+          <span>A11Y Cat Docs</span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="docs/intro.html">Docs</a>
+          <a href="docs/ui-feature-guide.html">UI guide</a>
+          <a href="docs/installation.html">Installation</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="landing-shell">
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-panel">
+            <div class="kicker">Chrome MV3 extension documentation</div>
+            <h1>A11Y Cat</h1>
+            <p class="lead"><strong>Local-first accessibility inspection extension.</strong></p>
+            <p>
+              A11Y Cat is a Chrome MV3 extension for deterministic live-page accessibility inspection,
+              structured review workflows, and local evidence export.
+            </p>
+            <div class="warning">
+              <strong>Limitation:</strong> A11Y Cat supports accessibility review workflows. It does not replace
+              manual testing or assistive-technology validation.
+            </div>
+            <div class="callout">
+              <strong>Beta status:</strong> the current documented release boundary is controlled pilot / beta use on desktop Chromium.
+              Broad public rollout is not currently claimed.
+            </div>
+            <div class="button-row">
+              <a class="button button--primary" href="docs/intro.html">Read the docs</a>
+              <a class="button button--secondary" href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a>
+            </div>
+            <ul class="hero-list">
+              <li><a href="docs/privacy-local-data.html">Privacy and local data</a></li>
+              <li><a href="docs/limitations.html">Known limitations</a></li>
+              <li><a href="docs/ui-feature-guide.html">Extension UI feature guide</a></li>
+            </ul>
+          </div>
+          <figure class="screenshot-frame">
+            <img src="assets/extension/store-02-scan-results.png" alt="A11Y Cat extension showing grouped scan results inside the panel.">
+            <figcaption>Current extension path: grouped findings, explicit review buckets, and local export controls.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card-grid" aria-label="Documentation highlights">
+        <article class="card">
+          <h2>Start with the docs</h2>
+          <p class="muted">Read what the extension does, who it is for, what it does not prove, and how to start using it.</p>
+          <p><a href="docs/intro.html">Open the docs introduction</a></p>
+        </article>
+        <article class="card">
+          <h2>Privacy and local data</h2>
+          <p class="muted">Documents local processing, no hosted backend in the public package, storage keys, exports, and data clearing.</p>
+          <p><a href="docs/privacy-local-data.html">Read privacy and local data</a></p>
+        </article>
+        <article class="card">
+          <h2>Known limitations</h2>
+          <p class="muted">States what the extension does not prove, what contexts are restricted, and what still remains manual review.</p>
+          <p><a href="docs/limitations.html">Read known limitations</a></p>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat documentation site</span>
+        <span><a href="docs/intro.html">Docs home</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

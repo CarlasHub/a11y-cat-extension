@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A11Y Cat Beta Testing Guide</title>
+    <meta name="description" content="Controlled pilot and beta testing guidance for the A11Y Cat extension.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">A</span><span>A11Y Cat Docs</span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a></nav></div></header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li><a href="intro.html">Introduction</a></li><li><a href="ui-feature-guide.html">Extension UI feature guide</a></li><li><a href="installation.html">Installation</a></li><li><a href="privacy-local-data.html">Privacy and local data</a></li><li><a href="limitations.html">Known limitations</a></li><li><a href="beta-testing.html" aria-current="page">Beta testing guide</a></li><li><a href="changelog.html">Release notes and status</a></li></ul></nav></aside>
+      <main id="main-content" class="docs-main">
+        <h1>Beta testing guide</h1>
+        <p class="lead">This extension is documented for controlled pilot evaluation on desktop Chromium. Test it as a bounded review tool, not as a production compliance certificate.</p>
+
+        <h2>How to install the beta</h2>
+        <ol>
+          <li>Build or obtain the current beta package.</li>
+          <li>Open <code>chrome://extensions</code>.</li>
+          <li>Enable <strong>Developer mode</strong>.</li>
+          <li>Use <strong>Load unpacked</strong> for a local build or install the agreed beta package.</li>
+        </ol>
+
+        <h2>How to test</h2>
+        <ol>
+          <li>Open a supported Chrome / Chromium desktop page.</li>
+          <li>Run the deterministic WCAG scan from the toolbar panel.</li>
+          <li>Review Confirmed Issues first.</li>
+          <li>Review review buckets and scan limitations next.</li>
+          <li>Use exports for handoff only after checking sensitive snippets and local notes.</li>
+          <li>Verify real AT behavior separately with manual VoiceOver, NVDA, or JAWS testing where required.</li>
+        </ol>
+
+        <h2>How to report bugs</h2>
+        <p>Report beta bugs through the public repository issue tracker:</p>
+        <p><a class="button button--secondary" href="https://github.com/CarlasHub/a11y-cat-extension/issues">Open the issue tracker</a></p>
+
+        <h2>What evidence to provide</h2>
+        <ul class="doc-list">
+          <li>page URL and page title, if you are allowed to share them</li>
+          <li>what you clicked and what state the page was in</li>
+          <li>expected result and actual result</li>
+          <li>whether the issue was confirmed, review-only, advisory, or a limitation</li>
+          <li>diagnostics export, if runtime boundaries are involved</li>
+          <li>screenshots or exported evidence, if allowed</li>
+          <li>browser version and extension version/build identifier</li>
+        </ul>
+
+        <h2>What not to scan without permission</h2>
+        <ul class="doc-list">
+          <li>private customer environments you are not authorized to access</li>
+          <li>production systems with confidential content unless your role allows it</li>
+          <li>authenticated or internal pages that your testing scope does not cover</li>
+          <li>third-party sites where automated requests or inspection would violate policy</li>
+        </ul>
+
+        <h2>Feedback template</h2>
+        <pre><code>Title:
+Page or flow:
+Environment:
+Extension build/version:
+Expected result:
+Actual result:
+Evidence attached:
+Confirmed / review / advisory / limitation:
+Permission to share page URL/title publicly: yes/no</code></pre>
+
+        <div class="note">If you change UI labels, result categories, exports, or local storage behavior during beta work, update the UI feature guide in the same change set.</div>
+      </main>
+    </div>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension/issues">Bug reports</a></span></div></footer>
+  </body>
+</html>
