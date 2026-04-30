@@ -740,3 +740,84 @@ figcaption {
     flex-direction: column;
   }
 }
+
+.matrix-intro,
+.diagram-intro {
+  margin: 0 0 0.85rem;
+  color: var(--fg-muted);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.3rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-default);
+}
+
+.matrix-table caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  color: var(--fg-default);
+  margin: 0 0 0.5rem;
+}
+
+.matrix-table th,
+.matrix-table td {
+  padding: 0.75rem;
+  border: 1px solid var(--border-default);
+  text-align: left;
+  vertical-align: top;
+}
+
+.matrix-table thead th {
+  background: var(--bg-muted);
+}
+
+.diagram-card {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-default);
+}
+
+.doc-diagram {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-muted);
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.doc-diagram rect {
+  fill: #f6f8fa;
+  stroke: #1f2328;
+  stroke-width: 1.5;
+}
+
+.doc-diagram path {
+  fill: none;
+  stroke: #1f2328;
+  stroke-width: 1.6;
+}
+
+.doc-diagram text {
+  fill: #1f2328;
+  font-size: 14px;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .matrix-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .doc-diagram text {
+    font-size: 13px;
+  }
+}

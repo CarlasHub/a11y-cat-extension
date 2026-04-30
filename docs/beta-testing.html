@@ -74,6 +74,46 @@
           <li>Verify real AT behaviour separately with VoiceOver, NVDA, or JAWS where required.</li>
         </ol>
 
+        <h2>Beta readiness matrix</h2>
+        <p class="matrix-intro">Use this matrix to decide whether a scan result is ready for engineering action or still needs review evidence.</p>
+        <table class="matrix-table">
+          <caption>Beta triage readiness and evidence expectations</caption>
+          <thead>
+            <tr>
+              <th scope="col">Output type</th>
+              <th scope="col">Ready for direct defect filing</th>
+              <th scope="col">Required evidence</th>
+              <th scope="col">Extra validation needed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Confirmed issue</th>
+              <td>Yes, when reproducible in current state</td>
+              <td>Issue card details + selector + screenshot</td>
+              <td>Retest after fix</td>
+            </tr>
+            <tr>
+              <th scope="row">Manual/review item</th>
+              <td>No, validate first</td>
+              <td>Context notes + why judgment is needed</td>
+              <td>Manual UX and accessibility review</td>
+            </tr>
+            <tr>
+              <th scope="row">Advisory note</th>
+              <td>No, treat as quality signal</td>
+              <td>Guidance relevance to your standards</td>
+              <td>Policy/team decision</td>
+            </tr>
+            <tr>
+              <th scope="row">Limitation output</th>
+              <td>No, this is coverage risk</td>
+              <td>Limitation text + diagnostics export</td>
+              <td>Manual testing in missing contexts</td>
+            </tr>
+          </tbody>
+        </table>
+
         <h2>What evidence to provide</h2>
         <div class="docs-card-grid">
           <article class="card">

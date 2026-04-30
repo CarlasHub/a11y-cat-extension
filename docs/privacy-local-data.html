@@ -85,6 +85,47 @@
           <li><code>a11yCatSpellingAllowlistV1</code></li>
         </ul>
 
+        <h2>Storage and privacy flow diagram</h2>
+        <p class="diagram-intro">This diagram shows where data is processed, stored, and exported in the public extension package.</p>
+        <figure class="diagram-card">
+          <svg role="img" aria-labelledby="privacy-flow-title privacy-flow-desc" viewBox="0 0 1040 252" class="doc-diagram">
+            <title id="privacy-flow-title">Local storage and export flow</title>
+            <desc id="privacy-flow-desc">The diagram shows page content inspected in browser runtime, then local extension storage, then optional user export/share actions, with no developer server path in the public package.</desc>
+            <rect x="18" y="94" width="220" height="58" rx="8"></rect>
+            <text x="128" y="127" text-anchor="middle">Page content in browser</text>
+
+            <rect x="282" y="94" width="230" height="58" rx="8"></rect>
+            <text x="397" y="127" text-anchor="middle">Extension runtime analysis</text>
+
+            <rect x="556" y="94" width="220" height="58" rx="8"></rect>
+            <text x="666" y="127" text-anchor="middle">Local extension storage</text>
+
+            <rect x="820" y="24" width="200" height="44" rx="8"></rect>
+            <text x="920" y="51" text-anchor="middle">CSV/JSON export</text>
+
+            <rect x="820" y="82" width="200" height="44" rx="8"></rect>
+            <text x="920" y="109" text-anchor="middle">State/diagnostics export</text>
+
+            <rect x="820" y="140" width="200" height="44" rx="8"></rect>
+            <text x="920" y="167" text-anchor="middle">Manual share by user</text>
+
+            <rect x="820" y="198" width="200" height="44" rx="8"></rect>
+            <text x="920" y="225" text-anchor="middle">No developer server path</text>
+
+            <path d="M238 123 L282 123"></path>
+            <path d="M512 123 L556 123"></path>
+            <path d="M776 123 L820 46"></path>
+            <path d="M776 123 L820 104"></path>
+            <path d="M776 123 L820 162"></path>
+            <path d="M776 123 L820 220"></path>
+          </svg>
+          <figcaption>Data path summary: processing and storage are local; sharing occurs only when a user chooses to export or copy evidence.</figcaption>
+        </figure>
+        <ul class="doc-list">
+          <li>Text equivalent: public docs and package state do not include automatic upload to a developer server.</li>
+          <li>Export files can still contain sensitive page-derived details and should be reviewed before sharing.</li>
+        </ul>
+
         <h2>What exports may include</h2>
         <ul class="doc-list">
           <li>page URL and, where available, page title</li>
@@ -94,6 +135,50 @@
           <li>diagnostics and limitation records</li>
           <li>virtual Screen Reader Review logs and QA notes where those exports are used</li>
         </ul>
+
+        <h2>Export content matrix</h2>
+        <table class="matrix-table">
+          <caption>Export format and sensitivity model</caption>
+          <thead>
+            <tr>
+              <th scope="col">Export type</th>
+              <th scope="col">Contains</th>
+              <th scope="col">Does not guarantee</th>
+              <th scope="col">Sensitive fields possible</th>
+              <th scope="col">Intended use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">CSV issue log</th>
+              <td>Flattened issue rows and classifications</td>
+              <td>Full technical context</td>
+              <td>URL, title, selector, snippets</td>
+              <td>Triage and spreadsheet handoff</td>
+            </tr>
+            <tr>
+              <th scope="row">JSON evidence</th>
+              <td>Structured findings, provenance, diagnostics links</td>
+              <td>Automatic compliance proof</td>
+              <td>URL, title, selector, snippets, notes</td>
+              <td>Engineering and QA debugging</td>
+            </tr>
+            <tr>
+              <th scope="row">Local issue-state bundle</th>
+              <td>Workflow status and local review state</td>
+              <td>Cross-environment portability of all context</td>
+              <td>Notes and state metadata</td>
+              <td>Team handoff of local triage state</td>
+            </tr>
+            <tr>
+              <th scope="row">Diagnostics/support export</th>
+              <td>Runtime support and limitation signals</td>
+              <td>Complete DevTools trace</td>
+              <td>Runtime context, limitation details</td>
+              <td>Troubleshooting extension behavior</td>
+            </tr>
+          </tbody>
+        </table>
 
         <h2>Request behaviour and limits</h2>
         <ul class="doc-list">

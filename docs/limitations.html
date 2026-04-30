@@ -78,6 +78,52 @@
           <li>Review and advisory items are not confirmed failures until a person checks them in context.</li>
         </ul>
 
+        <h2>Accessibility limitation matrix</h2>
+        <p class="matrix-intro">This table separates what the extension can signal from what still requires manual test evidence.</p>
+        <table class="matrix-table">
+          <caption>Limitation types and required follow-up</caption>
+          <thead>
+            <tr>
+              <th scope="col">Limitation type</th>
+              <th scope="col">Why it happens</th>
+              <th scope="col">What it does not mean</th>
+              <th scope="col">Required follow-up</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Restricted page context</th>
+              <td>Browser or host security boundary</td>
+              <td>Not a pass</td>
+              <td>Manual inspection in allowed environment</td>
+            </tr>
+            <tr>
+              <th scope="row">Protected or inaccessible frame</th>
+              <td>Frame access blocked by context/origin policy</td>
+              <td>Not a confirmed fail by itself</td>
+              <td>Inspect frame content with authorized tools</td>
+            </tr>
+            <tr>
+              <th scope="row">State-limited scan</th>
+              <td>Single current UI state was evaluated</td>
+              <td>Not complete journey coverage</td>
+              <td>Test dialogs, tabs, validation, auth states manually</td>
+            </tr>
+            <tr>
+              <th scope="row">Engine-limited or incomplete result</th>
+              <td>Insufficient runtime/context for safe verdict</td>
+              <td>Not a pass and not an automatic fail</td>
+              <td>Manual judgment with page context</td>
+            </tr>
+            <tr>
+              <th scope="row">Virtual screen reader review</th>
+              <td>Modelled review aid, not assistive tech runtime</td>
+              <td>Not AT sign-off</td>
+              <td>Test with VoiceOver, NVDA, or JAWS</td>
+            </tr>
+          </tbody>
+        </table>
+
         <h2>Language and spelling limits</h2>
         <ul class="doc-list">
           <li>Spelling support is currently English-only in the bundled beta dictionary set.</li>

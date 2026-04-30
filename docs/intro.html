@@ -82,6 +82,98 @@
           </article>
         </div>
 
+        <h2>Result classification matrix</h2>
+        <p class="matrix-intro">Use this matrix to decide whether an item is automatically confirmed or still requires manual judgement.</p>
+        <table class="matrix-table">
+          <caption>Result category comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Confidence</th>
+              <th scope="col">Typical sources</th>
+              <th scope="col">WCAG mapping</th>
+              <th scope="col">Next action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Confirmed Issues</th>
+              <td>Highest available automation confidence</td>
+              <td>axe violations, deterministic custom checks</td>
+              <td>Direct when rule metadata exists</td>
+              <td>Fix first by severity and retest</td>
+            </tr>
+            <tr>
+              <th scope="row">Manual / Incomplete / Review Items</th>
+              <td>Requires human judgement</td>
+              <td>axe incomplete, visual/context/state-limited checks</td>
+              <td>Depends on manual review outcome</td>
+              <td>Inspect manually before creating defects</td>
+            </tr>
+            <tr>
+              <th scope="row">Advisory Notes</th>
+              <td>Guidance only</td>
+              <td>spelling, metadata quality, best-practice signals</td>
+              <td>Not direct by default</td>
+              <td>Treat as quality guidance, not automatic failure</td>
+            </tr>
+            <tr>
+              <th scope="row">Scan Limitations</th>
+              <td>Diagnostic boundary signal</td>
+              <td>restricted pages, frame access limits, blocked inspection</td>
+              <td>Not a pass/fail category</td>
+              <td>Run manual checks and inspect diagnostics</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Scanner pipeline diagram</h2>
+        <p class="diagram-intro">This pipeline shows how page state becomes categorized output in the panel.</p>
+        <figure class="diagram-card">
+          <svg role="img" aria-labelledby="pipeline-title pipeline-desc" viewBox="0 0 980 230" class="doc-diagram">
+            <title id="pipeline-title">A11Y Cat scanner pipeline</title>
+            <desc id="pipeline-desc">The diagram shows page state entering scan orchestration, then splitting into engine and custom checks, then classified into confirmed issues, review items, advisory notes, and scan limitations.</desc>
+            <rect x="20" y="88" width="150" height="54" rx="8"></rect>
+            <text x="95" y="120" text-anchor="middle">Page state</text>
+
+            <rect x="220" y="88" width="190" height="54" rx="8"></rect>
+            <text x="315" y="112" text-anchor="middle">Scan orchestration</text>
+            <text x="315" y="129" text-anchor="middle">and attribution</text>
+
+            <rect x="460" y="36" width="180" height="52" rx="8"></rect>
+            <text x="550" y="67" text-anchor="middle">axe-core engine</text>
+
+            <rect x="460" y="136" width="180" height="52" rx="8"></rect>
+            <text x="550" y="167" text-anchor="middle">Custom modules</text>
+
+            <rect x="700" y="16" width="250" height="44" rx="8"></rect>
+            <text x="825" y="43" text-anchor="middle">Confirmed Issues</text>
+
+            <rect x="700" y="72" width="250" height="44" rx="8"></rect>
+            <text x="825" y="99" text-anchor="middle">Manual / Review Items</text>
+
+            <rect x="700" y="128" width="250" height="44" rx="8"></rect>
+            <text x="825" y="155" text-anchor="middle">Advisory Notes</text>
+
+            <rect x="700" y="184" width="250" height="44" rx="8"></rect>
+            <text x="825" y="211" text-anchor="middle">Scan Limitations</text>
+
+            <path d="M170 115 L220 115"></path>
+            <path d="M410 115 L460 62"></path>
+            <path d="M410 115 L460 162"></path>
+            <path d="M640 62 L700 38"></path>
+            <path d="M640 62 L700 94"></path>
+            <path d="M640 162 L700 94"></path>
+            <path d="M640 162 L700 150"></path>
+            <path d="M640 162 L700 206"></path>
+          </svg>
+          <figcaption>Pipeline view: orchestration combines engine and custom checks, then classifies output by confidence and limitation state.</figcaption>
+        </figure>
+        <ul class="doc-list">
+          <li>Text equivalent: the scanner does not produce one undifferentiated list.</li>
+          <li>Classification and confidence are explicit in the UI so users can separate fixes from review work.</li>
+        </ul>
+
         <h2>What it helps with</h2>
         <div class="split-layout">
           <div class="feature-band">
