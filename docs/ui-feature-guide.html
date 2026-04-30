@@ -47,12 +47,12 @@
           <div>
             <div class="eyebrow">Canonical product reference</div>
             <h1 class="page-title">Extension UI feature guide</h1>
-            <p class="page-summary">Use this page when a visible label, count, status, export, workflow action, or limitation needs an exact implementation-backed explanation.</p>
-            <div class="callout"><strong>Canonical source:</strong> <a href="../EXTENSION_UI_FEATURE_GUIDE.md">EXTENSION_UI_FEATURE_GUIDE.md</a>. This public page renders that canonical guide and adds current extension-build screenshots so the public site stays grounded in the shipped extension UI.</div>
+            <p class="page-summary">This page documents every visible extension feature, label, export, local-state surface, and limitation using the current implementation.</p>
+            <div class="callout"><strong>Canonical source:</strong> <a href="../EXTENSION_UI_FEATURE_GUIDE.md">EXTENSION_UI_FEATURE_GUIDE.md</a>. The public page renders that guide and pairs it with current extension screenshots so the public site stays tied to the shipped UI.</div>
           </div>
           <figure class="media-card">
             <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="A11Y Cat scan results view showing grouped findings, severity counts, and export controls.">
-            <figcaption>The guide explains the real extension UI, and the screenshot gallery below proves the visible surfaces come from the current extension build.</figcaption>
+            <figcaption>The guide explains what the extension shows, where the data comes from, what still needs review, and what cannot be proven automatically.</figcaption>
           </figure>
         </div>
 
@@ -60,7 +60,7 @@
           <div class="proof-section__intro">
             <div class="kicker">Current extension-build evidence</div>
             <h2 id="proof-heading">Real extension screenshots</h2>
-            <p class="proof-note">Captured from the current MV3 extension build on safe local fixtures. These screenshots supplement the written guide. They do not replace the technical explanations below.</p>
+            <p class="proof-note">Captured from the current MV3 extension build on safe local fixtures. These screenshots support the written guide. They do not replace the technical explanations below.</p>
           </div>
 
           <section class="proof-group" aria-labelledby="proof-triage-heading">
@@ -76,27 +76,27 @@
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="Confirmed Issues group shown in the Scan Results panel.">
-                <figcaption>Confirmed Issues section. Confirmed findings remain separate from review and advisory output.</figcaption>
+                <figcaption>Confirmed Issues stay separate from review, advisory, and limitation output.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/severity-filters.png" alt="Severity filters showing Critical, Serious, Moderate, Minor, and Review counts.">
-                <figcaption>Severity filters and counts. The guide explains which counters are confirmed-only and which are separate review tallies.</figcaption>
+                <figcaption>Severity filters and counts show confirmed-only severity totals plus the separate review tally.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/manual-review-items.png" alt="Needs review group with manual, incomplete, or uncertain items.">
-                <figcaption>Manual / Incomplete / Review Items. These require human judgement or additional context.</figcaption>
+                <figcaption>Manual and review items require context or human judgement before they can be treated as defects.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/visual-composition-review.png" alt="Issue card labelled Visual Composition Review inside the review bucket.">
-                <figcaption>Visual Composition Review. This proves the current UI exposes visually judged review items as review output, not as confirmed failures.</figcaption>
+                <figcaption>Visual Composition Review is review output, not a confirmed automated failure.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/scan-limitations.png" alt="A11Y Cat panel showing partial results or scan limitations on a restricted fixture.">
-                <figcaption>Scan Limitations. Partial or restricted inspection is surfaced explicitly instead of being mistaken for a clean pass.</figcaption>
+                <figcaption>Scan Limitations show where the extension could not complete inspection.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/previous-scan-comparison.png" alt="Previous Scan Comparison panel comparing the current scan with a saved earlier scan.">
-                <figcaption>Previous Scan Comparison. The comparison UI works against locally saved same-scope scan history.</figcaption>
+                <figcaption>Previous Scan Comparison works from locally saved same-scope history.</figcaption>
               </figure>
             </div>
           </section>
@@ -106,35 +106,35 @@
             <div class="proof-grid">
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/broken-links.png" alt="Broken Links results showing broken, timeout, skipped, restricted, and unverified states.">
-                <figcaption>Broken Links module. Same-origin verification and explicit cross-origin unverified states are visible in the current UI.</figcaption>
+                <figcaption>Broken Links keeps same-origin verification, timeouts, restricted states, and unverified states explicit.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/metadata-check.png" alt="Metadata Check results with grouped findings for core metadata and structured data.">
-                <figcaption>Metadata Check. Open Graph, JSON-LD, and structured-data review appear as a dedicated module.</figcaption>
+                <figcaption>Metadata Check reports metadata review output without presenting it as automatic accessibility failure.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/language-mismatch.png" alt="Language mismatch results with highlight actions for detected review candidates.">
-                <figcaption>Language Mismatch. The UI highlights mismatch candidates instead of treating them as automatic failures.</figcaption>
+                <figcaption>Language Mismatch surfaces candidates that still need context and manual review.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/spelling-check.png" alt="Spelling check results showing supported and unsupported language handling.">
-                <figcaption>Spelling Check. The review output shows local spelling analysis and unsupported-language handling.</figcaption>
+                <figcaption>Spelling Check is advisory or review output. It is not a direct WCAG verdict by itself.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/page-reflow-or-text-scale.png" alt="Page Text Scale controls showing the current scaling percentage.">
-                <figcaption>Page Text Scale. The current UI label and readouts are captured from the real extension.</figcaption>
+                <figcaption>The current UI label is Page Text Scale. It supports review of text scaling behaviour.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/alt-text-analysis.png" alt="Alt Text Analysis results with quality status rows.">
-                <figcaption>Alt Text Analysis. Quality labels, no-findings states, and highlight controls are exposed in the module.</figcaption>
+                <figcaption>Alt Text Analysis provides structured review output for image text alternatives.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/heading-structure.png" alt="Headings module showing analysed heading rows and outline state.">
-                <figcaption>Heading Structure. The module exposes heading analysis results and inspectable heading rows.</figcaption>
+                <figcaption>Heading Structure exposes heading analysis and outline review directly.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/screen-reader-review.png" alt="Screen Reader Review section with virtual review guidance and ready state.">
-                <figcaption>Screen Reader Review. This is the virtual review aid surface, not real NVDA, JAWS, or VoiceOver sign-off.</figcaption>
+                <figcaption>Screen Reader Review is a virtual review aid. It is not a substitute for VoiceOver, NVDA, or JAWS testing.</figcaption>
               </figure>
             </div>
           </section>
@@ -144,39 +144,39 @@
             <div class="proof-grid">
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/diagnostics-collapsed.png" alt="Dashboard advanced tools with the Diagnostics summary still collapsed.">
-                <figcaption>Diagnostics collapsed. The summary exists before the JSON panel is opened.</figcaption>
+                <figcaption>Diagnostics are available even before the structured support JSON is expanded.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/diagnostics-expanded.png" alt="Diagnostics panel expanded with support JSON visible.">
-                <figcaption>Diagnostics expanded. The JSON surface is intended for support and troubleshooting, not compliance proof.</figcaption>
+                <figcaption>Diagnostics JSON is troubleshooting data, not a compliance verdict.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/exports-csv-json.png" alt="Exports and local state panel showing the CSV issue export action.">
-                <figcaption>CSV export action. Users can export a flat issue log from the current panel state.</figcaption>
+                <figcaption>CSV export creates a flat issue log for handoff or spreadsheet review.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/exports-csv-json.png" alt="Exports and local state panel showing the JSON evidence export action.">
-                <figcaption>JSON evidence export action. The evidence bundle export remains a distinct user-initiated control.</figcaption>
+                <figcaption>JSON evidence export preserves richer technical context than CSV.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/local-data-clearing.png" alt="Privacy and local data disclosure inside the extension panel with local-data controls visible.">
-                <figcaption>Privacy and local data disclosure. The panel exposes local processing, stored data, and clearing controls directly in the UI.</figcaption>
+                <figcaption>Privacy and local data controls explain retained state and how to clear it.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/theme-settings.png" alt="Extension panel showing the theme toggle and dashboard settings controls.">
-                <figcaption>Theme and settings controls. The screenshot captures the theme toggle and dashboard control surface from the real extension.</figcaption>
+                <figcaption>Theme and settings controls are visible in the current panel chrome.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/highlight-element.png" alt="Issue action row showing the Highlight element button.">
-                <figcaption>Highlight element action. The issue card exposes direct element highlighting from the current UI.</figcaption>
+                <figcaption>Highlight element ties a finding back to the current page state.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/ticket-dialog.png" alt="More actions panel showing the Create handoff draft action.">
-                <figcaption>Turn into ticket action. The visible current label is Create handoff draft.</figcaption>
+                <figcaption>The visible ticket-style action is Create handoff draft.</figcaption>
               </figure>
               <figure class="media-card media-card--compact">
                 <img src="../assets/screenshots/panel-resize-move-controls.png" alt="Panel geometry controls showing move and resize buttons.">
-                <figcaption>Panel resize and move controls. The screenshot proves the geometry controls are visible in the shipped extension.</figcaption>
+                <figcaption>Panel resize and move controls are part of the visible shipped UI.</figcaption>
               </figure>
             </div>
           </section>

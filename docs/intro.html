@@ -48,8 +48,8 @@
             <div class="eyebrow">Start here</div>
             <h1 class="page-title">What A11Y Cat is</h1>
             <p class="page-summary">
-              A11Y Cat is a Chrome MV3 extension for local-first accessibility inspection on the current page.
-              It combines deterministic scan output with structured manual-review buckets, local history, and local evidence export.
+              A11Y Cat is a local-first accessibility inspection extension for developers, QA teams, and accessibility reviewers.
+              It combines deterministic scan output with review buckets, local history, local exports, and explicit limitation reporting.
             </p>
             <div class="callout">
               <strong>Source of truth:</strong> the <a href="ui-feature-guide.html">Extension UI feature guide</a> is the authoritative user-facing reference for visible labels,
@@ -58,7 +58,7 @@
           </div>
           <figure class="media-card">
             <img src="../assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension launched from the Chrome toolbar into the page-side panel.">
-            <figcaption>The docs are anchored to the current extension UI rather than old bookmarklet or internal-only surfaces.</figcaption>
+            <figcaption>The documentation is tied to the current extension UI, not to legacy bookmarklet flows or internal-only tooling.</figcaption>
           </figure>
         </div>
 
@@ -66,15 +66,19 @@
         <div class="docs-card-grid">
           <article class="card">
             <h3>Developers</h3>
-            <p>Use the deterministic findings, developer details, selectors, and export surfaces to fix issues in the current page state.</p>
+            <p>Use confirmed findings, preserved rule provenance, selectors, and exports to fix issues in the current tested state.</p>
           </article>
           <article class="card">
-            <h3>QA reviewers</h3>
-            <p>Use the review buckets, local history, diagnostics, and handoff exports to verify regressions and triage uncertain findings.</p>
+            <h3>QA teams</h3>
+            <p>Use review buckets, diagnostics, and local history to triage regressions and document unresolved states.</p>
           </article>
           <article class="card">
             <h3>Accessibility reviewers</h3>
-            <p>Use the UI guide, limitation reporting, and focused review modules to decide what still requires manual validation.</p>
+            <p>Use the feature guide, limitations, and focused review modules to decide what still needs manual validation.</p>
+          </article>
+          <article class="card">
+            <h3>Product stakeholders</h3>
+            <p>Use the documentation to understand the product boundary, the confidence level of results, and the limits of automation.</p>
           </article>
         </div>
 
@@ -82,23 +86,24 @@
         <div class="split-layout">
           <div class="feature-band">
             <ul class="feature-list">
-              <li><strong>Deterministic scan output</strong> with visible confirmed issues, review items, advisory notes, and limitations.</li>
-              <li><strong>Focused review modules</strong> for headings, language mismatch, spelling, alt text, metadata, broken links, and text scaling.</li>
-              <li><strong>Local workflow support</strong> including history, comparison, issue-state export/import, diagnostics, and Screen Reader Review artifacts.</li>
+              <li><strong>Confirmed automated findings</strong> with source attribution and preserved engine metadata.</li>
+              <li><strong>Review-only output</strong> for incomplete, visual, contextual, and state-limited issues.</li>
+              <li><strong>Focused review modules</strong> for headings, language, spelling, alt text, metadata, broken links, and text scaling.</li>
+              <li><strong>Local workflow support</strong> including history, comparison, issue-state export/import, diagnostics, and virtual review logs.</li>
             </ul>
           </div>
           <div class="screenshot-grid">
             <figure class="media-card media-card--compact">
               <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="A11Y Cat Scan Results overview from the real extension build.">
-              <figcaption>Confirmed issues, review items, counts, filters, and exports all live in the current Scan Results surface.</figcaption>
+              <figcaption>Scan Results separates confirmed issues from review and limitation output.</figcaption>
             </figure>
             <figure class="media-card media-card--compact">
               <img src="../assets/screenshots/screen-reader-review.png" alt="Screen Reader Review section showing the current virtual review aid state.">
-              <figcaption>Screen Reader Review is a QA aid. It is not real NVDA, JAWS, or VoiceOver evidence.</figcaption>
+              <figcaption>Screen Reader Review is a virtual aid. It is not real VoiceOver, NVDA, or JAWS evidence.</figcaption>
             </figure>
             <figure class="media-card media-card--compact">
               <img src="../assets/screenshots/diagnostics-expanded.png" alt="Expanded diagnostics JSON shown inside the extension panel.">
-              <figcaption>Diagnostics make runtime conditions explicit instead of hiding partial inspection boundaries.</figcaption>
+              <figcaption>Diagnostics expose runtime conditions and support boundaries directly.</figcaption>
             </figure>
           </div>
         </div>
@@ -114,7 +119,7 @@
         </ul>
 
         <div class="warning">
-          <strong>Do not claim:</strong> A11Y Cat is not a compliance certificate and the virtual Screen Reader Review surface is not real NVDA, JAWS, or VoiceOver sign-off.
+          <strong>Private beta builds are intended for controlled testing.</strong> They are not public production sign-off.
         </div>
 
         <h2>How to start using it</h2>
@@ -123,7 +128,7 @@
           <li>Open the extension from the browser toolbar on a supported page.</li>
           <li>Run the deterministic scan.</li>
           <li>Review Confirmed Issues first, then review buckets, limitations, and exports.</li>
-          <li>Use the UI feature guide whenever a visible label, count, or action needs exact explanation.</li>
+          <li>Use the UI feature guide whenever a visible label, count, or action needs an exact explanation.</li>
         </ol>
       </main>
     </div>

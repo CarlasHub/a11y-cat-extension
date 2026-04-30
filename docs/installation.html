@@ -47,12 +47,12 @@
           <div>
             <div class="eyebrow">Installation</div>
             <h1 class="page-title">Install the current extension build</h1>
-            <p class="page-summary">The current supported release path is the Chrome / Chromium MV3 extension. Broad public rollout is not currently claimed.</p>
-            <div class="warning"><strong>Current boundary:</strong> this site documents a controlled beta/pilot extension surface, not general-availability production rollout.</div>
+            <p class="page-summary">The documented install path is the Chrome or Chromium MV3 extension. The public site does not claim general-availability production rollout.</p>
+            <div class="warning"><strong>Current boundary:</strong> install and test the extension as a controlled beta build unless you have a separate approved release channel.</div>
           </div>
           <figure class="media-card">
             <img src="../assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension icon selected from the browser toolbar and opening its panel.">
-            <figcaption>The extension launches from the browser toolbar into the current page context.</figcaption>
+            <figcaption>The extension opens from the browser toolbar into the current page context.</figcaption>
           </figure>
         </div>
 
@@ -74,7 +74,7 @@ npm run check:extension</code></pre>
         <div class="docs-card-grid">
           <article class="card">
             <h3><code>activeTab</code></h3>
-            <p>Lets the packaged runtime inject only after the user clicks the toolbar action on the current tab.</p>
+            <p>Lets the runtime inject into the current tab only after the user clicks the toolbar action.</p>
           </article>
           <article class="card">
             <h3><code>scripting</code></h3>
@@ -82,7 +82,7 @@ npm run check:extension</code></pre>
           </article>
           <article class="card">
             <h3><code>storage</code></h3>
-            <p>Stores local settings, issue state, history, review state, and other local extension workflow data.</p>
+            <p>Stores local settings, local issue state, history, review state, and related workflow data.</p>
           </article>
         </div>
 
@@ -98,8 +98,8 @@ npm run test:extension:smoke</code></pre>
         <h2>What to check after loading</h2>
         <ul class="doc-list">
           <li>The toolbar icon opens the extension panel on a supported page.</li>
-          <li>The panel renders sections such as Dashboard, Scan Results, and the other documented review modules.</li>
-          <li>Local actions such as scan, filters, exports, and data clearing are available.</li>
+          <li>The panel renders Dashboard, Scan Results, and the documented review modules.</li>
+          <li>Scan, filters, exports, and local data controls are visible.</li>
         </ul>
       </main>
     </div>

@@ -47,14 +47,14 @@
           <div>
             <div class="eyebrow">Privacy and storage</div>
             <h1 class="page-title">Local processing and local data</h1>
-            <p class="page-summary">The public extension processes page content locally in the browser. It stores local workflow data on the current machine and exposes exports only when the user chooses to create them.</p>
+            <p class="page-summary">The public extension processes page content locally in the browser. It stores local workflow data on the current machine and creates exports only when the user asks for them.</p>
             <div class="callout">
               <strong>Public package boundary:</strong> no developer database is used by the public release package, no developer server is required, and no analytics or telemetry endpoint is included.
             </div>
           </div>
           <figure class="media-card">
             <img src="../assets/screenshots/local-data-clearing.png" alt="A11Y Cat privacy and local-data disclosure panel with local storage explanation and clear-data controls.">
-            <figcaption>The extension exposes privacy, storage, and local-data clearing inside the real panel instead of hiding those behaviours.</figcaption>
+            <figcaption>The extension exposes local storage and data-clearing behaviour directly in the panel.</figcaption>
           </figure>
         </div>
 
@@ -62,11 +62,11 @@
         <div class="docs-card-grid">
           <article class="card">
             <h3>History and comparison</h3>
-            <p>Scan analysis snapshots needed for local history and previous-scan comparison.</p>
+            <p>Saved scan snapshots used for local history and previous-scan comparison.</p>
           </article>
           <article class="card">
             <h3>Workflow state</h3>
-            <p>Issue annotations, workflow status, local notes, and Screen Reader Review state.</p>
+            <p>Issue annotations, workflow status, local notes, and virtual Screen Reader Review state.</p>
           </article>
           <article class="card">
             <h3>Settings and support data</h3>
@@ -87,9 +87,9 @@
 
         <h2>What exports may include</h2>
         <ul class="doc-list">
-          <li>page URL and sometimes page title</li>
+          <li>page URL and, where available, page title</li>
           <li>selectors and evidence snippets</li>
-          <li>rule ids, WCAG references, and classification fields</li>
+          <li>rule ids, WCAG references, source-engine fields, and classifications</li>
           <li>local notes and workflow state</li>
           <li>diagnostics and limitation records</li>
           <li>virtual Screen Reader Review logs and QA notes where those exports are used</li>
@@ -109,7 +109,7 @@
         </ul>
 
         <div class="warning">
-          <strong>Export caution:</strong> exports remain local until the user chooses to copy or share them, but they can contain sensitive snippets, selectors, URLs, titles, notes, and diagnostics.
+          <strong>Export caution:</strong> exports stay local until the user copies or shares them, but they can contain sensitive snippets, selectors, URLs, titles, notes, and diagnostics.
         </div>
 
         <p><a class="button button--primary" href="../privacy-policy.md">Read the full privacy policy</a></p>

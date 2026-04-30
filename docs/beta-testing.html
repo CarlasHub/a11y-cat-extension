@@ -47,12 +47,12 @@
           <div>
             <div class="eyebrow">Controlled beta</div>
             <h1 class="page-title">Beta testing guide</h1>
-            <p class="page-summary">Test A11Y Cat as a bounded review tool. Do not treat the extension as a compliance certificate, a production sign-off, or a replacement for manual assistive-technology testing.</p>
-            <div class="callout"><strong>Recommended reading order:</strong> install the extension, run the scan, review confirmed issues first, then review buckets, limitations, and exports.</div>
+            <p class="page-summary">Private beta builds are intended for controlled testing. They are not public production sign-off.</p>
+            <div class="callout"><strong>Recommended order:</strong> install the extension, run the scan, review confirmed issues first, then review buckets, limitations, and exports.</div>
           </div>
           <figure class="media-card">
             <img src="../assets/screenshots/highlight-element.png" alt="A11Y Cat issue card action used to highlight the affected element and scroll it into view.">
-            <figcaption>Use highlight and local evidence features during testing so reports stay tied to the actual page state.</figcaption>
+            <figcaption>Use highlight, diagnostics, and exports so bug reports stay tied to the actual tested page state.</figcaption>
           </figure>
         </div>
 
@@ -66,12 +66,12 @@
 
         <h2>How to test</h2>
         <ol>
-          <li>Open a supported Chrome / Chromium desktop page.</li>
-          <li>Run the deterministic WCAG scan from the toolbar panel.</li>
+          <li>Open a supported Chrome or Chromium desktop page.</li>
+          <li>Run the deterministic scan from the toolbar panel.</li>
           <li>Review Confirmed Issues first.</li>
           <li>Review manual/review buckets and scan limitations next.</li>
           <li>Use exports for handoff only after checking sensitive snippets and notes.</li>
-          <li>Verify real AT behaviour separately with manual VoiceOver, NVDA, or JAWS testing where required.</li>
+          <li>Verify real AT behaviour separately with VoiceOver, NVDA, or JAWS where required.</li>
         </ol>
 
         <h2>What evidence to provide</h2>
@@ -86,7 +86,7 @@
           </article>
           <article class="card">
             <h3>Evidence</h3>
-            <p>Diagnostics export, screenshots, exported evidence bundle, and browser/extension version where available.</p>
+            <p>Diagnostics export, screenshots, exported evidence bundle, and browser or extension version where available.</p>
           </article>
         </div>
 
@@ -113,7 +113,7 @@ Evidence attached:
 Confirmed / review / advisory / limitation:
 Permission to share page URL/title publicly: yes/no</code></pre>
 
-        <div class="note">If you change visible labels, result categories, exports, storage behaviour, or privacy boundaries during beta work, update the canonical UI guide and the public docs in the same change set.</div>
+        <div class="note">If you change visible labels, result categories, exports, storage behaviour, or privacy boundaries during beta work, update the canonical UI guide and public docs in the same change set.</div>
       </main>
     </div>
     <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension/issues">Bug reports</a></span></div></footer>

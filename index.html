@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Documentation</title>
-    <meta name="description" content="A11Y Cat public documentation for the Chrome extension: real UI guide, installation, privacy, limitations, and beta testing.">
+    <meta name="description" content="A11Y Cat public documentation for the Chrome extension: UI guide, installation, privacy, limitations, and beta testing.">
     <link rel="icon" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
@@ -40,12 +40,14 @@
               </div>
             </div>
             <p>
-              A11Y Cat is a Chrome MV3 extension for deterministic live-page accessibility inspection,
-              structured manual-review buckets, local history, local evidence export, and explicit runtime limitation reporting.
+              A11Y Cat is a local-first accessibility inspection extension for developers, QA teams, and accessibility reviewers.
+            </p>
+            <p>
+              It separates confirmed automated findings from review items, advisory notes, and scan limitations.
+              Results are labelled by source and confidence so teams can see what was detected automatically and what still needs human judgement.
             </p>
             <div class="warning">
-              <strong>Accessibility limitation:</strong> A11Y Cat supports accessibility review workflows.
-              It does not replace manual testing, real assistive-technology validation, or full WCAG conformance review.
+              <strong>Support boundary:</strong> A11Y Cat supports accessibility review workflows. It does not replace manual testing, real assistive-technology validation, or full WCAG conformance review.
             </div>
             <div class="status-row" aria-label="Release status badges">
               <span class="badge badge--beta">Private beta</span>
@@ -61,7 +63,7 @@
           </div>
           <figure class="media-card hero-visual">
             <img src="assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension panel opened on a safe demo page in Chrome.">
-            <figcaption>The public docs site uses current-extension screenshots captured from the real MV3 build, not mockups or legacy bookmarklet imagery.</figcaption>
+            <figcaption>Current extension UI on a safe fixture page. The site uses real extension screenshots, not mockups.</figcaption>
           </figure>
         </div>
       </section>
@@ -71,63 +73,63 @@
         <div class="feature-grid" aria-label="Core extension capabilities">
           <article>
             <h3>axe-core scanning</h3>
-            <p>Deterministic automated checks remain visible as confirmed findings with preserved source metadata.</p>
+            <p>Preserves rule provenance and separates direct engine output from product-owned review logic.</p>
           </article>
           <article>
             <h3>Confirmed issues</h3>
-            <p>Confirmed failure output stays separate from review buckets, advisories, and limitations.</p>
+            <p>Keeps confirmed automated findings separate from review-only and advisory output.</p>
           </article>
           <article>
             <h3>Review items</h3>
-            <p>Manual, incomplete, visual, state-limited, and human-judgement review items remain clearly classified.</p>
+            <p>Shows incomplete, visual, state-limited, and human-judgement findings without overstating certainty.</p>
           </article>
           <article>
             <h3>Exports</h3>
-            <p>CSV issue export, JSON evidence export, and local issue-state export/import are documented as local user actions.</p>
+            <p>Provides CSV, JSON evidence, local issue-state, diagnostics, and virtual review exports as explicit user actions.</p>
           </article>
           <article>
             <h3>Local history</h3>
-            <p>Previous-scan comparison and retained local history are explained as implementation-backed stored state.</p>
+            <p>Stores previous scans locally for comparison on the same origin and path.</p>
           </article>
           <article>
             <h3>Language and spelling review</h3>
-            <p>Language mismatch and spelling review are presented as bounded review aids, not automatic compliance verdicts.</p>
+            <p>Flags language mismatch and spelling review output without treating them as automatic compliance failures.</p>
           </article>
           <article>
             <h3>Metadata and broken links</h3>
-            <p>Open Graph, JSON-LD, Schema.org, and same-origin link verification are surfaced as separate review modules.</p>
+            <p>Exposes metadata review and broken-link verification as separate modules with documented boundaries.</p>
           </article>
           <article>
             <h3>Diagnostics</h3>
-            <p>Structured runtime diagnostics, support JSON, and explicit limitation reporting remain visible to users.</p>
+            <p>Shows structured runtime signals, support data, and explicit scan limitations.</p>
           </article>
           <article>
-            <h3>Screen reader review aid</h3>
-            <p>The virtual review surface supports QA workflows without pretending to replace real NVDA, JAWS, or VoiceOver testing.</p>
+            <h3>Screen Reader Review aid</h3>
+            <p>Provides a virtual review aid for QA workflows. It is not a substitute for VoiceOver, NVDA, or JAWS testing.</p>
           </article>
         </div>
       </section>
 
       <section class="section-block">
-        <h2 class="section-heading">Real extension screenshots</h2>
-        <div class="screenshot-grid" aria-label="Current release-build screenshots">
+        <h2 class="section-heading">Current extension evidence</h2>
+        <div class="screenshot-grid" aria-label="Current extension screenshots">
           <figure class="media-card media-card--compact">
             <img src="assets/screenshots/scan-results-confirmed-issues.png" alt="Scan Results overview showing grouped findings and result counts in the extension panel.">
-            <figcaption>Scan Results groups confirmed issues, review items, exports, counts, and filters in the current extension build.</figcaption>
+            <figcaption>Scan Results combines confirmed issues, review items, counts, filters, exports, and local actions.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
             <img src="assets/screenshots/broken-links.png" alt="Broken Links section showing broken, timeout, restricted, skipped, and unverified link states.">
-            <figcaption>Broken Links distinguishes same-origin verification outcomes from skipped and cross-origin unverified destinations.</figcaption>
+            <figcaption>Broken Links keeps verification outcomes explicit instead of collapsing them into pass or fail.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
             <img src="assets/screenshots/metadata-check.png" alt="Metadata Check results showing grouped metadata findings and structured-data review.">
-            <figcaption>Metadata Check exposes Open Graph, JSON-LD, and structured-data findings as implementation-backed review output.</figcaption>
+            <figcaption>Metadata Check documents missing or invalid metadata as review or advisory output, not as automatic accessibility failure.</figcaption>
           </figure>
         </div>
       </section>
 
       <section class="section-block">
-        <h2 class="section-heading">Extension surfaces documented</h2>
+        <h2 class="section-heading">What is documented here</h2>
         <div class="feature-band">
           <ul class="feature-list">
             <li><strong>Dashboard</strong>, <strong>Scan Results</strong>, <strong>Headings</strong>, <strong>Language</strong>, <strong>Alt Text Analysis</strong></li>
@@ -143,17 +145,17 @@
         <div class="card-grid" aria-label="Documentation highlights">
           <article class="card">
             <h3>Start with the docs</h3>
-            <p>Read what A11Y Cat is for, what it helps with, what it does not prove, and how to start using it.</p>
+            <p>Read what the extension is for, who it is for, what it helps with, and what it does not prove.</p>
             <p><a href="docs/intro.html">Open the docs introduction</a></p>
           </article>
           <article class="card">
-            <h3>Understand the extension UI</h3>
-            <p>Use the canonical guide when a label, category, count, export, or action needs exact implementation-backed explanation.</p>
+            <h3>Use the canonical guide</h3>
+            <p>Open the UI guide when a label, category, count, export, or action needs an exact implementation-backed explanation.</p>
             <p><a href="docs/ui-feature-guide.html">Open the UI feature guide</a></p>
           </article>
           <article class="card">
-            <h3>Review privacy and limitations</h3>
-            <p>Check local processing, stored data, export sensitivity, restricted contexts, and the limits of automated inspection.</p>
+            <h3>Check privacy and limits</h3>
+            <p>Review local processing, stored data, restricted contexts, and the limits of automated inspection before sharing results.</p>
             <p><a href="docs/privacy-local-data.html">Open privacy and local data</a></p>
           </article>
         </div>
