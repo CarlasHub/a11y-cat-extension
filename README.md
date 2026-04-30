@@ -50,6 +50,8 @@ This repository should contain only public-facing files:
 
 It should not contain the private development codebase, tests, prompts, internal review artefacts, build pipelines, or secrets.
 
+The only repository-infrastructure exception is the minimal GitHub Pages workflow under `.github/workflows/`, which exists solely to publish the static docs site.
+
 ## Site structure
 
 ```text
@@ -77,13 +79,19 @@ LICENSE
 
 ## GitHub Pages deployment
 
-This repository is prepared for the simplest GitHub Pages setup:
+This repository is prepared for GitHub Pages deployment through GitHub Actions.
+
+Reason:
+
+- it allows deployment to be completed from repository automation instead of depending on a manual branch-folder Pages configuration step
+- it keeps the published artifact restricted to the site files rather than exposing unrelated repository files at the Pages root
+
+Setup:
 
 1. Open `Settings`.
 2. Open `Pages`.
-3. Choose `Deploy from a branch`.
-4. Select branch `main`.
-5. Select folder `/(root)`.
+3. Under `Build and deployment`, choose `GitHub Actions`.
+4. Ensure Actions are allowed for the repository.
 
 Expected public URL after deployment:
 
