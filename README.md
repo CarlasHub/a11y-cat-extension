@@ -71,12 +71,30 @@ assets/
     styles.css
   img/
     icon.png
-  extension/
-    store-01-toolbar-launch.png
-    store-02-scan-results.png
-    store-03-highlight-scroll.png
-    store-05-privacy-disclosure.png
-    store-06-partial-limitations.png
+  screenshots/
+    extension-panel-overview.png
+    scan-results-confirmed-issues.png
+    severity-filters.png
+    manual-review-items.png
+    visual-composition-review.png
+    scan-limitations.png
+    previous-scan-comparison.png
+    broken-links.png
+    metadata-check.png
+    language-mismatch.png
+    spelling-check.png
+    page-reflow-or-text-scale.png
+    alt-text-analysis.png
+    heading-structure.png
+    screen-reader-review.png
+    diagnostics-collapsed.png
+    diagnostics-expanded.png
+    exports-csv-json.png
+    local-data-clearing.png
+    theme-settings.png
+    highlight-element.png
+    ticket-dialog.png
+    panel-resize-move-controls.png
   js/
     render-markdown.js
 LICENSE
