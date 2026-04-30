@@ -2638,6 +2638,152 @@ The feature sections above explain what each feature does, where the data comes 
 | Privacy and local storage | Local storage, history, annotations, diagnostics, and export contents are described here. | `assets/screenshots/local-data-clearing.png` |
 | Beta limitations | Limitation and diagnostic evidence can be stored locally and exported. | `assets/screenshots/scan-limitations.png` |
 
+## 7A. Documentation matrices
+
+These matrices provide a fast technical reference for developers, QA, accessibility reviewers, and product stakeholders.
+
+### Feature coverage matrix
+
+| Feature | What it does | Source | Confirmed / Review / Advisory / Diagnostic | WCAG mapping | Exported | Stored locally | Screenshot available | Limitation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Dashboard | Overview counts, triage, diagnostics entry points | classified scan + diagnostics + history | Diagnostic | Not direct | Partial | Yes | No | Current state only |
+| Scan Results | Primary issue list and actions | classified issue set | Confirmed + Review + Advisory + Limitation | Per finding | Yes | Yes | Yes | Current state only |
+| Confirmed Issues | Confirmed findings bucket | deterministic/corroborated classification | Confirmed | Per finding | Yes | Yes | Yes | Not full-page proof |
+| Manual / Incomplete / Review Items | Human-validation bucket | axe incomplete + review logic | Review | Depends | Yes | Yes | Yes | Not confirmed failures |
+| Advisory Notes | Guidance bucket | advisory classifiers | Advisory | Usually indirect | Yes | Yes | No | Not automatic failures |
+| Scan Limitations | Coverage boundary reporting | diagnostics/runtime limits | Diagnostic | Not direct | Yes | Yes | Yes | Indicates incomplete coverage |
+| Severity filters | Filter by severity/review | confirmed severity buckets + review count | Confirmed/Review filter | Indirect | No | UI state only | Yes | Visibility only |
+| Critical | Highest confirmed severity | axe impact/deterministic severity | Confirmed | Per finding | Yes | Yes | Yes | State-limited |
+| Serious | High confirmed severity | axe impact/deterministic severity | Confirmed | Per finding | Yes | Yes | Yes | State-limited |
+| Moderate | Medium confirmed severity | axe impact/deterministic severity | Confirmed | Per finding | Yes | Yes | Yes | State-limited |
+| Minor | Lower confirmed severity | axe impact/deterministic severity | Confirmed | Per finding | Yes | Yes | Yes | State-limited |
+| Visual Composition Review | Visual-judgement review bucket | custom review logic | Review | Depends | Yes | Yes | Yes | Requires manual visual review |
+| Human Judgement Review | Context-sensitive review bucket | custom review logic | Review | Depends | Yes | Yes | No | Requires human judgement |
+| Engine-limited Review | Incomplete/engine-bound review | axe incomplete + runtime limits | Review | Depends | Yes | Yes | No | Not pass/fail |
+| State-limited Review | Current-state-only review | state coverage constraints | Review | Depends | Yes | Yes | No | Hidden flows may be untested |
+| Deterministic Failures | Deterministically confirmed findings | deterministic classifier | Confirmed | Per finding | Yes | Yes | No | Scope-limited |
+| Corroborated Failures | Confirmed with corroboration | corroborated classifier | Confirmed | Per finding | Yes | Yes | No | Scope-limited |
+| Previous Scan Comparison | Compare current to previous same-scope scan | local history baseline | Diagnostic | Not direct | Yes | Yes | Yes | Needs prior same-scope scan |
+| Local History | Saved recent/archive scans | chrome.storage.local history | Local workflow | Not direct | Yes | Yes | Yes | Local profile only |
+| Local Data Clearing | Clear extension local state | user action + storage contract | Local workflow | Not direct | No | N/A | Yes | Exported files remain external |
+| Broken Links | Link-status review module | link checking runtime | Review/Advisory | Not direct | Yes | Yes | Yes | Cross-origin unverified |
+| Metadata Check | Metadata quality checks | metadata-analysis module | Advisory/Review | Indirect | Yes | Yes | Yes | Not automatic WCAG failure |
+| Language Mismatch | Language consistency review | language-analysis module | Review/Advisory | Depends | Yes | Yes | Yes | Unsupported/unknown language limits |
+| Spelling Check | Spelling review and suggestions | spelling engine + dictionaries | Advisory/Review | Not direct | Yes | Yes | Yes | Language support bounded |
+| Page Text Scale | Text scaling workflow aid | page text scale module | Review/Diagnostic | Indirect | Partial | Local state | Yes | Not full reflow proof alone |
+| Alt Text Analysis | Image alt-text review | alt-text analysis module | Review/Advisory | Depends | Yes | Yes | Yes | Quality/context still manual |
+| Heading Structure | Heading order/outline analysis | section-order/heading logic | Review/Advisory | Depends | Yes | Yes | Yes | Needs context judgment |
+| Screen Reader Review | Virtual SR review aid | virtual SR module | Review/Diagnostic | Depends | Yes | Yes | Yes | Not real NVDA/JAWS/VO evidence |
+| Diagnostics | Runtime/support signals | diagnostics module | Diagnostic | Not direct | Yes | Yes | Yes | Not full DevTools trace |
+| CSV issue export | Flat issue export | exports module | Export/action | Per finding | Yes | Download only | Yes | Flattens deep context |
+| JSON evidence export | Structured evidence export | exports module | Export/action | Per finding | Yes | Download only | Yes | Snapshot only |
+| Local issue-state export/import | Workflow state portability | history/workflow storage | Local workflow | Not direct | Yes | Yes | No | Identity-dependent |
+| Diagnostics export/copy | Support JSON extraction | diagnostics export actions | Export/action | Not direct | Yes | Copy/download | No | Troubleshooting only |
+| Support diagnostics export | Same as diagnostics export surface | diagnostics panel actions | Export/action | Not direct | Yes | Copy/download | No | Not compliance evidence |
+| Screen Reader Review export | Virtual SR logs and QA artifacts | virtual SR export actions | Export/action | Depends | Yes | Download only | No | Virtual review only |
+| Performance benchmark export | Benchmark payload export when visible | benchmark handlers | Diagnostic | Not direct | Yes (if visible) | Yes | No | Visibility may vary by build |
+| Release discussion summary export | Local release-summary export/copy | release readiness module | Export/action | Not direct | Yes | Yes | No | Local aid, not sign-off |
+| Highlight element | Locate target element | issue selector/target | Action | Not direct | No | No | Yes | Selector may drift |
+| Copy selector | Copy selector to clipboard | issue selector | Action | Not direct | Clipboard | No | No | Locator only |
+| More actions | Reveal secondary actions | issue-card UI | Action | Not direct | No | No | No | Surface-dependent actions |
+| Turn into ticket / Create handoff draft | Create issue handoff draft | issue-card action | Action | Not direct | Partial | Optional notes | Yes | Label may differ by surface |
+| Explain with AI / Draft AI handoff | Secondary AI-labelled helper actions | issue-card renderer path | Action | Not direct | No | No | No | Not stable public feature guarantee |
+| Issue workflow controls | Local status and notes | workflow storage | Local workflow | Not direct | Yes | Yes | No | Local profile only |
+| Save local annotation | Persist issue note/status | workflow storage | Local workflow | Not direct | Yes | Yes | No | Does not alter finding classification |
+| Issue filter/search controls | Narrow visible issue list | user filter + issue set | Action | Indirect | No | UI state | No | Visibility only |
+| Review critical issues button | Quick critical-only triage | severity buckets | Action | Indirect | No | UI state | No | Snapshot dependent |
+| Review manual/incomplete items button | Quick review-focused triage | review + limitation counts | Action | Depends | No | UI state | No | Snapshot dependent |
+| Inspect scan limitations button | Jump to limitation details | diagnostics state | Diagnostic/action | Not direct | No | UI state | No | Does not restore coverage |
+| Compare with previous scan button | Jump to baseline comparison | local history | Diagnostic/action | Not direct | No | UI state | No | Requires history |
+| History filters | Filter saved baseline candidates | history entries + filter prefs | Local workflow | Not direct | No | Yes | No | View-state only |
+| Panel open/close controls | Show/hide extension panel | toolbar + panel controls | Action | Not direct | No | UI state | Yes | Opening does not ensure support |
+| Panel resize/move controls | Adjust panel geometry | panel settings state | Action | Not direct | No | Yes | Yes | Geometry only |
+| Settings/theme controls | Theme and workflow preferences | extension settings | Local workflow | Not direct | No | Yes | Yes | Preference scope only |
+| Theme toggle | Light/dark switch | settings state | Action | Not direct | No | Yes | Yes | Extension UI only |
+| Dev Sandbox | Development/testing surface | runtime sandbox UI | Action/Diagnostic | Not direct | Partial | Local state | No | Not primary user workflow |
+| Unsupported/restricted contexts | Explicit blocked-context reporting | capabilities + diagnostics | Diagnostic | Not direct | Yes | Yes | Yes | Coverage gap remains |
+| File access behaviour | File URL support boundary | capabilities/runtime checks | Diagnostic | Not direct | Yes | Yes | No | Permission-dependent |
+| iframe/protected frame behaviour | Frame accessibility boundary | frame access/runtime | Diagnostic | Not direct | Yes | Yes | Yes | Cross-origin/protected gaps |
+| Manual AT sign-off status | Explicit non-sign-off boundary | product scope + SR module limits | Diagnostic | Depends | Yes | Yes | Yes | Real AT testing still required |
+| Privacy and local storage | Data/storage/export transparency | runtime privacy disclosure | Diagnostic/local workflow | Not direct | N/A | N/A | Yes | Local exports may be sensitive |
+| Beta limitations | Current beta scope boundaries | implementation + known limits | Diagnostic | Not direct | Yes | Yes | Yes | Not public-release sign-off |
+
+### Result classification matrix
+
+| Category | Meaning | Source | Is it a confirmed failure? | Requires human review? | Appears in UI | Appears in export | User action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Confirmed Issues | Findings treated as confirmed in tested state | axe violations + deterministic/corroborated custom logic | Yes | Usually no (verify fix quality) | Yes | Yes | Fix first by severity |
+| Manual / Incomplete / Review Items | Findings needing context or judgment | axe incomplete + custom review logic | No | Yes | Yes | Yes | Manually inspect before defect filing |
+| Visual Composition Review | Visual relationship review bucket | custom review logic | No | Yes | Yes | Yes | Review layout/focus/visual context manually |
+| Human Judgement Review | Context-dependent interpretation bucket | custom review logic | No | Yes | Yes | Yes | Validate meaning, clarity, intent in context |
+| Engine-limited Review | Engine/runtime could not decide fully | axe incomplete + runtime constraints | No | Yes | Yes | Yes | Review manually; use diagnostics |
+| State-limited Review | Current state insufficient for full decision | state coverage constraints | No | Yes | Yes | Yes | Test hidden/interactive/auth states manually |
+| Advisory Notes | Guidance and quality signals | advisory modules | No | Often yes | Yes | Yes | Treat as guidance, not hard failures |
+| Scan Limitations | Coverage boundary/blocked inspection signal | diagnostics/capabilities | No | Yes | Yes | Yes | Treat as unverified scope and test manually |
+| Diagnostics | Structured runtime/support telemetry | diagnostics module | No | Sometimes | Yes | Yes | Use for troubleshooting and support handoff |
+
+### Severity matrix
+
+| Severity | Source value | Meaning | Count source | User priority | Example action |
+| --- | --- | --- | --- | --- | --- |
+| Critical | axe `critical` or equivalent deterministic severity | Highest-priority confirmed issue | Confirmed severity bucket | Highest | Fix immediately, then rescan |
+| Serious | axe `serious` | High-priority confirmed issue | Confirmed severity bucket | High | Fix early in remediation pass |
+| Moderate | axe `moderate` | Medium-priority confirmed issue | Confirmed severity bucket | Medium | Fix after critical/serious |
+| Minor | axe `minor` | Lower-priority confirmed issue | Confirmed severity bucket | Lower | Batch into cleanup cycle |
+| Review / Incomplete | axe `incomplete` and review-classified findings | Needs manual verification | Separate `Review` count | Context-driven | Inspect manually before triage |
+| Advisory | Advisory classifiers and quality checks | Guidance signal | Separate `Advisory` count | Low/quality backlog | Apply if relevant to quality standards |
+
+### Scanner source matrix
+
+| Source type | What it can prove | What it cannot prove | UI destination | Export destination | Risk/limitation |
+| --- | --- | --- | --- | --- | --- |
+| axe-core | Deterministic rule violations on tested state | Full compliance or full journey coverage | Confirmed Issues and some Review items | CSV + JSON evidence | Incomplete/state-limited outputs require manual follow-up |
+| A11Y Cat custom logic | Deterministic and heuristic product-owned checks | Subjective/accessibility-context certainty in all cases | Confirmed, Review, Advisory buckets | CSV + JSON evidence | Some outputs remain review-only |
+| Manual review generation | That human review is required | Automatic pass/fail | Needs Review / Screen Reader Review / Manual checks | JSON evidence + SR exports | Reviewer consistency required |
+| Diagnostics/runtime signals | Runtime constraints, suppression, support boundaries | Accessibility pass/fail verdict | Diagnostics + Scan Limitations | Diagnostics JSON + evidence bundle | Empty diagnostics does not prove full inspectability |
+| Local history/comparison | Change over time for same scope | Semantic quality or cause of change | Dashboard history/comparison panels | History-linked exports/summaries | Local profile scope; baseline matching rules apply |
+| User workflow state | Local triage status and notes | Objective finding truth | Issue workflow controls | Local issue-state bundle | Local annotations can drift from current page state |
+
+### Export matrix
+
+| Export type | Format | Contains | Does not contain | May include sensitive snippets | Local-only | Intended use |
+| --- | --- | --- | --- | --- | --- | --- |
+| CSV issue log | CSV | Flat issue rows, severity, classification, WCAG fields, selectors | Full nested evidence context | Yes | Yes until user shares | Spreadsheet triage and defect intake |
+| JSON evidence bundle | JSON | Structured confirmed/review/advisory/limitations/diagnostics + provenance | Fresh rescan or compliance proof | Yes | Yes until user shares | Engineering/QA evidence handoff |
+| Local issue-state bundle | JSON | Local statuses, notes, workflow metadata | Canonical truth of current DOM state | Possible (notes/context) | Yes until user shares/imports | Restore or transfer local triage state |
+| Support diagnostics | JSON (copy/export) | Runtime support boundary and troubleshooting context | Full DevTools trace or compliance verdict | Yes | Yes until user shares | Technical troubleshooting |
+| Screen Reader Review export | JSON/TXT/JSON QA/HTML QA | Virtual SR logs, interactions, notes, QA summary | Real NVDA/JAWS/VoiceOver evidence | Yes | Yes until user shares | Virtual review documentation |
+| Performance benchmark export (if visible) | JSON | Local benchmark samples/history | Accessibility verdicts | Usually no snippets; may include page context | Yes until user shares | Performance trend troubleshooting |
+| Release discussion summary export (if visible) | Text + JSON | Local release-readiness summary context | Formal release approval/sign-off evidence | May include URL/title/context | Yes until user shares | Local release discussion prep |
+
+### Local data matrix
+
+| Data area | Storage key | Purpose | May include page data | User can clear | Exportable | Privacy note |
+| --- | --- | --- | --- | --- | --- | --- |
+| settings | `a11yCatExtSettingsV1` | Theme, panel prefs, workflow prefs | Indirectly (behavior prefs) | Yes | Not primary export | Local browser-profile setting state |
+| scan history | `a11yCatScanHistoryV1` | Recent scan snapshots and comparison baseline pool | Yes (URL/path/counts/fingerprints) | Yes | Indirect (comparison/readiness outputs) | Local-only unless user exports/shares derivative data |
+| scan history archive | `a11yCatScanHistoryArchiveV1` | Older retained scan snapshots | Yes | Yes | Indirect | Local archive retention up to configured limit |
+| workflow state | `a11yCatWorkflowStateV1` | Local issue status/notes + dashboard prefs | Yes (issue identity, notes, scope) | Yes | Yes (local issue-state bundle) | Local annotations may contain sensitive notes |
+| virtual SR review state | `a11yCatVirtualSrReviewStateV1` | Virtual SR review session state and notes | Yes | Yes | Yes (SR exports) | Virtual review only, not real AT proof |
+| virtual SR sessions | `a11yCatVirtualSrSessionsV1` (hidden `chrome.storage.session` key) | Session-level SR runtime marker/state | Potentially | Cleared by session clear/reset | Not primary public export | Not part of standard public `chrome.storage.local` set |
+| performance benchmarks | `a11yCatPerfBenchmarksV1` | Local benchmark history | Possibly page context metadata | Yes | Yes when export control is visible | Local performance telemetry only |
+| spelling allowlist | `a11yCatSpellingAllowlistV1` | User-approved terms for spelling module | Potentially (custom terms) | Yes | Typically indirect | Local editorial preference data |
+
+### Beta readiness matrix
+
+| Area | Status | Required for private beta | Required for public release | Current limitation |
+| --- | --- | --- | --- | --- |
+| Automated release gate | Partial | Yes | Yes | Local aid exists; formal gate evidence still depends on pipeline discipline |
+| Scanner trust | Partial | Yes | Yes | Confirmed/review separation exists but still state/context bounded |
+| Package audit | Partial | Yes | Yes | Must be rerun per candidate package; not implied by docs alone |
+| Local data/privacy | Partial | Yes | Yes | Local-first boundary documented; users must still handle export sensitivity |
+| Documentation | In progress | Yes | Yes | Must be updated in same change set for UI/taxonomy/export/storage changes |
+| Manual VoiceOver | Pending evidence | Recommended | Yes | Extension cannot provide real VoiceOver sign-off itself |
+| Manual NVDA | Pending evidence | Recommended | Yes | Extension cannot provide real NVDA sign-off itself |
+| Manual JAWS | Pending evidence | Recommended | Yes | Extension cannot provide real JAWS sign-off itself |
+| `file://` behaviour | Partial support | Yes | Yes | Requires explicit file-URL permission and may still be limited |
+| Windows packaged runtime | Pending evidence | Recommended | Yes | Cross-platform runtime evidence still required per release candidate |
+
 ## What A11Y Cat does not prove
 
 A11Y Cat does not prove:
