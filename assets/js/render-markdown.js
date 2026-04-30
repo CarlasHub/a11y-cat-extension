@@ -90,12 +90,21 @@
       }
 
       if (/^\|.*\|$/.test(trimmed) && /^\|?(\s*:?-+:?\s*\|)+\s*:?-+:?\s*\|?$/.test(next)) {
+        let tableCaption = '';
+        if (state.paragraph.length) {
+          const lastParagraphLine = String(state.paragraph[state.paragraph.length - 1] || '').trim();
+          const captionMatch = lastParagraphLine.match(/^Table caption:\s*(.+)$/i);
+          if (captionMatch) {
+            tableCaption = captionMatch[1].trim();
+            state.paragraph.pop();
+          }
+        }
         flushParagraph(state, parts);
         closeList(state, parts);
         closeTable(state, parts);
         const headers = parseTableRow(trimmed);
-        parts.push('<div class="table-wrap"><table><thead><tr>' + headers.map(function (cell) {
-          return '<th>' + renderInline(cell) + '</th>';
+        parts.push('<div class="table-wrap"><table>' + (tableCaption ? ('<caption>' + renderInline(tableCaption) + '</caption>') : '') + '<thead><tr>' + headers.map(function (cell) {
+          return '<th scope="col">' + renderInline(cell) + '</th>';
         }).join('') + '</tr></thead><tbody>');
         state.inTable = true;
         state.tableHeaderDone = true;
@@ -105,9 +114,15 @@
 
       if (state.inTable && /^\|.*\|$/.test(trimmed)) {
         const cells = parseTableRow(trimmed);
-        parts.push('<tr>' + cells.map(function (cell) {
-          return '<td>' + renderInline(cell) + '</td>';
-        }).join('') + '</tr>');
+        if (cells.length) {
+          const firstCell = '<th scope="row">' + renderInline(cells[0]) + '</th>';
+          const restCells = cells.slice(1).map(function (cell) {
+            return '<td>' + renderInline(cell) + '</td>';
+          }).join('');
+          parts.push('<tr>' + firstCell + restCells + '</tr>');
+        } else {
+          parts.push('<tr></tr>');
+        }
         continue;
       }
 
