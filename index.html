@@ -32,70 +32,97 @@
         <div class="hero-grid">
           <div class="hero-panel">
             <div class="eyebrow">Public product documentation</div>
-            <h1>A11Y Cat</h1>
-            <p class="lead"><strong>Local-first accessibility inspection extension.</strong></p>
+            <div class="hero-brand-lockup">
+              <img src="assets/img/icon.png" alt="A11Y Cat extension icon">
+              <div>
+                <h1>A11Y Cat</h1>
+                <p class="lead"><strong>Local-first accessibility inspection extension.</strong></p>
+              </div>
+            </div>
             <p>
               A11Y Cat is a Chrome MV3 extension for deterministic live-page accessibility inspection,
-              structured review workflows, explicit limitation reporting, and local evidence export.
+              structured manual-review buckets, local history, local evidence export, and explicit runtime limitation reporting.
             </p>
             <div class="warning">
-              <strong>Accessibility limitation:</strong> A11Y Cat supports accessibility review workflows. It does not replace manual testing,
-              real assistive-technology validation, or full WCAG conformance review.
+              <strong>Accessibility limitation:</strong> A11Y Cat supports accessibility review workflows.
+              It does not replace manual testing, real assistive-technology validation, or full WCAG conformance review.
             </div>
-            <div class="status-row" aria-label="Release status">
-              <span class="status-pill">Public docs: live</span>
-              <span class="status-pill status-pill--warning">Release boundary: controlled beta</span>
+            <div class="status-row" aria-label="Release status badges">
+              <span class="badge badge--beta">Private beta</span>
+              <span class="badge badge--local">Local-first</span>
+              <span class="badge badge--server">No developer server</span>
+              <span class="badge badge--manual">Manual testing still required</span>
             </div>
             <div class="button-row">
               <a class="button button--primary" href="docs/intro.html">Read the docs</a>
-              <a class="button button--secondary" href="docs/ui-feature-guide.html">Open the UI guide</a>
-            </div>
-            <ul class="hero-list">
-              <li><a href="docs/privacy-local-data.html">Privacy and local data</a></li>
-              <li><a href="docs/limitations.html">Known limitations</a></li>
-              <li><a href="docs/beta-testing.html">Beta testing guide</a></li>
-            </ul>
-            <div class="stats-strip" aria-label="Coverage summary">
-              <div class="stat-card"><strong>Full UI guide</strong><span>Every visible extension surface is documented in the canonical guide.</span></div>
-              <div class="stat-card"><strong>Local processing</strong><span>No developer database or hosted processing in the public package.</span></div>
-              <div class="stat-card"><strong>Review-first model</strong><span>Confirmed issues, review buckets, exports, and limitations are documented separately.</span></div>
+              <a class="button button--secondary" href="docs/ui-feature-guide.html">Open the UI feature guide</a>
+              <a class="button button--ghost" href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a>
             </div>
           </div>
-          <div class="hero-visual">
-            <figure class="hero-visual__main">
-              <img src="assets/extension/store-02-scan-results.png" alt="A11Y Cat extension panel showing grouped scan results, severity breakdown, and local export controls.">
-              <figcaption>Scan Results shows confirmed issues, review buckets, limitations, filters, and local export actions.</figcaption>
-            </figure>
-            <div class="hero-visual__stack">
-              <figure class="media-card">
-                <img src="assets/extension/store-03-broken-links.png" alt="A11Y Cat broken links review showing status labels for broken, valid, and unverified links.">
-                <figcaption>Broken Links documents same-origin verification and unverified cross-origin status.</figcaption>
-              </figure>
-              <figure class="media-card">
-                <img src="assets/extension/store-04-metadata-checks.png" alt="A11Y Cat metadata checks screen showing social metadata and structured-data review output.">
-                <figcaption>Metadata Check separates advisory metadata signals from WCAG claims.</figcaption>
-              </figure>
-            </div>
-          </div>
+          <figure class="media-card hero-visual">
+            <img src="assets/extension/feature-extension-panel-opened-page.png" alt="A11Y Cat extension panel opened on a safe demo page in Chrome.">
+            <figcaption>The public docs site uses current-extension screenshots captured from the real MV3 build, not mockups or legacy bookmarklet imagery.</figcaption>
+          </figure>
         </div>
       </section>
 
       <section class="section-block">
         <h2 class="section-heading">What the extension covers</h2>
-        <p class="section-copy">These are the real product surfaces documented in the public site and the canonical guide.</p>
-        <div class="docs-card-grid">
-          <article class="card">
-            <h3>Deterministic scan results</h3>
-            <p>Confirmed issues, review buckets, severity counts, filters, diagnostics, exports, and previous-scan comparison.</p>
+        <div class="feature-grid" aria-label="Core extension capabilities">
+          <article>
+            <h3>axe-core scanning</h3>
+            <p>Deterministic automated checks remain visible as confirmed findings with preserved source metadata.</p>
           </article>
-          <article class="card">
-            <h3>Focused review tools</h3>
-            <p>Broken Links, Metadata Check, Heading Structure, Language Mismatch, Spelling Check, Alt Text Analysis, and Page Text Scale.</p>
+          <article>
+            <h3>Confirmed issues</h3>
+            <p>Confirmed failure output stays separate from review buckets, advisories, and limitations.</p>
           </article>
-          <article class="card">
-            <h3>Workflow and handoff</h3>
-            <p>Highlight element, copy selector, local issue state, local history, support diagnostics, and Screen Reader Review exports.</p>
+          <article>
+            <h3>Review items</h3>
+            <p>Manual, incomplete, visual, state-limited, and human-judgement review items remain clearly classified.</p>
           </article>
+          <article>
+            <h3>Exports</h3>
+            <p>CSV issue export, JSON evidence export, and local issue-state export/import are documented as local user actions.</p>
+          </article>
+          <article>
+            <h3>Local history</h3>
+            <p>Previous-scan comparison and retained local history are explained as implementation-backed stored state.</p>
+          </article>
+          <article>
+            <h3>Language and spelling review</h3>
+            <p>Language mismatch and spelling review are presented as bounded review aids, not automatic compliance verdicts.</p>
+          </article>
+          <article>
+            <h3>Metadata and broken links</h3>
+            <p>Open Graph, JSON-LD, Schema.org, and same-origin link verification are surfaced as separate review modules.</p>
+          </article>
+          <article>
+            <h3>Diagnostics</h3>
+            <p>Structured runtime diagnostics, support JSON, and explicit limitation reporting remain visible to users.</p>
+          </article>
+          <article>
+            <h3>Screen reader review aid</h3>
+            <p>The virtual review surface supports QA workflows without pretending to replace real NVDA, JAWS, or VoiceOver testing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2 class="section-heading">Real extension screenshots</h2>
+        <div class="screenshot-grid" aria-label="Current release-build screenshots">
+          <figure class="media-card media-card--compact">
+            <img src="assets/extension/feature-scan-results-overview.png" alt="Scan Results overview showing grouped findings and result counts in the extension panel.">
+            <figcaption>Scan Results groups confirmed issues, review items, exports, counts, and filters in the current release build.</figcaption>
+          </figure>
+          <figure class="media-card media-card--compact">
+            <img src="assets/extension/feature-broken-links.png" alt="Broken Links section showing broken, timeout, restricted, skipped, and unverified link states.">
+            <figcaption>Broken Links distinguishes same-origin verification outcomes from skipped and cross-origin unverified destinations.</figcaption>
+          </figure>
+          <figure class="media-card media-card--compact">
+            <img src="assets/extension/feature-metadata-check.png" alt="Metadata Check results showing grouped metadata findings and structured-data review.">
+            <figcaption>Metadata Check exposes Open Graph, JSON-LD, and structured-data findings as implementation-backed review output.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -105,7 +132,7 @@
           <ul class="feature-list">
             <li><strong>Dashboard</strong>, <strong>Scan Results</strong>, <strong>Headings</strong>, <strong>Language</strong>, <strong>Alt Text Analysis</strong></li>
             <li><strong>Screen Reader Review</strong>, <strong>Metadata Check</strong>, <strong>Broken Links</strong>, <strong>Page Text Scale</strong>, <strong>Manual Checks</strong></li>
-            <li><strong>Dev Sandbox</strong> and visible workflow controls where they appear in the shipped beta surface</li>
+            <li><strong>Diagnostics</strong>, <strong>local history</strong>, <strong>exports</strong>, <strong>theme/settings controls</strong>, and <strong>panel geometry controls</strong></li>
           </ul>
           <p><a class="button button--ghost" href="docs/ui-feature-guide.html">See the full feature-by-feature guide</a></p>
         </div>

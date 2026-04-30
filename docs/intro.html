@@ -57,48 +57,48 @@
             </div>
           </div>
           <figure class="media-card">
-            <img src="../assets/extension/store-01-toolbar-launch.png" alt="A11Y Cat extension launched from the Chrome toolbar into the page-side panel.">
-            <figcaption>The toolbar launches the packaged extension panel into the current page for local inspection.</figcaption>
+            <img src="../assets/extension/feature-extension-panel-opened-page.png" alt="A11Y Cat extension launched from the Chrome toolbar into the page-side panel.">
+            <figcaption>The docs are anchored to the current extension UI rather than old bookmarklet or internal-only surfaces.</figcaption>
           </figure>
         </div>
 
         <h2>Who it is for</h2>
         <div class="docs-card-grid">
           <article class="card">
-            <h3>Accessibility engineers</h3>
-            <p>Use it to inspect live-page issues, review selectors and evidence, and separate deterministic findings from uncertain review items.</p>
+            <h3>Developers</h3>
+            <p>Use the deterministic findings, developer details, selectors, and export surfaces to fix issues in the current page state.</p>
           </article>
           <article class="card">
-            <h3>QA and release reviewers</h3>
-            <p>Use it to collect local evidence, track limitations honestly, and export handoff material without claiming unsupported certainty.</p>
+            <h3>QA reviewers</h3>
+            <p>Use the review buckets, local history, diagnostics, and handoff exports to verify regressions and triage uncertain findings.</p>
           </article>
           <article class="card">
-            <h3>Product and design teams</h3>
-            <p>Use it to understand the extension’s issue categories, counts, and review prompts before making remediation decisions.</p>
+            <h3>Accessibility reviewers</h3>
+            <p>Use the UI guide, limitation reporting, and focused review modules to decide what still requires manual validation.</p>
           </article>
         </div>
 
         <h2>What it helps with</h2>
-        <div class="intro-grid">
-          <div class="section-panel">
-            <ul class="detail-list">
-              <li><strong>Deterministic scan results</strong> with confirmed issues, explicit review buckets, severity counts, and limitation surfaces.</li>
-              <li><strong>Focused review modules</strong> for headings, language mismatch, spelling, alt text, metadata, broken links, and text scale/reflow review.</li>
-              <li><strong>Local workflow support</strong> including history, comparison, issue-state export/import, diagnostics, and screen-reader review artifacts.</li>
+        <div class="split-layout">
+          <div class="feature-band">
+            <ul class="feature-list">
+              <li><strong>Deterministic scan output</strong> with visible confirmed issues, review items, advisory notes, and limitations.</li>
+              <li><strong>Focused review modules</strong> for headings, language mismatch, spelling, alt text, metadata, broken links, and text scaling.</li>
+              <li><strong>Local workflow support</strong> including history, comparison, issue-state export/import, diagnostics, and Screen Reader Review artifacts.</li>
             </ul>
           </div>
           <div class="screenshot-grid">
-            <figure class="media-card">
-              <img src="../assets/extension/store-03-broken-links.png" alt="Broken Links section showing detailed link verification statuses.">
-              <figcaption>Broken Links distinguishes broken, valid, skipped, timeout, and unverified statuses.</figcaption>
+            <figure class="media-card media-card--compact">
+              <img src="../assets/extension/feature-scan-results-overview.png" alt="A11Y Cat Scan Results overview from the real extension build.">
+              <figcaption>Confirmed issues, review items, counts, filters, and exports all live in the current Scan Results surface.</figcaption>
             </figure>
-            <figure class="media-card">
-              <img src="../assets/extension/store-04-metadata-checks.png" alt="Metadata checks section with social metadata and structured-data analysis.">
-              <figcaption>Metadata Check treats social and structured-data findings as advisory or review where appropriate.</figcaption>
+            <figure class="media-card media-card--compact">
+              <img src="../assets/extension/feature-screen-reader-review.png" alt="Screen Reader Review section showing the current virtual review aid state.">
+              <figcaption>Screen Reader Review is a QA aid. It is not real NVDA, JAWS, or VoiceOver evidence.</figcaption>
             </figure>
-            <figure class="media-card">
-              <img src="../assets/extension/store-06-partial-limitations.png" alt="A11Y Cat limitations panel showing partial scan or inspection constraints.">
-              <figcaption>Limitations are surfaced explicitly rather than being mistaken for a clean result.</figcaption>
+            <figure class="media-card media-card--compact">
+              <img src="../assets/extension/feature-diagnostics-expanded.png" alt="Expanded diagnostics JSON shown inside the extension panel.">
+              <figcaption>Diagnostics make runtime conditions explicit instead of hiding partial inspection boundaries.</figcaption>
             </figure>
           </div>
         </div>
