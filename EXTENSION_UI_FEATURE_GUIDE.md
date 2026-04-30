@@ -205,7 +205,6 @@ Unknown or null axe impact is not mapped to `Moderate`. Uncertain items are rout
 - next step: manually inspect before treating the item as a defect
 
 Table caption: Severity meaning and action mapping for confirmed and review-classified findings.
-
 | UI severity | Source value | Meaning | User action |
 | --- | --- | --- | --- |
 | Critical | axe impact `critical` or equivalent deterministic severity | Highest-priority confirmed issue | Review and fix first |
@@ -2592,7 +2591,6 @@ A multilingual page can show supported English spelling review alongside skipped
 The feature sections above explain what each feature does, where the data comes from, how it is classified, whether it maps to WCAG, whether it is confirmed or review-oriented, what the user should do next, and what it cannot prove. This cross-reference adds the current screenshot evidence status and the main storage/export boundary for each required feature.
 
 Table caption: Screenshot and storage cross-reference for required extension feature surfaces.
-
 | Feature | What may be stored or exported | Screenshot or reason why no screenshot is published |
 | --- | --- | --- |
 | Scan Results | Current issue lists, counts, selectors, snippets, and exports can all reflect this surface. | `assets/screenshots/scan-results-confirmed-issues.png` |
@@ -2649,7 +2647,6 @@ These matrices provide a fast technical reference for developers, QA, accessibil
 ### Feature coverage matrix
 
 Table caption: Feature coverage matrix for visible extension features in the current public build.
-
 | Feature | What it does | Source | Confirmed / Review / Advisory / Diagnostic | WCAG mapping | Exported | Stored locally | Screenshot available | Limitation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Dashboard | Overview counts, triage, diagnostics entry points | classified scan + diagnostics + history | Diagnostic | Not direct | Partial | Yes | No | Current state only |
@@ -2717,7 +2714,6 @@ Table caption: Feature coverage matrix for visible extension features in the cur
 ### Result classification matrix
 
 Table caption: Result classification matrix showing confidence boundaries and required user action.
-
 | Category | Meaning | Source | Is it a confirmed failure? | Requires human review? | Appears in UI | Appears in export | User action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Confirmed Issues | Findings treated as confirmed in tested state | axe violations + deterministic/corroborated custom logic | Yes | Usually no (verify fix quality) | Yes | Yes | Fix first by severity |
@@ -2733,7 +2729,6 @@ Table caption: Result classification matrix showing confidence boundaries and re
 ### Severity matrix
 
 Table caption: Severity and triage matrix for confirmed, review, and advisory result levels.
-
 | Severity | Source value | Meaning | Count source | User priority | Example action |
 | --- | --- | --- | --- | --- | --- |
 | Critical | axe `critical` or equivalent deterministic severity | Highest-priority confirmed issue | Confirmed severity bucket | Highest | Fix immediately, then rescan |
@@ -2746,7 +2741,6 @@ Table caption: Severity and triage matrix for confirmed, review, and advisory re
 ### Scanner source matrix
 
 Table caption: Scanner source matrix describing proof boundaries for each source type.
-
 | Source type | What it can prove | What it cannot prove | UI destination | Export destination | Risk/limitation |
 | --- | --- | --- | --- | --- | --- |
 | axe-core | Deterministic rule violations on tested state | Full compliance or full journey coverage | Confirmed Issues and some Review items | CSV + JSON evidence | Incomplete/state-limited outputs require manual follow-up |
@@ -2759,7 +2753,6 @@ Table caption: Scanner source matrix describing proof boundaries for each source
 ### Export matrix
 
 Table caption: Export matrix for format, content, sensitivity, and intended use.
-
 | Export type | Format | Contains | Does not contain | May include sensitive snippets | Local-only | Intended use |
 | --- | --- | --- | --- | --- | --- | --- |
 | CSV issue log | CSV | Flat issue rows, severity, classification, WCAG fields, selectors | Full nested evidence context | Yes | Yes until user shares | Spreadsheet triage and defect intake |
@@ -2773,7 +2766,6 @@ Table caption: Export matrix for format, content, sensitivity, and intended use.
 ### Local data matrix
 
 Table caption: Local data matrix for storage keys, purpose, clearability, and privacy boundaries.
-
 | Data area | Storage key | Purpose | May include page data | User can clear | Exportable | Privacy note |
 | --- | --- | --- | --- | --- | --- | --- |
 | settings | `a11yCatExtSettingsV1` | Theme, panel prefs, workflow prefs | Indirectly (behavior prefs) | Yes | Not primary export | Local browser-profile setting state |
@@ -2788,7 +2780,6 @@ Table caption: Local data matrix for storage keys, purpose, clearability, and pr
 ### Beta readiness matrix
 
 Table caption: Beta readiness status matrix for current private-beta and public-release requirements.
-
 | Area | Status | Required for private beta | Required for public release | Current limitation |
 | --- | --- | --- | --- | --- |
 | Automated release gate | Partial | Yes | Yes | Local aid exists; formal gate evidence still depends on pipeline discipline |
@@ -2921,7 +2912,6 @@ Text equivalent: virtual screen reader output supports review workflow documenta
 This matrix maps major visual assets to the current extension features and docs placement.
 
 Table caption: Screenshot and visual asset matrix for current extension UI evidence.
-
 | Feature | Screenshot filename | Docs page/section | Alt text | Caption | Verified current build | Sensitive data removed |
 | --- | --- | --- | --- | --- | --- | --- |
 | Extension panel opened | `extension-panel-overview.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | A11Y Cat extension panel opened on a safe demo page inside Chrome. | Extension panel opened on a page. | Yes | Yes |
