@@ -2278,6 +2278,241 @@ Copy/export is local-only until you share it. It can include page URL/title, rea
 **Example**  
 Export the release discussion summary JSON before a release meeting so the team can review the current local readiness snapshot.
 
+### Raw axe provenance
+
+**What it does**  
+Preserves the original axe-core rule metadata and node evidence so users can tell which confirmed or review item came directly from axe-core and what axe actually reported.
+
+**Where the data comes from**  
+From the original axe result payload kept on normalized findings, including rule id, impact, help text, help URL, description, tags, node targets, node HTML, and failure summaries.
+
+**How it is classified**  
+axe-core provenance metadata
+
+**Does it map to WCAG?**  
+Yes, where the preserved axe tags or mapped finding include WCAG references.
+
+**What the user should do next**  
+Use the preserved axe metadata when engineering, QA, or accessibility reviewers need rule-level evidence instead of a shortened UI summary.
+
+**Limitations**  
+Raw axe provenance does not prove full user impact by itself. It still reflects only the tested state and the engine output available at scan time.
+
+**Privacy/storage note**  
+Raw axe provenance is kept in local scan state and can appear in JSON evidence exports. CSV keeps only a reduced flat subset.
+
+**Example**  
+A confirmed button-name issue can retain the original axe `ruleId`, `impact`, `helpUrl`, and node target array in the JSON evidence bundle.
+
+### Unsupported/restricted contexts
+
+**What it does**  
+Explains when the extension cannot fully inspect a page, frame, or runtime surface because browser, origin, policy, or platform boundaries limit what the scanner can access.
+
+**Where the data comes from**  
+From runtime diagnostics, blocked injection signals, restricted browser-page checks, frame access failures, and scan-limitation generation.
+
+**How it is classified**  
+diagnostic/limitation
+
+**Does it map to WCAG?**  
+Not directly.
+
+**What the user should do next**  
+Treat the affected surface as unverified and run manual review or an alternative test method for the blocked area.
+
+**Limitations**  
+Unsupported or restricted context output does not mean the blocked surface passed. It means the extension could not prove the result.
+
+**Privacy/storage note**  
+Restriction details can appear in local diagnostics and in exported support JSON or evidence bundles.
+
+**Example**  
+A protected browser page or inaccessible frame can appear as a limitation instead of a clean result.
+
+### File access behaviour
+
+**What it does**  
+Defines the current extension boundary for local file URLs and other browser contexts that may require explicit browser access or may remain partially unavailable.
+
+**Where the data comes from**  
+From extension permission boundaries, browser runtime behaviour, and diagnostics produced when file or protected contexts are unavailable.
+
+**How it is classified**  
+diagnostic/limitation
+
+**Does it map to WCAG?**  
+Not directly.
+
+**What the user should do next**  
+If the page under test is a local file or similar protected context, confirm browser access settings and verify the result manually before trusting missing findings.
+
+**Limitations**  
+The extension cannot guarantee full inspection on every file-based or protected browser surface.
+
+**Privacy/storage note**  
+If the extension records file-context limitations, that information can remain in local diagnostics and exported troubleshooting JSON.
+
+**Example**  
+A local file page can require explicit browser permission before the panel can inspect it reliably.
+
+### iframe/protected frame behaviour
+
+**What it does**  
+Explains how the extension handles iframes, especially cross-origin or protected frames that the content script cannot fully inspect.
+
+**Where the data comes from**  
+From frame enumeration, frame-access failures, same-origin limits, and diagnostics or limitation signals raised during scan orchestration.
+
+**How it is classified**  
+diagnostic/limitation
+
+**Does it map to WCAG?**  
+Not directly.
+
+**What the user should do next**  
+Check whether the relevant issue lives inside a same-origin frame the extension could inspect or a protected frame that still needs manual testing.
+
+**Limitations**  
+The extension cannot guarantee coverage for cross-origin or protected frames, and empty results do not prove those frames passed.
+
+**Privacy/storage note**  
+Frame limitation details can be stored locally in diagnostics and exported support data.
+
+**Example**  
+A cross-origin embedded checkout frame can remain outside the extension’s confirmed coverage and appear under scan limitations.
+
+### Manual AT sign-off status
+
+**What it does**  
+Makes the release boundary explicit: A11Y Cat includes a virtual review aid, but it does not provide real screen-reader sign-off.
+
+**Where the data comes from**  
+From product scope, Screen Reader Review implementation limits, and the documented absence of real NVDA, JAWS, or VoiceOver evidence in the extension itself.
+
+**How it is classified**  
+diagnostic/limitation
+
+**Does it map to WCAG?**  
+Depends on manual review and real assistive-technology validation.
+
+**What the user should do next**  
+Repeat important user journeys in real assistive technology before signing off accessibility.
+
+**Limitations**  
+Virtual spoken-output review is not the same as real AT behaviour, support matrices, mode switching, or browser plus screen-reader interoperability.
+
+**Privacy/storage note**  
+Local Screen Reader Review logs and exports can document a virtual review path, but they are not proof of real AT validation.
+
+**Example**  
+A virtual review log can support QA notes, but final sign-off still needs real NVDA, JAWS, or VoiceOver testing.
+
+### Privacy and local storage
+
+**What it does**  
+Explains what the extension processes locally, what it stores in extension storage, what exports can contain, and how users can clear that data.
+
+**Where the data comes from**  
+From Chrome extension local storage, export serializers, local issue workflow state, scan history, spelling allowlists, virtual review state, and diagnostics state.
+
+**How it is classified**  
+local workflow state
+
+**Does it map to WCAG?**  
+Not directly.
+
+**What the user should do next**  
+Read this section before sharing exports or a browser profile with another tester, and clear local data when you no longer need retained state.
+
+**Limitations**  
+Local-only processing reduces external exposure, but local exports can still include sensitive URLs, titles, selectors, snippets, annotations, and diagnostics.
+
+**Privacy/storage note**  
+Stored data can include settings, recent and archived scan history, workflow state, virtual Screen Reader Review state, performance benchmarks, spelling allowlists, and diagnostics. Exports can include selectors, snippets, page URL, page title, and runtime evidence.
+
+**Example**  
+Clearing local extension data removes saved history, workflow notes, and related local extension state from the current browser profile.
+
+### Beta limitations
+
+**What it does**  
+Collects the current product-boundary limits that still apply in private beta.
+
+**Where the data comes from**  
+From current implementation scope, documented release limitations, diagnostics boundaries, unsupported language handling, and the absence of real AT sign-off in the extension.
+
+**How it is classified**  
+diagnostic/limitation
+
+**Does it map to WCAG?**  
+Not directly.
+
+**What the user should do next**  
+Use the beta as a review and triage tool, not as a final certification tool. Validate important flows manually and report gaps with diagnostics or screenshots.
+
+**Limitations**  
+Private beta still has bounded language coverage, bounded state coverage, restricted-context gaps, and virtual review limitations.
+
+**Privacy/storage note**  
+Beta behaviour still keeps processing local-first, but local exports and retained history need the same handling as any other potentially sensitive QA artefact.
+
+**Example**  
+A multilingual page can show supported English spelling review alongside skipped unsupported-language output during beta.
+
+## 7. Screenshot and storage cross-reference
+
+The feature sections above explain what each feature does, where the data comes from, how it is classified, whether it maps to WCAG, whether it is confirmed or review-oriented, what the user should do next, and what it cannot prove. This cross-reference adds the current screenshot evidence status and the main storage/export boundary for each required feature.
+
+| Feature | What may be stored or exported | Screenshot or reason why no screenshot is published |
+| --- | --- | --- |
+| Scan Results | Current issue lists, counts, selectors, snippets, and exports can all reflect this surface. | `assets/screenshots/scan-results-confirmed-issues.png` |
+| Confirmed Issues | Confirmed findings can be retained in local history and exported in CSV or JSON. | `assets/screenshots/scan-results-confirmed-issues.png` |
+| axe-core findings | Original axe-backed findings can appear in local issue state and exports. | No dedicated screenshot; they appear inside Scan Results issue cards rather than as a separate top-level panel. |
+| Raw axe provenance | Preserved in JSON evidence exports and reduced flat fields in CSV. | No dedicated screenshot; provenance is primarily detail/export data, not a stable top-level visual module. |
+| Manual / Incomplete / Review Items | Review findings can be saved in local workflow state and exported in JSON or CSV. | `assets/screenshots/manual-review-items.png` |
+| Advisory Notes | Advisory items can appear in local issue state and JSON or CSV exports. | No dedicated screenshot published; current public gallery focuses on the stable primary review surfaces. |
+| Scan Limitations | Limitation diagnostics can be stored locally and exported in support or evidence JSON. | `assets/screenshots/scan-limitations.png` |
+| Severity filters | Filter state is local UI state; filtered exports still reflect the underlying current issue set. | `assets/screenshots/severity-filters.png` |
+| Critical / Serious / Moderate / Minor | Confirmed severity counts can appear in local history and exports. | `assets/screenshots/severity-filters.png` |
+| Visual Composition Review | Review findings and their selectors can be exported locally. | `assets/screenshots/visual-composition-review.png` |
+| Human Judgement Review | Review findings can be retained in local state and exported. | No dedicated screenshot published; the current safe fixture set does not isolate a stable Human Judgement Review label capture. |
+| Engine-limited Review | Review findings plus diagnostics can be retained locally and exported. | No dedicated screenshot published; the current public gallery shows the broader review and limitations surfaces instead. |
+| State-limited Review | Review findings, notes, and history deltas can be retained locally and exported. | No dedicated screenshot published; the current public gallery shows review buckets and limitations rather than a separate state-limited badge capture. |
+| Deterministic Failures | Confirmed findings can be retained in history and exported in CSV or JSON. | No dedicated screenshot; deterministic failures are shown within the confirmed issues screenshots. |
+| Corroborated Failures | Confirmed findings and evidence can be retained in history and exported. | No dedicated screenshot published; the current public gallery does not isolate a corroborated-only card state. |
+| Previous Scan Comparison | Local comparison baselines and deltas are stored in local history. | `assets/screenshots/previous-scan-comparison.png` |
+| Local History | Recent and archived scan history are stored locally. | `assets/screenshots/previous-scan-comparison.png` |
+| Local Data Clearing | Clearing removes locally stored settings, history, workflow state, diagnostics, and related data. | `assets/screenshots/local-data-clearing.png` |
+| Broken Links | Local results and exports can include link URLs, statuses, and same-origin verification outcomes. | `assets/screenshots/broken-links.png` |
+| Metadata Check | Metadata findings can be exported in JSON or CSV and can include page URL or metadata context. | `assets/screenshots/metadata-check.png` |
+| Language Mismatch | Review findings and selectors can be exported locally. | `assets/screenshots/language-mismatch.png` |
+| Spelling Check | Advisory or review output and allowlist state stay local and can be exported. | `assets/screenshots/spelling-check.png` |
+| Page Text Scale / Page Reflow | Local UI state only unless related findings or notes are exported. | `assets/screenshots/page-reflow-or-text-scale.png` |
+| Alt Text Analysis | Alt-text findings, selectors, and snippets can be exported locally. | `assets/screenshots/alt-text-analysis.png` |
+| Heading Structure | Heading findings and selectors can be exported locally. | `assets/screenshots/heading-structure.png` |
+| Screen Reader Review | Virtual review state and logs are stored locally and can be exported in visible formats. | `assets/screenshots/screen-reader-review.png` |
+| Diagnostics | Diagnostics JSON can include URL, runtime details, and suppression bookkeeping. | `assets/screenshots/diagnostics-expanded.png` and `assets/screenshots/diagnostics-collapsed.png` |
+| CSV export | Produces a local CSV file with flat issue rows and selected issue metadata. | `assets/screenshots/exports-csv-json.png` |
+| JSON evidence export | Produces a local JSON file with richer evidence, diagnostics, selectors, and snippets. | `assets/screenshots/exports-csv-json.png` |
+| Local issue-state import/export | Produces or ingests local JSON workflow state bundles. | No dedicated screenshot published; the current export screenshot shows the export surface, but not a separate import interaction dialog. |
+| Diagnostics export/copy | Produces copied or downloaded support diagnostics JSON. | No dedicated screenshot published; the public gallery shows diagnostics itself rather than every export button state. |
+| Screen reader review export | Produces local JSON, TXT, JSON QA report, or HTML QA report files. | No dedicated screenshot published; current public gallery shows the review surface, not every export submenu state. |
+| Performance benchmark export | Can export local benchmark history where the visible control is present. | No dedicated screenshot published; visible benchmark export presence remains bounded and is not highlighted as a primary public surface. |
+| Release discussion summary export | Can export local release discussion summary data when the visible aid is present. | No dedicated screenshot published; the public gallery does not isolate this local-aid export control. |
+| Highlight element | Does not itself store data, but related selectors can appear in exports. | `assets/screenshots/highlight-element.png` |
+| Turn into ticket | Can contribute to local workflow notes or handoff text. | `assets/screenshots/ticket-dialog.png` |
+| Issue workflow controls | Local issue status, local notes, and workflow state are stored locally and can be exported in issue-state bundles. | No dedicated screenshot published; current public gallery focuses on the visible issue actions rather than the full workflow-state control set. |
+| Settings/theme controls | Theme and related preferences are stored locally. | `assets/screenshots/theme-settings.png` |
+| Panel open/close controls | Local UI state only. | `assets/screenshots/extension-panel-overview.png` for open state; close control is visible in the same panel chrome. |
+| Panel resize/move controls | Panel geometry preferences are stored locally. | `assets/screenshots/panel-resize-move-controls.png` |
+| Unsupported/restricted contexts | Limitation and diagnostic data can be stored locally and exported. | `assets/screenshots/scan-limitations.png` |
+| File access behaviour | File-context limitation details can appear in local diagnostics or support export. | No dedicated screenshot published; this is a browser-boundary behaviour, not a distinct visible module. |
+| iframe/protected frame behaviour | Frame limitation details can appear in local diagnostics or support export. | `assets/screenshots/scan-limitations.png` as the current visible limitation proof; no separate frame-only screenshot is published. |
+| Manual AT sign-off status | Local virtual-review logs can be exported, but they are not real AT proof. | `assets/screenshots/screen-reader-review.png` |
+| Privacy and local storage | Local storage, history, annotations, diagnostics, and export contents are described here. | `assets/screenshots/local-data-clearing.png` |
+| Beta limitations | Limitation and diagnostic evidence can be stored locally and exported. | `assets/screenshots/scan-limitations.png` |
+
 ## What A11Y Cat does not prove
 
 A11Y Cat does not prove:
