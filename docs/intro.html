@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Docs Introduction</title>
     <meta name="description" content="Introduction to the A11Y Cat extension documentation site.">
+    <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
   <body>
@@ -12,13 +13,17 @@
     <header class="site-header">
       <div class="site-header__inner">
         <a class="brand" href="../index.html">
-          <span class="brand__mark" aria-hidden="true">A</span>
-          <span>A11Y Cat Docs</span>
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
         </a>
         <nav class="header-nav" aria-label="Primary">
           <a href="intro.html">Docs</a>
           <a href="ui-feature-guide.html">UI guide</a>
           <a href="installation.html">Installation</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
         </nav>
       </div>
     </header>
@@ -38,26 +43,65 @@
         </nav>
       </aside>
       <main id="main-content" class="docs-main">
-        <h1>What A11Y Cat is</h1>
-        <p class="lead">
-          A11Y Cat is a Chrome MV3 extension for local-first accessibility inspection on the current page.
-          It combines deterministic live-page checks with structured review workflows, local history, and local evidence export.
-        </p>
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Start here</div>
+            <h1 class="page-title">What A11Y Cat is</h1>
+            <p class="page-summary">
+              A11Y Cat is a Chrome MV3 extension for local-first accessibility inspection on the current page.
+              It combines deterministic scan output with structured manual-review buckets, local history, and local evidence export.
+            </p>
+            <div class="callout">
+              <strong>Source of truth:</strong> the <a href="ui-feature-guide.html">Extension UI feature guide</a> is the authoritative user-facing reference for visible labels,
+              result categories, counts, exports, storage behaviour, and release limitations.
+            </div>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/extension/store-01-toolbar-launch.png" alt="A11Y Cat extension launched from the Chrome toolbar into the page-side panel.">
+            <figcaption>The toolbar launches the packaged extension panel into the current page for local inspection.</figcaption>
+          </figure>
+        </div>
 
         <h2>Who it is for</h2>
-        <ul class="doc-list">
-          <li>Accessibility engineers reviewing live page issues in the browser</li>
-          <li>QA and release reviewers who need local evidence exports and honest limitation reporting</li>
-          <li>Product and design teams who need a structured way to work through confirmed issues, review items, and limitations</li>
-        </ul>
+        <div class="docs-card-grid">
+          <article class="card">
+            <h3>Accessibility engineers</h3>
+            <p>Use it to inspect live-page issues, review selectors and evidence, and separate deterministic findings from uncertain review items.</p>
+          </article>
+          <article class="card">
+            <h3>QA and release reviewers</h3>
+            <p>Use it to collect local evidence, track limitations honestly, and export handoff material without claiming unsupported certainty.</p>
+          </article>
+          <article class="card">
+            <h3>Product and design teams</h3>
+            <p>Use it to understand the extension’s issue categories, counts, and review prompts before making remediation decisions.</p>
+          </article>
+        </div>
 
         <h2>What it helps with</h2>
-        <ul class="doc-list">
-          <li>Deterministic WCAG scan results on the current page state</li>
-          <li>Manual-review buckets such as visual composition, human judgement, engine-limited, and state-limited review</li>
-          <li>Headings, language, spelling, alt text, metadata, broken links, and Screen Reader Review workflows</li>
-          <li>Local exports for CSV issue logs, JSON evidence bundles, diagnostics, and review handoff artifacts</li>
-        </ul>
+        <div class="intro-grid">
+          <div class="section-panel">
+            <ul class="detail-list">
+              <li><strong>Deterministic scan results</strong> with confirmed issues, explicit review buckets, severity counts, and limitation surfaces.</li>
+              <li><strong>Focused review modules</strong> for headings, language mismatch, spelling, alt text, metadata, broken links, and text scale/reflow review.</li>
+              <li><strong>Local workflow support</strong> including history, comparison, issue-state export/import, diagnostics, and screen-reader review artifacts.</li>
+            </ul>
+          </div>
+          <div class="screenshot-grid">
+            <figure class="media-card">
+              <img src="../assets/extension/store-03-broken-links.png" alt="Broken Links section showing detailed link verification statuses.">
+              <figcaption>Broken Links distinguishes broken, valid, skipped, timeout, and unverified statuses.</figcaption>
+            </figure>
+            <figure class="media-card">
+              <img src="../assets/extension/store-04-metadata-checks.png" alt="Metadata checks section with social metadata and structured-data analysis.">
+              <figcaption>Metadata Check treats social and structured-data findings as advisory or review where appropriate.</figcaption>
+            </figure>
+            <figure class="media-card">
+              <img src="../assets/extension/store-06-partial-limitations.png" alt="A11Y Cat limitations panel showing partial scan or inspection constraints.">
+              <figcaption>Limitations are surfaced explicitly rather than being mistaken for a clean result.</figcaption>
+            </figure>
+          </div>
+        </div>
 
         <h2>What it does not prove</h2>
         <ul class="doc-list">
@@ -69,21 +113,25 @@
           <li>that all accessibility issues were found</li>
         </ul>
 
+        <div class="warning">
+          <strong>Do not claim:</strong> A11Y Cat is not a compliance certificate and the virtual Screen Reader Review surface is not real NVDA, JAWS, or VoiceOver sign-off.
+        </div>
+
         <h2>How to start using it</h2>
         <ol>
-          <li>Install the unpacked extension or the current beta package.</li>
+          <li>Install the unpacked extension or the current agreed beta build.</li>
           <li>Open the extension from the browser toolbar on a supported page.</li>
           <li>Run the deterministic scan.</li>
-          <li>Review Confirmed Issues first, then review buckets and scan limitations.</li>
-          <li>Use the UI guide when a label, count, export, or workflow control is unclear.</li>
+          <li>Review Confirmed Issues first, then review buckets, limitations, and exports.</li>
+          <li>Use the UI feature guide whenever a visible label, count, or action needs exact explanation.</li>
         </ol>
-
-        <div class="callout">
-          <strong>Source of truth:</strong> the extension UI feature guide remains the authoritative user-facing reference for visible UI labels,
-          scanner taxonomy, result categories, exports, local storage behaviour, and release limitations.
-        </div>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="../index.html">Landing page</a></span></div></footer>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation</span>
+        <span><a href="../index.html">Landing page</a> · <a href="ui-feature-guide.html">UI guide</a></span>
+      </div>
+    </footer>
   </body>
 </html>

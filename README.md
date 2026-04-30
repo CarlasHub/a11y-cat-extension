@@ -69,8 +69,14 @@ docs/
 assets/
   css/
     styles.css
+  img/
+    icon.png
   extension/
+    store-01-toolbar-launch.png
     store-02-scan-results.png
+    store-03-highlight-scroll.png
+    store-05-privacy-disclosure.png
+    store-06-partial-limitations.png
   js/
     render-markdown.js
 LICENSE

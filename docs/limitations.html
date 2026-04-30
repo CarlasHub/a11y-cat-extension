@@ -5,53 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Known Limitations</title>
     <meta name="description" content="Current known limitations and support boundary for the A11Y Cat extension.">
+    <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">A</span><span>A11Y Cat Docs</span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a></nav></div></header>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+        </nav>
+      </div>
+    </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li><a href="intro.html">Introduction</a></li><li><a href="ui-feature-guide.html">Extension UI feature guide</a></li><li><a href="installation.html">Installation</a></li><li><a href="privacy-local-data.html">Privacy and local data</a></li><li><a href="limitations.html" aria-current="page">Known limitations</a></li><li><a href="beta-testing.html">Beta testing guide</a></li><li><a href="changelog.html">Release notes and status</a></li></ul></nav></aside>
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+        <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li><a href="intro.html">Introduction</a></li>
+            <li><a href="ui-feature-guide.html">Extension UI feature guide</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
+            <li><a href="limitations.html" aria-current="page">Known limitations</a></li>
+            <li><a href="beta-testing.html">Beta testing guide</a></li>
+            <li><a href="changelog.html">Release notes and status</a></li>
+          </ul>
+        </nav>
+      </aside>
       <main id="main-content" class="docs-main">
-        <h1>Known limitations</h1>
-        <p class="lead">The extension supports accessibility review workflows. It does not replace manual testing or assistive-technology validation.</p>
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Support boundary</div>
+            <h1 class="page-title">Known limitations</h1>
+            <p class="page-summary">The extension supports accessibility review workflows. It does not replace manual testing, real assistive-technology validation, or full conformance review.</p>
+            <div class="warning"><strong>Do not claim:</strong> full WCAG compliance, complete issue coverage, or real screen-reader sign-off from the extension alone.</div>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/extension/store-06-partial-limitations.png" alt="A11Y Cat limitation output showing partial inspection or restricted-context coverage gaps.">
+            <figcaption>Limitations are surfaced directly in the UI so incomplete inspection is not mistaken for a clean page.</figcaption>
+          </figure>
+        </div>
 
-        <h2>Manual evidence still pending</h2>
-        <ul class="doc-list">
-          <li>Manual VoiceOver sign-off is still required.</li>
-          <li>Manual NVDA sign-off is still required.</li>
-          <li>Manual JAWS sign-off is still required.</li>
-        </ul>
+        <div class="docs-card-grid">
+          <article class="card">
+            <h3>Manual AT evidence still required</h3>
+            <p>Manual VoiceOver, NVDA, and JAWS sign-off is still required. Virtual Screen Reader Review is a local aid, not real AT evidence.</p>
+          </article>
+          <article class="card">
+            <h3>Restricted pages and frames</h3>
+            <p>Browser-managed pages, protected frames, and inaccessible cross-origin contexts can limit scan coverage or evidence capture.</p>
+          </article>
+          <article class="card">
+            <h3>State coverage limits</h3>
+            <p>Hidden, delayed, authenticated, or interaction-dependent states are not all exercised automatically during a single scan.</p>
+          </article>
+        </div>
 
-        <h2>Restricted pages and protected contexts</h2>
+        <h2>File access and scope limits</h2>
         <ul class="doc-list">
-          <li>Restricted browser-managed pages are unsupported.</li>
-          <li>Protected or inaccessible iframes can limit scan coverage.</li>
-          <li>Cross-origin frames may not expose the evidence needed for full inspection.</li>
-        </ul>
-
-        <h2>File access and page scope limits</h2>
-        <ul class="doc-list">
-          <li><code>file://</code> pages are supported with limitations and require explicit browser permission.</li>
-          <li>Hidden, delayed, authenticated, or interactive states are not all exercised automatically.</li>
-        </ul>
-
-        <h2>Language and review limits</h2>
-        <ul class="doc-list">
-          <li>Spelling support is currently English-only in the bundled beta dictionary set.</li>
-          <li>Unsupported languages are skipped rather than being checked as English.</li>
+          <li><code>file://</code> pages require explicit browser permission and still have practical limits.</li>
+          <li>State-limited review can miss content behind dialogs, menus, tabs, accordions, validation messages, and authenticated flows.</li>
           <li>Review and advisory items are not confirmed failures until a person checks them in context.</li>
         </ul>
 
-        <h2>Screen reader review limit</h2>
+        <h2>Language and spelling limits</h2>
         <ul class="doc-list">
-          <li>Virtual Screen Reader Review is not real NVDA, JAWS, or VoiceOver sign-off.</li>
-          <li>It is a local review aid, not a replacement for real assistive-technology testing.</li>
+          <li>Spelling support is currently English-only in the bundled beta dictionary set.</li>
+          <li>Unsupported languages are skipped rather than being checked as English.</li>
+          <li>Unknown or missing language information can limit what the language and spelling checks can evaluate safely.</li>
         </ul>
 
-        <div class="warning"><strong>Do not claim:</strong> full WCAG compliance, complete coverage, or complete AT validation from the extension alone.</div>
+        <h2>What to do when a limitation appears</h2>
+        <ol>
+          <li>Read the limitation text in the panel rather than assuming the page passed.</li>
+          <li>Review protected or stateful parts of the experience manually.</li>
+          <li>Use diagnostics export if the limitation may be caused by runtime boundaries.</li>
+          <li>Verify with real assistive technology where user impact is likely.</li>
+        </ol>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="beta-testing.html">Beta testing guide</a></span></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="beta-testing.html">Beta testing guide</a></span></div></footer>
   </body>
 </html>

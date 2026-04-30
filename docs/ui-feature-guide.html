@@ -5,21 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Extension UI Feature Guide</title>
     <meta name="description" content="Guide to the A11Y Cat extension UI, labels, result categories, exports, and local state.">
+    <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">A</span><span>A11Y Cat Docs</span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a></nav></div></header>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+        </nav>
+      </div>
+    </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li><a href="intro.html">Introduction</a></li><li><a href="ui-feature-guide.html" aria-current="page">Extension UI feature guide</a></li><li><a href="installation.html">Installation</a></li><li><a href="privacy-local-data.html">Privacy and local data</a></li><li><a href="limitations.html">Known limitations</a></li><li><a href="beta-testing.html">Beta testing guide</a></li><li><a href="changelog.html">Release notes and status</a></li></ul></nav></aside>
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+        <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li><a href="intro.html">Introduction</a></li>
+            <li><a href="ui-feature-guide.html" aria-current="page">Extension UI feature guide</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
+            <li><a href="limitations.html">Known limitations</a></li>
+            <li><a href="beta-testing.html">Beta testing guide</a></li>
+            <li><a href="changelog.html">Release notes and status</a></li>
+          </ul>
+        </nav>
+      </aside>
       <main id="main-content" class="docs-main">
-        <h1>Extension UI feature guide</h1>
-        <p class="lead">This page imports the canonical extension UI guide content from the repository guide file so the public docs site and the canonical guide stay aligned.</p>
-        <div class="callout"><strong>Canonical source:</strong> <a href="../EXTENSION_UI_FEATURE_GUIDE.md">docs/EXTENSION_UI_FEATURE_GUIDE.md</a></div>
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Canonical product reference</div>
+            <h1 class="page-title">Extension UI feature guide</h1>
+            <p class="page-summary">Use this page when a visible label, count, status, export, workflow action, or limitation needs an exact implementation-backed explanation.</p>
+            <div class="callout"><strong>Canonical source:</strong> <a href="../EXTENSION_UI_FEATURE_GUIDE.md">EXTENSION_UI_FEATURE_GUIDE.md</a>. This public page renders that canonical guide so the public site and the source guide stay aligned.</div>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/extension/store-02-scan-results.png" alt="A11Y Cat scan results view showing grouped findings, severity counts, and export controls.">
+            <figcaption>The guide explains the real extension UI, including counts, review buckets, exports, storage, and limitations.</figcaption>
+          </figure>
+        </div>
         <article class="markdown-rendered" data-markdown-source="../EXTENSION_UI_FEATURE_GUIDE.md"></article>
       </main>
     </div>
     <script src="../assets/js/render-markdown.js"></script>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="../EXTENSION_UI_FEATURE_GUIDE.md">Canonical UI guide markdown</a></span></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="../EXTENSION_UI_FEATURE_GUIDE.md">Canonical guide markdown</a></span></div></footer>
   </body>
 </html>

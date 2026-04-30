@@ -4,38 +4,87 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Release Notes and Status</title>
-    <meta name="description" content="Current release status and documentation sources for A11Y Cat.">
+    <meta name="description" content="Current release status and documentation notes for A11Y Cat.">
+    <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">A</span><span>A11Y Cat Docs</span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a></nav></div></header>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+        </nav>
+      </div>
+    </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li><a href="intro.html">Introduction</a></li><li><a href="ui-feature-guide.html">Extension UI feature guide</a></li><li><a href="installation.html">Installation</a></li><li><a href="privacy-local-data.html">Privacy and local data</a></li><li><a href="limitations.html">Known limitations</a></li><li><a href="beta-testing.html">Beta testing guide</a></li><li><a href="changelog.html" aria-current="page">Release notes and status</a></li></ul></nav></aside>
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+        <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li><a href="intro.html">Introduction</a></li>
+            <li><a href="ui-feature-guide.html">Extension UI feature guide</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
+            <li><a href="limitations.html">Known limitations</a></li>
+            <li><a href="beta-testing.html">Beta testing guide</a></li>
+            <li><a href="changelog.html" aria-current="page">Release notes and status</a></li>
+          </ul>
+        </nav>
+      </aside>
       <main id="main-content" class="docs-main">
-        <h1>Release notes and current status</h1>
-        <p class="lead">The repository does not currently maintain a separate standalone changelog file. This page summarizes the current documented release status and where release-facing notes live.</p>
-        <h2>Current documented status</h2>
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Release status</div>
+            <h1 class="page-title">Release notes and current status</h1>
+            <p class="page-summary">This public repository does not yet maintain a separate product changelog file. This page records the current public documentation milestone and the current support boundary without overclaiming release readiness.</p>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/extension/store-02-scan-results.png" alt="A11Y Cat scan results interface used as the primary extension product surface in the public documentation.">
+            <figcaption>The public site documents the current extension surface rather than a legacy script or hidden internal tooling.</figcaption>
+          </figure>
+        </div>
+
+        <h2>Current public documentation milestone</h2>
         <ul class="doc-list">
-          <li>Controlled pilot on desktop Chromium: active engineering scope.</li>
-          <li>Broad public rollout ready: no.</li>
-          <li>Manual assistive-technology validation is still required before any production readiness claim.</li>
-          <li>The public Chrome Store package does not expose AI assistance or local assistant backend actions.</li>
+          <li>The public GitHub Pages site is live.</li>
+          <li>The canonical Extension UI feature guide is published and linked from the public site.</li>
+          <li>Installation, privacy, limitations, and beta-testing guidance are published as product documentation pages.</li>
         </ul>
-        <h2>Current automated release gate</h2>
-        <pre><code>npm run verify:release</code></pre>
-        <div class="warning"><strong>Important:</strong> the release readiness checklist is a release-discussion tool. It is not a compliance certificate.</div>
-        <h2>Where release-facing notes currently live</h2>
+
+        <h2>Current support boundary</h2>
         <ul class="doc-list">
-          <li><a href="https://github.com/CarlasHub/a11y-cat-extension">Public repository README</a> for current public repository context</li>
+          <li>Controlled pilot / beta on desktop Chromium: yes.</li>
+          <li>Broad public rollout ready: no documented claim.</li>
+          <li>Real assistive-technology sign-off required: yes.</li>
+          <li>Public package exposes local assistant or AI-assist surfaces as stable product features: no documented claim.</li>
+        </ul>
+
+        <div class="warning"><strong>Important:</strong> release readiness notes are not a compliance certificate and do not replace manual accessibility validation.</div>
+
+        <h2>Where current public notes live</h2>
+        <ul class="doc-list">
+          <li><a href="../README.md">Public repository README</a> for the product entry point</li>
           <li><a href="installation.html">Installation</a> for the current install path</li>
-          <li><a href="limitations.html">Known limitations</a> for the current support and limitation boundary</li>
-          <li><a href="beta-testing.html">Beta testing guide</a> for the current controlled pilot workflow</li>
+          <li><a href="privacy-local-data.html">Privacy and local data</a> for storage and export boundaries</li>
+          <li><a href="limitations.html">Known limitations</a> for support boundaries and manual-review requirements</li>
+          <li><a href="beta-testing.html">Beta testing guide</a> for the controlled pilot workflow</li>
         </ul>
-        <h2>Why this page exists</h2>
-        <p>This site needs a stable release-notes/status page even though the repository does not currently publish a formal changelog stream. If a formal changelog is added later, this page should point to it and stop acting as a summary placeholder.</p>
+
+        <h2>Next release-note improvement</h2>
+        <p>If the public repo starts publishing formal product releases, this page should link to a real changelog stream instead of acting as a status summary.</p>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension">Public repository</a></span></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension">Public repository</a></span></div></footer>
   </body>
 </html>

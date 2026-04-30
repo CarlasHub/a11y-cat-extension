@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A11Y Cat Docs</title>
-    <meta name="description" content="A11Y Cat documentation site for the Chrome extension: installation, UI guide, privacy, beta testing, and known limitations.">
+    <title>A11Y Cat Documentation</title>
+    <meta name="description" content="A11Y Cat public documentation for the Chrome extension: real UI guide, installation, privacy, limitations, and beta testing.">
+    <link rel="icon" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
@@ -12,13 +13,17 @@
     <header class="site-header">
       <div class="site-header__inner">
         <a class="brand" href="index.html">
-          <span class="brand__mark" aria-hidden="true">A</span>
-          <span>A11Y Cat Docs</span>
+          <img class="brand__icon" src="assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
         </a>
         <nav class="header-nav" aria-label="Primary">
           <a href="docs/intro.html">Docs</a>
-          <a href="docs/ui-feature-guide.html">UI guide</a>
-          <a href="docs/installation.html">Installation</a>
+          <a href="docs/ui-feature-guide.html">UI feature guide</a>
+          <a href="docs/privacy-local-data.html">Privacy</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
         </nav>
       </div>
     </header>
@@ -26,60 +31,111 @@
       <section class="hero">
         <div class="hero-grid">
           <div class="hero-panel">
-            <div class="kicker">Chrome MV3 extension documentation</div>
+            <div class="eyebrow">Public product documentation</div>
             <h1>A11Y Cat</h1>
             <p class="lead"><strong>Local-first accessibility inspection extension.</strong></p>
             <p>
               A11Y Cat is a Chrome MV3 extension for deterministic live-page accessibility inspection,
-              structured review workflows, and local evidence export.
+              structured review workflows, explicit limitation reporting, and local evidence export.
             </p>
             <div class="warning">
-              <strong>Limitation:</strong> A11Y Cat supports accessibility review workflows. It does not replace
-              manual testing or assistive-technology validation.
+              <strong>Accessibility limitation:</strong> A11Y Cat supports accessibility review workflows. It does not replace manual testing,
+              real assistive-technology validation, or full WCAG conformance review.
             </div>
-            <div class="callout">
-              <strong>Beta status:</strong> the current documented release boundary is controlled pilot / beta use on desktop Chromium.
-              Broad public rollout is not currently claimed.
+            <div class="status-row" aria-label="Release status">
+              <span class="status-pill">Public docs: live</span>
+              <span class="status-pill status-pill--warning">Release boundary: controlled beta</span>
             </div>
             <div class="button-row">
               <a class="button button--primary" href="docs/intro.html">Read the docs</a>
-              <a class="button button--secondary" href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a>
+              <a class="button button--secondary" href="docs/ui-feature-guide.html">Open the UI guide</a>
             </div>
             <ul class="hero-list">
               <li><a href="docs/privacy-local-data.html">Privacy and local data</a></li>
               <li><a href="docs/limitations.html">Known limitations</a></li>
-              <li><a href="docs/ui-feature-guide.html">Extension UI feature guide</a></li>
+              <li><a href="docs/beta-testing.html">Beta testing guide</a></li>
             </ul>
+            <div class="stats-strip" aria-label="Coverage summary">
+              <div class="stat-card"><strong>Full UI guide</strong><span>Every visible extension surface is documented in the canonical guide.</span></div>
+              <div class="stat-card"><strong>Local processing</strong><span>No developer database or hosted processing in the public package.</span></div>
+              <div class="stat-card"><strong>Review-first model</strong><span>Confirmed issues, review buckets, exports, and limitations are documented separately.</span></div>
+            </div>
           </div>
-          <figure class="screenshot-frame">
-            <img src="assets/extension/store-02-scan-results.png" alt="A11Y Cat extension showing grouped scan results inside the panel.">
-            <figcaption>Current extension path: grouped findings, explicit review buckets, and local export controls.</figcaption>
-          </figure>
+          <div class="hero-visual">
+            <figure class="hero-visual__main">
+              <img src="assets/extension/store-02-scan-results.png" alt="A11Y Cat extension panel showing grouped scan results, severity breakdown, and local export controls.">
+              <figcaption>Scan Results shows confirmed issues, review buckets, limitations, filters, and local export actions.</figcaption>
+            </figure>
+            <div class="hero-visual__stack">
+              <figure class="media-card">
+                <img src="assets/extension/store-03-broken-links.png" alt="A11Y Cat broken links review showing status labels for broken, valid, and unverified links.">
+                <figcaption>Broken Links documents same-origin verification and unverified cross-origin status.</figcaption>
+              </figure>
+              <figure class="media-card">
+                <img src="assets/extension/store-04-metadata-checks.png" alt="A11Y Cat metadata checks screen showing social metadata and structured-data review output.">
+                <figcaption>Metadata Check separates advisory metadata signals from WCAG claims.</figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="card-grid" aria-label="Documentation highlights">
-        <article class="card">
-          <h2>Start with the docs</h2>
-          <p class="muted">Read what the extension does, who it is for, what it does not prove, and how to start using it.</p>
-          <p><a href="docs/intro.html">Open the docs introduction</a></p>
-        </article>
-        <article class="card">
-          <h2>Privacy and local data</h2>
-          <p class="muted">Documents local processing, no hosted backend in the public package, storage keys, exports, and data clearing.</p>
-          <p><a href="docs/privacy-local-data.html">Read privacy and local data</a></p>
-        </article>
-        <article class="card">
-          <h2>Known limitations</h2>
-          <p class="muted">States what the extension does not prove, what contexts are restricted, and what still remains manual review.</p>
-          <p><a href="docs/limitations.html">Read known limitations</a></p>
-        </article>
+      <section class="section-block">
+        <h2 class="section-heading">What the extension covers</h2>
+        <p class="section-copy">These are the real product surfaces documented in the public site and the canonical guide.</p>
+        <div class="docs-card-grid">
+          <article class="card">
+            <h3>Deterministic scan results</h3>
+            <p>Confirmed issues, review buckets, severity counts, filters, diagnostics, exports, and previous-scan comparison.</p>
+          </article>
+          <article class="card">
+            <h3>Focused review tools</h3>
+            <p>Broken Links, Metadata Check, Heading Structure, Language Mismatch, Spelling Check, Alt Text Analysis, and Page Text Scale.</p>
+          </article>
+          <article class="card">
+            <h3>Workflow and handoff</h3>
+            <p>Highlight element, copy selector, local issue state, local history, support diagnostics, and Screen Reader Review exports.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2 class="section-heading">Extension surfaces documented</h2>
+        <div class="feature-band">
+          <ul class="feature-list">
+            <li><strong>Dashboard</strong>, <strong>Scan Results</strong>, <strong>Headings</strong>, <strong>Language</strong>, <strong>Alt Text Analysis</strong></li>
+            <li><strong>Screen Reader Review</strong>, <strong>Metadata Check</strong>, <strong>Broken Links</strong>, <strong>Page Text Scale</strong>, <strong>Manual Checks</strong></li>
+            <li><strong>Dev Sandbox</strong> and visible workflow controls where they appear in the shipped beta surface</li>
+          </ul>
+          <p><a class="button button--ghost" href="docs/ui-feature-guide.html">See the full feature-by-feature guide</a></p>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2 class="section-heading">Use the right page</h2>
+        <div class="card-grid" aria-label="Documentation highlights">
+          <article class="card">
+            <h3>Start with the docs</h3>
+            <p>Read what A11Y Cat is for, what it helps with, what it does not prove, and how to start using it.</p>
+            <p><a href="docs/intro.html">Open the docs introduction</a></p>
+          </article>
+          <article class="card">
+            <h3>Understand the extension UI</h3>
+            <p>Use the canonical guide when a label, category, count, export, or action needs exact implementation-backed explanation.</p>
+            <p><a href="docs/ui-feature-guide.html">Open the UI feature guide</a></p>
+          </article>
+          <article class="card">
+            <h3>Review privacy and limitations</h3>
+            <p>Check local processing, stored data, export sensitivity, restricted contexts, and the limits of automated inspection.</p>
+            <p><a href="docs/privacy-local-data.html">Open privacy and local data</a></p>
+          </article>
+        </div>
       </section>
     </main>
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>A11Y Cat documentation site</span>
-        <span><a href="docs/intro.html">Docs home</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span>
+        <span>A11Y Cat public documentation</span>
+        <span><a href="docs/intro.html">Docs home</a> · <a href="docs/ui-feature-guide.html">UI guide</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span>
       </div>
     </footer>
   </body>

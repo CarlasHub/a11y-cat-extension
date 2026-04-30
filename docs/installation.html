@@ -5,42 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Installation</title>
     <meta name="description" content="Installation guide for the A11Y Cat Chrome MV3 extension.">
+    <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">A</span><span>A11Y Cat Docs</span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a></nav></div></header>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+        </nav>
+      </div>
+    </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li><a href="intro.html">Introduction</a></li><li><a href="ui-feature-guide.html">Extension UI feature guide</a></li><li><a href="installation.html" aria-current="page">Installation</a></li><li><a href="privacy-local-data.html">Privacy and local data</a></li><li><a href="limitations.html">Known limitations</a></li><li><a href="beta-testing.html">Beta testing guide</a></li><li><a href="changelog.html">Release notes and status</a></li></ul></nav></aside>
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+        <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li><a href="intro.html">Introduction</a></li>
+            <li><a href="ui-feature-guide.html">Extension UI feature guide</a></li>
+            <li><a href="installation.html" aria-current="page">Installation</a></li>
+            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
+            <li><a href="limitations.html">Known limitations</a></li>
+            <li><a href="beta-testing.html">Beta testing guide</a></li>
+            <li><a href="changelog.html">Release notes and status</a></li>
+          </ul>
+        </nav>
+      </aside>
       <main id="main-content" class="docs-main">
-        <h1>Installation</h1>
-        <p class="lead">The current supported release path is the Chrome / Chromium MV3 extension. Broad public rollout is not currently claimed.</p>
-        <div class="warning"><strong>Current boundary:</strong> the repo documents a controlled pilot, not a broad public rollout. Do not describe this as production-ready general availability.</div>
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Installation</div>
+            <h1 class="page-title">Install the current extension build</h1>
+            <p class="page-summary">The current supported release path is the Chrome / Chromium MV3 extension. Broad public rollout is not currently claimed.</p>
+            <div class="warning"><strong>Current boundary:</strong> this site documents a controlled beta/pilot extension surface, not general-availability production rollout.</div>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/extension/store-01-toolbar-launch.png" alt="A11Y Cat extension icon selected from the browser toolbar and opening its panel.">
+            <figcaption>The extension launches from the browser toolbar into the current page context.</figcaption>
+          </figure>
+        </div>
+
         <h2>Build the extension locally</h2>
         <pre><code>npm install
 npm run build:extension
 npm run check:extension</code></pre>
+
         <h2>Load the unpacked extension</h2>
         <ol>
           <li>Open <code>chrome://extensions</code>.</li>
           <li>Enable <strong>Developer mode</strong>.</li>
-          <li>Choose <strong>Load unpacked</strong>.</li>
-          <li>Select the repository’s <code>dist-extension/</code> directory.</li>
-          <li>Pin the extension from the browser toolbar if you need quick access.</li>
+          <li>Select <strong>Load unpacked</strong>.</li>
+          <li>Choose the built <code>dist-extension/</code> directory.</li>
+          <li>Pin the extension from the toolbar if you need repeated access during testing.</li>
         </ol>
-        <h2>Permissions used by the release build</h2>
-        <ul class="doc-list">
-          <li><code>activeTab</code>: inject packaged scripts only after the user clicks the toolbar action.</li>
-          <li><code>scripting</code>: run the packaged extension runtime in the active tab.</li>
-          <li><code>storage</code>: store local settings, workflow state, history, and review state on the current machine.</li>
-        </ul>
-        <div class="note">The public release build does <strong>not</strong> declare broad <code>host_permissions</code>, hosted-service permissions, analytics permissions, or remote code execution permissions.</div>
+
+        <h2>What the release build requests</h2>
+        <div class="docs-card-grid">
+          <article class="card">
+            <h3><code>activeTab</code></h3>
+            <p>Lets the packaged runtime inject only after the user clicks the toolbar action on the current tab.</p>
+          </article>
+          <article class="card">
+            <h3><code>scripting</code></h3>
+            <p>Runs the packaged extension runtime inside the active page after explicit user action.</p>
+          </article>
+          <article class="card">
+            <h3><code>storage</code></h3>
+            <p>Stores local settings, issue state, history, review state, and other local extension workflow data.</p>
+          </article>
+        </div>
+
+        <div class="note">
+          The public release build does <strong>not</strong> declare broad <code>host_permissions</code>, hosted-service permissions, analytics permissions, or remote code execution permissions.
+        </div>
+
         <h2>Verify the local install</h2>
         <pre><code>npm run build:extension:test
 npm run check:extension:test
 npm run test:extension:smoke</code></pre>
+
+        <h2>What to check after loading</h2>
+        <ul class="doc-list">
+          <li>The toolbar icon opens the extension panel on a supported page.</li>
+          <li>The panel renders sections such as Dashboard, Scan Results, and the other documented review modules.</li>
+          <li>Local actions such as scan, filters, exports, and data clearing are available.</li>
+        </ul>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
   </body>
 </html>

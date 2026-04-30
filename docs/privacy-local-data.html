@@ -5,32 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Privacy and Local Data</title>
     <meta name="description" content="Privacy and local data documentation for the A11Y Cat extension.">
+    <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">A</span><span>A11Y Cat Docs</span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a></nav></div></header>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+        </nav>
+      </div>
+    </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li><a href="intro.html">Introduction</a></li><li><a href="ui-feature-guide.html">Extension UI feature guide</a></li><li><a href="installation.html">Installation</a></li><li><a href="privacy-local-data.html" aria-current="page">Privacy and local data</a></li><li><a href="limitations.html">Known limitations</a></li><li><a href="beta-testing.html">Beta testing guide</a></li><li><a href="changelog.html">Release notes and status</a></li></ul></nav></aside>
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+        <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li><a href="intro.html">Introduction</a></li>
+            <li><a href="ui-feature-guide.html">Extension UI feature guide</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="privacy-local-data.html" aria-current="page">Privacy and local data</a></li>
+            <li><a href="limitations.html">Known limitations</a></li>
+            <li><a href="beta-testing.html">Beta testing guide</a></li>
+            <li><a href="changelog.html">Release notes and status</a></li>
+          </ul>
+        </nav>
+      </aside>
       <main id="main-content" class="docs-main">
-        <h1>Privacy and local data</h1>
-        <p class="lead">The public extension processes page content locally in the browser.</p>
-        <ul class="doc-list">
-          <li>No developer database is used by the public release package.</li>
-          <li>No developer server is required by the public release package.</li>
-          <li>No analytics or telemetry endpoint is included in the public release package.</li>
-        </ul>
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Privacy and storage</div>
+            <h1 class="page-title">Local processing and local data</h1>
+            <p class="page-summary">The public extension processes page content locally in the browser. It stores local workflow data on the current machine and exposes exports only when the user chooses to create them.</p>
+            <div class="callout">
+              <strong>Public package boundary:</strong> no developer database is used by the public release package, no developer server is required, and no analytics or telemetry endpoint is included.
+            </div>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/extension/store-05-privacy-disclosure.png" alt="A11Y Cat privacy and data disclosure panel explaining local storage and local exports.">
+            <figcaption>The extension exposes privacy and local-data disclosure in the panel instead of hiding storage behaviour.</figcaption>
+          </figure>
+        </div>
 
         <h2>What is stored locally</h2>
-        <ul class="doc-list">
-          <li>Scan analysis results needed for local history and comparison</li>
-          <li>Issue annotations and local workflow state</li>
-          <li>Saved settings and panel geometry</li>
-          <li>Saved scan history and previous-scan comparison state</li>
-          <li>Saved Screen Reader Review state</li>
-          <li>Local benchmark history</li>
-          <li>Saved spelling allowlist entries</li>
-        </ul>
+        <div class="docs-card-grid">
+          <article class="card">
+            <h3>History and comparison</h3>
+            <p>Scan analysis snapshots needed for local history and previous-scan comparison.</p>
+          </article>
+          <article class="card">
+            <h3>Workflow state</h3>
+            <p>Issue annotations, workflow status, local notes, and Screen Reader Review state.</p>
+          </article>
+          <article class="card">
+            <h3>Settings and support data</h3>
+            <p>Saved settings, panel geometry, performance benchmarks, and spelling allowlist entries.</p>
+          </article>
+        </div>
 
         <h2>Current local storage keys</h2>
         <ul class="doc-list">
@@ -53,29 +95,26 @@
           <li>virtual Screen Reader Review logs and QA notes where those exports are used</li>
         </ul>
 
-        <h2>Request behavior and limits</h2>
+        <h2>Request behaviour and limits</h2>
         <ul class="doc-list">
-          <li>The broken-links check can make same-origin <code>HEAD</code> or <code>GET</code> requests to verify linked destinations.</li>
+          <li>The Broken Links review can make same-origin <code>HEAD</code> or <code>GET</code> requests to verify destinations.</li>
           <li>Cross-origin links are not fetched automatically; they remain <code>unverified</code>.</li>
-          <li>Metadata checks can trigger normal image requests for declared preview-image URLs when the page itself would ordinarily request them.</li>
+          <li>Local processing does not mean every restricted or protected page context is fully inspectable.</li>
         </ul>
 
         <h2>How users clear data</h2>
         <ul class="doc-list">
           <li><strong>Scan Results → Privacy and data use → Clear all local extension data</strong></li>
-          <li>Removing the extension also clears extension-managed storage.</li>
+          <li>Removing the extension clears extension-managed storage.</li>
         </ul>
 
-        <h2>Limitations</h2>
-        <ul class="doc-list">
-          <li>Local-only processing does not mean every page can be fully inspected.</li>
-          <li>Restricted pages, protected frames, and unsupported contexts can still limit coverage.</li>
-          <li>Exports are local-only until the user chooses to copy or share them.</li>
-        </ul>
+        <div class="warning">
+          <strong>Export caution:</strong> exports remain local until the user chooses to copy or share them, but they can contain sensitive snippets, selectors, URLs, titles, notes, and diagnostics.
+        </div>
 
         <p><a class="button button--primary" href="../privacy-policy.md">Read the full privacy policy</a></p>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat documentation site</span><span><a href="../privacy-policy.md">Full privacy policy</a></span></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="../privacy-policy.md">Full privacy policy</a></span></div></footer>
   </body>
 </html>
