@@ -301,6 +301,131 @@ How it appears in the UI:
 How it appears in export:
 - in diagnostics summaries and diagnostics finding arrays
 
+## 5A. Technical implementation reference
+
+This section is implementation-backed and maps directly to the current extension runtime.
+
+### 1. How axe-core findings are handled
+
+- axe-core violations are normalized into the issue model with preserved metadata and source attribution.
+- axe results can become confirmed issues or review items depending on classification rules and context.
+- direct provenance is kept through source fields such as rule id, engine, impact, tags, targets, and help URL.
+
+### 2. How confirmed issues are classified
+
+- confirmed issues are issues classified as `deterministic_failure` or `corroborated_failure`.
+- they are treated as confirmed for the tested page state only.
+
+### 3. How incomplete results are handled
+
+- axe `incomplete` results are not promoted into confirmed failures.
+- they are routed into review-oriented categories, typically engine-limited review.
+
+### 4. How manual/review/advisory items differ
+
+- manual/review items require human judgement before being treated as defects.
+- advisory items are guidance or quality signals and are not automatic failures.
+- both are separated from confirmed issue buckets in UI grouping and severity counters.
+
+### 5. How severity counts are calculated
+
+- `Critical`, `Serious`, `Moderate`, and `Minor` are confirmed-only severity totals.
+- review, advisory, and limitation counts are tracked separately and are not merged into confirmed severity counts.
+
+### 6. How previous scan comparison works
+
+- comparison selects the newest previous entry for the same stable scope key.
+- matching scope is `origin + pathname`.
+- query strings and hash fragments are ignored for baseline matching.
+- if no previous same-scope entry exists, comparison remains unavailable or empty.
+
+### 7. How local history is stored
+
+- local history is stored in `chrome.storage.local`.
+- primary keys include:
+  - `a11yCatScanHistoryV1`
+  - `a11yCatScanHistoryArchiveV1`
+- entries include URL, scope key/label, timestamps, issue counts, fingerprints, and comparison deltas.
+
+### 8. How exports work
+
+- exports are explicit user-triggered local actions.
+- export pathways include CSV, JSON evidence bundle, local issue-state bundle, diagnostics JSON, screen reader review exports, and visible local release-summary exports.
+
+### 9. What CSV contains
+
+- CSV is a flattened issue log intended for spreadsheet triage.
+- it includes key fields such as category, severity, source/rule identifiers, WCAG references, selector/target context, and summary text.
+- it does not preserve deep nested evidence structures.
+
+### 10. What JSON contains
+
+- JSON evidence exports preserve richer structured data:
+  - confirmed issues
+  - review items
+  - advisory notes
+  - limitations
+  - diagnostics
+  - source/provenance fields
+- local issue-state JSON preserves workflow state and annotations for local continuity.
+
+### 11. What diagnostics are and are not
+
+- diagnostics are structured runtime and support-boundary signals.
+- diagnostics are not a full browser DevTools log.
+- empty diagnostics does not prove full inspectability.
+- pre-attach events and protected frame details can be incomplete.
+
+### 12. What scan limitations mean
+
+- scan limitations indicate incomplete or blocked coverage.
+- they are explicit non-pass signals and must not be read as “no issues found”.
+
+### 13. How broken links are checked
+
+- same-origin links may be checked with same-origin `HEAD` and fallback `GET`.
+- cross-origin links are not auto-fetched and remain `unverified`.
+- `mailto:`/`tel:` are skipped; fragment links are checked as in-page targets.
+- timeout and restricted states are preserved in output.
+
+### 14. How metadata is checked
+
+- metadata checks evaluate Open Graph and social-preview fields, plus structured data presence and quality.
+- structured data review includes JSON-LD, Microdata, and RDFa detection.
+- invalid JSON-LD parse failures are surfaced explicitly as review findings.
+
+### 15. How spelling works
+
+- spelling uses the local bundled spelling runtime with cspell-based dictionaries.
+- findings are advisory/review-oriented and require editorial judgement.
+- spelling output is not treated as direct WCAG pass/fail proof by itself.
+
+### 16. How unsupported languages are skipped
+
+- unsupported or unknown languages are skipped and reported as skipped-language output.
+- they are not silently treated as supported English checks.
+
+### 17. How local data can be cleared
+
+- users can clear local extension data through the in-panel privacy/data controls.
+- clear-data actions remove saved settings, history, workflow state, review state, and related local artifacts from the browser profile.
+
+### 18. What data may appear in exports
+
+- exports may include URL/title, selectors, snippets, rule/provenance fields, diagnostics, notes, and workflow annotations depending on export type.
+- users should review export payloads before sharing.
+
+### 19. What is not sent to a developer server
+
+- the public package is local-first and does not require a developer server for core review workflows.
+- no developer database or telemetry endpoint is required by the documented public package boundary.
+
+### 20. What remains manual
+
+- manual review remains required for contextual, visual, state-dependent, and incomplete findings.
+- real assistive-technology validation remains manual and separate from virtual review aid output.
+- the extension does not provide standalone compliance sign-off.
+
 ## 6. Feature-by-feature guide
 
 ### Dashboard
