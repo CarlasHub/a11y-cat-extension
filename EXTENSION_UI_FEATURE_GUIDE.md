@@ -2898,6 +2898,48 @@ Real VoiceOver / NVDA / JAWS testing
 
 Text equivalent: virtual screen reader output supports review workflow documentation but is not assistive-technology sign-off evidence.
 
+## 7C. Screenshot and visual asset matrix
+
+This matrix maps major visual assets to the current extension features and docs placement.
+
+| Feature | Screenshot filename | Docs page/section | Alt text | Caption | Verified current build | Sensitive data removed |
+| --- | --- | --- | --- | --- | --- | --- |
+| Extension panel opened | `extension-panel-overview.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | A11Y Cat extension panel opened on a safe demo page inside Chrome. | Extension panel opened on a page. | Yes | Yes |
+| Scan Results overview | `scan-results-confirmed-issues.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | Scan Results overview showing grouped findings, counts, and scan tools. | Scan Results overview with grouped findings and controls. | Yes | Yes |
+| Confirmed Issues | `scan-results-confirmed-issues.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | Confirmed Issues group shown in the Scan Results panel. | Confirmed Issues stay separate from review/advisory/limitations. | Yes | Yes |
+| Severity filters and counts | `severity-filters.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | Severity filters showing Critical, Serious, Moderate, Minor, and Review counts. | Severity filters and count chips in the current panel. | Yes | Yes |
+| Manual / Review items | `manual-review-items.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | Needs review group with manual, incomplete, or uncertain items. | Manual/review items require human judgement. | Yes | Yes |
+| Visual Composition Review | `visual-composition-review.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | Issue card labelled Visual Composition Review inside the review bucket. | Visual Composition Review is review output, not confirmed failure. | Yes | Yes |
+| Scan Limitations | `scan-limitations.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | Panel showing partial results or scan limitations on a restricted fixture. | Limitations show where inspection was incomplete. | Yes | Yes |
+| Previous Scan Comparison | `previous-scan-comparison.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Core panel | Previous Scan Comparison panel comparing current and saved earlier scan. | Baseline comparison for same scope history. | Yes | Yes |
+| Broken Links | `broken-links.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Broken Links results showing broken, timeout, skipped, restricted, and unverified states. | Broken Links keeps verification states explicit. | Yes | Yes |
+| Metadata Check | `metadata-check.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Metadata Check results with grouped findings for core metadata and structured data. | Metadata checks are guidance/review, not automatic failure. | Yes | Yes |
+| Language Mismatch | `language-mismatch.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Language mismatch results with highlight actions for detected review candidates. | Language mismatch candidates still require context review. | Yes | Yes |
+| Spelling Check | `spelling-check.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Spelling check results showing supported and unsupported language handling. | Spelling output is advisory/review-oriented. | Yes | Yes |
+| Page Text Scale / Reflow surface | `page-reflow-or-text-scale.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Page Text Scale controls showing the current scaling percentage. | Current label shown is Page Text Scale. | Yes | Yes |
+| Alt Text Analysis | `alt-text-analysis.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Alt Text Analysis results with quality status rows. | Alt text output remains context-sensitive. | Yes | Yes |
+| Heading Structure | `heading-structure.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Headings module showing analysed heading rows and outline state. | Heading analysis shown as structured review output. | Yes | Yes |
+| Screen Reader Review | `screen-reader-review.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Focused modules | Screen Reader Review section with virtual review guidance and ready state. | Virtual review aid, not real AT sign-off. | Yes | Yes |
+| Diagnostics (collapsed) | `diagnostics-collapsed.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Dashboard advanced tools with Diagnostics summary collapsed. | Diagnostics available before expanding JSON. | Yes | Yes |
+| Diagnostics (expanded) | `diagnostics-expanded.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Diagnostics panel expanded with support JSON visible. | Diagnostics are runtime support data, not compliance proof. | Yes | Yes |
+| CSV export action | `exports-csv-json.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Exports panel showing CSV issue export action. | CSV export creates a flat triage log. | Yes | Yes |
+| JSON evidence export action | `exports-csv-json.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Exports panel showing JSON evidence export action. | JSON export preserves richer evidence context. | Yes | Yes |
+| Local data clearing / privacy panel | `local-data-clearing.png` | `docs/ui-feature-guide.html` and `docs/privacy-local-data.html` | Privacy and local-data disclosure with local-data controls visible. | Privacy/storage controls visible in shipped panel. | Yes | Yes |
+| Theme/settings controls | `theme-settings.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Panel showing theme toggle and dashboard settings controls. | Theme and settings controls in current panel chrome. | Yes | Yes |
+| Highlight element action | `highlight-element.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Issue action row showing the Highlight element button. | Highlight action links issue to page element. | Yes | Yes |
+| Ticket/handoff action | `ticket-dialog.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | More actions panel showing Create handoff draft action. | Visible ticket-style action is Create handoff draft. | Yes | Yes |
+| Panel resize/move controls | `panel-resize-move-controls.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Panel geometry controls showing move and resize buttons. | Keyboard/pointer panel geometry controls. | Yes | Yes |
+| Human Judgement Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Screenshot pending: hard to capture safely as a stable isolated label in current safe fixtures. | Yes (feature verified) | N/A |
+| Engine-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Screenshot pending: runtime-limitation trigger is state-dependent and not consistently reproducible in safe demo capture set. | Yes (feature verified) | N/A |
+| State-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Screenshot pending: state-path examples vary by app flow and are hard to capture safely without private app data. | Yes (feature verified) | N/A |
+| Deterministic Failures | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not separately visible as a standalone panel label; represented within confirmed issue cards. | Yes (feature verified) | N/A |
+| Corroborated Failures | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not separately visible as a standalone panel label; represented within confirmed issue cards. | Yes (feature verified) | N/A |
+| Local issue-state import/export | `—` | `docs/ui-feature-guide.html` export/workflow sections | N/A (no screenshot) | Screenshot pending: import interaction requires file-selection dialog not captured in current safe public set. | Yes (feature verified) | N/A |
+| Diagnostics export/copy controls | `—` | `docs/ui-feature-guide.html` diagnostics export sections | N/A (no screenshot) | Screenshot pending: control-level capture deferred; diagnostics panel screenshots already prove the module surface. | Yes (feature verified) | N/A |
+| Screen Reader Review export controls | `—` | `docs/ui-feature-guide.html` Screen Reader Review export section | N/A (no screenshot) | Screenshot pending: export submenu states not yet isolated in current safe capture set. | Yes (feature verified) | N/A |
+| Performance benchmark export | `—` | `docs/ui-feature-guide.html` performance benchmark section | N/A (no screenshot) | Not visible in current verified public build surface; documented as conditional/if visible. | Yes (bounded status verified) | N/A |
+| Release discussion summary export | `—` | `docs/ui-feature-guide.html` release discussion section | N/A (no screenshot) | Screenshot pending: control exists in runtime path but not included in current public screenshot pack. | Yes (feature verified) | N/A |
+
 ## What A11Y Cat does not prove
 
 A11Y Cat does not prove:
