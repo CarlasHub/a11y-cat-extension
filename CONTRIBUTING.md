@@ -1,12 +1,26 @@
-# Contributing to A11Y Cat public docs
+# Contributing
 
-## Documentation maintenance rule
+## Source-of-truth boundaries
 
-Update the Extension UI feature guide in the same change set whenever UI labels, result categories, counts, exports, storage behavior, scanner taxonomy, or release limitations change.
+- `src/runtime/modules/` is the runtime source of truth.
+- `shared/a11y-cat-core.js` is generated output and must stay current.
+- `dist-extension-test/` is a test-only package and must not be treated as releasable.
+- `release/artifacts/manifest.json` is the canonical packaged-artifact manifest.
 
-The user-facing source of truth is:
+## Required checks
 
-- `docs/ui-feature-guide.html`
-- `EXTENSION_UI_FEATURE_GUIDE.md`
+Before handing off a release-facing implementation:
 
-Do not merge feature/UI changes without matching documentation updates.
+```bash
+npm run check:repo-discipline
+npm run verify:release
+```
+
+Use `npm run check:generated-core` whenever runtime modules change.
+
+## Product scope
+
+The Chrome MV3 extension is the release product.
+
+Legacy bookmarklet material may remain for engineering history or internal comparison, but it must not be treated as Chrome Store release truth.
+

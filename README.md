@@ -1,157 +1,91 @@
-# A11Y Cat
-![A11Y Cat logo](docs/assets/img/icon.png)
+# A11Y Cat documentation site
 
+This directory is the static documentation-site root for GitHub Pages deployment.
 
-Local-first accessibility inspection extension.
+## Why this structure
 
-A11Y Cat is a Chrome MV3 extension for deterministic live-page accessibility inspection, structured review workflows, and local evidence export.
+This repository uses `docs/` as the site root because GitHub Pages can serve directly from the `/docs` folder on the default branch without adding a site build pipeline, framework, deployment action, or static-site generator.
 
-Limitation:
+That is the lowest-friction fit for this repo because:
+- the repository already keeps user-facing extension documentation in `docs/`
+- the existing screenshots and verification assets already live under `docs/assets/`, now normalized under `assets/screenshots/`
+- the site can stay static HTML and CSS only
+- no extra bundler, framework, or remote runtime is needed
 
-A11Y Cat supports accessibility review workflows. It does not replace manual testing or assistive-technology validation.
+Chosen Pages mode:
+- Deploy from branch
+- Branch: `main`
+- Folder: `/docs`
 
-## Documentation
-
-- [Docs landing page](index.html)
-- [Extension UI feature guide](EXTENSION_UI_FEATURE_GUIDE.md)
-- [Docs introduction](docs/intro.html)
-- [FAQ](docs/faq.html)
-- [Installation](docs/installation.html)
-- [Privacy and local data](docs/privacy-local-data.html)
-- [Privacy policy (HTML)](docs/privacy-policy.html)
-- [Known limitations](docs/limitations.html)
-- [Beta testing guide](docs/beta-testing.html)
-- [Release notes and status](docs/changelog.html)
-- [Troubleshooting](docs/troubleshooting.html)
-- [Keyboard shortcuts](docs/keyboard-shortcuts.html)
-- [Accessibility statement](docs/accessibility-statement.html)
-
-## User-facing source of truth
-
-The canonical user-facing reference for the shipped extension UI is:
-
-- `EXTENSION_UI_FEATURE_GUIDE.md`
-
-The public docs page:
-
-- `docs/ui-feature-guide.html`
-
-publishes that canonical guide through a local renderer so the site stays aligned with the source guide.
-
-If the extension UI, scanner taxonomy, result categories, counts, exports, storage behaviour, or release limitations change, update this guide in the same change set.
-
-## Public repository scope
-
-This repository should contain only public-facing files:
-
-- the landing page
-- the documentation pages
-- the extension UI feature guide
-- installation instructions
-- privacy and local data documentation
-- known limitations
-- beta testing guidance
-- release notes or changelog content
-- screenshots or assets required by the public docs
-- license and public README
-
-It should not contain the private development codebase, tests, prompts, internal review artefacts, build pipelines, or secrets.
-
-The only repository-infrastructure exception is the minimal GitHub Pages workflow under `.github/workflows/`, which exists solely to publish the static docs site.
+This is the simplest valid setup for the current site because the docs are already static and do not need a build step.
 
 ## Site structure
 
-```text
-index.html
-EXTENSION_UI_FEATURE_GUIDE.md
-privacy-policy.html
-docs/
-  intro.html
-  faq.html
-  ui-feature-guide.html
-  installation.html
-  privacy-local-data.html
-  privacy-policy.html
-  limitations.html
-  beta-testing.html
-  troubleshooting.html
-  keyboard-shortcuts.html
-  accessibility-statement.html
-  changelog.html
-assets/
-  css/
-    styles.css
-  img/
-    icon.png
-  screenshots/
-    extension-panel-overview.png
-    scan-results-confirmed-issues.png
-    severity-filters.png
-    manual-review-items.png
-    visual-composition-review.png
-    scan-limitations.png
-    previous-scan-comparison.png
-    broken-links.png
-    metadata-check.png
-    language-mismatch.png
-    spelling-check.png
-    page-reflow-or-text-scale.png
-    alt-text-analysis.png
-    heading-structure.png
-    screen-reader-review.png
-    diagnostics-collapsed.png
-    diagnostics-expanded.png
-    exports-csv-json.png
-    local-data-clearing.png
-    theme-settings.png
-    highlight-element.png
-    ticket-dialog.png
-    panel-resize-move-controls.png
-  js/
-    render-markdown.js
-LICENSE
-.nojekyll
-robots.txt
-sitemap.xml
-```
+- `index.html` — landing page
+- `docs/intro.html` — docs introduction page
+- `docs/ui-feature-guide.html` — docs-site entry page for the extension UI guide
+- `docs/installation.html` — installation page
+- `docs/privacy-local-data.html` — privacy and local data page
+- `docs/limitations.html` — known limitations page
+- `docs/beta-testing.html` — beta testing guide page
+- `docs/changelog.html` — release notes and current status page
+- `assets/css/styles.css` — site stylesheet
+- `assets/img/icon.png` — reused extension icon
+- `assets/js/render-markdown.js` — local markdown renderer used by the UI feature guide page
+- `assets/screenshots/` — normalized real extension UI screenshots used across the public docs
 
-## GitHub Pages deployment
+## Public URL placeholder
 
-This repository is prepared for GitHub Pages deployment through GitHub Actions.
-
-Reason:
-
-- it allows deployment to be completed from repository automation instead of depending on a manual branch-folder Pages configuration step
-- it keeps the published artifact restricted to the site files rather than exposing unrelated repository files at the Pages root
-
-Setup:
-
-1. Open `Settings`.
-2. Open `Pages`.
-3. Under `Build and deployment`, choose `GitHub Actions`.
-4. Ensure Actions are allowed for the repository.
-
-Expected public URL after deployment:
+Target public URL after deployment:
 
 `https://carlashub.github.io/a11y-cat-extension/`
 
-Do not claim the site is live until that URL has been deployed and verified.
-
-## Keeping this guide updated
-
-This guide must be updated whenever the extension UI, scanner taxonomy, result categories, exports, storage behaviour, or release limitations change.
-
-Future changes to UI labels, result categories, counts, exports, or storage behaviour must update this guide in the same change set.
+Do not claim this URL is live until GitHub Pages is actually enabled and the published site is verified.
 
 ## How to update the docs
 
-1. Update the relevant HTML page when the public site copy changes.
-2. Update `EXTENSION_UI_FEATURE_GUIDE.md` whenever the extension UI, scanner taxonomy, result categories, counts, exports, storage behaviour, or release limitations change.
-3. Update `privacy-policy.html` and `docs/privacy-local-data.html` together when privacy or local-storage behaviour changes.
-4. Keep the landing page, sidebar navigation, and README links aligned if page names or structure change.
-5. Keep screenshots aligned with the shipped extension UI.
-6. Screenshot standard: capture dark-mode extension UI, optimize dimensions for web delivery, and avoid oversized long images.
-7. For demo flows, record short, redacted walkthrough captures before selecting release screenshots.
-6. Run the documentation checks available in the source repo before publishing updates.
+1. Update the relevant HTML page in this site when the user-facing site copy changes.
+2. Update `EXTENSION_UI_FEATURE_GUIDE.md` when the extension UI, scanner taxonomy, result categories, exports, storage behaviour, or release limitations change.
+3. Keep screenshots and image assets under `assets/screenshots/` aligned with the shipped UI.
+4. Capture extension screenshots in dark theme only, from the current shipped/beta build, using safe fixture pages.
+5. Keep screenshot dimensions and file sizes reasonable for docs performance (optimize before commit; avoid oversized captures).
+6. When a static screenshot cannot explain a workflow clearly (for example multi-step triage flows), record a short local demo clip and reference it in the relevant docs page.
+7. Update README links if the site structure changes.
+8. Run the repository docs check before publishing:
 
-This repository is documentation-first. Do not add internal development files here.
+```bash
+npm run check:docs
+```
+
+If a change affects user-facing behaviour, do not leave the site or guide stale in a follow-up commit. Update them in the same change set.
+
+## GitHub Pages deployment steps
+
+1. Open the repository on GitHub.
+2. Go to `Settings`.
+3. Go to `Pages`.
+4. Under `Build and deployment`, choose `Deploy from a branch`.
+5. Select the `main` branch.
+6. Select the `/docs` folder.
+7. Save the configuration.
+
+After GitHub Pages publishes successfully, the expected public URL is:
+
+`https://carlashub.github.io/a11y-cat-extension/`
+
+Do not state that the site is live until that URL is actually reachable and checked.
+
+## Canonical detailed content
+
+The site pages are a static documentation layer.
+
+The canonical detailed user-facing feature reference remains:
+- `EXTENSION_UI_FEATURE_GUIDE.md`
+- `ENTERPRISE_READINESS_GAP.md` (includes the free-integration roadmap and capability-gap plan)
+
+The site page:
+- `docs/ui-feature-guide.html`
+
+imports the canonical UI guide content from that markdown file through a local renderer so the public site can stay aligned without duplicating the guide text manually.
+
+If the extension UI, taxonomy, result categories, exports, storage behaviour, or release limitations change, the canonical guide and the relevant site pages must be updated in the same change set.
