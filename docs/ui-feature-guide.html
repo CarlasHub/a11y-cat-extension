@@ -443,6 +443,200 @@
           </ul>
         </section>
 
+        <section class="section-panel" aria-labelledby="required-matrices-heading">
+          <h2 id="required-matrices-heading">Required reference matrices</h2>
+
+          <h3>1. Feature coverage matrix</h3>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Feature coverage by source, classification, and evidence surface</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Feature</th>
+                  <th scope="col">Source</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">WCAG mapping</th>
+                  <th scope="col">Exported</th>
+                  <th scope="col">Stored locally</th>
+                  <th scope="col">Screenshot</th>
+                  <th scope="col">Limitation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Scan Results</th><td>axe-core + custom logic + classifiers</td><td>Mixed container</td><td>Per finding only</td><td>Yes</td><td>Yes (workflow/history)</td><td><code>scan-results-confirmed-issues.png</code></td><td>Current-state only</td></tr>
+                <tr><th scope="row">Confirmed Issues</th><td>Deterministic + corroborated findings</td><td>Confirmed</td><td>Yes where mapped</td><td>Yes</td><td>Indirectly</td><td><code>scan-results-confirmed-issues.png</code></td><td>Not full-page compliance proof</td></tr>
+                <tr><th scope="row">Manual / Incomplete / Review</th><td>axe incomplete + review modules</td><td>Review</td><td>Depends on manual review</td><td>Yes</td><td>Yes (state/notes)</td><td><code>manual-review-items.png</code></td><td>Not auto-fail</td></tr>
+                <tr><th scope="row">Advisory Notes</th><td>Language/spelling/metadata advisory logic</td><td>Advisory</td><td>Usually indirect</td><td>Yes</td><td>Indirectly</td><td>No isolated advisory-only panel</td><td>Guidance only</td></tr>
+                <tr><th scope="row">Scan Limitations</th><td>Diagnostics/runtime limitation capture</td><td>Limitation</td><td>No</td><td>Yes</td><td>Yes</td><td><code>scan-limitations.png</code></td><td>Coverage gaps remain</td></tr>
+                <tr><th scope="row">Severity filters</th><td>Confirmed severity mapping</td><td>Confirmed triage</td><td>Per finding</td><td>Indirectly</td><td>UI state only</td><td><code>severity-filters.png</code></td><td>Review/advisory counted separately</td></tr>
+                <tr><th scope="row">Previous Scan Comparison</th><td>Local history scope matcher</td><td>Workflow diagnostic</td><td>No</td><td>Indirectly</td><td>Yes</td><td><code>previous-scan-comparison.png</code></td><td>Scope is origin+pathname</td></tr>
+                <tr><th scope="row">Diagnostics</th><td>Runtime signal collection</td><td>Diagnostic</td><td>No</td><td>Yes</td><td>Yes</td><td><code>diagnostics-expanded.png</code></td><td>Not full DevTools log</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>2. Result classification matrix</h3>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Classification confidence and follow-up action</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">Meaning</th>
+                  <th scope="col">Confirmed failure?</th>
+                  <th scope="col">Requires human review?</th>
+                  <th scope="col">Appears in UI</th>
+                  <th scope="col">Appears in export</th>
+                  <th scope="col">User action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Confirmed Issues</th><td>Deterministic or corroborated findings in tested state</td><td>Yes</td><td>Recheck in context</td><td>Yes</td><td>Yes</td><td>Fix and rescan</td></tr>
+                <tr><th scope="row">Manual / Incomplete / Review Items</th><td>Uncertain or context-dependent findings</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Manually validate first</td></tr>
+                <tr><th scope="row">Visual Composition Review</th><td>Visual-judgement candidate</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Inspect visual relationship</td></tr>
+                <tr><th scope="row">Human Judgement Review</th><td>Needs human interpretation</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Assess semantics/clarity in context</td></tr>
+                <tr><th scope="row">Engine-limited Review</th><td>Engine/runtime could not conclude</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Use diagnostics and manual checks</td></tr>
+                <tr><th scope="row">State-limited Review</th><td>Only current UI state analyzed</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Test additional states manually</td></tr>
+                <tr><th scope="row">Advisory Notes</th><td>Quality guidance signal</td><td>No</td><td>Usually</td><td>Yes</td><td>Yes</td><td>Treat as guidance</td></tr>
+                <tr><th scope="row">Scan Limitations</th><td>Coverage boundary signal</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Do manual follow-up coverage</td></tr>
+                <tr><th scope="row">Diagnostics</th><td>Structured runtime support data</td><td>No</td><td>For interpretation</td><td>Yes</td><td>Yes</td><td>Troubleshoot runtime boundaries</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>3. Severity matrix</h3>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Severity source and triage behavior</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Severity</th>
+                  <th scope="col">Source value</th>
+                  <th scope="col">Meaning</th>
+                  <th scope="col">Count source</th>
+                  <th scope="col">User priority</th>
+                  <th scope="col">Example action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Critical</th><td>axe impact critical or equivalent deterministic severity</td><td>Highest-priority confirmed issue</td><td>Confirmed-only</td><td>Immediate</td><td>Patch now and rerun</td></tr>
+                <tr><th scope="row">Serious</th><td>axe impact serious</td><td>High-priority confirmed issue</td><td>Confirmed-only</td><td>High</td><td>Fix in current cycle</td></tr>
+                <tr><th scope="row">Moderate</th><td>axe impact moderate</td><td>Medium-priority confirmed issue</td><td>Confirmed-only</td><td>Medium</td><td>Plan sprint remediation</td></tr>
+                <tr><th scope="row">Minor</th><td>axe impact minor</td><td>Lower-priority confirmed issue</td><td>Confirmed-only</td><td>Lower</td><td>Batch cleanup improvements</td></tr>
+                <tr><th scope="row">Review / Incomplete</th><td>axe incomplete or uncertain custom finding</td><td>Needs manual verification</td><td>Separate review counter</td><td>Investigate</td><td>Validate in context before ticketing</td></tr>
+                <tr><th scope="row">Advisory</th><td>Advisory modules</td><td>Guidance-only quality signal</td><td>Separate advisory counter</td><td>Optional quality</td><td>Apply if useful to standards</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>4. Scanner source matrix</h3>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Source capability and constraint boundaries</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Source</th>
+                  <th scope="col">What it can prove</th>
+                  <th scope="col">What it cannot prove</th>
+                  <th scope="col">UI destination</th>
+                  <th scope="col">Export destination</th>
+                  <th scope="col">Limitation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">axe-core</th><td>Deterministic violations in current state</td><td>All hidden/auth flows</td><td>Confirmed + review buckets</td><td>CSV/JSON evidence</td><td>State-dependent coverage</td></tr>
+                <tr><th scope="row">A11Y Cat custom logic</th><td>Deterministic/corroborated custom findings</td><td>Subjective visual meaning certainty</td><td>Confirmed/review/advisory</td><td>CSV/JSON evidence</td><td>Some heuristics require manual review</td></tr>
+                <tr><th scope="row">Manual review generation</th><td>What needs human judgement</td><td>Automatic pass/fail</td><td>Needs Review groups</td><td>Review arrays</td><td>Human effort required</td></tr>
+                <tr><th scope="row">Diagnostics/runtime signals</th><td>Runtime limitations and support context</td><td>Accessibility conformance verdict</td><td>Diagnostics/limitations</td><td>Diagnostics export/copy</td><td>May be incomplete pre-attach</td></tr>
+                <tr><th scope="row">Local history/comparison</th><td>Same-scope delta tracking</td><td>Unrelated-page baseline meaning</td><td>Previous Scan Comparison</td><td>State/history outputs</td><td>Scope matching constraints</td></tr>
+                <tr><th scope="row">User workflow state</th><td>Local triage and annotation continuity</td><td>Objective accessibility truth</td><td>Issue workflow controls</td><td>Local issue-state bundle</td><td>May contain sensitive notes</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>5. Export matrix</h3>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Export format and sensitivity profile</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Export type</th>
+                  <th scope="col">Format</th>
+                  <th scope="col">Contains</th>
+                  <th scope="col">Does not contain</th>
+                  <th scope="col">Sensitive content risk</th>
+                  <th scope="col">Local-only</th>
+                  <th scope="col">Intended use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">CSV issue log</th><td>CSV</td><td>Flattened issue rows and taxonomy</td><td>Full nested evidence structure</td><td>Selectors/snippets/URL/title may appear</td><td>Yes until user shares</td><td>Triage spreadsheets</td></tr>
+                <tr><th scope="row">JSON evidence bundle</th><td>JSON</td><td>Structured findings, provenance, diagnostics links</td><td>Compliance guarantee</td><td>URL/title/selectors/snippets/notes may appear</td><td>Yes until user shares</td><td>Engineering QA debugging</td></tr>
+                <tr><th scope="row">Local issue-state bundle</th><td>JSON</td><td>Status, notes, local workflow state</td><td>Objective severity truth</td><td>May contain sensitive notes/context</td><td>Yes until user shares</td><td>Triage handoff continuity</td></tr>
+                <tr><th scope="row">Support diagnostics</th><td>JSON/text copy</td><td>Runtime limitation/support signals</td><td>Full browser trace</td><td>Runtime/page context may appear</td><td>Yes until user shares</td><td>Troubleshooting</td></tr>
+                <tr><th scope="row">Screen Reader Review export</th><td>Structured export (if visible)</td><td>Virtual SR tasks/notes/logs</td><td>Real AT evidence</td><td>Context and notes may appear</td><td>Yes until user shares</td><td>Manual review handoff</td></tr>
+                <tr><th scope="row">Performance benchmark export (if visible)</th><td>Structured export</td><td>Local benchmark metrics</td><td>Accessibility verdicts</td><td>Runtime context may appear</td><td>Yes until user shares</td><td>Performance troubleshooting</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>6. Local data matrix</h3>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Local storage keys and privacy behavior</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Data area</th>
+                  <th scope="col">Storage key</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">May include page data</th>
+                  <th scope="col">User can clear</th>
+                  <th scope="col">Exportable</th>
+                  <th scope="col">Privacy note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">settings</th><td><code>a11yCatExtSettingsV1</code></td><td>Theme/settings/preferences</td><td>Indirectly</td><td>Yes</td><td>Indirect</td><td>Local browser profile only</td></tr>
+                <tr><th scope="row">scan history</th><td><code>a11yCatScanHistoryV1</code></td><td>Recent scan snapshots</td><td>Yes</td><td>Yes</td><td>Indirect</td><td>Supports same-scope comparison</td></tr>
+                <tr><th scope="row">scan history archive</th><td><code>a11yCatScanHistoryArchiveV1</code></td><td>Overflow history retention</td><td>Yes</td><td>Yes</td><td>Indirect</td><td>Local historical context</td></tr>
+                <tr><th scope="row">workflow state</th><td><code>a11yCatWorkflowStateV1</code></td><td>Issue status/notes/preferences</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Can include sensitive local notes</td></tr>
+                <tr><th scope="row">virtual SR review state</th><td><code>a11yCatVirtualSrReviewStateV1</code></td><td>Virtual review tasks/notes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Virtual aid only, not AT proof</td></tr>
+                <tr><th scope="row">virtual SR sessions</th><td>Session-scoped virtual SR state</td><td>Session continuity markers</td><td>Potentially</td><td>Session clear/reset</td><td>Not primary</td><td>Session-lifetime context</td></tr>
+                <tr><th scope="row">performance benchmarks</th><td><code>a11yCatPerfBenchmarksV1</code></td><td>Local performance trend data</td><td>Possibly</td><td>Yes</td><td>If visible</td><td>Local diagnostics only</td></tr>
+                <tr><th scope="row">spelling allowlist</th><td><code>a11yCatSpellingAllowlistV1</code></td><td>User-approved spelling terms</td><td>Potentially</td><td>Yes</td><td>Indirect</td><td>Local editorial preference</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>7. Beta readiness matrix</h3>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Beta readiness and release boundary status</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Area</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Required for private beta</th>
+                  <th scope="col">Required for public release</th>
+                  <th scope="col">Current limitation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Automated gate</th><td>Partial</td><td>Yes</td><td>Yes</td><td>Release gate evidence still pipeline-dependent</td></tr>
+                <tr><th scope="row">Scanner trust</th><td>Partial</td><td>Yes</td><td>Yes</td><td>State/context boundaries still apply</td></tr>
+                <tr><th scope="row">Package audit</th><td>Partial</td><td>Yes</td><td>Yes</td><td>Must be rerun per candidate package</td></tr>
+                <tr><th scope="row">Local data/privacy</th><td>Partial</td><td>Yes</td><td>Yes</td><td>User export handling still required</td></tr>
+                <tr><th scope="row">Documentation</th><td>In progress</td><td>Yes</td><td>Yes</td><td>Must update in same change set with UI changes</td></tr>
+                <tr><th scope="row">Manual VoiceOver</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
+                <tr><th scope="row">Manual NVDA</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
+                <tr><th scope="row">Manual JAWS</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
+                <tr><th scope="row">file:// behaviour</th><td>Partial support</td><td>Yes</td><td>Yes</td><td>Permission and runtime constraints remain</td></tr>
+                <tr><th scope="row">Windows packaged runtime</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>Cross-platform package evidence still required</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <nav class="docs-pager" aria-label="Page navigation">
           <a class="button button--ghost" href="understanding-results.html" rel="prev">Previous: Understanding results</a>
           <a class="button button--secondary" href="privacy-local-data.html" rel="next">Next: Privacy and local data</a>
