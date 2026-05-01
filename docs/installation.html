@@ -27,9 +27,10 @@
         </a>
         <nav class="header-nav" aria-label="Main navigation">
           <a href="intro.html">Docs</a>
-          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="ui-feature-guide.html">UI feature guide</a>
           <a href="installation.html">Installation</a>
           <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
         <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
@@ -164,11 +165,26 @@
           </figure>
         </div>
 
-        <h2>Get the beta package (non-developer path)</h2>
+        <h2>Recommended: Private beta install</h2>
+        <p>Private beta packages are distributed to approved testers only. If you are part of the beta, use the package link or direct package handoff provided by the maintainer.</p>
+        <table class="matrix-table">
+          <caption>Current beta distribution channels</caption>
+          <thead>
+            <tr><th scope="col">Channel</th><th scope="col">Status</th><th scope="col">How access works</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Chrome Web Store private listing</th><td>Not used in this release</td><td>No private store listing is currently documented for v1.0.0-beta.</td></tr>
+            <tr><th scope="row">GitHub Releases ZIP</th><td>Primary beta channel</td><td>Approved testers download the signed beta package from <a href="https://github.com/CarlasHub/a11y-cat-extension/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a>.</td></tr>
+            <tr><th scope="row">Direct approved beta package</th><td>Fallback channel</td><td>If the release asset is unavailable, request the approved package from the maintainer through <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>.</td></tr>
+          </tbody>
+        </table>
+        <p>Current beta package identity: <code>a11y-cat-mv3-v1.0.0.zip</code> (extension version <code>1.0.0</code>).</p>
         <ol>
-          <li>Open the public Releases page: <a href="https://github.com/CarlasHub/a11y-cat-extension/releases" target="_blank" rel="noopener noreferrer">github.com/CarlasHub/a11y-cat-extension/releases</a>.</li>
-          <li>Download the latest beta ZIP asset published for the release.</li>
-          <li>Unzip locally and load the unpacked folder from <code>chrome://extensions</code>.</li>
+          <li>Confirm you are an approved beta tester.</li>
+          <li>Open <a href="https://github.com/CarlasHub/a11y-cat-extension/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> and download <code>a11y-cat-mv3-v1.0.0.zip</code>.</li>
+          <li>If that file is not available, stop and request the approved beta package from the maintainer; do not switch to a developer source build as a substitute beta package.</li>
+          <li>Unzip the package locally.</li>
+          <li>Open <code>chrome://extensions</code>, enable <strong>Developer mode</strong>, click <strong>Load unpacked</strong>, and select the unzipped package folder.</li>
         </ol>
 
         <h2>Minimum requirements</h2>
@@ -185,35 +201,15 @@
           </tbody>
         </table>
 
-        <h2>Build the extension locally (developer path)</h2>
-        <pre><code>npm install
-npm run build:extension
-npm run check:extension</code></pre>
-
-        <h2>Load the unpacked extension</h2>
+        <h2>Verify the installed version</h2>
         <ol>
-          <li>Open <code>chrome://extensions</code>.</li>
-          <li>Enable <strong>Developer mode</strong>.</li>
-          <li>Select <strong>Load unpacked</strong>.</li>
-          <li>Choose the built <code>dist-extension/</code> directory.</li>
-          <li>Pin the extension from the toolbar if you need repeated access during testing.</li>
+          <li>In <code>chrome://extensions</code>, open the A11Y Cat extension card and confirm <strong>Version 1.0.0</strong> is displayed.</li>
+          <li>Confirm the installed package filename is <code>a11y-cat-mv3-v1.0.0.zip</code>.</li>
+          <li>Check the included package metadata file (<code>a11y-cat-mv3-v1.0.0.zip.metadata.json</code>) for the exact build commit when you need build-level traceability.</li>
         </ol>
+        <p>Report installation issues through <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> with extension version, browser version, operating system, and the failing step.</p>
 
-        <h2>Browser compatibility</h2>
-        <table class="matrix-table">
-          <caption>Current browser support status</caption>
-          <thead>
-            <tr><th scope="col">Browser</th><th scope="col">Minimum version</th><th scope="col">Status</th><th scope="col">Notes</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Chrome (desktop)</th><td>126+</td><td>Supported in private beta</td><td>Primary target runtime for this release.</td></tr>
-            <tr><th scope="row">Edge (Chromium)</th><td>126+ equivalent</td><td>Limited beta validation</td><td>Manual sideload expected; not fully qualified for public release.</td></tr>
-            <tr><th scope="row">Firefox</th><td>N/A</td><td>Not available in this release</td><td>No packaged Firefox build in this public repo.</td></tr>
-            <tr><th scope="row">Safari</th><td>N/A</td><td>Not available in this release</td><td>No Safari extension package in this release scope.</td></tr>
-          </tbody>
-        </table>
-
-        <h2>What the release build requests</h2>
+        <h2>What permissions you will see</h2>
         <div class="docs-card-grid">
           <article class="card">
             <h3><code>activeTab</code></h3>
@@ -233,7 +229,18 @@ npm run check:extension</code></pre>
           The public release build does <strong>not</strong> declare broad <code>host_permissions</code>, hosted-service permissions, analytics permissions, or remote code execution permissions.
         </div>
 
-        <h2>Verify the local install</h2>
+        <h2>Developer build from source</h2>
+        <p><strong>Developer build only.</strong> This path is for contributors and internal diagnostics, not for standard beta tester rollout.</p>
+        <pre><code>npm install
+npm run build:extension
+npm run check:extension</code></pre>
+        <ol>
+          <li>Open <code>chrome://extensions</code>.</li>
+          <li>Enable <strong>Developer mode</strong>.</li>
+          <li>Select <strong>Load unpacked</strong>.</li>
+          <li>Choose the built <code>dist-extension/</code> directory.</li>
+        </ol>
+        <p>Developer verification commands:</p>
         <pre><code>npm run build:extension:test
 npm run check:extension:test
 npm run test:extension:smoke</code></pre>
@@ -242,6 +249,20 @@ npm run test:extension:smoke</code></pre>
           <li><code>npm run check:extension:test</code>: runs extension package checks for test configuration; passing output reports no gate failures.</li>
           <li><code>npm run test:extension:smoke</code>: runs smoke tests for extension startup and core routes; passing output reports all smoke checks passing.</li>
         </ul>
+
+        <h2>Supported browsers</h2>
+        <table class="matrix-table">
+          <caption>Current browser support status</caption>
+          <thead>
+            <tr><th scope="col">Browser</th><th scope="col">Minimum version</th><th scope="col">Status</th><th scope="col">Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Chrome (desktop)</th><td>126+</td><td>Supported in private beta</td><td>Primary target runtime for this release.</td></tr>
+            <tr><th scope="row">Edge (Chromium)</th><td>126+ equivalent</td><td>Limited beta validation</td><td>Manual sideload expected; not fully qualified for public release.</td></tr>
+            <tr><th scope="row">Firefox</th><td>N/A</td><td>Not available in this release</td><td>No packaged Firefox build in this public repo.</td></tr>
+            <tr><th scope="row">Safari</th><td>N/A</td><td>Not available in this release</td><td>No Safari extension package in this release scope.</td></tr>
+          </tbody>
+        </table>
 
         <h2>Extensions page screenshot</h2>
         <figure class="media-card media-card--compact">
@@ -256,13 +277,20 @@ npm run test:extension:smoke</code></pre>
           <li>Scan, filters, exports, and local data controls are visible.</li>
         </ul>
 
-        <h2>If the extension does not load</h2>
+        <h2>Troubleshooting installation</h2>
         <ul class="doc-list">
           <li>If the extension does not appear in <code>chrome://extensions</code>, reload the unpacked folder and verify Developer mode is enabled.</li>
           <li>If the panel opens but scan actions are unavailable, refresh the target page and retry from a supported <code>https://</code> page context.</li>
           <li>If a build folder is rejected, rerun build commands and confirm the selected directory contains the generated extension manifest.</li>
         </ul>
-        <p>For deeper runtime issues, open <a href="troubleshooting.html">Troubleshooting</a>.</p>
+        <p>For deeper runtime issues, open <a href="troubleshooting.html">Troubleshooting</a> and include extension version, browser version, and OS in the report.</p>
+
+        <h2>Known install limitations</h2>
+        <ul class="doc-list">
+          <li>Private beta distribution is controlled; testers without approved access cannot install from a public store listing in this release.</li>
+          <li>Restricted pages such as <code>chrome://</code> and other protected browser contexts do not support panel injection.</li>
+          <li>The extension package is Chromium-focused in this release; Firefox and Safari packages are not shipped here.</li>
+        </ul>
         <nav class="docs-pager" aria-label="Page navigation">
           <a class="button button--ghost" href="intro.html" rel="prev">Previous: Introduction</a>
           <a class="button button--secondary" href="understanding-results.html" rel="next">Next: Understanding results</a>
@@ -271,8 +299,8 @@ npm run test:extension:smoke</code></pre>
     </div>
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>Maintained by Carla Gonçalves · A11Y Cat Extension Beta · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues (opens in a new tab)">Support and beta feedback: GitHub Issues</a></span>
-        <span><a href="../index.html">Home</a> · <a href="../docs/intro.html">Docs</a> · <a href="../docs/privacy-local-data.html">Privacy</a> · <a href="../docs/limitations.html">Known Limitations</a> · <a href="../docs/changelog.html">Changelog</a> · <a href="../docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
       </div>
     </footer>
   </body>
