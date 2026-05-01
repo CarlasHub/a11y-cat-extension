@@ -272,6 +272,21 @@ pre code {
   background: rgba(33, 43, 54, 0.6);
 }
 
+.doc-version-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.28rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(47, 129, 247, 0.42);
+  background: rgba(47, 129, 247, 0.18);
+  color: #cfe6ff;
+  font-size: var(--type-xs);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .landing-shell {
   padding-bottom: var(--space-6);
 }

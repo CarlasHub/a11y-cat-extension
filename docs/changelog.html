@@ -32,6 +32,7 @@
           <a href="privacy-local-data.html">Privacy</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
+        <span class="doc-version-chip" aria-label="Documentation version">Docs v0.9.1-beta</span>
       </div>
     </header>
     <div class="docs-layout">
@@ -129,6 +130,7 @@
           </ul>
         </details>
       </li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
       <li class="sidebar-group sidebar-group--disclosure">
         <a href="beta-testing.html">Beta Testing</a>
         <details class="sidebar-details">
@@ -141,7 +143,6 @@
           </ul>
         </details>
       </li>
-      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
       <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
       <li class="sidebar-group is-current"><a href="changelog.html" aria-current="page">Changelog</a></li>
       <li class="sidebar-group"><a href="privacy-policy.html">Privacy Policy</a></li>
@@ -154,7 +155,7 @@
           <div>
             <div class="eyebrow">Release status</div>
             <h1 class="page-title">Release notes and current status</h1>
-            <p class="page-summary">This public repository does not yet publish a separate product changelog stream. This page records the current public documentation milestone and the current release boundary.</p>
+            <p class="page-summary">Versioned release notes for the public documentation surface and current beta release boundary.</p>
           </div>
           <figure class="media-card">
             <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="A11Y Cat scan results interface used as the primary extension product surface in the public documentation.">
@@ -163,17 +164,57 @@
         </div>
 
         <h2>Changelog</h2>
-        <table class="matrix-table">
-          <caption>Published documentation and release notes</caption>
-          <thead>
-            <tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Summary</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">v0.9.1-beta</th><td>2026-05-01</td><td>Documentation and UX baseline</td><td>Added full feature guide taxonomy, matrices/diagrams, nested feature sidebar, troubleshooting and keyboard-shortcuts pages, privacy policy HTML, and deployment hardening.</td></tr>
-            <tr><th scope="row">v0.9.0-beta</th><td>2026-04-30</td><td>Public docs launch</td><td>Published initial GitHub Pages docs site with landing, installation, limitations, privacy/local data, and beta testing pages.</td></tr>
-            <tr><th scope="row">v0.8.4-beta</th><td>2026-04-28</td><td>Scanner taxonomy revision</td><td>Separated confirmed issues, review items, advisory notes, and scan limitation outputs in user-facing docs.</td></tr>
-          </tbody>
-        </table>
+
+        <h3>v0.9.1-beta — 2026-05-01</h3>
+        <h4>Added</h4>
+        <ul class="doc-list">
+          <li>FAQ, troubleshooting, keyboard shortcuts, and accessibility statement pages.</li>
+          <li>Rendered HTML privacy policy and dedicated privacy/local-data guidance.</li>
+          <li>Feature coverage, result classification, source, export, and local-data matrices in the UI feature guide.</li>
+        </ul>
+        <h4>Changed</h4>
+        <ul class="doc-list">
+          <li>Standardized top navigation, footer identity, version metadata, and documentation sidebar behavior.</li>
+          <li>Clarified confirmed vs review vs advisory taxonomy and WCAG/AT boundaries.</li>
+          <li>Updated installation flow with non-developer beta package path and browser compatibility table.</li>
+        </ul>
+        <h4>Fixed</h4>
+        <ul class="doc-list">
+          <li>Removed internal-draft wording and unresolved placeholder notes from public pages.</li>
+          <li>Resolved circular changelog pager navigation.</li>
+          <li>Corrected privacy-policy links to rendered HTML targets.</li>
+        </ul>
+        <h4>Known issues</h4>
+        <ul class="doc-list">
+          <li>Private beta evidence does not include complete real-AT sign-off for VoiceOver, NVDA, and JAWS across all representative flows.</li>
+          <li>Some context-dependent UI controls are documented without isolated screenshots when no safe standalone capture exists.</li>
+        </ul>
+        <h4>Status</h4>
+        <ul class="doc-list">
+          <li>Private beta. Not for public production use.</li>
+        </ul>
+
+        <h3>v0.9.0-beta — 2026-04-30</h3>
+        <h4>Added</h4>
+        <ul class="doc-list">
+          <li>Initial GitHub Pages documentation site with landing, intro, UI guide, installation, privacy/local data, limitations, beta testing, and changelog pages.</li>
+        </ul>
+        <h4>Changed</h4>
+        <ul class="doc-list">
+          <li>Shifted public-facing documentation from legacy release notes to extension-first docs pages.</li>
+        </ul>
+        <h4>Fixed</h4>
+        <ul class="doc-list">
+          <li>Aligned user-facing messaging away from bookmarklet-era wording.</li>
+        </ul>
+        <h4>Known issues</h4>
+        <ul class="doc-list">
+          <li>Feature taxonomy and export/storage guidance required further hardening for private beta sharing.</li>
+        </ul>
+        <h4>Status</h4>
+        <ul class="doc-list">
+          <li>Private beta. Not for public production use.</li>
+        </ul>
 
         <h2>Current release boundary</h2>
         <ul class="doc-list">
