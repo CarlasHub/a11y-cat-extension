@@ -2787,11 +2787,11 @@ Table caption: Beta readiness status matrix for current private-beta and public-
 | Package audit | Partial | Yes | Yes | Must be rerun per candidate package; not implied by docs alone |
 | Local data/privacy | Partial | Yes | Yes | Local-first boundary documented; users must still handle export sensitivity |
 | Documentation | In progress | Yes | Yes | Must be updated in same change set for UI/taxonomy/export/storage changes |
-| Manual VoiceOver | Pending evidence | Recommended | Yes | Extension cannot provide real VoiceOver sign-off itself |
-| Manual NVDA | Pending evidence | Recommended | Yes | Extension cannot provide real NVDA sign-off itself |
-| Manual JAWS | Pending evidence | Recommended | Yes | Extension cannot provide real JAWS sign-off itself |
+| Manual VoiceOver | Required before public release | Required for public release | Yes | Extension cannot provide real VoiceOver sign-off itself |
+| Manual NVDA | Required before public release | Required for public release | Yes | Extension cannot provide real NVDA sign-off itself |
+| Manual JAWS | Required before public release | Required for public release | Yes | Extension cannot provide real JAWS sign-off itself |
 | `file://` behaviour | Partial support | Yes | Yes | Requires explicit file-URL permission and may still be limited |
-| Windows packaged runtime | Pending evidence | Recommended | Yes | Cross-platform runtime evidence still required per release candidate |
+| Windows packaged runtime | Required before public release | Required for public release | Yes | Cross-platform runtime evidence still required per release candidate |
 
 ## 7B. Diagrams
 
