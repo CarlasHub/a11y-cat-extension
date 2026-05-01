@@ -30,16 +30,90 @@
     <div class="docs-layout">
       <aside class="docs-sidebar">
         <h2>Documentation</h2>
-                <nav class="sidebar-nav" aria-label="Documentation pages">
+                        <nav class="sidebar-nav" aria-label="Documentation pages">
           <ul>
-            <li><a href="intro.html">Introduction</a></li>
-            <li><a href="installation.html">Installation</a></li>
-            <li><a href="understanding-results.html">Understanding results</a></li>
-            <li><a href="ui-feature-guide.html">UI feature guide</a></li>
-            <li><a href="privacy-local-data.html" aria-current="page">Privacy and local data</a></li>
-            <li><a href="limitations.html">Known limitations</a></li>
-            <li><a href="beta-testing.html">Beta testing</a></li>
-            <li><a href="changelog.html">Changelog/status</a></li>
+            <li class="sidebar-group"><a href="intro.html">Introduction</a>            </li>
+            <li class="sidebar-group"><a href="installation.html">Installation</a>            </li>
+            <li class="sidebar-group"><a href="understanding-results.html">Understanding Results</a>
+              <ul class="sidebar-sublist">
+                <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
+                <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
+                <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
+                <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
+                <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="ui-feature-guide.html">Extension UI Feature Guide</a>
+              <ul class="sidebar-sublist">
+                <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
+                <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
+                <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
+                <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
+                <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
+                <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
+                <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
+                <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
+                <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
+                <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
+                <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
+                <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
+                <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
+                <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
+                <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
+                <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
+                <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
+                <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
+                <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
+                <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
+                <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
+                <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
+                <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#exports">Exports</a></li>
+                <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
+                <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
+                <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
+                <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
+                <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
+                <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
+                <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
+                <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
+                <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
+                <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
+                <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group is-current"><a href="privacy-local-data.html" aria-current="page">Privacy and Local Data</a>
+              <ul class="sidebar-sublist">
+                <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
+                <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
+                <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
+                <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="limitations.html">Known Limitations</a>
+              <ul class="sidebar-sublist">
+                <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
+                <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
+                <li><a href="limitations.html#file-access">File Access</a></li>
+                <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
+                <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
+                <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a>
+              <ul class="sidebar-sublist">
+                <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
+                <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
+                <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
+                <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a>            </li>
           </ul>
         </nav>
       </aside>
@@ -59,7 +133,11 @@
           </figure>
         </div>
 
-        <h2>What is stored locally</h2>
+        <h2 id="local-processing">Local Processing</h2>
+        <p>Scans run in the local browser runtime and results are processed in the extension context on-device.</p>
+
+        <h2 id="storage-keys">Storage Keys</h2>
+        <p>These are the local keys used by the extension for settings, history, workflow state, and diagnostics support.</p>
         <div class="docs-card-grid">
           <article class="card">
             <h3>History and comparison</h3>
@@ -75,7 +153,7 @@
           </article>
         </div>
 
-        <h2>Current local storage keys</h2>
+        <h3>Current local storage keys</h3>
         <ul class="doc-list">
           <li><code>a11yCatExtSettingsV1</code></li>
           <li><code>a11yCatScanHistoryV1</code></li>
@@ -92,33 +170,38 @@
           <svg role="img" aria-labelledby="privacy-flow-title privacy-flow-desc" viewBox="0 0 1040 252" class="doc-diagram">
             <title id="privacy-flow-title">Local storage and export flow</title>
             <desc id="privacy-flow-desc">The diagram shows page content inspected in browser runtime, then local extension storage, then optional user export/share actions, with no developer server path in the public package.</desc>
-            <rect x="18" y="94" width="220" height="58" rx="8"></rect>
-            <text x="128" y="127" text-anchor="middle">Page content in browser</text>
+            <defs>
+              <marker id="privacy-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#90a4c0"></path>
+              </marker>
+            </defs>
+            <rect class="diagram-node diagram-node--process" x="18" y="94" width="220" height="58" rx="10"></rect>
+            <text x="128" y="127" text-anchor="middle">Page content</text>
 
-            <rect x="282" y="94" width="230" height="58" rx="8"></rect>
-            <text x="397" y="127" text-anchor="middle">Extension runtime analysis</text>
+            <rect class="diagram-node diagram-node--process" x="282" y="94" width="230" height="58" rx="10"></rect>
+            <text x="397" y="127" text-anchor="middle">Local processing runtime</text>
 
-            <rect x="556" y="94" width="220" height="58" rx="8"></rect>
-            <text x="666" y="127" text-anchor="middle">Local extension storage</text>
+            <rect class="diagram-node diagram-node--local" x="556" y="94" width="220" height="58" rx="10"></rect>
+            <text x="666" y="127" text-anchor="middle">Local storage keys</text>
 
-            <rect x="820" y="24" width="200" height="44" rx="8"></rect>
-            <text x="920" y="51" text-anchor="middle">CSV/JSON export</text>
+            <rect class="diagram-node diagram-node--action" x="820" y="24" width="200" height="44" rx="10"></rect>
+            <text x="920" y="51" text-anchor="middle">CSV / JSON export</text>
 
-            <rect x="820" y="82" width="200" height="44" rx="8"></rect>
-            <text x="920" y="109" text-anchor="middle">State/diagnostics export</text>
+            <rect class="diagram-node diagram-node--diagnostic" x="820" y="82" width="200" height="44" rx="10"></rect>
+            <text x="920" y="109" text-anchor="middle">Diagnostics export</text>
 
-            <rect x="820" y="140" width="200" height="44" rx="8"></rect>
-            <text x="920" y="167" text-anchor="middle">Manual share by user</text>
+            <rect class="diagram-node diagram-node--action" x="820" y="140" width="200" height="44" rx="10"></rect>
+            <text x="920" y="167" text-anchor="middle">User-controlled share</text>
 
-            <rect x="820" y="198" width="200" height="44" rx="8"></rect>
+            <rect class="diagram-node diagram-node--blocked" x="820" y="198" width="200" height="44" rx="10"></rect>
             <text x="920" y="225" text-anchor="middle">No developer server path</text>
 
-            <path d="M238 123 L282 123"></path>
-            <path d="M512 123 L556 123"></path>
-            <path d="M776 123 L820 46"></path>
-            <path d="M776 123 L820 104"></path>
-            <path d="M776 123 L820 162"></path>
-            <path d="M776 123 L820 220"></path>
+            <path class="diagram-edge" marker-end="url(#privacy-arrow)" d="M238 123 L282 123"></path>
+            <path class="diagram-edge diagram-edge--local" marker-end="url(#privacy-arrow)" d="M512 123 L556 123"></path>
+            <path class="diagram-edge" marker-end="url(#privacy-arrow)" d="M776 123 L820 46"></path>
+            <path class="diagram-edge diagram-edge--limitation" marker-end="url(#privacy-arrow)" d="M776 123 L820 104"></path>
+            <path class="diagram-edge" marker-end="url(#privacy-arrow)" d="M776 123 L820 162"></path>
+            <path class="diagram-edge diagram-edge--review" marker-end="url(#privacy-arrow)" d="M776 123 L820 220"></path>
           </svg>
           <figcaption>Data path summary: processing and storage are local; sharing occurs only when a user chooses to export or copy evidence.</figcaption>
         </figure>
@@ -127,7 +210,51 @@
           <li>Export files can still contain sensitive page-derived details and should be reviewed before sharing.</li>
         </ul>
 
-        <h2>What exports may include</h2>
+        <h2>Export flow diagram</h2>
+        <p class="diagram-intro">This diagram isolates the export path from current scan output to local user-controlled files.</p>
+        <figure class="diagram-card">
+          <svg role="img" aria-labelledby="export-flow-title export-flow-desc" viewBox="0 0 1000 220" class="doc-diagram">
+            <title id="export-flow-title">Export flow</title>
+            <desc id="export-flow-desc">Current scan output branches to CSV, JSON evidence, diagnostics export, and local issue-state bundle. Exports may include selectors, snippets, URL, and title.</desc>
+            <defs>
+              <marker id="export-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#90a4c0"></path>
+              </marker>
+            </defs>
+            <rect class="diagram-node diagram-node--process" x="20" y="84" width="230" height="54" rx="10"></rect>
+            <text x="135" y="116" text-anchor="middle">Current scan results</text>
+
+            <rect class="diagram-node diagram-node--action" x="320" y="16" width="210" height="44" rx="10"></rect>
+            <text x="425" y="44" text-anchor="middle">CSV issue log</text>
+
+            <rect class="diagram-node diagram-node--action" x="320" y="70" width="210" height="44" rx="10"></rect>
+            <text x="425" y="98" text-anchor="middle">JSON evidence bundle</text>
+
+            <rect class="diagram-node diagram-node--diagnostic" x="320" y="124" width="210" height="44" rx="10"></rect>
+            <text x="425" y="152" text-anchor="middle">Diagnostics export</text>
+
+            <rect class="diagram-node diagram-node--local" x="320" y="178" width="210" height="30" rx="10"></rect>
+            <text x="425" y="198" text-anchor="middle">Local issue-state bundle</text>
+
+            <rect class="diagram-node diagram-node--limitation" x="620" y="56" width="350" height="98" rx="10"></rect>
+            <text x="795" y="85" text-anchor="middle">Export sensitivity boundary</text>
+            <text x="795" y="108" text-anchor="middle">May include selectors/snippets</text>
+            <text x="795" y="131" text-anchor="middle">May include page URL/title</text>
+
+            <path class="diagram-edge" marker-end="url(#export-arrow)" d="M250 110 L320 38"></path>
+            <path class="diagram-edge" marker-end="url(#export-arrow)" d="M250 110 L320 92"></path>
+            <path class="diagram-edge diagram-edge--limitation" marker-end="url(#export-arrow)" d="M250 110 L320 146"></path>
+            <path class="diagram-edge diagram-edge--local" marker-end="url(#export-arrow)" d="M250 110 L320 194"></path>
+            <path class="diagram-edge diagram-edge--review" marker-end="url(#export-arrow)" d="M530 92 L620 104"></path>
+          </svg>
+          <figcaption>Exports are generated locally and only leave the device when a user chooses to share them.</figcaption>
+        </figure>
+        <ul class="doc-list">
+          <li>Text equivalent: the extension does not auto-upload export files to developer infrastructure.</li>
+          <li>Text equivalent: export consumers must review sensitive fields before external sharing.</li>
+        </ul>
+
+        <h2 id="exports-and-sensitive-data">Exports and Sensitive Data</h2>
         <ul class="doc-list">
           <li>page URL and, where available, page title</li>
           <li>selectors and evidence snippets</li>
@@ -188,7 +315,7 @@
           <li>Local processing does not mean every restricted or protected page context is fully inspectable.</li>
         </ul>
 
-        <h2>How users clear data</h2>
+        <h2 id="clearing-data">Clearing Data</h2>
         <ul class="doc-list">
           <li><strong>Scan Results → Privacy and data use → Clear all local extension data</strong></li>
           <li>Removing the extension clears extension-managed storage.</li>

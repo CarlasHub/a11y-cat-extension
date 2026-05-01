@@ -30,31 +30,104 @@
     <div class="docs-layout">
       <aside class="docs-sidebar">
         <h2>Documentation</h2>
-                        <nav class="sidebar-nav" aria-label="Documentation pages">
+                                <nav class="sidebar-nav" aria-label="Documentation pages">
           <ul>
-            <li><a href="intro.html" aria-current="page">Introduction</a></li>
-            <li><a href="installation.html">Installation</a></li>
-            <li><a href="understanding-results.html">Understanding results</a></li>
-            <li><a href="ui-feature-guide.html">UI feature guide</a></li>
-            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
-            <li><a href="limitations.html">Known limitations</a></li>
-            <li><a href="beta-testing.html">Beta testing</a></li>
-            <li><a href="changelog.html">Changelog/status</a></li>
+            <li class="sidebar-group is-current"><a href="intro.html" aria-current="page">Introduction</a>            </li>
+            <li class="sidebar-group"><a href="installation.html">Installation</a>            </li>
+            <li class="sidebar-group"><a href="understanding-results.html">Understanding Results</a>
+              <ul class="sidebar-sublist">
+                <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
+                <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
+                <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
+                <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
+                <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="ui-feature-guide.html">Extension UI Feature Guide</a>
+              <ul class="sidebar-sublist">
+                <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
+                <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
+                <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
+                <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
+                <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
+                <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
+                <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
+                <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
+                <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
+                <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
+                <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
+                <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
+                <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
+                <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
+                <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
+                <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
+                <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
+                <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
+                <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
+                <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
+                <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
+                <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
+                <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#exports">Exports</a></li>
+                <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
+                <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
+                <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
+                <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
+                <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
+                <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
+                <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
+                <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
+                <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
+                <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
+                <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and Local Data</a>
+              <ul class="sidebar-sublist">
+                <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
+                <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
+                <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
+                <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="limitations.html">Known Limitations</a>
+              <ul class="sidebar-sublist">
+                <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
+                <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
+                <li><a href="limitations.html#file-access">File Access</a></li>
+                <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
+                <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
+                <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a>
+              <ul class="sidebar-sublist">
+                <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
+                <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
+                <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
+                <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a>            </li>
           </ul>
         </nav>
       </aside>
       <main id="main-content" class="docs-main">
         <div class="page-hero">
           <div>
-            <div class="eyebrow">Start here</div>
             <h1 class="page-title">What A11Y Cat is</h1>
             <p class="page-summary">
               A11Y Cat is a local-first accessibility inspection extension for developers, QA teams, and accessibility reviewers.
               It combines deterministic scan output with review buckets, local history, local exports, and explicit limitation reporting.
             </p>
             <div class="callout">
-              <strong>Source of truth:</strong> the <a href="ui-feature-guide.html">Extension UI feature guide</a> is the authoritative user-facing reference for visible labels,
-              result categories, counts, exports, storage behaviour, and release limitations.
+              <strong>Documentation rule:</strong> update the <a href="ui-feature-guide.html">Extension UI feature guide</a> in the same change set whenever UI labels,
+              result categories, counts, exports, storage behaviour, or release limitations change.
             </div>
           </div>
           <figure class="media-card">
@@ -134,39 +207,50 @@
           <svg role="img" aria-labelledby="pipeline-title pipeline-desc" viewBox="0 0 980 230" class="doc-diagram">
             <title id="pipeline-title">A11Y Cat scanner pipeline</title>
             <desc id="pipeline-desc">The diagram shows page state entering scan orchestration, then splitting into engine and custom checks, then classified into confirmed issues, review items, advisory notes, and scan limitations.</desc>
-            <rect x="20" y="88" width="150" height="54" rx="8"></rect>
-            <text x="95" y="120" text-anchor="middle">Page state</text>
+            <defs>
+              <marker id="pipeline-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#90a4c0"></path>
+              </marker>
+            </defs>
 
-            <rect x="220" y="88" width="190" height="54" rx="8"></rect>
-            <text x="315" y="112" text-anchor="middle">Scan orchestration</text>
-            <text x="315" y="129" text-anchor="middle">and attribution</text>
+            <rect class="diagram-node diagram-node--process" x="18" y="88" width="154" height="54" rx="10"></rect>
+            <text x="95" y="121" text-anchor="middle">Toolbar click</text>
 
-            <rect x="460" y="36" width="180" height="52" rx="8"></rect>
-            <text x="550" y="67" text-anchor="middle">axe-core engine</text>
+            <rect class="diagram-node diagram-node--process" x="218" y="88" width="194" height="54" rx="10"></rect>
+            <text x="315" y="112" text-anchor="middle">Service worker +</text>
+            <text x="315" y="129" text-anchor="middle">scan orchestrator</text>
 
-            <rect x="460" y="136" width="180" height="52" rx="8"></rect>
-            <text x="550" y="167" text-anchor="middle">Custom modules</text>
+            <rect class="diagram-node diagram-node--engine" x="458" y="24" width="188" height="52" rx="10"></rect>
+            <text x="552" y="56" text-anchor="middle">axe.run(document)</text>
 
-            <rect x="700" y="16" width="250" height="44" rx="8"></rect>
-            <text x="825" y="43" text-anchor="middle">Confirmed Issues</text>
+            <rect class="diagram-node diagram-node--custom" x="458" y="88" width="188" height="52" rx="10"></rect>
+            <text x="552" y="120" text-anchor="middle">Custom analyzers</text>
 
-            <rect x="700" y="72" width="250" height="44" rx="8"></rect>
-            <text x="825" y="99" text-anchor="middle">Manual / Review Items</text>
+            <rect class="diagram-node diagram-node--process" x="458" y="152" width="188" height="52" rx="10"></rect>
+            <text x="552" y="184" text-anchor="middle">Normalization</text>
 
-            <rect x="700" y="128" width="250" height="44" rx="8"></rect>
-            <text x="825" y="155" text-anchor="middle">Advisory Notes</text>
+            <rect class="diagram-node diagram-node--confirmed" x="700" y="10" width="250" height="42" rx="10"></rect>
+            <text x="825" y="37" text-anchor="middle">Confirmed issues</text>
 
-            <rect x="700" y="184" width="250" height="44" rx="8"></rect>
-            <text x="825" y="211" text-anchor="middle">Scan Limitations</text>
+            <rect class="diagram-node diagram-node--review" x="700" y="62" width="250" height="42" rx="10"></rect>
+            <text x="825" y="89" text-anchor="middle">Manual / review items</text>
 
-            <path d="M170 115 L220 115"></path>
-            <path d="M410 115 L460 62"></path>
-            <path d="M410 115 L460 162"></path>
-            <path d="M640 62 L700 38"></path>
-            <path d="M640 62 L700 94"></path>
-            <path d="M640 162 L700 94"></path>
-            <path d="M640 162 L700 150"></path>
-            <path d="M640 162 L700 206"></path>
+            <rect class="diagram-node diagram-node--advisory" x="700" y="114" width="250" height="42" rx="10"></rect>
+            <text x="825" y="141" text-anchor="middle">Advisory notes</text>
+
+            <rect class="diagram-node diagram-node--limitation" x="700" y="166" width="250" height="42" rx="10"></rect>
+            <text x="825" y="193" text-anchor="middle">Limitations / diagnostics</text>
+
+            <path class="diagram-edge" marker-end="url(#pipeline-arrow)" d="M172 115 L218 115"></path>
+            <path class="diagram-edge" marker-end="url(#pipeline-arrow)" d="M412 115 L458 50"></path>
+            <path class="diagram-edge" marker-end="url(#pipeline-arrow)" d="M412 115 L458 114"></path>
+            <path class="diagram-edge" marker-end="url(#pipeline-arrow)" d="M412 115 L458 178"></path>
+
+            <path class="diagram-edge diagram-edge--confirmed" marker-end="url(#pipeline-arrow)" d="M646 50 L700 31"></path>
+            <path class="diagram-edge diagram-edge--review" marker-end="url(#pipeline-arrow)" d="M646 50 L700 83"></path>
+            <path class="diagram-edge diagram-edge--review" marker-end="url(#pipeline-arrow)" d="M646 114 L700 83"></path>
+            <path class="diagram-edge diagram-edge--advisory" marker-end="url(#pipeline-arrow)" d="M646 114 L700 135"></path>
+            <path class="diagram-edge diagram-edge--limitation" marker-end="url(#pipeline-arrow)" d="M646 178 L700 187"></path>
           </svg>
           <figcaption>Pipeline view: orchestration combines engine and custom checks, then classifies output by confidence and limitation state.</figcaption>
         </figure>

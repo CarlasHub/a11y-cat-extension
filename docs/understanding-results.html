@@ -30,16 +30,90 @@
     <div class="docs-layout">
       <aside class="docs-sidebar">
         <h2>Documentation</h2>
-                <nav class="sidebar-nav" aria-label="Documentation pages">
+                        <nav class="sidebar-nav" aria-label="Documentation pages">
           <ul>
-            <li><a href="intro.html">Introduction</a></li>
-            <li><a href="installation.html">Installation</a></li>
-            <li><a href="understanding-results.html" aria-current="page">Understanding results</a></li>
-            <li><a href="ui-feature-guide.html">UI feature guide</a></li>
-            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
-            <li><a href="limitations.html">Known limitations</a></li>
-            <li><a href="beta-testing.html">Beta testing</a></li>
-            <li><a href="changelog.html">Changelog/status</a></li>
+            <li class="sidebar-group"><a href="intro.html">Introduction</a>            </li>
+            <li class="sidebar-group"><a href="installation.html">Installation</a>            </li>
+            <li class="sidebar-group is-current"><a href="understanding-results.html" aria-current="page">Understanding Results</a>
+              <ul class="sidebar-sublist">
+                <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
+                <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
+                <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
+                <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
+                <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="ui-feature-guide.html">Extension UI Feature Guide</a>
+              <ul class="sidebar-sublist">
+                <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
+                <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
+                <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
+                <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
+                <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
+                <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
+                <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
+                <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
+                <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
+                <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
+                <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
+                <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
+                <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
+                <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
+                <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
+                <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
+                <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
+                <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
+                <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
+                <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
+                <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
+                <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
+                <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#exports">Exports</a></li>
+                <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
+                <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
+                <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
+                <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
+                <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
+                <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
+                <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
+                <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
+                <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
+                <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
+                <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and Local Data</a>
+              <ul class="sidebar-sublist">
+                <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
+                <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
+                <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
+                <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="limitations.html">Known Limitations</a>
+              <ul class="sidebar-sublist">
+                <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
+                <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
+                <li><a href="limitations.html#file-access">File Access</a></li>
+                <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
+                <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
+                <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a>
+              <ul class="sidebar-sublist">
+                <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
+                <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
+                <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
+                <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a>            </li>
           </ul>
         </nav>
       </aside>
@@ -50,52 +124,82 @@
             <h1 class="page-title">How to interpret scan output</h1>
             <p class="page-summary">A11Y Cat separates confirmed findings from review items, advisory notes, and scan limitations so teams can triage accurately without overstating certainty.</p>
             <div class="callout"><strong>Recommended order:</strong> confirm Critical and Serious findings first, then review manual buckets, then inspect limitations and diagnostics.</div>
+            <div class="badge-legend" aria-label="Result and severity color legend">
+              <span class="badge badge--confirmed">Confirmed issue</span>
+              <span class="severity severity--critical">Critical</span>
+              <span class="severity severity--serious">Serious</span>
+              <span class="severity severity--moderate">Moderate</span>
+              <span class="severity severity--minor">Minor</span>
+              <span class="severity severity--review">Review severity</span>
+              <span class="badge badge--visual">Visual review</span>
+              <span class="badge badge--human">Human judgement</span>
+              <span class="badge badge--advisory">Advisory</span>
+              <span class="badge badge--limitation">Limitation</span>
+              <span class="badge badge--diagnostic">Diagnostic</span>
+              <span class="badge badge--safe">Local-only data</span>
+              <span class="badge badge--beta">Beta status</span>
+            </div>
           </div>
           <figure class="media-card">
             <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="A11Y Cat Scan Results panel with grouped result categories and counts.">
-            <figcaption>Scan Results keeps category boundaries explicit for technical and compliance communication.</figcaption>
+            <figcaption><span class="badge badge--confirmed">Confirmed</span> <span class="badge badge--review">Review</span> <span class="badge badge--advisory">Advisory</span> <span class="badge badge--limitation">Limitation</span> boundaries are explicit in Scan Results.</figcaption>
           </figure>
         </div>
 
+        <h2 id="confirmed-issues"><span class="badge badge--confirmed">Confirmed</span> Confirmed Issues</h2>
+        <p>Confirmed Issues are deterministic findings in the tested page state, typically from axe violations and deterministic custom checks.</p>
+        <h2 id="manual-review-items"><span class="badge badge--review">Review</span> Manual / Incomplete / Review Items</h2>
+        <p>Manual / Incomplete / Review Items are not confirmed failures and require human judgement before filing as defects.</p>
+        <h2 id="advisory-notes"><span class="badge badge--advisory">Advisory</span> Advisory Notes</h2>
+        <p>Advisory Notes are quality signals and guidance; they are not automatic WCAG failures.</p>
+        <h2 id="scan-limitations"><span class="badge badge--limitation">Limitation</span> Scan Limitations</h2>
+        <p>Scan Limitations report coverage gaps, restricted contexts, and runtime boundaries that can reduce what the scan could inspect.</p>
+        <h2 id="severity-levels">Severity Levels <span class="severity severity--critical">Critical</span> <span class="severity severity--serious">Serious</span> <span class="severity severity--moderate">Moderate</span> <span class="severity severity--minor">Minor</span> <span class="severity severity--review">Review</span></h2>
+        <p>Severity labels prioritize confirmed findings for remediation and should be read alongside source and confidence labels.</p>
+        <h2 id="source-engines">Source Engines</h2>
+        <p>Source engines identify whether output came from axe-core, custom A11Y Cat logic, diagnostics, or local workflow state.</p>
+
         <h2>Result classification matrix</h2>
         <p class="matrix-intro">Use this model before filing defects or reporting compliance status.</p>
-        <table class="matrix-table">
-          <caption>Result categories and expected action</caption>
-          <thead>
-            <tr>
-              <th scope="col">Category</th>
-              <th scope="col">Source</th>
-              <th scope="col">Confirmed failure?</th>
-              <th scope="col">User action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Confirmed findings</th>
-              <td>axe violations and deterministic custom checks</td>
-              <td>Yes, in tested page state</td>
-              <td>Fix by severity, retest, compare with previous scan</td>
-            </tr>
-            <tr>
-              <th scope="row">Manual/review items</th>
-              <td>axe incomplete, visual/context/state-limited checks</td>
-              <td>No</td>
-              <td>Inspect manually before defect classification</td>
-            </tr>
-            <tr>
-              <th scope="row">Advisory notes</th>
-              <td>quality guidance modules</td>
-              <td>No</td>
-              <td>Treat as improvement guidance</td>
-            </tr>
-            <tr>
-              <th scope="row">Limitations</th>
-              <td>diagnostics/runtime boundaries</td>
-              <td>No</td>
-              <td>Run additional manual coverage where inspection was limited</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="matrix-table">
+            <caption>Result categories and expected action</caption>
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Source</th>
+                <th scope="col">Confirmed failure?</th>
+                <th scope="col">User action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><span class="badge badge--confirmed">Confirmed</span> Confirmed findings</th>
+                <td>axe violations and deterministic custom checks</td>
+                <td>Yes, in tested page state</td>
+                <td>Fix by severity, retest, compare with previous scan</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="badge badge--review">Review</span> Manual/review items</th>
+                <td>axe incomplete, visual/context/state-limited checks</td>
+                <td>No</td>
+                <td>Inspect manually before defect classification</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="badge badge--advisory">Advisory</span> Advisory notes</th>
+                <td>quality guidance modules</td>
+                <td>No</td>
+                <td>Treat as improvement guidance</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="badge badge--limitation">Limitation</span> Limitations</th>
+                <td>diagnostics/runtime boundaries</td>
+                <td>No</td>
+                <td>Run additional manual coverage where inspection was limited</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2>Result flow diagram</h2>
         <p class="diagram-intro">This flow shows how raw findings become user-facing categories.</p>
@@ -103,40 +207,49 @@
           <svg role="img" aria-labelledby="result-flow-title result-flow-desc" viewBox="0 0 980 230" class="doc-diagram">
             <title id="result-flow-title">Result classification flow</title>
             <desc id="result-flow-desc">Raw findings branch into confirmed, review, advisory, or limitations based on source certainty and runtime constraints.</desc>
-            <rect x="20" y="88" width="160" height="54" rx="8"></rect>
+            <defs>
+              <marker id="result-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#90a4c0"></path>
+              </marker>
+            </defs>
+            <rect class="diagram-node diagram-node--process" x="20" y="88" width="160" height="54" rx="10"></rect>
             <text x="100" y="120" text-anchor="middle">Raw finding</text>
 
-            <rect x="230" y="32" width="220" height="52" rx="8"></rect>
-            <text x="340" y="64" text-anchor="middle">axe violation or deterministic check</text>
+            <rect class="diagram-node diagram-node--engine" x="230" y="24" width="220" height="52" rx="10"></rect>
+            <text x="340" y="56" text-anchor="middle">Violation or deterministic</text>
 
-            <rect x="230" y="92" width="220" height="52" rx="8"></rect>
-            <text x="340" y="124" text-anchor="middle">incomplete or uncertain check</text>
+            <rect class="diagram-node diagram-node--review" x="230" y="88" width="220" height="52" rx="10"></rect>
+            <text x="340" y="120" text-anchor="middle">Incomplete or uncertain</text>
 
-            <rect x="230" y="152" width="220" height="52" rx="8"></rect>
-            <text x="340" y="184" text-anchor="middle">runtime/coverage limitation</text>
+            <rect class="diagram-node diagram-node--limitation" x="230" y="152" width="220" height="52" rx="10"></rect>
+            <text x="340" y="184" text-anchor="middle">Runtime limitation</text>
 
-            <rect x="520" y="24" width="220" height="44" rx="8"></rect>
-            <text x="630" y="52" text-anchor="middle">Confirmed findings</text>
+            <rect class="diagram-node diagram-node--confirmed" x="520" y="16" width="220" height="44" rx="10"></rect>
+            <text x="630" y="44" text-anchor="middle">Confirmed</text>
 
-            <rect x="520" y="84" width="220" height="44" rx="8"></rect>
-            <text x="630" y="112" text-anchor="middle">Manual/review items</text>
+            <rect class="diagram-node diagram-node--review" x="520" y="78" width="220" height="44" rx="10"></rect>
+            <text x="630" y="106" text-anchor="middle">Review</text>
 
-            <rect x="520" y="144" width="220" height="44" rx="8"></rect>
-            <text x="630" y="172" text-anchor="middle">Scan limitations</text>
+            <rect class="diagram-node diagram-node--advisory" x="520" y="140" width="220" height="44" rx="10"></rect>
+            <text x="630" y="168" text-anchor="middle">Advisory</text>
 
-            <rect x="780" y="84" width="180" height="44" rx="8"></rect>
-            <text x="870" y="112" text-anchor="middle">Advisory notes</text>
+            <rect class="diagram-node diagram-node--limitation" x="780" y="78" width="180" height="44" rx="10"></rect>
+            <text x="870" y="106" text-anchor="middle">Limitation</text>
 
-            <path d="M180 115 L230 58"></path>
-            <path d="M180 115 L230 118"></path>
-            <path d="M180 115 L230 178"></path>
-            <path d="M450 58 L520 46"></path>
-            <path d="M450 118 L520 106"></path>
-            <path d="M450 118 L780 106"></path>
-            <path d="M450 178 L520 166"></path>
+            <path class="diagram-edge" marker-end="url(#result-arrow)" d="M180 115 L230 50"></path>
+            <path class="diagram-edge" marker-end="url(#result-arrow)" d="M180 115 L230 114"></path>
+            <path class="diagram-edge" marker-end="url(#result-arrow)" d="M180 115 L230 178"></path>
+            <path class="diagram-edge diagram-edge--confirmed" marker-end="url(#result-arrow)" d="M450 50 L520 38"></path>
+            <path class="diagram-edge diagram-edge--review" marker-end="url(#result-arrow)" d="M450 114 L520 100"></path>
+            <path class="diagram-edge diagram-edge--advisory" marker-end="url(#result-arrow)" d="M450 114 L520 162"></path>
+            <path class="diagram-edge diagram-edge--limitation" marker-end="url(#result-arrow)" d="M450 178 L780 100"></path>
           </svg>
-          <figcaption>Classification by certainty prevents review-only signals from being reported as deterministic failures.</figcaption>
+          <figcaption><span class="badge badge--confirmed">Confirmed</span>, <span class="badge badge--review">Review</span>, <span class="badge badge--advisory">Advisory</span>, and <span class="badge badge--limitation">Limitation</span> branches prevent overclaiming certainty.</figcaption>
         </figure>
+        <ul class="doc-list">
+          <li>Text equivalent: deterministic findings are separated from uncertain and limitation-driven findings.</li>
+          <li>No branch implies full compliance; each branch has different follow-up expectations.</li>
+        </ul>
 
         <h2>Next step</h2>
         <p>For feature-by-feature details, open the full UI feature guide.</p>

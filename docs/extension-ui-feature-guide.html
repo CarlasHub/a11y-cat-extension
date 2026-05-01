@@ -31,16 +31,90 @@
     <div class="docs-layout">
       <aside class="docs-sidebar">
         <h2>Documentation</h2>
-        <nav class="sidebar-nav" aria-label="Documentation pages">
+                <nav class="sidebar-nav" aria-label="Documentation pages">
           <ul>
-            <li><a href="intro.html">Introduction</a></li>
-            <li><a href="installation.html">Installation</a></li>
-            <li><a href="understanding-results.html">Understanding results</a></li>
-            <li><a href="ui-feature-guide.html" aria-current="page">UI feature guide</a></li>
-            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
-            <li><a href="limitations.html">Known limitations</a></li>
-            <li><a href="beta-testing.html">Beta testing</a></li>
-            <li><a href="changelog.html">Changelog/status</a></li>
+            <li class="sidebar-group"><a href="intro.html">Introduction</a>            </li>
+            <li class="sidebar-group"><a href="installation.html">Installation</a>            </li>
+            <li class="sidebar-group"><a href="understanding-results.html">Understanding Results</a>
+              <ul class="sidebar-sublist">
+                <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
+                <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
+                <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
+                <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
+                <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group is-current"><a href="ui-feature-guide.html" aria-current="page">Extension UI Feature Guide</a>
+              <ul class="sidebar-sublist">
+                <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
+                <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
+                <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
+                <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
+                <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
+                <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
+                <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
+                <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
+                <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
+                <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
+                <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
+                <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
+                <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
+                <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
+                <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
+                <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
+                <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
+                <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
+                <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
+                <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
+                <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
+                <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
+                <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
+                <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#exports">Exports</a></li>
+                <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
+                <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
+                <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
+                <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
+                <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
+                <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
+                <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
+                <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
+                <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
+                <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
+                <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
+                <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and Local Data</a>
+              <ul class="sidebar-sublist">
+                <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
+                <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
+                <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
+                <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="limitations.html">Known Limitations</a>
+              <ul class="sidebar-sublist">
+                <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
+                <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
+                <li><a href="limitations.html#file-access">File Access</a></li>
+                <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
+                <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
+                <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a>
+              <ul class="sidebar-sublist">
+                <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
+                <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
+                <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
+                <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a>            </li>
           </ul>
         </nav>
       </aside>
