@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Extension UI Feature Guide</title>
-    <meta name="description" content="Guide to the A11Y Cat extension UI, labels, result categories, exports, and local state.">
+    <meta name="description" content="Structured guide to the A11Y Cat extension UI, result taxonomy, exports, local data, and limits.">
     <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
@@ -27,10 +27,11 @@
         </nav>
       </div>
     </header>
+
     <div class="docs-layout">
       <aside class="docs-sidebar">
         <h2>Documentation</h2>
-                <nav class="sidebar-nav" aria-label="Documentation pages">
+        <nav class="sidebar-nav" aria-label="Documentation pages">
           <ul>
             <li><a href="intro.html">Introduction</a></li>
             <li><a href="installation.html">Installation</a></li>
@@ -43,245 +44,417 @@
           </ul>
         </nav>
       </aside>
+
       <main id="main-content" class="docs-main">
         <div class="page-hero">
           <div>
-            <div class="eyebrow">Canonical product reference</div>
+            <div class="eyebrow">Canonical UI reference</div>
             <h1 class="page-title">Extension UI feature guide</h1>
-            <p class="page-summary">This page documents every visible extension feature, label, export, local-state surface, and limitation using the current implementation.</p>
-            <div class="callout"><strong>Canonical source:</strong> <a href="../EXTENSION_UI_FEATURE_GUIDE.md">EXTENSION_UI_FEATURE_GUIDE.md</a>. The public page renders that guide and pairs it with current extension screenshots so the public site stays tied to the shipped UI.</div>
+            <p class="page-summary">This page is the strongest user-facing reference for the shipped extension UI. It explains each visible feature, count, category, export, and limitation with implementation-backed taxonomy.</p>
+            <div class="callout"><strong>Boundary:</strong> A11Y Cat supports accessibility review workflows. It does not replace manual testing or real assistive-technology validation.</div>
           </div>
           <figure class="media-card">
-            <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="A11Y Cat scan results view showing grouped findings, severity counts, and export controls.">
-            <figcaption>The guide explains what the extension shows, where the data comes from, what still needs review, and what cannot be proven automatically.</figcaption>
+            <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="A11Y Cat Scan Results panel with grouped findings, severity counts, and exports.">
+            <figcaption>The UI separates confirmed findings from review, advisory, and limitation output.</figcaption>
           </figure>
         </div>
 
-        <section class="section-panel" aria-labelledby="classification-matrix-heading">
-          <h2 id="classification-matrix-heading">Result classification matrix</h2>
-          <p class="matrix-intro">This matrix gives a fast interpretation model for counts, labels, and next actions before reading individual issue cards.</p>
-          <table class="matrix-table">
-            <caption>Classification and action model used in the extension UI</caption>
-            <thead>
-              <tr>
-                <th scope="col">UI bucket</th>
-                <th scope="col">Primary data sources</th>
-                <th scope="col">How count is interpreted</th>
-                <th scope="col">WCAG relationship</th>
-                <th scope="col">User action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Confirmed Issues</th>
-                <td>axe violations and deterministic module output</td>
-                <td>Confirmed findings count in the tested page state</td>
-                <td>Direct when mapping exists in finding metadata</td>
-                <td>Prioritize by severity, fix, rerun, compare</td>
-              </tr>
-              <tr>
-                <th scope="row">Manual / Incomplete / Review Items</th>
-                <td>axe incomplete and review modules</td>
-                <td>Review candidates, not auto-confirmed failures</td>
-                <td>Depends on manual outcome and context</td>
-                <td>Manually inspect before defect filing</td>
-              </tr>
-              <tr>
-                <th scope="row">Advisory Notes</th>
-                <td>spelling, language, metadata, guidance checks</td>
-                <td>Quality guidance signal count</td>
-                <td>Usually indirect or advisory-only</td>
-                <td>Use as quality backlog, not hard fail list</td>
-              </tr>
-              <tr>
-                <th scope="row">Scan Limitations</th>
-                <td>diagnostics and runtime boundary records</td>
-                <td>Coverage limitations count, not pass/fail count</td>
-                <td>Not a failure category</td>
-                <td>Investigate missing coverage manually</td>
-              </tr>
-            </tbody>
-          </table>
+        <section class="section-panel" aria-labelledby="quick-read-heading">
+          <h2 id="quick-read-heading">Quick result-reading guide</h2>
+          <ol>
+            <li>Start with <strong>Confirmed Issues</strong>.</li>
+            <li>Fix <strong>Critical</strong> and <strong>Serious</strong> confirmed findings first.</li>
+            <li>Review <strong>Manual / Incomplete / Review</strong> items before calling them defects.</li>
+            <li>Read <strong>Scan Limitations</strong> before assuming full page coverage.</li>
+            <li>Treat <strong>Advisory Notes</strong> as guidance, not automatic failures.</li>
+            <li>Review export content for sensitive snippets, selectors, and URLs before sharing.</li>
+          </ol>
         </section>
 
-        <section class="section-panel" aria-labelledby="flow-diagram-heading">
-          <h2 id="flow-diagram-heading">Scan-to-export flow diagram</h2>
-          <p class="diagram-intro">This diagram shows how the extension turns scan output into local history and user-triggered exports.</p>
-          <figure class="diagram-card">
-            <svg role="img" aria-labelledby="export-flow-title export-flow-desc" viewBox="0 0 1040 250" class="doc-diagram">
-              <title id="export-flow-title">A11Y Cat scan to export flow</title>
-              <desc id="export-flow-desc">The diagram shows scan execution, classification, local storage, and user-triggered exports for CSV, JSON evidence, workflow state, and diagnostics.</desc>
-              <rect x="24" y="92" width="170" height="56" rx="8"></rect>
-              <text x="109" y="126" text-anchor="middle">Run scan</text>
+        <section class="section-panel" aria-labelledby="result-classification-heading">
+          <h2 id="result-classification-heading">Result classification matrix</h2>
+          <p class="matrix-intro">How to interpret the main result buckets.</p>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Confirmed vs review vs advisory vs limitation</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">Meaning</th>
+                  <th scope="col">Source</th>
+                  <th scope="col">Confirmed failure?</th>
+                  <th scope="col">Requires human review?</th>
+                  <th scope="col">Appears in export</th>
+                  <th scope="col">User action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Confirmed Issues</th>
+                  <td>Deterministic/corroborated findings for current page state.</td>
+                  <td>axe violations plus deterministic custom logic.</td>
+                  <td>Yes (state-bounded)</td>
+                  <td>Still recheck in context</td>
+                  <td>Yes</td>
+                  <td>Fix, retest, compare.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Manual / Incomplete / Review Items</th>
+                  <td>Uncertain or context-dependent findings.</td>
+                  <td>axe incomplete + review modules.</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Validate manually before defect filing.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Visual Composition Review</th>
+                  <td>Visual judgement needed for layout/relationship concerns.</td>
+                  <td>Custom review logic.</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Inspect UI visually in context.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Human Judgement Review</th>
+                  <td>Automation cannot safely decide pass/fail alone.</td>
+                  <td>Custom context-sensitive review logic.</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Assess name clarity, purpose, meaning, context.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Engine-limited Review</th>
+                  <td>Underlying engine/runtime could not complete determination.</td>
+                  <td>axe incomplete and runtime boundary states.</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Use diagnostics, test manually.</td>
+                </tr>
+                <tr>
+                  <th scope="row">State-limited Review</th>
+                  <td>Only current state was inspected.</td>
+                  <td>State coverage logic.</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Test dialogs/tabs/forms/auth flows manually.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Advisory Notes</th>
+                  <td>Guidance and quality signals.</td>
+                  <td>Advisory modules (spelling/language/metadata).</td>
+                  <td>No</td>
+                  <td>Usually</td>
+                  <td>Yes</td>
+                  <td>Treat as quality backlog.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Scan Limitations</th>
+                  <td>Coverage or runtime boundaries.</td>
+                  <td>Diagnostics/runtime signals.</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Do extra manual coverage.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Diagnostics</th>
+                  <td>Structured support/runtime data.</td>
+                  <td>Runtime diagnostics capture.</td>
+                  <td>No</td>
+                  <td>Yes (for interpretation)</td>
+                  <td>Yes</td>
+                  <td>Use for troubleshooting.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-              <rect x="236" y="92" width="200" height="56" rx="8"></rect>
-              <text x="336" y="118" text-anchor="middle">Classify results</text>
-              <text x="336" y="136" text-anchor="middle">(confirmed / review / advisory / limits)</text>
+        <section class="section-panel" aria-labelledby="severity-matrix-heading">
+          <h2 id="severity-matrix-heading">Severity matrix</h2>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Severity source and triage priority</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Severity</th>
+                  <th scope="col">Source value</th>
+                  <th scope="col">Count source</th>
+                  <th scope="col">Meaning</th>
+                  <th scope="col">User priority</th>
+                  <th scope="col">Example action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Critical</th><td>axe impact critical or equivalent deterministic severity</td><td>Confirmed-only</td><td>Highest risk in current state</td><td>Fix first</td><td>Patch blocking defect and rerun scan</td></tr>
+                <tr><th scope="row">Serious</th><td>axe impact serious</td><td>Confirmed-only</td><td>High impact confirmed issue</td><td>Fix early</td><td>Schedule immediate remediation</td></tr>
+                <tr><th scope="row">Moderate</th><td>axe impact moderate</td><td>Confirmed-only</td><td>Medium impact confirmed issue</td><td>Fix after critical/serious</td><td>Queue sprint fix</td></tr>
+                <tr><th scope="row">Minor</th><td>axe impact minor</td><td>Confirmed-only</td><td>Lower impact confirmed issue</td><td>Cleanup pass</td><td>Batch with low-risk improvements</td></tr>
+                <tr><th scope="row">Review / Incomplete</th><td>axe incomplete or uncertain custom logic</td><td>Separate review count</td><td>Manual judgement needed</td><td>Investigate</td><td>Reproduce and validate manually</td></tr>
+                <tr><th scope="row">Advisory</th><td>Advisory modules</td><td>Separate advisory count</td><td>Guidance signal</td><td>Optional/quality</td><td>Apply where useful</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-              <rect x="478" y="92" width="190" height="56" rx="8"></rect>
-              <text x="573" y="126" text-anchor="middle">Save local state</text>
+        <section class="section-panel" aria-labelledby="scanner-source-heading">
+          <h2 id="scanner-source-heading">Scanner source matrix</h2>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>What each source can and cannot prove</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Source</th>
+                  <th scope="col">What it can prove</th>
+                  <th scope="col">What it cannot prove</th>
+                  <th scope="col">UI destination</th>
+                  <th scope="col">Export destination</th>
+                  <th scope="col">Risk/limitation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">axe-core</th><td>Deterministic violations in tested state</td><td>Full-site compliance or all hidden states</td><td>Confirmed and review buckets</td><td>CSV/JSON evidence</td><td>State/context boundaries remain</td></tr>
+                <tr><th scope="row">A11Y Cat custom logic</th><td>Deterministic and corroborated custom checks</td><td>Subjective visual/context judgement</td><td>Confirmed, review, advisory</td><td>CSV/JSON evidence</td><td>Heuristics require human review</td></tr>
+                <tr><th scope="row">Manual review generation</th><td>What needs human validation</td><td>Automatic pass/fail</td><td>Needs Review buckets</td><td>Review arrays in exports</td><td>Manual work required</td></tr>
+                <tr><th scope="row">Diagnostics/runtime signals</th><td>Coverage/runtime boundaries</td><td>Accessibility pass/fail verdicts</td><td>Diagnostics + limitations</td><td>Diagnostics exports</td><td>Empty diagnostics is not full coverage proof</td></tr>
+                <tr><th scope="row">Local history/comparison</th><td>Delta vs previous same-scope scans</td><td>Cross-page equivalence proof</td><td>Previous Scan Comparison</td><td>History/state exports</td><td>Scope matching constraints apply</td></tr>
+                <tr><th scope="row">User workflow state</th><td>Local triage annotations and status</td><td>Objective accessibility truth</td><td>Issue workflow controls</td><td>Local issue-state bundles</td><td>Can include sensitive notes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-              <rect x="710" y="16" width="300" height="46" rx="8"></rect>
-              <text x="860" y="44" text-anchor="middle">CSV issue log export (user action)</text>
+        <section class="proof-section" aria-labelledby="gallery-heading">
+          <div class="proof-section__intro">
+            <div class="kicker">Screenshot gallery</div>
+            <h2 id="gallery-heading">Real extension UI evidence</h2>
+            <p class="proof-note">Screenshots are from current extension build safe fixtures.</p>
+          </div>
+          <div class="proof-grid">
+            <figure class="media-card media-card--compact">
+              <img src="../assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension panel opened on a page.">
+              <figcaption>Overview: extension panel opened.</figcaption>
+            </figure>
+            <figure class="media-card media-card--compact">
+              <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="Scan results view with confirmed issues and counts.">
+              <figcaption>Scan Results + Confirmed Issues.</figcaption>
+            </figure>
+            <figure class="media-card media-card--compact">
+              <img src="../assets/screenshots/severity-filters.png" alt="Severity filters with critical, serious, moderate, minor, and review counters.">
+              <figcaption>Severity filters and counters.</figcaption>
+            </figure>
+            <figure class="media-card media-card--compact">
+              <img src="../assets/screenshots/diagnostics-expanded.png" alt="Diagnostics panel expanded with JSON runtime support output.">
+              <figcaption>Diagnostics expanded.</figcaption>
+            </figure>
+            <figure class="media-card media-card--compact">
+              <img src="../assets/screenshots/exports-csv-json.png" alt="Exports panel showing CSV and JSON evidence export actions.">
+              <figcaption>CSV and JSON evidence export actions.</figcaption>
+            </figure>
+          </div>
+        </section>
 
-              <rect x="710" y="74" width="300" height="46" rx="8"></rect>
-              <text x="860" y="102" text-anchor="middle">JSON evidence export (user action)</text>
+        <section class="section-panel" aria-labelledby="feature-coverage-heading">
+          <h2 id="feature-coverage-heading">Feature coverage matrix (feature-by-feature documentation)</h2>
+          <p class="matrix-intro">This matrix is the complete feature-by-feature documentation for visible extension features and required taxonomy entries.</p>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Per-feature behavior, data source, confidence, limits, and evidence</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Feature</th>
+                  <th scope="col">What it does</th>
+                  <th scope="col">Data/source</th>
+                  <th scope="col">WCAG mapping</th>
+                  <th scope="col">Confirmed or review</th>
+                  <th scope="col">Next step</th>
+                  <th scope="col">What it cannot prove</th>
+                  <th scope="col">Storage/export</th>
+                  <th scope="col">Screenshot or reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">1. Scan Results</th><td>Main issue workspace and grouped output.</td><td>Classified current scan set.</td><td>Indirect; per finding.</td><td>Mixed buckets</td><td>Triage by category/severity.</td><td>Full-journey compliance.</td><td>Exportable; local state.</td><td><code>scan-results-confirmed-issues.png</code></td></tr>
+                <tr><th scope="row">2. Confirmed Issues</th><td>Shows confirmed deterministic/corroborated items.</td><td>axe violations + deterministic custom logic.</td><td>Yes where available.</td><td>Confirmed</td><td>Fix first.</td><td>Whole page pass/fail.</td><td>Included in CSV/JSON.</td><td><code>scan-results-confirmed-issues.png</code></td></tr>
+                <tr><th scope="row">3. axe-core findings</th><td>Rule-engine findings with impact/tags.</td><td>Bundled axe run.</td><td>Yes where mapped.</td><td>Confirmed or review</td><td>Review rule details.</td><td>All states tested.</td><td>Provenance in exports.</td><td>Shown in issue details (no standalone panel).</td></tr>
+                <tr><th scope="row">4. Raw axe provenance</th><td>Rule id/help/url/tags/source metadata.</td><td>Source attribution and export model.</td><td>Indirectly supports mapping.</td><td>N/A</td><td>Use for engineering traceability.</td><td>Compliance sign-off alone.</td><td>JSON evidence, CSV fields.</td><td>Export-backed (no single screenshot focus).</td></tr>
+                <tr><th scope="row">5. Manual / Incomplete / Review Items</th><td>Items needing human judgement.</td><td>axe incomplete + review modules.</td><td>Depends on manual review.</td><td>Review</td><td>Inspect manually.</td><td>Automatic failure claim.</td><td>Exported as review class.</td><td><code>manual-review-items.png</code></td></tr>
+                <tr><th scope="row">6. Advisory Notes</th><td>Quality guidance signals.</td><td>Spelling/language/metadata advisory logic.</td><td>Usually not direct.</td><td>Advisory</td><td>Apply as quality improvements.</td><td>Deterministic defect status.</td><td>Included in exports.</td><td>No single advisory-only screenshot.</td></tr>
+                <tr><th scope="row">7. Scan Limitations</th><td>Coverage/runtime boundaries.</td><td>Diagnostics and limitation records.</td><td>No.</td><td>Limitation</td><td>Run manual follow-up.</td><td>That no issues exist.</td><td>Included in diagnostics/JSON.</td><td><code>scan-limitations.png</code></td></tr>
+                <tr><th scope="row">8. Severity filters</th><td>Filter by severity buckets.</td><td>Confirmed severity mapping.</td><td>Per issue only.</td><td>Confirmed severity view</td><td>Prioritize remediation.</td><td>Review/advisory severity equivalence.</td><td>State in panel; export unaffected.</td><td><code>severity-filters.png</code></td></tr>
+                <tr><th scope="row">9. Critical / Serious / Moderate / Minor</th><td>Priority levels for confirmed items.</td><td>axe impact and deterministic severity.</td><td>Per finding.</td><td>Confirmed-only counts</td><td>Fix in descending priority.</td><td>Coverage beyond tested state.</td><td>Reflected in exports.</td><td><code>severity-filters.png</code></td></tr>
+                <tr><th scope="row">10. Visual Composition Review</th><td>Visual-judgement review category.</td><td>Custom visual review logic.</td><td>Manual decision required.</td><td>Review</td><td>Inspect layout/visual relation manually.</td><td>Automatic WCAG fail.</td><td>Exportable as review class.</td><td><code>visual-composition-review.png</code></td></tr>
+                <tr><th scope="row">11. Human Judgement Review</th><td>Context-dependent quality/accessibility review bucket.</td><td>Custom contextual review logic.</td><td>Manual decision required.</td><td>Review</td><td>Evaluate naming, purpose, clarity.</td><td>Definitive fail by automation.</td><td>Exportable as review class.</td><td>No stable isolated screenshot in safe pack.</td></tr>
+                <tr><th scope="row">12. Engine-limited Review</th><td>Engine/runtime unable to conclude.</td><td>axe incomplete + runtime limits.</td><td>No direct claim.</td><td>Review</td><td>Use diagnostics + manual test.</td><td>Pass or fail by itself.</td><td>Exported as review/limitation context.</td><td>No stable isolated screenshot in safe pack.</td></tr>
+                <tr><th scope="row">13. State-limited Review</th><td>Current-state-only coverage marker.</td><td>State-limited classification logic.</td><td>No direct claim.</td><td>Review</td><td>Test hidden/auth/interactive states.</td><td>Full journey tested.</td><td>Included in review/limitations output.</td><td>No stable isolated screenshot in safe pack.</td></tr>
+                <tr><th scope="row">14. Deterministic Failures</th><td>Confirmed deterministic issue class.</td><td>Issue type classification.</td><td>Yes where mapped.</td><td>Confirmed</td><td>Fix and retest.</td><td>Global compliance result.</td><td>Included in exports.</td><td>Represented in confirmed list; no standalone label panel.</td></tr>
+                <tr><th scope="row">15. Corroborated Failures</th><td>Confirmed issues with corroborating evidence.</td><td>Issue type classification.</td><td>Yes where mapped.</td><td>Confirmed</td><td>Fix and retest.</td><td>Whole app conformance.</td><td>Included in exports.</td><td>Represented in confirmed list; no standalone label panel.</td></tr>
+                <tr><th scope="row">16. Previous Scan Comparison</th><td>Compares current scan to previous same-scope scan.</td><td>Local history by origin+pathname.</td><td>No.</td><td>Workflow/diagnostic</td><td>Use for regression trend.</td><td>Cross-scope comparison validity.</td><td>Uses local history keys.</td><td><code>previous-scan-comparison.png</code></td></tr>
+                <tr><th scope="row">17. Local History</th><td>Retains recent and archived scan snapshots.</td><td>chrome.storage.local history keys.</td><td>No.</td><td>Local workflow state</td><td>Use for baseline context.</td><td>External audit trail completeness.</td><td>Stored locally.</td><td>Shown via comparison/history surfaces.</td></tr>
+                <tr><th scope="row">18. Local Data Clearing</th><td>Clears local extension data.</td><td>Privacy/data-use controls.</td><td>No.</td><td>Local workflow control</td><td>Clear before handoff/profile reset.</td><td>Remote data deletion (none by default).</td><td>Clears local keys.</td><td><code>local-data-clearing.png</code></td></tr>
+                <tr><th scope="row">19. Broken Links</th><td>Reports broken/timeout/unverified/restricted states.</td><td>Link-checking module.</td><td>Not always direct accessibility fail.</td><td>Mixed review/advisory</td><td>Fix broken paths and verify manually.</td><td>Universal accessibility failure claim.</td><td>Included in exports.</td><td><code>broken-links.png</code></td></tr>
+                <tr><th scope="row">20. Metadata Check</th><td>Checks Open Graph/Schema/JSON-LD quality.</td><td>Metadata analysis module.</td><td>Usually advisory/indirect.</td><td>Review/advisory</td><td>Improve metadata quality.</td><td>Automatic WCAG fail.</td><td>Included in exports.</td><td><code>metadata-check.png</code></td></tr>
+                <tr><th scope="row">21. Language Mismatch</th><td>Flags lang-related mismatches and gaps.</td><td>Language analysis module.</td><td>Context dependent.</td><td>Review/advisory</td><td>Check language tags/context.</td><td>Automatic fail without context.</td><td>Included in exports.</td><td><code>language-mismatch.png</code></td></tr>
+                <tr><th scope="row">22. Spelling Check</th><td>Advisory spelling review for supported language context.</td><td>Spelling engine/dictionaries.</td><td>No direct WCAG fail.</td><td>Advisory/review</td><td>Apply editorial judgment.</td><td>Accessibility pass/fail.</td><td>Included in exports.</td><td><code>spelling-check.png</code></td></tr>
+                <tr><th scope="row">23. Page Text Scale / Reflow</th><td>Current UI surface for text scaling/reflow review.</td><td>Page text-scale module.</td><td>Context dependent (WCAG 1.4.10 relevance).</td><td>Review</td><td>Test scaling and overflow behavior.</td><td>Complete reflow conformance by itself.</td><td>Included in exports where findings exist.</td><td><code>page-reflow-or-text-scale.png</code></td></tr>
+                <tr><th scope="row">24. Alt Text Analysis</th><td>Analyzes image alt text quality and gaps.</td><td>Alt-text analysis module.</td><td>Yes/indirect depending finding.</td><td>Mixed</td><td>Review image alternatives in context.</td><td>Semantic intent correctness always.</td><td>Included in exports.</td><td><code>alt-text-analysis.png</code></td></tr>
+                <tr><th scope="row">25. Heading Structure</th><td>Analyzes headings and outline sequence.</td><td>Section-order/heading module.</td><td>Yes/indirect per finding.</td><td>Mixed</td><td>Fix hierarchy and skip-level issues.</td><td>Overall content comprehension quality.</td><td>Included in exports.</td><td><code>heading-structure.png</code></td></tr>
+                <tr><th scope="row">26. Screen Reader Review</th><td>Virtual review aid with structured tasks/notes.</td><td>Virtual SR review modules/state.</td><td>No direct AT sign-off.</td><td>Review workflow</td><td>Use as prep for real AT tests.</td><td>VoiceOver/NVDA/JAWS evidence.</td><td>Local state + export surfaces.</td><td><code>screen-reader-review.png</code></td></tr>
+                <tr><th scope="row">27. Diagnostics</th><td>Structured runtime support data.</td><td>Diagnostics capture.</td><td>No.</td><td>Diagnostic</td><td>Troubleshoot inspection gaps.</td><td>DevTools-equivalent full trace.</td><td>Export/copy support data.</td><td><code>diagnostics-expanded.png</code></td></tr>
+                <tr><th scope="row">28. CSV export</th><td>Flat issue log export.</td><td>Export module.</td><td>Depends on underlying findings.</td><td>Action/export</td><td>Share triage list.</td><td>Full evidence richness.</td><td>May include URL/selectors/snippets.</td><td><code>exports-csv-json.png</code></td></tr>
+                <tr><th scope="row">29. JSON evidence export</th><td>Structured evidence export.</td><td>Export module.</td><td>Depends on underlying findings.</td><td>Action/export</td><td>Share debugging evidence.</td><td>Compliance certificate.</td><td>May include URL/title/selectors/snippets/notes.</td><td><code>exports-csv-json.png</code></td></tr>
+                <tr><th scope="row">30. Local issue-state import/export</th><td>Transfers local triage state.</td><td>Workflow state + export/import controls.</td><td>No.</td><td>Local workflow state</td><td>Sync triage state between testers.</td><td>Objective defect truth.</td><td>Local bundle with notes/status.</td><td>Import dialog not captured safely.</td></tr>
+                <tr><th scope="row">31. Diagnostics export/copy</th><td>Copies/exports support diagnostics.</td><td>Diagnostics module.</td><td>No.</td><td>Diagnostic action</td><td>Attach to bug reports.</td><td>Full browser debug trace.</td><td>May include runtime context.</td><td><code>diagnostics-expanded.png</code></td></tr>
+                <tr><th scope="row">32. Screen reader review export</th><td>Exports virtual review notes/logs.</td><td>Virtual SR review state + export control.</td><td>No.</td><td>Review workflow export</td><td>Share structured manual-review notes.</td><td>Real AT sign-off.</td><td>May include notes/page context.</td><td>No isolated screenshot in safe pack.</td></tr>
+                <tr><th scope="row">33. Performance benchmark export (if visible)</th><td>Exports local performance benchmark data.</td><td>Benchmark state and export control.</td><td>No.</td><td>Diagnostic/export</td><td>Use for runtime performance troubleshooting.</td><td>Accessibility quality verdict.</td><td>Local benchmark data; conditional visibility.</td><td>Conditional feature; no verified screenshot.</td></tr>
+                <tr><th scope="row">34. Release discussion summary export (if visible)</th><td>Exports local release-discussion summary output.</td><td>Local summary/export action where visible.</td><td>No.</td><td>Workflow/export</td><td>Use as handoff summary, not compliance proof.</td><td>Formal release approval.</td><td>Local export; conditional visibility.</td><td>Conditional/limited surface; no verified screenshot.</td></tr>
+                <tr><th scope="row">35. Highlight element</th><td>Highlights issue target on page.</td><td>Issue action + selector target mapping.</td><td>No direct mapping itself.</td><td>Action tool</td><td>Confirm context before fixing.</td><td>That highlighted element is root cause in all states.</td><td>No separate storage; reflected in workflow use.</td><td><code>highlight-element.png</code></td></tr>
+                <tr><th scope="row">36. Turn into ticket</th><td>Creates handoff/ticket-style draft action.</td><td>Issue action workflow.</td><td>No direct mapping itself.</td><td>Workflow action</td><td>Create handoff artifact.</td><td>Acceptance or severity correctness.</td><td>May include issue context in output.</td><td><code>ticket-dialog.png</code></td></tr>
+                <tr><th scope="row">37. Issue workflow controls</th><td>Local issue status and annotation controls.</td><td>Workflow state module/storage.</td><td>No.</td><td>Local workflow state</td><td>Track triage progress.</td><td>Objective accessibility truth.</td><td>Stored locally; exportable in state bundle.</td><td>Visible in issue controls; no single isolated screenshot.</td></tr>
+                <tr><th scope="row">38. Settings/theme controls</th><td>Adjusts UI theme/settings behavior.</td><td>Settings state storage.</td><td>No.</td><td>Local preference state</td><td>Set readable working view.</td><td>Accessibility correctness of target page.</td><td>Stored locally.</td><td><code>theme-settings.png</code></td></tr>
+                <tr><th scope="row">39. Panel open/close controls</th><td>Opens and closes extension panel surface.</td><td>Panel chrome/actions.</td><td>No.</td><td>UI control</td><td>Open on target page for scan.</td><td>Any accessibility result by itself.</td><td>No substantive evidence storage.</td><td>Visible in panel chrome; no isolated screenshot.</td></tr>
+                <tr><th scope="row">40. Panel resize/move controls</th><td>Adjusts panel geometry.</td><td>Panel chrome control.</td><td>No.</td><td>UI control</td><td>Optimize review workspace.</td><td>Accessibility outcome by itself.</td><td>Panel geometry preference may persist.</td><td><code>panel-resize-move-controls.png</code></td></tr>
+                <tr><th scope="row">41. Unsupported/restricted contexts</th><td>Reports unsupported inspection contexts.</td><td>Runtime limitations + diagnostics.</td><td>No.</td><td>Limitation/diagnostic</td><td>Move to supported environment or manual test.</td><td>Clean accessibility status.</td><td>Recorded in limitation output and diagnostics.</td><td><code>scan-limitations.png</code></td></tr>
+                <tr><th scope="row">42. File access behavior</th><td>Defines behavior on file:// pages with permissions.</td><td>Runtime permissions + context checks.</td><td>No.</td><td>Context limitation</td><td>Enable permission and test carefully.</td><td>Complete file-based coverage.</td><td>Context in diagnostics/limitations.</td><td>No dedicated screenshot in safe pack.</td></tr>
+                <tr><th scope="row">43. iframe/protected frame behavior</th><td>Handles frame access restrictions.</td><td>Frame access/runtime policy limits.</td><td>No.</td><td>Limitation/review</td><td>Test frame content where authorized.</td><td>Frame content pass state.</td><td>Recorded in limitations/diagnostics.</td><td>No isolated screenshot in safe pack.</td></tr>
+                <tr><th scope="row">44. Manual AT sign-off status</th><td>Explicitly states AT sign-off still manual.</td><td>Product boundary documentation and UI copy.</td><td>No.</td><td>Limitation boundary</td><td>Run real VoiceOver/NVDA/JAWS tests.</td><td>AT conformance sign-off from extension.</td><td>Policy/documentation state.</td><td><code>screen-reader-review.png</code> + docs boundary statements.</td></tr>
+                <tr><th scope="row">45. Privacy/local storage</th><td>Explains local processing and stored keys.</td><td>Privacy UI + storage model.</td><td>No.</td><td>Privacy/workflow state</td><td>Review, clear, export carefully.</td><td>Zero data exposure after user sharing.</td><td>Local storage keys; user-controlled export.</td><td><code>local-data-clearing.png</code></td></tr>
+                <tr><th scope="row">46. Beta limitations</th><td>Defines current beta scope and non-claims.</td><td>Release boundary and diagnostics/limitations.</td><td>No.</td><td>Status/limitation</td><td>Treat as controlled testing evidence.</td><td>Production readiness guarantee.</td><td>Documentation status.</td><td>Shown across docs and status badges.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-              <rect x="710" y="132" width="300" height="46" rx="8"></rect>
-              <text x="860" y="160" text-anchor="middle">Local issue-state bundle (user action)</text>
+        <section class="section-panel" aria-labelledby="export-matrix-heading">
+          <h2 id="export-matrix-heading">Export matrix</h2>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Export format, content, and privacy boundaries</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Export type</th>
+                  <th scope="col">Format</th>
+                  <th scope="col">Contains</th>
+                  <th scope="col">Does not contain/guarantee</th>
+                  <th scope="col">Sensitive fields possible</th>
+                  <th scope="col">Local-only</th>
+                  <th scope="col">Intended use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">CSV issue log</th><td>CSV</td><td>Flattened issues, severity, source fields</td><td>Nested full evidence context</td><td>Selectors/snippets/URL/title may appear</td><td>Yes until user shares</td><td>Triage/handoff lists</td></tr>
+                <tr><th scope="row">JSON evidence bundle</th><td>JSON</td><td>Structured findings, provenance, diagnostics links</td><td>Compliance guarantee</td><td>Selectors/snippets/URL/title/notes may appear</td><td>Yes until user shares</td><td>Engineering QA debugging</td></tr>
+                <tr><th scope="row">Local issue-state bundle</th><td>JSON</td><td>Workflow state, annotations, status</td><td>Objective truth of issue severity</td><td>Local notes and context may appear</td><td>Yes until user shares</td><td>Triage continuity</td></tr>
+                <tr><th scope="row">Support diagnostics</th><td>JSON/text copy</td><td>Runtime and limitation signals</td><td>Full DevTools trace</td><td>Runtime context and page-derived metadata possible</td><td>Yes until user shares</td><td>Troubleshooting</td></tr>
+                <tr><th scope="row">Screen Reader Review export</th><td>Structured export (if visible)</td><td>Virtual review tasks/notes/logs</td><td>Real AT evidence</td><td>Notes/page context may appear</td><td>Yes until user shares</td><td>Manual review handoff</td></tr>
+                <tr><th scope="row">Performance benchmark export</th><td>Structured export (if visible)</td><td>Local benchmark metrics</td><td>Accessibility pass/fail proof</td><td>Runtime metadata possible</td><td>Yes until user shares</td><td>Performance troubleshooting</td></tr>
+                <tr><th scope="row">Release discussion summary export</th><td>Structured export (if visible)</td><td>Release-handoff summary</td><td>Formal release approval</td><td>Issue/summary context possible</td><td>Yes until user shares</td><td>Stakeholder communication</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-              <rect x="710" y="190" width="300" height="46" rx="8"></rect>
-              <text x="860" y="218" text-anchor="middle">Diagnostics/support export (user action)</text>
+        <section class="section-panel" aria-labelledby="local-data-matrix-heading">
+          <h2 id="local-data-matrix-heading">Local data matrix</h2>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Local storage keys and purpose</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Data area</th>
+                  <th scope="col">Storage key</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">May include page data</th>
+                  <th scope="col">User can clear</th>
+                  <th scope="col">Exportable</th>
+                  <th scope="col">Privacy note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">settings</th><td><code>a11yCatExtSettingsV1</code></td><td>Theme/settings/preferences</td><td>Indirectly</td><td>Yes</td><td>Indirect</td><td>Local profile only</td></tr>
+                <tr><th scope="row">scan history</th><td><code>a11yCatScanHistoryV1</code></td><td>Recent scans and comparison baseline</td><td>Yes</td><td>Yes</td><td>Indirectly</td><td>URL/path/context stays local</td></tr>
+                <tr><th scope="row">scan history archive</th><td><code>a11yCatScanHistoryArchiveV1</code></td><td>Older retained scans</td><td>Yes</td><td>Yes</td><td>Indirectly</td><td>Local historical context</td></tr>
+                <tr><th scope="row">workflow state</th><td><code>a11yCatWorkflowStateV1</code></td><td>Issue status/notes and filters</td><td>Yes</td><td>Yes</td><td>Yes</td><td>May contain sensitive notes</td></tr>
+                <tr><th scope="row">virtual SR review state</th><td><code>a11yCatVirtualSrReviewStateV1</code></td><td>Virtual SR tasks and notes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Not real AT sign-off evidence</td></tr>
+                <tr><th scope="row">virtual SR sessions</th><td>Session-scoped virtual SR state</td><td>Runtime session continuity</td><td>Potentially</td><td>Session clear/reset</td><td>Not primary</td><td>Session-lifetime data</td></tr>
+                <tr><th scope="row">performance benchmarks</th><td><code>a11yCatPerfBenchmarksV1</code></td><td>Local benchmark trend data</td><td>Possibly</td><td>Yes</td><td>If visible</td><td>Local diagnostics context</td></tr>
+                <tr><th scope="row">spelling allowlist</th><td><code>a11yCatSpellingAllowlistV1</code></td><td>User-approved terms</td><td>Potentially</td><td>Yes</td><td>Indirect</td><td>Local editorial preference data</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-              <path d="M194 120 L236 120"></path>
-              <path d="M436 120 L478 120"></path>
-              <path d="M668 120 L710 40"></path>
-              <path d="M668 120 L710 97"></path>
-              <path d="M668 120 L710 155"></path>
-              <path d="M668 120 L710 213"></path>
-            </svg>
-            <figcaption>Export generation only occurs when users trigger export actions. Data remains local until shared by the user.</figcaption>
-          </figure>
+        <section class="section-panel" aria-labelledby="limitation-matrix-heading">
+          <h2 id="limitation-matrix-heading">Limitation matrix</h2>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <caption>Common limitation states and follow-up</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Limitation</th>
+                  <th scope="col">What happened</th>
+                  <th scope="col">What not to conclude</th>
+                  <th scope="col">Follow-up</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Restricted page context</th><td>Browser/context blocked full inspection.</td><td>"No issues found".</td><td>Test in supported context.</td></tr>
+                <tr><th scope="row">Protected frame</th><td>Frame access unavailable.</td><td>Frame passed accessibility.</td><td>Inspect frame with authorized method.</td></tr>
+                <tr><th scope="row">State-limited scan</th><td>Only current state inspected.</td><td>All user paths covered.</td><td>Manually test hidden and interaction states.</td></tr>
+                <tr><th scope="row">Engine-limited review</th><td>Engine lacked enough data.</td><td>Pass or fail decided.</td><td>Use manual validation and diagnostics.</td></tr>
+                <tr><th scope="row">Virtual Screen Reader Review</th><td>Structured virtual aid output only.</td><td>Real AT sign-off complete.</td><td>Run VoiceOver/NVDA/JAWS tests.</td></tr>
+                <tr><th scope="row">Beta scope limits</th><td>Private beta release boundary.</td><td>Production-readiness claim.</td><td>Keep controlled testing posture.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-panel" aria-labelledby="glossary-heading">
+          <h2 id="glossary-heading">Glossary</h2>
           <ul class="doc-list">
-            <li>Text equivalent: the extension stores local scan state first and exports only on explicit user action.</li>
-            <li>No cloud upload is part of this public documentation flow.</li>
+            <li><strong>axe-core</strong>: bundled accessibility rules engine.</li>
+            <li><strong>confirmed issue</strong>: deterministic/corroborated finding in current tested state.</li>
+            <li><strong>incomplete</strong>: engine could not fully determine result.</li>
+            <li><strong>manual review</strong>: requires human judgement.</li>
+            <li><strong>advisory</strong>: quality guidance, not automatic failure.</li>
+            <li><strong>deterministic failure</strong>: confirmed deterministic issue class.</li>
+            <li><strong>corroborated failure</strong>: confirmed issue with additional supporting evidence.</li>
+            <li><strong>visual composition review</strong>: visual judgement required.</li>
+            <li><strong>human judgement review</strong>: context interpretation required.</li>
+            <li><strong>engine-limited review</strong>: runtime/engine could not safely conclude.</li>
+            <li><strong>state-limited review</strong>: current state only inspected.</li>
+            <li><strong>scan limitation</strong>: explicit coverage boundary signal.</li>
+            <li><strong>source engine</strong>: origin of finding logic (axe or custom module).</li>
+            <li><strong>WCAG mapping</strong>: criterion references attached where available.</li>
+            <li><strong>selector</strong>: DOM locator for evidence target.</li>
+            <li><strong>evidence snippet</strong>: short extracted context from inspected page.</li>
+            <li><strong>local history</strong>: locally retained scan snapshots.</li>
+            <li><strong>previous scan</strong>: newest earlier saved scan for same origin+pathname scope.</li>
+            <li><strong>export</strong>: user-triggered local evidence output file/copy.</li>
+            <li><strong>diagnostics</strong>: structured runtime support signals.</li>
+            <li><strong>unsupported context</strong>: runtime state where full inspection is unavailable.</li>
+            <li><strong>restricted page</strong>: page blocked by browser/origin policy constraints.</li>
+            <li><strong>virtual screen reader review</strong>: simulated review aid, not real AT runtime proof.</li>
           </ul>
         </section>
 
-        <section class="proof-section" aria-labelledby="proof-heading">
-          <div class="proof-section__intro">
-            <div class="kicker">Current extension-build evidence</div>
-            <h2 id="proof-heading">Real extension screenshots</h2>
-            <p class="proof-note">Captured from the current MV3 extension build on safe local fixtures. These screenshots support the written guide. They do not replace the technical explanations below.</p>
-          </div>
-
-          <section class="proof-group" aria-labelledby="proof-triage-heading">
-            <h3 id="proof-triage-heading">Core panel, triage, and review buckets</h3>
-            <div class="proof-grid">
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension panel opened on a safe demo page inside Chrome.">
-                <figcaption>Extension panel opened on a page. This is the real MV3 extension panel attached to a safe local fixture page.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="Scan Results overview showing grouped findings, counts, and scan tools.">
-                <figcaption>Scan Results overview with grouped findings, search, severity filters, and export controls.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="Confirmed Issues group shown in the Scan Results panel.">
-                <figcaption>Confirmed Issues stay separate from review, advisory, and limitation output.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/severity-filters.png" alt="Severity filters showing Critical, Serious, Moderate, Minor, and Review counts.">
-                <figcaption>Severity filters and counts show confirmed-only severity totals plus the separate review tally.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/manual-review-items.png" alt="Needs review group with manual, incomplete, or uncertain items.">
-                <figcaption>Manual and review items require context or human judgement before they can be treated as defects.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/visual-composition-review.png" alt="Issue card labelled Visual Composition Review inside the review bucket.">
-                <figcaption>Visual Composition Review is review output, not a confirmed automated failure.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/scan-limitations.png" alt="A11Y Cat panel showing partial results or scan limitations on a restricted fixture.">
-                <figcaption>Scan Limitations show where the extension could not complete inspection.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/previous-scan-comparison.png" alt="Previous Scan Comparison panel comparing the current scan with a saved earlier scan.">
-                <figcaption>Previous Scan Comparison works from locally saved same-scope history.</figcaption>
-              </figure>
-            </div>
-          </section>
-
-          <section class="proof-group" aria-labelledby="proof-modules-heading">
-            <h3 id="proof-modules-heading">Focused review modules</h3>
-            <div class="proof-grid">
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/broken-links.png" alt="Broken Links results showing broken, timeout, skipped, restricted, and unverified states.">
-                <figcaption>Broken Links keeps same-origin verification, timeouts, restricted states, and unverified states explicit.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/metadata-check.png" alt="Metadata Check results with grouped findings for core metadata and structured data.">
-                <figcaption>Metadata Check reports metadata review output without presenting it as automatic accessibility failure.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/language-mismatch.png" alt="Language mismatch results with highlight actions for detected review candidates.">
-                <figcaption>Language Mismatch surfaces candidates that still need context and manual review.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/spelling-check.png" alt="Spelling check results showing supported and unsupported language handling.">
-                <figcaption>Spelling Check is advisory or review output. It is not a direct WCAG verdict by itself.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/page-reflow-or-text-scale.png" alt="Page Text Scale controls showing the current scaling percentage.">
-                <figcaption>The current UI label is Page Text Scale. It supports review of text scaling behaviour.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/alt-text-analysis.png" alt="Alt Text Analysis results with quality status rows.">
-                <figcaption>Alt Text Analysis provides structured review output for image text alternatives.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/heading-structure.png" alt="Headings module showing analysed heading rows and outline state.">
-                <figcaption>Heading Structure exposes heading analysis and outline review directly.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/screen-reader-review.png" alt="Screen Reader Review section with virtual review guidance and ready state.">
-                <figcaption>Screen Reader Review is a virtual review aid. It is not a substitute for VoiceOver, NVDA, or JAWS testing.</figcaption>
-              </figure>
-            </div>
-          </section>
-
-          <section class="proof-group" aria-labelledby="proof-controls-heading">
-            <h3 id="proof-controls-heading">Diagnostics, exports, privacy, and controls</h3>
-            <div class="proof-grid">
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/diagnostics-collapsed.png" alt="Dashboard advanced tools with the Diagnostics summary still collapsed.">
-                <figcaption>Diagnostics are available even before the structured support JSON is expanded.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/diagnostics-expanded.png" alt="Diagnostics panel expanded with support JSON visible.">
-                <figcaption>Diagnostics JSON is troubleshooting data, not a compliance verdict.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/exports-csv-json.png" alt="Exports and local state panel showing the CSV issue export action.">
-                <figcaption>CSV export creates a flat issue log for handoff or spreadsheet review.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/exports-csv-json.png" alt="Exports and local state panel showing the JSON evidence export action.">
-                <figcaption>JSON evidence export preserves richer technical context than CSV.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/local-data-clearing.png" alt="Privacy and local data disclosure inside the extension panel with local-data controls visible.">
-                <figcaption>Privacy and local data controls explain retained state and how to clear it.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/theme-settings.png" alt="Extension panel showing the theme toggle and dashboard settings controls.">
-                <figcaption>Theme and settings controls are visible in the current panel chrome.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/highlight-element.png" alt="Issue action row showing the Highlight element button.">
-                <figcaption>Highlight element ties a finding back to the current page state.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/ticket-dialog.png" alt="More actions panel showing the Create handoff draft action.">
-                <figcaption>The visible ticket-style action is Create handoff draft.</figcaption>
-              </figure>
-              <figure class="media-card media-card--compact">
-                <img src="../assets/screenshots/panel-resize-move-controls.png" alt="Panel geometry controls showing move and resize buttons.">
-                <figcaption>Panel resize and move controls are part of the visible shipped UI.</figcaption>
-              </figure>
-            </div>
-          </section>
-        </section>
-
-        <article class="markdown-rendered" data-markdown-source="../EXTENSION_UI_FEATURE_GUIDE.md"></article>
         <nav class="docs-pager" aria-label="Page navigation">
           <a class="button button--ghost" href="understanding-results.html" rel="prev">Previous: Understanding results</a>
           <a class="button button--secondary" href="privacy-local-data.html" rel="next">Next: Privacy and local data</a>
         </nav>
       </main>
     </div>
-    <script src="../assets/js/render-markdown.js"></script>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="../EXTENSION_UI_FEATURE_GUIDE.md">Canonical guide markdown</a></span></div></footer>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation</span>
+        <span><a href="../EXTENSION_UI_FEATURE_GUIDE.md">Canonical guide markdown</a></span>
+      </div>
+    </footer>
   </body>
 </html>
