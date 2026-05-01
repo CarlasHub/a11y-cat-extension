@@ -1,6 +1,7 @@
 :root {
   /* Derived from extension runtime tokens in scan-engine.js (dark theme) */
   --cat-bg: #161b22;
+  --cat-canvas: #0d1117;
   --cat-bg-muted: #1c232d;
   --cat-bg-subtle: #212b36;
   --cat-bg-inset: #090c10;
@@ -87,11 +88,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--type-md);
   color: var(--fg-default);
-  background:
-    radial-gradient(circle at 12% 8%, rgba(47, 129, 247, 0.18), transparent 26%),
-    radial-gradient(circle at 88% 14%, rgba(163, 113, 247, 0.11), transparent 25%),
-    radial-gradient(circle at 50% 100%, rgba(47, 129, 247, 0.06), transparent 36%),
-    linear-gradient(180deg, #0d1117 0%, #111924 44%, #121b27 68%, var(--bg-muted) 100%);
+  background: linear-gradient(180deg, var(--cat-canvas) 0%, #111821 100%);
   line-height: 1.65;
 }
 
@@ -185,7 +182,7 @@ pre code {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(18px);
-  background: rgba(13, 17, 23, 0.92);
+  background: rgba(13, 17, 23, 0.96);
   border-bottom: 1px solid rgba(48, 54, 61, 0.9);
   box-shadow: 0 10px 24px rgba(1, 4, 9, 0.4);
   isolation: isolate;
@@ -196,7 +193,7 @@ pre code {
   position: absolute;
   inset: auto 0 0 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(47, 129, 247, 0.5), transparent);
+  background: rgba(48, 54, 61, 0.95);
 }
 
 .site-header__inner,
@@ -348,11 +345,7 @@ pre code {
 .card::after,
 .feature-grid article::after,
 .proof-group::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.03), transparent 26%);
+  content: none;
 }
 
 .hero-panel,
@@ -371,9 +364,7 @@ pre code {
 .hero-panel {
   padding: 2.4rem;
   border-color: rgba(110, 118, 129, 0.42);
-  background:
-    linear-gradient(180deg, rgba(22, 27, 34, 0.97), rgba(22, 27, 34, 0.9)),
-    radial-gradient(circle at 8% 12%, rgba(47, 129, 247, 0.11), transparent 26%);
+  background: var(--bg-default);
 }
 
 .hero-panel h1,
@@ -578,7 +569,7 @@ pre code {
   padding: 0.9rem 1rem 1rem;
   font-size: var(--type-sm);
   color: var(--fg-muted);
-  background: linear-gradient(180deg, rgba(13, 17, 23, 0.28), transparent 80%);
+  background: var(--bg-default);
 }
 
 .media-card--compact img {
@@ -698,7 +689,7 @@ figcaption {
   position: sticky;
   top: 5.6rem;
   align-self: start;
-  background: linear-gradient(180deg, var(--bg-default), #1b2330);
+  background: var(--bg-default);
   border-color: rgba(110, 118, 129, 0.34);
 }
 
@@ -826,7 +817,7 @@ figcaption {
 
 .site-footer {
   border-top: 1px solid var(--border-default);
-  background: rgba(9, 12, 16, 0.92);
+  background: var(--cat-canvas);
 }
 
 .site-footer__inner {
@@ -859,7 +850,7 @@ figcaption {
   margin: 0 0 1.3rem;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(22, 27, 34, 0.88));
+  background: var(--bg-default);
   overflow: hidden;
 }
 
@@ -885,7 +876,7 @@ figcaption {
 
 .matrix-table tbody tr:nth-child(even) td,
 .matrix-table tbody tr:nth-child(even) th {
-  background: rgba(28, 35, 45, 0.44);
+  background: #1b2733;
 }
 
 .diagram-card {
@@ -893,7 +884,7 @@ figcaption {
   padding: 1rem;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(22, 27, 34, 0.88));
+  background: var(--bg-default);
 }
 
 .diagram-card figcaption {
@@ -905,7 +896,7 @@ figcaption {
   height: auto;
   border: 1px solid var(--border-muted);
   border-radius: 0.75rem;
-  background: linear-gradient(180deg, #151b24, #111722);
+  background: var(--cat-canvas);
 }
 
 .doc-diagram rect {
