@@ -4,36 +4,207 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Troubleshooting</title>
+    <meta name="doc-version" content="v0.9.1-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/troubleshooting.html">
+    <meta property="og:title" content="A11Y Cat Troubleshooting">
+    <meta property="og:description" content="Troubleshooting common A11Y Cat extension runtime and scan issues.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/troubleshooting.html">
     <meta name="description" content="Troubleshooting common A11Y Cat extension runtime and scan issues.">
     <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><img class="brand__icon" src="../assets/img/icon.png" alt="A11Y Cat logo"><span class="brand__text"><span class="brand__label">Chrome extension documentation</span><span class="brand__title">A11Y Cat</span></span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a><a href="troubleshooting.html">Troubleshooting</a><a href="privacy-policy.html">Privacy policy</a><a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a></nav></div></header>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="A11Y Cat logo">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
+        </nav>
+      </div>
+    </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li class="sidebar-group"><a href="intro.html">Introduction</a></li><li class="sidebar-group"><a href="installation.html">Installation</a></li><li class="sidebar-group"><a href="ui-feature-guide.html">Extension UI Feature Guide</a></li><li class="sidebar-group"><a href="privacy-local-data.html">Privacy and Local Data</a></li><li class="sidebar-group"><a href="limitations.html">Known Limitations</a></li><li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a></li><li class="sidebar-group is-current"><a href="troubleshooting.html" aria-current="page">Troubleshooting</a></li><li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li><li class="sidebar-group"><a href="changelog.html">Changelog / Status</a></li></ul></nav></aside>
+      <aside class="docs-sidebar">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="understanding-results.html">Understanding Results</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
+            <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
+            <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
+            <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
+            <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
+            <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="ui-feature-guide.html">UI Feature Guide</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
+            <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
+            <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
+            <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
+            <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
+            <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
+            <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
+            <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
+            <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
+            <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
+            <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
+            <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
+            <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
+            <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
+            <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
+            <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
+            <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
+            <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
+            <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
+            <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
+            <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
+            <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
+            <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
+            <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
+            <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
+            <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
+            <li><a href="ui-feature-guide.html#exports">Exports</a></li>
+            <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
+            <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
+            <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
+            <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
+            <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
+            <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
+            <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
+            <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
+            <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
+            <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
+            <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
+            <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="privacy-local-data.html">Privacy and Local Data</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
+            <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
+            <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
+            <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="limitations.html">Known Limitations</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
+            <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
+            <li><a href="limitations.html#file-access">File Access</a></li>
+            <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
+            <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
+            <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="beta-testing.html">Beta Testing</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
+            <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
+            <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
+            <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group is-current"><a href="troubleshooting.html" aria-current="page">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog</a></li>
+      <li class="sidebar-group"><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility Statement</a></li>
+    </ul>
+  </nav>
+</aside>
       <main id="main-content" class="docs-main">
-        <div class="page-hero"><div><div class="eyebrow">Support</div><h1 class="page-title">Troubleshooting</h1><p class="page-summary">Common scan/runtime issues and direct actions to recover.</p></div></div>
+        <div class="page-hero"><div><div class="eyebrow">Support</div><h1 class="page-title">Troubleshooting</h1><p class="page-summary">Common extension error states, likely causes, and direct fixes.</p></div></div>
+
         <h2>Extension panel does not open</h2>
-        <ul class="doc-list"><li>Confirm the extension is enabled in <code>chrome://extensions</code>.</li><li>Reload the extension and refresh the page.</li><li>Try a standard <code>https://</code> page (not browser-internal pages).</li></ul>
+        <ul class="doc-list">
+          <li><strong>Cause:</strong> restricted page context such as <code>chrome://</code>, <code>chrome-extension://</code>, or blocked <code>file://</code>. <strong>Fix:</strong> open a standard <code>https://</code> page or enable file access for the extension.</li>
+          <li><strong>Cause:</strong> extension disabled. <strong>Fix:</strong> enable A11Y Cat in <code>chrome://extensions</code>, then reload the page.</li>
+          <li><strong>Cause:</strong> injection blocked by page runtime constraints. <strong>Fix:</strong> refresh and retry, then inspect Diagnostics if the issue persists.</li>
+        </ul>
 
-        <h2>Scan shows limitations or incomplete coverage</h2>
-        <ul class="doc-list"><li>Open Diagnostics and inspect runtime limitation signals.</li><li>Test additional interaction states manually (dialogs, tabs, menus, auth states).</li><li>Treat limitation output as coverage risk, not as a pass result.</li></ul>
+        <h2>Scan produces no results</h2>
+        <ul class="doc-list">
+          <li><strong>Cause:</strong> runtime was not injected. <strong>Fix:</strong> close and reopen the panel, then rerun scan.</li>
+          <li><strong>Cause:</strong> page loaded before extension action. <strong>Fix:</strong> refresh after opening the panel.</li>
+          <li><strong>Cause:</strong> restricted/protected context. <strong>Fix:</strong> test in a supported page context and check limitations output.</li>
+        </ul>
 
-        <h2>Broken Links shows unverified or timeout</h2>
-        <ul class="doc-list"><li><code>unverified</code> means the link was not fetched (for example cross-origin).</li><li><code>timeout</code> means verification did not complete in time.</li><li>Validate final behavior manually before filing as accessibility failure.</li></ul>
+        <h2>History or comparison is missing</h2>
+        <ul class="doc-list">
+          <li><strong>Cause:</strong> first scan in this <code>origin + pathname</code> scope. <strong>Fix:</strong> run another scan on the same scope.</li>
+          <li><strong>Cause:</strong> history cleared. <strong>Fix:</strong> rerun scans to repopulate local history.</li>
+          <li><strong>Cause:</strong> scope changed (different origin/pathname). <strong>Fix:</strong> compare from the same scoped page; query/hash are ignored.</li>
+        </ul>
 
-        <h2>Export includes sensitive data</h2>
-        <ul class="doc-list"><li>CSV/JSON may include URL/title/selectors/snippets.</li><li>Review and redact before sharing externally.</li></ul>
+        <h2>Export file is empty or missing fields</h2>
+        <ul class="doc-list">
+          <li><strong>Cause:</strong> export triggered before running a scan. <strong>Fix:</strong> run scan first, then export.</li>
+          <li><strong>Cause:</strong> partial scan from restricted context. <strong>Fix:</strong> inspect scan limitations and diagnostics output.</li>
+        </ul>
+
+        <h2>Spelling check shows no results</h2>
+        <ul class="doc-list">
+          <li><strong>Cause:</strong> page language unsupported by bundled dictionary. <strong>Fix:</strong> treat as known limitation and use manual review.</li>
+          <li><strong>Cause:</strong> missing/unknown <code>lang</code> context. <strong>Fix:</strong> set language metadata and rescan.</li>
+          <li><strong>Cause:</strong> no visible text nodes in scanned state. <strong>Fix:</strong> test state where text is rendered.</li>
+        </ul>
+        <p>See <a href="limitations.html">Known Limitations</a> for language and state boundaries.</p>
+
+        <h2>Broken Links shows unverified for all links</h2>
+        <p>Cross-origin links are not fetched by design and stay <code>unverified</code>. Same-origin links can be checked with HEAD/GET requests from page context.</p>
 
         <h2>Need support diagnostics for issue reports</h2>
-        <ul class="doc-list"><li>Use Diagnostics export/copy from the extension panel.</li><li>Attach the output and reproduction steps to your issue report.</li></ul>
+        <ul class="doc-list">
+          <li>Use diagnostics export/copy from the extension panel.</li>
+          <li>Attach diagnostics with reproduction steps in your bug report.</li>
+        </ul>
 
-        <h2>Contact</h2>
-        <p>Support and privacy enquiries: <a href="mailto:info@carlashub.com">info@carlashub.com</a>.</p>
+        <h2>Report unresolved issues</h2>
+        <p>Open <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> for bugs not covered here. Remove sensitive data before posting.</p>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>Maintained by CarlasHub Accessibility Engineering · Docs version: v0.9.1-beta — last updated 2026-05-01 · Privacy/support: <a href="mailto:info@carlashub.com">info@carlashub.com</a></span>
+        <span><a href="../index.html">Home</a> · <a href="../docs/intro.html">Docs</a> · <a href="../docs/privacy-local-data.html">Privacy</a> · <a href="../docs/limitations.html">Known Limitations</a> · <a href="../docs/changelog.html">Changelog</a> · <a href="../docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
+      </div>
+    </footer>
   </body>
 </html>

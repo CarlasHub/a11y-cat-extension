@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A11Y Cat Extension UI Feature Guide</title>
+    <meta name="doc-version" content="v0.9.1-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/ui-feature-guide.html">
+    <meta property="og:title" content="A11Y Cat Extension UI Feature Guide">
+    <meta property="og:description" content="Structured guide to the A11Y Cat extension UI, result taxonomy, exports, local data, and limits.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/ui-feature-guide.html">
     <meta name="description" content="Structured guide to the A11Y Cat extension UI, result taxonomy, exports, local data, and limits.">
     <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
@@ -19,114 +25,135 @@
             <span class="brand__title">A11Y Cat</span>
           </span>
         </a>
-        <nav class="header-nav" aria-label="Primary">
+        <nav class="header-nav" aria-label="Main navigation">
           <a href="intro.html">Docs</a>
-          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
           <a href="installation.html">Installation</a>
-          <a href="troubleshooting.html">Troubleshooting</a>
-          <a href="privacy-policy.html">Privacy policy</a>
-          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
       </div>
     </header>
 
     <div class="docs-layout">
-      <aside class="docs-sidebar docs-sidebar--expanded">
-        <h2>Documentation</h2>
-                <nav class="sidebar-nav" aria-label="Documentation pages">
-          <ul>
-            <li class="sidebar-group"><a href="intro.html">Introduction</a>            </li>
-            <li class="sidebar-group"><a href="installation.html">Installation</a>            </li>
-            <li class="sidebar-group"><a href="understanding-results.html">Understanding Results</a>
-              <ul class="sidebar-sublist">
-                <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
-                <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
-                <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
-                <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
-                <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
-                <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
-              </ul>
-            </li>
-            <li class="sidebar-group is-current"><a href="ui-feature-guide.html" aria-current="page">Extension UI Feature Guide</a>
-              <ul class="sidebar-sublist">
-                <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
-                <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
-                <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
-                <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
-                <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
-                <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
-                <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
-                <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
-                <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
-                <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
-                <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
-                <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
-                <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
-                <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
-                <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
-                <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
-                <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
-                <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
-                <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
-                <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
-                <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
-                <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
-                <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
-                <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
-                <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
-                <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
-                <li><a href="ui-feature-guide.html#exports">Exports</a></li>
-                <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
-                <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
-                <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
-                <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
-                <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
-                <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
-                <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
-                <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
-                <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
-                <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
-                <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
-                <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
-              </ul>
-            </li>
-            <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and Local Data</a>
-              <ul class="sidebar-sublist">
-                <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
-                <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
-                <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
-                <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
-              </ul>
-            </li>
-            <li class="sidebar-group"><a href="limitations.html">Known Limitations</a>
-              <ul class="sidebar-sublist">
-                <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
-                <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
-                <li><a href="limitations.html#file-access">File Access</a></li>
-                <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
-                <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
-                <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
-              </ul>
-            </li>
-            <li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a>
-              <ul class="sidebar-sublist">
-                <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
-                <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
-                <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
-                <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
-              </ul>
-            </li>
-            <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a>            </li>
-            <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a>            </li>
-            
+      <aside class="docs-sidebar">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="understanding-results.html">Understanding Results</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
+            <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
+            <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
+            <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
+            <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
+            <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
           </ul>
-        </nav>
-      </aside>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure is-current">
+        <a href="ui-feature-guide.html" aria-current="page">UI Feature Guide</a>
+        <details class="sidebar-details" open>
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
+            <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
+            <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
+            <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
+            <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
+            <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
+            <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
+            <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
+            <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
+            <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
+            <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
+            <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
+            <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
+            <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
+            <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
+            <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
+            <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
+            <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
+            <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
+            <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
+            <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
+            <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
+            <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
+            <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
+            <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
+            <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
+            <li><a href="ui-feature-guide.html#exports">Exports</a></li>
+            <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
+            <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
+            <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
+            <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
+            <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
+            <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
+            <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
+            <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
+            <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
+            <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
+            <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
+            <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="privacy-local-data.html">Privacy and Local Data</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
+            <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
+            <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
+            <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="limitations.html">Known Limitations</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
+            <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
+            <li><a href="limitations.html#file-access">File Access</a></li>
+            <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
+            <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
+            <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure">
+        <a href="beta-testing.html">Beta Testing</a>
+        <details class="sidebar-details">
+          <summary>Section links</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
+            <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
+            <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
+            <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog</a></li>
+      <li class="sidebar-group"><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility Statement</a></li>
+    </ul>
+  </nav>
+</aside>
 
       <main id="main-content" class="docs-main">
         <div class="page-hero">
           <div>
-            <div class="eyebrow">Canonical UI reference</div>
             <h1 class="page-title">Extension UI feature guide</h1>
             <p class="page-summary">This page is the strongest user-facing reference for the shipped extension UI. It explains each visible feature, count, category, export, and limitation with implementation-backed taxonomy.</p>
             <div class="callout"><strong>Boundary:</strong> A11Y Cat supports accessibility review workflows. It does not replace manual testing or real assistive-technology validation.</div>
@@ -172,7 +199,7 @@
           <div class="docs-card-grid">
             <article class="card"><h3 id="dashboard">Dashboard</h3><p>Main panel entry showing scan context and top-level status.</p></article>
             <article class="card"><h3 id="scan-results">Scan Results</h3><p>Primary results workspace with grouped outputs and actions.</p></article>
-            <article class="card"><h3 id="confirmed-issues"><span class="badge badge--confirmed">Confirmed</span> Confirmed Issues</h3><p>Deterministic/corroborated findings for the tested state.</p></article>
+            <article class="card"><h3 id="confirmed-issues">Confirmed Issues</h3><p>Deterministic/corroborated findings for the tested state.</p></article>
             <article class="card"><h3 id="severity-filters">Severity Filters</h3><p><span class="severity severity--critical">Critical</span> <span class="severity severity--serious">Serious</span> <span class="severity severity--moderate">Moderate</span> <span class="severity severity--minor">Minor</span> prioritization controls.</p></article>
             <article class="card"><h3 id="review-critical-issues">Review Critical Issues</h3><p>Action path to triage highest-priority confirmed findings first.</p></article>
             <article class="card"><h3 id="review-manual-incomplete-items">Review Manual / Incomplete Items</h3><p>Action path to inspect uncertain findings before filing defects.</p></article>
@@ -195,14 +222,14 @@
             <article class="card"><h3 id="screen-reader-review">Screen Reader Review</h3><p>Virtual screen reader review aid and structured note workflow.</p></article>
             <article class="card"><h3 id="automated-review">Automated Review</h3><p>Automated deterministic scan stage before manual validation.</p></article>
             <article class="card"><h3 id="manual-review">Manual Review</h3><p>Manual validation stage for review-only and context-dependent output.</p></article>
-            <article class="card"><h3 id="diagnostics"><span class="badge badge--diagnostic">Diagnostic</span> Diagnostics</h3><p>Structured runtime signals for troubleshooting coverage and scan conditions.</p></article>
+            <article class="card"><h3 id="diagnostics">Diagnostics</h3><p>Structured runtime signals for troubleshooting coverage and scan conditions.</p></article>
             <article class="card"><h3 id="exports">Exports</h3><p>User-triggered export surfaces for issue and support handoff.</p></article>
             <article class="card"><h3 id="csv-issue-log">CSV Issue Log</h3><p>Flat issue list export for spreadsheet-style triage.</p></article>
             <article class="card"><h3 id="json-evidence-bundle">JSON Evidence Bundle</h3><p>Structured evidence export with provenance and classification fields.</p></article>
             <article class="card"><h3 id="local-issue-state-bundle">Local Issue-State Bundle</h3><p>Local workflow state import/export for triage continuity.</p></article>
             <article class="card"><h3 id="support-diagnostics">Support Diagnostics</h3><p>Diagnostic export/copy flow for reproducibility and support analysis.</p></article>
-            <article class="card"><h3 id="local-history"><span class="badge badge--safe">Local-only</span> Local History</h3><p>Saved scans used for history views and previous-scan comparison.</p></article>
-            <article class="card"><h3 id="local-data-clearing"><span class="badge badge--safe">Local-only</span> Local Data Clearing</h3><p>User controls to clear local extension data.</p></article>
+            <article class="card"><h3 id="local-history">Local History</h3><p>Saved scans used for history views and previous-scan comparison.</p></article>
+            <article class="card"><h3 id="local-data-clearing">Local Data Clearing</h3><p>User controls to clear local extension data.</p></article>
             <article class="card"><h3 id="issue-workflow-controls">Issue Workflow Controls</h3><p>Status, notes, and issue-level workflow actions.</p></article>
             <article class="card"><h3 id="highlight-element">Highlight Element</h3><p>Highlights targeted elements on the page for fast context verification.</p></article>
             <article class="card"><h3 id="turn-into-ticket">Turn Into Ticket</h3><p>Creates handoff-ready ticket content from an issue.</p></article>
@@ -380,6 +407,7 @@
             <h4>How to read the result</h4><p><span class="badge badge--confirmed">Confirmed</span>.</p>
             <h4>What the user should do next</h4><p>Prioritize and remediate as confirmed defects.</p>
             <h4>Limitations</h4><p>Does not prove full compliance coverage.</p>
+            <h4>Example</h4><p>Axe-core flags an image for missing accessible text and the custom alt-text analyzer flags the same image for the same reason in the same scan. That finding is classified as corroborated.</p>
             <h4>Screenshot</h4><p>Not available in this release: corroborated-failure taxonomy is visible in data model/export and needs a dedicated isolated capture.</p>
             <h4>Export/storage note</h4><p>Appears in JSON evidence and classification fields.</p>
           </article>
@@ -639,11 +667,21 @@
           <article>
             <h3>Turn Into Ticket</h3>
             <p>Issue handoff action for drafting ticket-ready content.</p>
-            <h4>What it does</h4><p>Transforms issue context into ticket-oriented output for teams.</p>
+            <h4>What it does</h4><p>Transforms issue context into ticket-oriented output for teams. Output is generated in-panel and can be copied for external systems.</p>
             <h4>Where the data comes from</h4><p>User action, issue evidence, and workflow state.</p>
             <h4>How to read the result</h4><p>Action feature.</p>
             <h4>What the user should do next</h4><p>Review ticket content, then submit through team workflow.</p>
             <h4>Limitations</h4><p>Ticket output is a handoff artifact, not final accessibility verdict.</p>
+            <h4>Ticket fields</h4>
+            <ul class="doc-list">
+              <li>Title</li>
+              <li>Page URL</li>
+              <li>Selector</li>
+              <li>Source engine attribution</li>
+              <li>WCAG mapping when available</li>
+              <li>Evidence snippet</li>
+              <li>Recommended next action</li>
+            </ul>
             <h4>Example output</h4>
             <pre><code>Title: [Serious][Confirmed] Button has no accessible name
 URL: https://example.test/checkout
@@ -652,8 +690,8 @@ Source: axe-core + corroborated custom check
 WCAG: 4.1.2 Name, Role, Value
 Evidence snippet: &lt;button id="submit-order"&gt;&lt;/button&gt;
 Action: Add an accessible name and retest in panel</code></pre>
-<h4>Screenshot</h4><figure class="media-card media-card--compact"><img src="../assets/screenshots/ticket-dialog.png" alt="Turn Into Ticket dialog with issue handoff details."><figcaption>Turn Into Ticket action dialog.</figcaption></figure>
-            <h4>Export/storage note</h4><p>May reference local issue data and evidence fields.</p>
+            <h4>Screenshot</h4><figure class="media-card media-card--compact"><img src="../assets/screenshots/ticket-dialog.png" alt="Turn Into Ticket dialog with issue handoff details."><figcaption>Turn Into Ticket action dialog.</figcaption></figure>
+            <h4>Export/storage note</h4><p>Ticket output uses local issue data and evidence fields. It does not directly integrate with an external ticketing API in this release.</p>
           </article>
 
           <article>
@@ -786,7 +824,7 @@ Action: Add an accessible name and retest in panel</code></pre>
         <section class="section-panel" aria-labelledby="result-classification-heading">
           <h2 id="result-classification-heading">Result classification matrix</h2>
           <p class="matrix-intro">How to interpret the main result buckets.</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Confirmed vs review vs advisory vs limitation</caption>
               <thead>
@@ -889,7 +927,7 @@ Action: Add an accessible name and retest in panel</code></pre>
 
         <section class="section-panel" aria-labelledby="severity-matrix-heading">
           <h2 id="severity-matrix-heading">Severity matrix</h2>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Severity source and triage priority</caption>
               <thead>
@@ -916,7 +954,7 @@ Action: Add an accessible name and retest in panel</code></pre>
 
         <section class="section-panel" aria-labelledby="scanner-source-heading">
           <h2 id="scanner-source-heading">Scanner source matrix</h2>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>What each source can and cannot prove</caption>
               <thead>
@@ -974,7 +1012,7 @@ Action: Add an accessible name and retest in panel</code></pre>
         <section class="section-panel" aria-labelledby="feature-coverage-heading">
           <h2 id="feature-coverage-heading">Feature coverage matrix (feature-by-feature documentation)</h2>
           <p class="matrix-intro">This matrix is the complete feature-by-feature documentation for visible extension features and required taxonomy entries.</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Per-feature behavior, data source, confidence, limits, and evidence</caption>
               <thead>
@@ -1023,8 +1061,8 @@ Action: Add an accessible name and retest in panel</code></pre>
                 <tr><th scope="row">30. Local issue-state import/export</th><td>Transfers local triage state.</td><td>Workflow state + export/import controls.</td><td>No.</td><td>Local workflow state</td><td>Sync triage state between testers.</td><td>Objective defect truth.</td><td>Local bundle with notes/status.</td><td>Not available in this release: import dialog capture not yet available from safe fixtures.</td></tr>
                 <tr><th scope="row">31. Diagnostics export/copy</th><td>Copies/exports support diagnostics.</td><td>Diagnostics module.</td><td>No.</td><td>Diagnostic action</td><td>Attach to bug reports.</td><td>Full browser debug trace.</td><td>May include runtime context.</td><td><code>diagnostics-expanded.png</code></td></tr>
                 <tr><th scope="row">32. Screen reader review export</th><td>Exports virtual review notes/logs.</td><td>Virtual SR review state + export control.</td><td>No.</td><td>Review workflow export</td><td>Share structured manual-review notes.</td><td>Real AT sign-off.</td><td>May include notes/page context.</td><td>Not available in this release: export control not yet isolated in safe screenshot pack.</td></tr>
-                <tr><th scope="row">33. Performance benchmark export (if visible)</th><td>Exports local performance benchmark data.</td><td>Benchmark state and export control.</td><td>No.</td><td>Diagnostic/export</td><td>Use for runtime performance troubleshooting.</td><td>Accessibility quality verdict.</td><td>Local benchmark data; conditional visibility.</td><td>Not available in this release: conditional feature not visible in current safe build capture.</td></tr>
-                <tr><th scope="row">34. Release discussion summary export (if visible)</th><td>Exports local release-discussion summary output.</td><td>Local summary/export action where visible.</td><td>No.</td><td>Workflow/export</td><td>Use as handoff summary, not compliance proof.</td><td>Formal release approval.</td><td>Local export; conditional visibility.</td><td>Not available in this release: conditional feature not visible in current safe build capture.</td></tr>
+                <tr><th scope="row">33. Performance benchmark export (when enabled in the current build)</th><td>Exports local performance benchmark data.</td><td>Benchmark state and export control.</td><td>No.</td><td>Diagnostic/export</td><td>Use for runtime performance troubleshooting.</td><td>Accessibility quality verdict.</td><td>Local benchmark data; conditional visibility.</td><td>Not available in this release: conditional feature not visible in current safe build capture.</td></tr>
+                <tr><th scope="row">34. Release discussion summary export (when enabled in the current build)</th><td>Exports local release-discussion summary output.</td><td>Local summary/export action where visible.</td><td>No.</td><td>Workflow/export</td><td>Use as handoff summary, not compliance proof.</td><td>Formal release approval.</td><td>Local export; conditional visibility.</td><td>Not available in this release: conditional feature not visible in current safe build capture.</td></tr>
                 <tr><th scope="row">35. Highlight element</th><td>Highlights issue target on page.</td><td>Issue action + selector target mapping.</td><td>No direct mapping itself.</td><td>Action tool</td><td>Confirm context before fixing.</td><td>That highlighted element is root cause in all states.</td><td>No separate storage; reflected in workflow use.</td><td><code>highlight-element.png</code></td></tr>
                 <tr><th scope="row">36. Turn into ticket</th><td>Creates handoff/ticket-style draft action.</td><td>Issue action workflow.</td><td>No direct mapping itself.</td><td>Workflow action</td><td>Create handoff artifact.</td><td>Acceptance or severity correctness.</td><td>May include issue context in output.</td><td><code>ticket-dialog.png</code></td></tr>
                 <tr><th scope="row">37. Issue workflow controls</th><td>Local issue status and annotation controls.</td><td>Workflow state module/storage.</td><td>No.</td><td>Local workflow state</td><td>Track triage progress.</td><td>Objective accessibility truth.</td><td>Stored locally; exportable in state bundle.</td><td>Visible in issue controls; no single isolated screenshot.</td></tr>
@@ -1044,7 +1082,7 @@ Action: Add an accessible name and retest in panel</code></pre>
 
         <section class="section-panel" aria-labelledby="export-matrix-heading">
           <h2 id="export-matrix-heading">Export matrix</h2>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Export format, content, and privacy boundaries</caption>
               <thead>
@@ -1063,9 +1101,9 @@ Action: Add an accessible name and retest in panel</code></pre>
                 <tr><th scope="row">JSON evidence bundle</th><td>JSON</td><td>Structured findings, provenance, diagnostics links</td><td>Compliance guarantee</td><td>Selectors/snippets/URL/title/notes may appear</td><td>Yes until user shares</td><td>Engineering QA debugging</td></tr>
                 <tr><th scope="row">Local issue-state bundle</th><td>JSON</td><td>Workflow state, annotations, status</td><td>Objective truth of issue severity</td><td>Local notes and context may appear</td><td>Yes until user shares</td><td>Triage continuity</td></tr>
                 <tr><th scope="row">Support diagnostics</th><td>JSON/text copy</td><td>Runtime and limitation signals</td><td>Full DevTools trace</td><td>Runtime context and page-derived metadata possible</td><td>Yes until user shares</td><td>Troubleshooting</td></tr>
-                <tr><th scope="row">Screen Reader Review export</th><td>Structured export (if visible)</td><td>Virtual review tasks/notes/logs</td><td>Real AT evidence</td><td>Notes/page context may appear</td><td>Yes until user shares</td><td>Manual review handoff</td></tr>
-                <tr><th scope="row">Performance benchmark export</th><td>Structured export (if visible)</td><td>Local benchmark metrics</td><td>Accessibility pass/fail proof</td><td>Runtime metadata possible</td><td>Yes until user shares</td><td>Performance troubleshooting</td></tr>
-                <tr><th scope="row">Release discussion summary export</th><td>Structured export (if visible)</td><td>Release-handoff summary</td><td>Formal release approval</td><td>Issue/summary context possible</td><td>Yes until user shares</td><td>Stakeholder communication</td></tr>
+                <tr><th scope="row">Screen Reader Review export</th><td>Structured export (when enabled in the current build)</td><td>Virtual review tasks/notes/logs</td><td>Real AT evidence</td><td>Notes/page context may appear</td><td>Yes until user shares</td><td>Manual review handoff</td></tr>
+                <tr><th scope="row">Performance benchmark export</th><td>Structured export (when enabled in the current build)</td><td>Local benchmark metrics</td><td>Accessibility pass/fail proof</td><td>Runtime metadata possible</td><td>Yes until user shares</td><td>Performance troubleshooting</td></tr>
+                <tr><th scope="row">Release discussion summary export</th><td>Structured export (when enabled in the current build)</td><td>Release-handoff summary</td><td>Formal release approval</td><td>Issue/summary context possible</td><td>Yes until user shares</td><td>Stakeholder communication</td></tr>
               </tbody>
             </table>
           </div>
@@ -1073,7 +1111,7 @@ Action: Add an accessible name and retest in panel</code></pre>
 
         <section class="section-panel" aria-labelledby="local-data-matrix-heading">
           <h2 id="local-data-matrix-heading">Local data matrix</h2>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Local storage keys and purpose</caption>
               <thead>
@@ -1094,7 +1132,7 @@ Action: Add an accessible name and retest in panel</code></pre>
                 <tr><th scope="row">workflow state</th><td><code>a11yCatWorkflowStateV1</code></td><td>Issue status/notes and filters</td><td>Yes</td><td>Yes</td><td>Yes</td><td>May contain sensitive notes</td></tr>
                 <tr><th scope="row">virtual SR review state</th><td><code>a11yCatVirtualSrReviewStateV1</code></td><td>Virtual SR tasks and notes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Not real AT sign-off evidence</td></tr>
                 <tr><th scope="row">virtual SR sessions</th><td>Session-scoped virtual SR state</td><td>Runtime session continuity</td><td>Potentially</td><td>Session clear/reset</td><td>Not primary</td><td>Session-lifetime data</td></tr>
-                <tr><th scope="row">performance benchmarks</th><td><code>a11yCatPerfBenchmarksV1</code></td><td>Local benchmark trend data</td><td>Possibly</td><td>Yes</td><td>If visible</td><td>Local diagnostics context</td></tr>
+                <tr><th scope="row">performance benchmarks</th><td><code>a11yCatPerfBenchmarksV1</code></td><td>Local benchmark trend data</td><td>Possibly</td><td>Yes</td><td>When enabled in current build</td><td>Local diagnostics context</td></tr>
                 <tr><th scope="row">spelling allowlist</th><td><code>a11yCatSpellingAllowlistV1</code></td><td>User-approved terms</td><td>Potentially</td><td>Yes</td><td>Indirect</td><td>Local editorial preference data</td></tr>
               </tbody>
             </table>
@@ -1103,7 +1141,7 @@ Action: Add an accessible name and retest in panel</code></pre>
 
         <section class="section-panel" aria-labelledby="limitation-matrix-heading">
           <h2 id="limitation-matrix-heading">Limitation matrix</h2>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Common limitation states and follow-up</caption>
               <thead>
@@ -1159,7 +1197,7 @@ Action: Add an accessible name and retest in panel</code></pre>
           <h2 id="required-matrices-heading">Required reference matrices</h2>
 
           <h3>1. Feature coverage matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Feature coverage by source, classification, and evidence surface</caption>
               <thead>
@@ -1188,7 +1226,7 @@ Action: Add an accessible name and retest in panel</code></pre>
           </div>
 
           <h3>2. Result classification matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Classification confidence and follow-up action</caption>
               <thead>
@@ -1217,7 +1255,7 @@ Action: Add an accessible name and retest in panel</code></pre>
           </div>
 
           <h3>3. Severity matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Severity source and triage behavior</caption>
               <thead>
@@ -1242,7 +1280,7 @@ Action: Add an accessible name and retest in panel</code></pre>
           </div>
 
           <h3>4. Scanner source matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Source capability and constraint boundaries</caption>
               <thead>
@@ -1267,7 +1305,7 @@ Action: Add an accessible name and retest in panel</code></pre>
           </div>
 
           <h3>5. Export matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Export format and sensitivity profile</caption>
               <thead>
@@ -1286,14 +1324,14 @@ Action: Add an accessible name and retest in panel</code></pre>
                 <tr><th scope="row">JSON evidence bundle</th><td>JSON</td><td>Structured findings, provenance, diagnostics links</td><td>Compliance guarantee</td><td>URL/title/selectors/snippets/notes may appear</td><td>Yes until user shares</td><td>Engineering QA debugging</td></tr>
                 <tr><th scope="row">Local issue-state bundle</th><td>JSON</td><td>Status, notes, local workflow state</td><td>Objective severity truth</td><td>May contain sensitive notes/context</td><td>Yes until user shares</td><td>Triage handoff continuity</td></tr>
                 <tr><th scope="row">Support diagnostics</th><td>JSON/text copy</td><td>Runtime limitation/support signals</td><td>Full browser trace</td><td>Runtime/page context may appear</td><td>Yes until user shares</td><td>Troubleshooting</td></tr>
-                <tr><th scope="row">Screen Reader Review export</th><td>Structured export (if visible)</td><td>Virtual SR tasks/notes/logs</td><td>Real AT evidence</td><td>Context and notes may appear</td><td>Yes until user shares</td><td>Manual review handoff</td></tr>
-                <tr><th scope="row">Performance benchmark export (if visible)</th><td>Structured export</td><td>Local benchmark metrics</td><td>Accessibility verdicts</td><td>Runtime context may appear</td><td>Yes until user shares</td><td>Performance troubleshooting</td></tr>
+                <tr><th scope="row">Screen Reader Review export</th><td>Structured export (when enabled in the current build)</td><td>Virtual SR tasks/notes/logs</td><td>Real AT evidence</td><td>Context and notes may appear</td><td>Yes until user shares</td><td>Manual review handoff</td></tr>
+                <tr><th scope="row">Performance benchmark export (when enabled in the current build)</th><td>Structured export</td><td>Local benchmark metrics</td><td>Accessibility verdicts</td><td>Runtime context may appear</td><td>Yes until user shares</td><td>Performance troubleshooting</td></tr>
               </tbody>
             </table>
           </div>
 
           <h3>6. Local data matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Local storage keys and privacy behavior</caption>
               <thead>
@@ -1314,14 +1352,14 @@ Action: Add an accessible name and retest in panel</code></pre>
                 <tr><th scope="row">workflow state</th><td><code>a11yCatWorkflowStateV1</code></td><td>Issue status/notes/preferences</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Can include sensitive local notes</td></tr>
                 <tr><th scope="row">virtual SR review state</th><td><code>a11yCatVirtualSrReviewStateV1</code></td><td>Virtual review tasks/notes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Virtual aid only, not AT proof</td></tr>
                 <tr><th scope="row">virtual SR sessions</th><td>Session-scoped virtual SR state</td><td>Session continuity markers</td><td>Potentially</td><td>Session clear/reset</td><td>Not primary</td><td>Session-lifetime context</td></tr>
-                <tr><th scope="row">performance benchmarks</th><td><code>a11yCatPerfBenchmarksV1</code></td><td>Local performance trend data</td><td>Possibly</td><td>Yes</td><td>If visible</td><td>Local diagnostics only</td></tr>
+                <tr><th scope="row">performance benchmarks</th><td><code>a11yCatPerfBenchmarksV1</code></td><td>Local performance trend data</td><td>Possibly</td><td>Yes</td><td>When enabled in current build</td><td>Local diagnostics only</td></tr>
                 <tr><th scope="row">spelling allowlist</th><td><code>a11yCatSpellingAllowlistV1</code></td><td>User-approved spelling terms</td><td>Potentially</td><td>Yes</td><td>Indirect</td><td>Local editorial preference</td></tr>
               </tbody>
             </table>
           </div>
 
           <h3>7. Beta readiness matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Beta readiness and release boundary status</caption>
               <thead>
@@ -1349,7 +1387,7 @@ Action: Add an accessible name and retest in panel</code></pre>
           </div>
 
           <h3>8. Screenshot-to-feature matrix</h3>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" aria-label="Table content. Scroll horizontally to view all columns.">
             <table class="matrix-table">
               <caption>Screenshot evidence coverage, documentation mapping, and safety status</caption>
               <thead>
@@ -1412,6 +1450,11 @@ Action: Add an accessible name and retest in panel</code></pre>
       </main>
     </div>
 
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>Maintained by CarlasHub Accessibility Engineering · Docs version: v0.9.1-beta — last updated 2026-05-01 · Privacy/support: <a href="mailto:info@carlashub.com">info@carlashub.com</a></span>
+        <span><a href="../index.html">Home</a> · <a href="../docs/intro.html">Docs</a> · <a href="../docs/privacy-local-data.html">Privacy</a> · <a href="../docs/limitations.html">Known Limitations</a> · <a href="../docs/changelog.html">Changelog</a> · <a href="../docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
+      </div>
+    </footer>
   </body>
 </html>

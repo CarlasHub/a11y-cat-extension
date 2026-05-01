@@ -36,6 +36,8 @@ jobs:
           cp EXTENSION_UI_FEATURE_GUIDE.md _site/
           cp privacy-policy.md _site/
           cp privacy-policy.html _site/
+          cp robots.txt _site/
+          cp sitemap.xml _site/
           cp .nojekyll _site/
           cp -R docs _site/docs
           cp -R assets _site/assets

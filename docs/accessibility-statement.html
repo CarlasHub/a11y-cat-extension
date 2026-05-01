@@ -2,16 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=./beta-testing.html">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A11Y Cat Docs Redirect</title>
+    <title>A11Y Cat Docs Accessibility Statement</title>
     <meta name="doc-version" content="v0.9.1-beta">
-    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/beta-testing-guide.html">
-    <meta property="og:title" content="A11Y Cat Docs Redirect">
-    <meta property="og:description" content="Redirect page for A11Y Cat documentation aliases.">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/accessibility-statement.html">
+    <meta property="og:title" content="A11Y Cat Docs Accessibility Statement">
+    <meta property="og:description" content="Accessibility statement for the A11Y Cat documentation site.">
     <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
-    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/beta-testing-guide.html">
-    <meta name="description" content="Redirect page for A11Y Cat documentation aliases.">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/accessibility-statement.html">
+    <meta name="description" content="Accessibility statement for the A11Y Cat documentation site.">
     <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
@@ -146,19 +145,39 @@
       <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
       <li class="sidebar-group"><a href="changelog.html">Changelog</a></li>
       <li class="sidebar-group"><a href="privacy-policy.html">Privacy Policy</a></li>
-      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility Statement</a></li>
+      <li class="sidebar-group is-current"><a href="accessibility-statement.html" aria-current="page">Accessibility Statement</a></li>
     </ul>
   </nav>
 </aside>
       <main id="main-content" class="docs-main">
         <div class="page-hero">
           <div>
-            <div class="eyebrow">Redirect</div>
-            <h1 class="page-title">Continue to beta testing</h1>
-            <p class="page-summary">This URL is kept as a compatibility alias. You are being redirected to the current canonical page.</p>
-            <p><a class="button button--primary" href="beta-testing.html">Continue to beta testing</a></p>
+            <h1 class="page-title">Accessibility statement for this documentation site</h1>
+            <p class="page-summary">This statement covers the accessibility target, testing scope, and reporting path for the public A11Y Cat documentation site.</p>
           </div>
         </div>
+
+        <h2>Conformance target</h2>
+        <p>This documentation site targets WCAG 2.1 Level AA.</p>
+
+        <h2>Testing approach</h2>
+        <ul class="doc-list">
+          <li>Automated checks for basic semantic, heading, and link integrity.</li>
+          <li>Manual keyboard review for navigation, skip links, focus visibility, and table scrolling.</li>
+          <li>Manual visual review for contrast and responsive behavior across representative viewport sizes.</li>
+        </ul>
+
+        <h2>Known accessibility issues</h2>
+        <ul class="doc-list">
+          <li>Some long technical tables require horizontal scrolling on narrow screens.</li>
+          <li>Some feature screenshots are unavailable in this release where safe isolation is not possible.</li>
+        </ul>
+
+        <h2>Last tested date</h2>
+        <p>2026-05-01</p>
+
+        <h2>Report an accessibility issue with this docs site</h2>
+        <p>Email <a href="mailto:info@carlashub.com">info@carlashub.com</a> with page URL, issue summary, and reproduction steps.</p>
       </main>
     </div>
     <footer class="site-footer">

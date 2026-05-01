@@ -868,6 +868,41 @@ figcaption {
   border-color: var(--border-default);
 }
 
+.sidebar-details {
+  margin-top: 0.25rem;
+}
+
+.sidebar-details summary {
+  cursor: pointer;
+  font-size: var(--type-xs);
+  font-weight: 700;
+  color: var(--fg-muted);
+  padding: 0.32rem 0.58rem;
+  border-radius: 0.55rem;
+  border: 1px solid transparent;
+  list-style: none;
+}
+
+.sidebar-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.sidebar-details summary::before {
+  content: "▸ ";
+  color: var(--fg-subtle);
+}
+
+.sidebar-details[open] summary::before {
+  content: "▾ ";
+}
+
+.sidebar-details summary:hover,
+.sidebar-details summary:focus-visible {
+  color: var(--fg-default);
+  border-color: var(--border-default);
+  background: var(--bg-subtle);
+}
+
 .sidebar-sublist {
   margin-top: 0.2rem;
   margin-left: 0.3rem;
@@ -1284,12 +1319,12 @@ figcaption {
 
 
 /* Sidebar collapse to avoid full 40+ link map on every page */
-.docs-sidebar .sidebar-sublist { display: none; }
-.docs-sidebar .sidebar-group.is-current .sidebar-sublist { display: block; }
-.docs-sidebar--expanded .sidebar-sublist { display: block; }
+.docs-sidebar .sidebar-details:not([open]) .sidebar-sublist { display: none; }
+.docs-sidebar .sidebar-details[open] .sidebar-sublist { display: block; }
 
 /* stronger mobile table handling */
 @media (max-width: 720px) {
   .table-wrap, .matrix-table { overflow-x: auto; display: block; }
+  .table-wrap { max-width: 100%; }
   .matrix-table th, .matrix-table td { min-width: 10rem; }
 }

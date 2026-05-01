@@ -15,6 +15,7 @@ A11Y Cat supports accessibility review workflows. It does not replace manual tes
 - [Docs landing page](index.html)
 - [Extension UI feature guide](EXTENSION_UI_FEATURE_GUIDE.md)
 - [Docs introduction](docs/intro.html)
+- [FAQ](docs/faq.html)
 - [Installation](docs/installation.html)
 - [Privacy and local data](docs/privacy-local-data.html)
 - [Privacy policy (HTML)](docs/privacy-policy.html)
@@ -23,6 +24,7 @@ A11Y Cat supports accessibility review workflows. It does not replace manual tes
 - [Release notes and status](docs/changelog.html)
 - [Troubleshooting](docs/troubleshooting.html)
 - [Keyboard shortcuts](docs/keyboard-shortcuts.html)
+- [Accessibility statement](docs/accessibility-statement.html)
 
 ## User-facing source of truth
 
@@ -65,11 +67,16 @@ EXTENSION_UI_FEATURE_GUIDE.md
 privacy-policy.html
 docs/
   intro.html
+  faq.html
   ui-feature-guide.html
   installation.html
   privacy-local-data.html
+  privacy-policy.html
   limitations.html
   beta-testing.html
+  troubleshooting.html
+  keyboard-shortcuts.html
+  accessibility-statement.html
   changelog.html
 assets/
   css/
@@ -104,6 +111,8 @@ assets/
     render-markdown.js
 LICENSE
 .nojekyll
+robots.txt
+sitemap.xml
 ```
 
 ## GitHub Pages deployment
@@ -141,6 +150,8 @@ Future changes to UI labels, result categories, counts, exports, or storage beha
 3. Update `privacy-policy.html` and `docs/privacy-local-data.html` together when privacy or local-storage behaviour changes.
 4. Keep the landing page, sidebar navigation, and README links aligned if page names or structure change.
 5. Keep screenshots aligned with the shipped extension UI.
+6. Screenshot standard: capture dark-mode extension UI, optimize dimensions for web delivery, and avoid oversized long images.
+7. For demo flows, record short, redacted walkthrough captures before selecting release screenshots.
 6. Run the documentation checks available in the source repo before publishing updates.
 
 This repository is documentation-first. Do not add internal development files here.

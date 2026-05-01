@@ -2,16 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=./beta-testing.html">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A11Y Cat Docs Redirect</title>
+    <title>A11Y Cat FAQ</title>
     <meta name="doc-version" content="v0.9.1-beta">
-    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/beta-testing-guide.html">
-    <meta property="og:title" content="A11Y Cat Docs Redirect">
-    <meta property="og:description" content="Redirect page for A11Y Cat documentation aliases.">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/faq.html">
+    <meta property="og:title" content="A11Y Cat FAQ">
+    <meta property="og:description" content="Frequently asked questions about A11Y Cat scope, WCAG mapping, privacy, and beta usage.">
     <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
-    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/beta-testing-guide.html">
-    <meta name="description" content="Redirect page for A11Y Cat documentation aliases.">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/faq.html">
+    <meta name="description" content="Frequently asked questions about A11Y Cat scope, WCAG mapping, privacy, and beta usage.">
     <link rel="icon" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
@@ -41,7 +40,7 @@
   <nav class="sidebar-nav" aria-label="Documentation sections">
     <ul>
       <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
-      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group is-current"><a href="faq.html" aria-current="page">FAQ</a></li>
       <li class="sidebar-group"><a href="installation.html">Installation</a></li>
       <li class="sidebar-group sidebar-group--disclosure">
         <a href="understanding-results.html">Understanding Results</a>
@@ -153,12 +152,40 @@
       <main id="main-content" class="docs-main">
         <div class="page-hero">
           <div>
-            <div class="eyebrow">Redirect</div>
-            <h1 class="page-title">Continue to beta testing</h1>
-            <p class="page-summary">This URL is kept as a compatibility alias. You are being redirected to the current canonical page.</p>
-            <p><a class="button button--primary" href="beta-testing.html">Continue to beta testing</a></p>
+            <h1 class="page-title">Frequently asked questions</h1>
+            <p class="page-summary">Direct answers for developers, QA teams, accessibility reviewers, and stakeholders using A11Y Cat in private beta workflows.</p>
           </div>
         </div>
+
+        <h2>Does A11Y Cat prove WCAG compliance?</h2>
+        <p>No. A11Y Cat supports accessibility review workflows and triage. It does not prove full compliance. Review findings in context and complete manual accessibility testing and real assistive-technology validation.</p>
+
+        <h2>What WCAG version does A11Y Cat target?</h2>
+        <p>The bundled axe-core engine includes rules for WCAG 2.0, 2.1, and 2.2 where available. A11Y Cat reporting is tuned for A/AA workflow triage while preserving WCAG mappings in finding metadata.</p>
+
+        <h2>Is Screen Reader Review the same as testing with a real screen reader?</h2>
+        <p>No. Screen Reader Review is a virtual review aid. It is not VoiceOver, NVDA, or JAWS evidence. Real assistive-technology testing is still required for sign-off.</p>
+
+        <h2>What does "corroborated failure" mean?</h2>
+        <p>A corroborated failure is a confirmed failure where at least two independent detection mechanisms flag the same element for the same reason within one scan. Example: axe-core and the custom alt-text analyzer both flag the same image for missing meaningful text.</p>
+
+        <h2>Does the extension send data to a server?</h2>
+        <p>The public release build processes data locally. It does not automatically send scan data to a developer server or database. Exports leave the device only when users choose to share them.</p>
+
+        <h2>Can I use this on internal or authenticated pages?</h2>
+        <p>You can only test pages you are authorized to inspect. Restricted contexts, protected frames, and state boundaries may limit what the scanner can inspect.</p>
+
+        <h2>Can I use this in Microsoft Edge?</h2>
+        <p>Edge (Chromium) is supported in limited beta validation. Chrome desktop is the primary supported runtime in this release.</p>
+
+        <h2>What does a review item mean?</h2>
+        <p>A review item means automation detected a potential issue that requires manual judgment. Do not treat review items as confirmed defects until verified.</p>
+
+        <h2>Where do I report bugs?</h2>
+        <p>Use <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>. Remove sensitive URLs, selectors, and snippets before posting public reports.</p>
+
+        <h2>What is stored locally and for how long?</h2>
+        <p>Settings, history, workflow notes, and optional review state are stored in extension local storage until the user clears data or removes the extension. See <a href="privacy-local-data.html">Privacy and Local Data</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
       </main>
     </div>
     <footer class="site-footer">
