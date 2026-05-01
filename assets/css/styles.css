@@ -706,6 +706,20 @@ figcaption {
   margin: 0 0 0.9rem;
   font-size: var(--type-md);
   letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.docs-sidebar h2::before {
+  content: "";
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(110, 118, 129, 0.35);
+  box-shadow: var(--shadow-sm);
+  background: url("../img/icon.png") center/cover no-repeat;
+  flex: 0 0 auto;
 }
 
 .sidebar-nav ul {
