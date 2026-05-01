@@ -47,7 +47,7 @@ This is the simplest valid setup for the current site because the docs are alrea
 - `assets/js/render-markdown.js` — local markdown renderer used by the UI feature guide page
 - `assets/screenshots/` — normalized real extension UI screenshots used across the public docs
 
-## Public URL
+## Public URL placeholder
 
 Target public URL after deployment:
 

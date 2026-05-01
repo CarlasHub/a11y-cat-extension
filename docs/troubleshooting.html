@@ -27,10 +27,9 @@
         </a>
         <nav class="header-nav" aria-label="Main navigation">
           <a href="intro.html">Docs</a>
-          <a href="ui-feature-guide.html">UI feature guide</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
           <a href="installation.html">Installation</a>
           <a href="privacy-local-data.html">Privacy</a>
-          <a href="limitations.html">Known limitations</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
         <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
@@ -169,26 +168,6 @@
           <li><strong>Cause:</strong> restricted/protected context. <strong>Fix:</strong> test in a supported page context and check limitations output.</li>
         </ul>
 
-        <h2>Scan appears stuck</h2>
-        <ul class="doc-list">
-          <li><strong>Cause:</strong> page is still mutating or loading heavy client-side content. <strong>Fix:</strong> wait for page idle, then rerun scan.</li>
-          <li><strong>Cause:</strong> protected frame/content boundary reduced inspectable scope. <strong>Fix:</strong> inspect scan limitations and diagnostics output.</li>
-          <li><strong>Cause:</strong> runtime fault in current tab. <strong>Fix:</strong> reload tab, reopen panel, rerun scan, and capture support diagnostics if repeated.</li>
-        </ul>
-
-        <h2>Restricted page contexts</h2>
-        <ul class="doc-list">
-          <li><strong>Chrome Web Store pages:</strong> extension injection is restricted; these pages cannot be scanned as normal page targets.</li>
-          <li><strong><code>chrome://</code> pages:</strong> browser-internal pages cannot be scanned by this extension runtime.</li>
-          <li><strong><code>chrome-extension://</code> pages:</strong> extension pages are outside the normal scan target scope.</li>
-        </ul>
-
-        <h2>file:// pages cannot be scanned or require file access</h2>
-        <ul class="doc-list">
-          <li><strong>Cause:</strong> extension file URL access is disabled. <strong>Fix:</strong> in <code>chrome://extensions</code>, open A11Y Cat details and enable file URL access.</li>
-          <li><strong>Cause:</strong> local file context still has runtime limits. <strong>Fix:</strong> treat output as potentially partial and validate manually.</li>
-        </ul>
-
         <h2>History or comparison is missing</h2>
         <ul class="doc-list">
           <li><strong>Cause:</strong> first scan in this <code>origin + pathname</code> scope. <strong>Fix:</strong> run another scan on the same scope.</li>
@@ -213,37 +192,6 @@
         <h2>Broken Links shows unverified for all links</h2>
         <p>Cross-origin links are not fetched by design and stay <code>unverified</code>. Same-origin links can be checked with HEAD/GET requests from page context.</p>
 
-        <h2>Metadata or schema output is missing/invalid</h2>
-        <ul class="doc-list">
-          <li><strong>Cause:</strong> page does not include expected Open Graph/Schema.org/JSON-LD markup. <strong>Fix:</strong> treat as advisory/quality feedback and verify page requirements.</li>
-          <li><strong>Cause:</strong> JSON-LD block exists but is invalid JSON. <strong>Fix:</strong> validate syntax and rerun scan.</li>
-          <li><strong>Cause:</strong> dynamic metadata is not present in current state. <strong>Fix:</strong> test the state where metadata is emitted.</li>
-        </ul>
-
-        <h2>Screen Reader Review is not real AT proof</h2>
-        <p>Screen Reader Review is a virtual review aid and workflow helper. It is not evidence of VoiceOver, NVDA, or JAWS behavior. Use real assistive-technology testing for accessibility sign-off.</p>
-
-        <h2>How to clear local data</h2>
-        <ul class="doc-list">
-          <li>Open the extension panel and use <strong>Scan Results → Privacy and data use → Clear all local extension data</strong>.</li>
-          <li>You can also remove the extension to clear extension-managed local storage.</li>
-        </ul>
-
-        <h2>Common error messages reference</h2>
-        <table class="matrix-table">
-          <caption>Error reference for frequent scan/runtime states</caption>
-          <thead>
-            <tr><th scope="col">Message or state</th><th scope="col">Meaning</th><th scope="col">What to do</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Automated WCAG scan is unavailable</th><td>axe-core runtime was not available in the current tab context.</td><td>Reload page and extension, then rerun scan.</td></tr>
-            <tr><th scope="row">Restricted page / unsupported context</th><td>Browser security boundary blocked inspection.</td><td>Run on supported <code>https://</code> page and review limitations.</td></tr>
-            <tr><th scope="row">Broken links: unverified</th><td>Links are cross-origin or otherwise not fetched by design.</td><td>Manually verify link health or test from same-origin path.</td></tr>
-            <tr><th scope="row">Previous scan unavailable</th><td>No earlier scan exists for the same <code>origin + pathname</code> scope.</td><td>Run another scan on the same scoped page.</td></tr>
-            <tr><th scope="row">Spelling skipped</th><td>Language was unsupported, missing, or no visible text was in scope.</td><td>Set page language correctly and rerun; use manual review when unsupported.</td></tr>
-          </tbody>
-        </table>
-
         <h2>Need support diagnostics for issue reports</h2>
         <ul class="doc-list">
           <li>Use diagnostics export/copy from the extension panel.</li>
@@ -252,13 +200,12 @@
 
         <h2>Report unresolved issues</h2>
         <p>Open <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> for bugs not covered here. Remove sensitive data before posting.</p>
-        <p><strong>Support route:</strong> Maintained by Carla Gonçalves. Support and beta feedback are handled through GitHub Issues.</p>
       </main>
     </div>
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
-        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+        <span>Maintained by Carla Gonçalves · A11Y Cat Extension Beta · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues (opens in a new tab)">Support and beta feedback: GitHub Issues</a></span>
+        <span><a href="../index.html">Home</a> · <a href="../docs/intro.html">Docs</a> · <a href="../docs/privacy-local-data.html">Privacy</a> · <a href="../docs/limitations.html">Known Limitations</a> · <a href="../docs/changelog.html">Changelog</a> · <a href="../docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
       </div>
     </footer>
   </body>

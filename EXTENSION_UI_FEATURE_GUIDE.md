@@ -746,7 +746,7 @@ If a second scan on the same origin and path adds one new issue, comparison show
 Checks visible page anchors and keeps every outcome visible: broken, valid, skipped, unverified, timeout, or restricted.
 
 **Where the count comes from**  
-From custom link checking over visible anchors. Same-origin page links can be verified with same-origin `HEAD` and, if needed, `GET` requests. Cross-origin links are not fetched automatically and are kept as `unverified`. In-page fragment links are checked against the current document. Empty `href`, empty hash `#`, `javascript:`, `mailto:`, and `tel:` links are skipped or classified separately. Unsupported or restricted schemes are marked `restricted`.
+From custom link checking over visible anchors. Same-origin page links can be verified with same-origin `HEAD` and, if needed, `GET` requests. Cross-origin links are not fetched automatically and are kept as `unverified`. In-page fragment links are checked against the current document. Empty `href`, placeholder `#`, `javascript:`, `mailto:`, and `tel:` links are skipped or classified separately. Unsupported or restricted schemes are marked `restricted`.
 
 **How it is classified**  
 advisory
@@ -2939,16 +2939,16 @@ Table caption: Screenshot and visual asset matrix for current extension UI evide
 | Highlight element action | `highlight-element.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Issue action row showing the Highlight element button. | Highlight action links issue to page element. | Yes | Yes |
 | Ticket/handoff action | `ticket-dialog.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | More actions panel showing Create handoff draft action. | Visible ticket-style action is Create handoff draft. | Yes | Yes |
 | Panel resize/move controls | `panel-resize-move-controls.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Panel geometry controls showing move and resize buttons. | Keyboard/pointer panel geometry controls. | Yes | Yes |
-| Human Judgement Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
-| Engine-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
-| State-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| Human Judgement Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Screenshot pending: hard to capture safely as a stable isolated label in current safe fixtures. | Yes (feature verified) | N/A |
+| Engine-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Screenshot pending: runtime-limitation trigger is state-dependent and not consistently reproducible in safe demo capture set. | Yes (feature verified) | N/A |
+| State-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Screenshot pending: state-path examples vary by app flow and are hard to capture safely without private app data. | Yes (feature verified) | N/A |
 | Deterministic Failures | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not separately visible as a standalone panel label; represented within confirmed issue cards. | Yes (feature verified) | N/A |
 | Corroborated Failures | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not separately visible as a standalone panel label; represented within confirmed issue cards. | Yes (feature verified) | N/A |
-| Local issue-state import/export | `—` | `docs/ui-feature-guide.html` export/workflow sections | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
-| Diagnostics export/copy controls | `—` | `docs/ui-feature-guide.html` diagnostics export sections | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
-| Screen Reader Review export controls | `—` | `docs/ui-feature-guide.html` Screen Reader Review export section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| Local issue-state import/export | `—` | `docs/ui-feature-guide.html` export/workflow sections | N/A (no screenshot) | Screenshot pending: import interaction requires file-selection dialog not captured in current safe public set. | Yes (feature verified) | N/A |
+| Diagnostics export/copy controls | `—` | `docs/ui-feature-guide.html` diagnostics export sections | N/A (no screenshot) | Screenshot pending: control-level capture deferred; diagnostics panel screenshots already prove the module surface. | Yes (feature verified) | N/A |
+| Screen Reader Review export controls | `—` | `docs/ui-feature-guide.html` Screen Reader Review export section | N/A (no screenshot) | Screenshot pending: export submenu states not yet isolated in current safe capture set. | Yes (feature verified) | N/A |
 | Performance benchmark export | `—` | `docs/ui-feature-guide.html` performance benchmark section | N/A (no screenshot) | Not visible in current verified public build surface; documented as conditional/if visible. | Yes (bounded status verified) | N/A |
-| Release discussion summary export | `—` | `docs/ui-feature-guide.html` release discussion section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| Release discussion summary export | `—` | `docs/ui-feature-guide.html` release discussion section | N/A (no screenshot) | Screenshot pending: control exists in runtime path but not included in current public screenshot pack. | Yes (feature verified) | N/A |
 
 ## 7D. Coverage assurance checklist
 

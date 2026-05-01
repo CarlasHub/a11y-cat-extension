@@ -27,10 +27,9 @@
         </a>
         <nav class="header-nav" aria-label="Main navigation">
           <a href="intro.html">Docs</a>
-          <a href="ui-feature-guide.html">UI feature guide</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
           <a href="installation.html">Installation</a>
           <a href="privacy-local-data.html">Privacy</a>
-          <a href="limitations.html">Known limitations</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
         <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
@@ -408,8 +407,8 @@
             <h4>Where the data comes from</h4><p>A11Y Cat corroboration logic and source attribution.</p>
             <h4>How to read the result</h4><p><span class="badge badge--confirmed">Confirmed</span>.</p>
             <h4>What the user should do next</h4><p>Prioritize and remediate as confirmed defects.</p>
-            <h4>Limitations</h4><p>Corroborated does not mean a human has verified the issue, and it does not prove full compliance coverage.</p>
-            <h4>Example</h4><p>A corroborated failure is a confirmed issue where more than one signal supports the same finding. For example, axe-core may report an image-related failure and A11Y Cat's custom alt-text analysis may independently identify the same element as lacking meaningful text alternative evidence in the same scan.</p>
+            <h4>Limitations</h4><p>Does not prove full compliance coverage.</p>
+            <h4>Example</h4><p>Axe-core flags an image for missing accessible text and the custom alt-text analyzer flags the same image for the same reason in the same scan. That finding is classified as corroborated.</p>
             <h4>Screenshot</h4><p>Not available in this release: corroborated-failure taxonomy is visible in data model/export and needs a dedicated isolated capture.</p>
             <h4>Export/storage note</h4><p>Appears in JSON evidence and classification fields.</p>
           </article>
@@ -821,13 +820,6 @@ Action: Add an accessible name and retest in panel</code></pre>
             <li>Text equivalent: virtual SR data can support triage and handoff but cannot certify AT behavior.</li>
             <li>Text equivalent: manual VoiceOver, NVDA, and JAWS verification remains required.</li>
           </ul>
-        </section>
-
-        <section class="section-panel" aria-labelledby="wcag-compatibility-scope-heading">
-          <h2 id="wcag-compatibility-scope-heading">WCAG and compatibility scope</h2>
-          <p class="matrix-intro">Implementation scope for WCAG-tagged automated scanning and runtime compatibility.</p>
-          <p>The scanner runtime uses axe-core with WCAG A/AA tag scope for WCAG 2.0, 2.1, and 2.2 in the current build configuration. The extension reports mapped criteria where available, but it does not prove WCAG conformance.</p>
-          <p>See <a href="compatibility.html">Compatibility and WCAG scan scope</a> for the exact runtime tag list and browser/operating-system status.</p>
         </section>
 
         <section class="section-panel" aria-labelledby="result-classification-heading">
@@ -1462,8 +1454,8 @@ Action: Add an accessible name and retest in panel</code></pre>
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
-        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+        <span>Maintained by Carla Gonçalves · A11Y Cat Extension Beta · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues (opens in a new tab)">Support and beta feedback: GitHub Issues</a></span>
+        <span><a href="../index.html">Home</a> · <a href="../docs/intro.html">Docs</a> · <a href="../docs/privacy-local-data.html">Privacy</a> · <a href="../docs/limitations.html">Known Limitations</a> · <a href="../docs/changelog.html">Changelog</a> · <a href="../docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
       </div>
     </footer>
   </body>
