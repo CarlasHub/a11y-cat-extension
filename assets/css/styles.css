@@ -927,6 +927,17 @@ figcaption {
   font-weight: 600;
 }
 
+.docs-pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-default);
+}
+
 @media (max-width: 1100px) {
   .hero-grid,
   .page-hero,
@@ -949,6 +960,10 @@ figcaption {
 
   .hero {
     padding-top: 2.9rem;
+  }
+
+  .docs-pager {
+    justify-content: flex-start;
   }
 }
 

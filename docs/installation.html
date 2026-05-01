@@ -30,15 +30,16 @@
     <div class="docs-layout">
       <aside class="docs-sidebar">
         <h2>Documentation</h2>
-        <nav class="sidebar-nav" aria-label="Documentation pages">
+                        <nav class="sidebar-nav" aria-label="Documentation pages">
           <ul>
             <li><a href="intro.html">Introduction</a></li>
-            <li><a href="ui-feature-guide.html">Extension UI feature guide</a></li>
             <li><a href="installation.html" aria-current="page">Installation</a></li>
+            <li><a href="understanding-results.html">Understanding results</a></li>
+            <li><a href="ui-feature-guide.html">UI feature guide</a></li>
             <li><a href="privacy-local-data.html">Privacy and local data</a></li>
             <li><a href="limitations.html">Known limitations</a></li>
-            <li><a href="beta-testing.html">Beta testing guide</a></li>
-            <li><a href="changelog.html">Release notes and status</a></li>
+            <li><a href="beta-testing.html">Beta testing</a></li>
+            <li><a href="changelog.html">Changelog/status</a></li>
           </ul>
         </nav>
       </aside>
@@ -101,6 +102,10 @@ npm run test:extension:smoke</code></pre>
           <li>The panel renders Dashboard, Scan Results, and the documented review modules.</li>
           <li>Scan, filters, exports, and local data controls are visible.</li>
         </ul>
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="intro.html" rel="prev">Previous: Introduction</a>
+          <a class="button button--secondary" href="understanding-results.html" rel="next">Next: Understanding results</a>
+        </nav>
       </main>
     </div>
     <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>

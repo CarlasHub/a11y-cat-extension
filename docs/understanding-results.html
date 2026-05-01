@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A11Y Cat Understanding Results</title>
+    <meta name="description" content="How to read A11Y Cat results: confirmed findings, review items, advisory notes, and limitations.">
+    <link rel="icon" href="../assets/img/icon.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="A11Y Cat logo">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+                <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li><a href="intro.html">Introduction</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="understanding-results.html" aria-current="page">Understanding results</a></li>
+            <li><a href="ui-feature-guide.html">UI feature guide</a></li>
+            <li><a href="privacy-local-data.html">Privacy and local data</a></li>
+            <li><a href="limitations.html">Known limitations</a></li>
+            <li><a href="beta-testing.html">Beta testing</a></li>
+            <li><a href="changelog.html">Changelog/status</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Understanding results</div>
+            <h1 class="page-title">How to interpret scan output</h1>
+            <p class="page-summary">A11Y Cat separates confirmed findings from review items, advisory notes, and scan limitations so teams can triage accurately without overstating certainty.</p>
+            <div class="callout"><strong>Recommended order:</strong> confirm Critical and Serious findings first, then review manual buckets, then inspect limitations and diagnostics.</div>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/screenshots/scan-results-confirmed-issues.png" alt="A11Y Cat Scan Results panel with grouped result categories and counts.">
+            <figcaption>Scan Results keeps category boundaries explicit for technical and compliance communication.</figcaption>
+          </figure>
+        </div>
+
+        <h2>Result classification matrix</h2>
+        <p class="matrix-intro">Use this model before filing defects or reporting compliance status.</p>
+        <table class="matrix-table">
+          <caption>Result categories and expected action</caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Source</th>
+              <th scope="col">Confirmed failure?</th>
+              <th scope="col">User action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Confirmed findings</th>
+              <td>axe violations and deterministic custom checks</td>
+              <td>Yes, in tested page state</td>
+              <td>Fix by severity, retest, compare with previous scan</td>
+            </tr>
+            <tr>
+              <th scope="row">Manual/review items</th>
+              <td>axe incomplete, visual/context/state-limited checks</td>
+              <td>No</td>
+              <td>Inspect manually before defect classification</td>
+            </tr>
+            <tr>
+              <th scope="row">Advisory notes</th>
+              <td>quality guidance modules</td>
+              <td>No</td>
+              <td>Treat as improvement guidance</td>
+            </tr>
+            <tr>
+              <th scope="row">Limitations</th>
+              <td>diagnostics/runtime boundaries</td>
+              <td>No</td>
+              <td>Run additional manual coverage where inspection was limited</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Result flow diagram</h2>
+        <p class="diagram-intro">This flow shows how raw findings become user-facing categories.</p>
+        <figure class="diagram-card">
+          <svg role="img" aria-labelledby="result-flow-title result-flow-desc" viewBox="0 0 980 230" class="doc-diagram">
+            <title id="result-flow-title">Result classification flow</title>
+            <desc id="result-flow-desc">Raw findings branch into confirmed, review, advisory, or limitations based on source certainty and runtime constraints.</desc>
+            <rect x="20" y="88" width="160" height="54" rx="8"></rect>
+            <text x="100" y="120" text-anchor="middle">Raw finding</text>
+
+            <rect x="230" y="32" width="220" height="52" rx="8"></rect>
+            <text x="340" y="64" text-anchor="middle">axe violation or deterministic check</text>
+
+            <rect x="230" y="92" width="220" height="52" rx="8"></rect>
+            <text x="340" y="124" text-anchor="middle">incomplete or uncertain check</text>
+
+            <rect x="230" y="152" width="220" height="52" rx="8"></rect>
+            <text x="340" y="184" text-anchor="middle">runtime/coverage limitation</text>
+
+            <rect x="520" y="24" width="220" height="44" rx="8"></rect>
+            <text x="630" y="52" text-anchor="middle">Confirmed findings</text>
+
+            <rect x="520" y="84" width="220" height="44" rx="8"></rect>
+            <text x="630" y="112" text-anchor="middle">Manual/review items</text>
+
+            <rect x="520" y="144" width="220" height="44" rx="8"></rect>
+            <text x="630" y="172" text-anchor="middle">Scan limitations</text>
+
+            <rect x="780" y="84" width="180" height="44" rx="8"></rect>
+            <text x="870" y="112" text-anchor="middle">Advisory notes</text>
+
+            <path d="M180 115 L230 58"></path>
+            <path d="M180 115 L230 118"></path>
+            <path d="M180 115 L230 178"></path>
+            <path d="M450 58 L520 46"></path>
+            <path d="M450 118 L520 106"></path>
+            <path d="M450 118 L780 106"></path>
+            <path d="M450 178 L520 166"></path>
+          </svg>
+          <figcaption>Classification by certainty prevents review-only signals from being reported as deterministic failures.</figcaption>
+        </figure>
+
+        <h2>Next step</h2>
+        <p>For feature-by-feature details, open the full UI feature guide.</p>
+        <p><a class="button button--primary" href="ui-feature-guide.html">Open UI feature guide</a></p>
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="installation.html" rel="prev">Previous: Installation</a>
+          <a class="button button--secondary" href="ui-feature-guide.html" rel="next">Next: UI feature guide</a>
+        </nav>
+      </main>
+    </div>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="ui-feature-guide.html">Continue to UI feature guide</a></span></div></footer>
+  </body>
+</html>
