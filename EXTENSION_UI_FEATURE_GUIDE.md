@@ -746,7 +746,7 @@ If a second scan on the same origin and path adds one new issue, comparison show
 Checks visible page anchors and keeps every outcome visible: broken, valid, skipped, unverified, timeout, or restricted.
 
 **Where the count comes from**  
-From custom link checking over visible anchors. Same-origin page links can be verified with same-origin `HEAD` and, if needed, `GET` requests. Cross-origin links are not fetched automatically and are kept as `unverified`. In-page fragment links are checked against the current document. Empty `href`, placeholder `#`, `javascript:`, `mailto:`, and `tel:` links are skipped or classified separately. Unsupported or restricted schemes are marked `restricted`.
+From custom link checking over visible anchors. Same-origin page links can be verified with same-origin `HEAD` and, if needed, `GET` requests. Cross-origin links are not fetched automatically and are kept as `unverified`. In-page fragment links are checked against the current document. Empty `href`, empty hash `#`, `javascript:`, `mailto:`, and `tel:` links are skipped or classified separately. Unsupported or restricted schemes are marked `restricted`.
 
 **How it is classified**  
 advisory
@@ -2684,7 +2684,7 @@ Table caption: Feature coverage matrix for visible extension features in the cur
 | Diagnostics export/copy | Support JSON extraction | diagnostics export actions | Export/action | Not direct | Yes | Copy/download | No | Troubleshooting only |
 | Support diagnostics export | Same as diagnostics export surface | diagnostics panel actions | Export/action | Not direct | Yes | Copy/download | No | Not compliance evidence |
 | Screen Reader Review export | Virtual SR logs and QA artifacts | virtual SR export actions | Export/action | Depends | Yes | Download only | No | Virtual review only |
-| Performance benchmark export | Benchmark payload export when visible | benchmark handlers | Diagnostic | Not direct | Yes (when enabled in the current build) | Yes | No | Visibility may vary by build |
+| Performance benchmark export | Benchmark payload export when visible | benchmark handlers | Diagnostic | Not direct | Yes (if visible) | Yes | No | Visibility may vary by build |
 | Release discussion summary export | Local release-summary export/copy | release readiness module | Export/action | Not direct | Yes | Yes | No | Local aid, not sign-off |
 | Highlight element | Locate target element | issue selector/target | Action | Not direct | No | No | Yes | Selector may drift |
 | Copy selector | Copy selector to clipboard | issue selector | Action | Not direct | Clipboard | No | No | Locator only |
@@ -2760,8 +2760,8 @@ Table caption: Export matrix for format, content, sensitivity, and intended use.
 | Local issue-state bundle | JSON | Local statuses, notes, workflow metadata | Canonical truth of current DOM state | Possible (notes/context) | Yes until user shares/imports | Restore or transfer local triage state |
 | Support diagnostics | JSON (copy/export) | Runtime support boundary and troubleshooting context | Full DevTools trace or compliance verdict | Yes | Yes until user shares | Technical troubleshooting |
 | Screen Reader Review export | JSON/TXT/JSON QA/HTML QA | Virtual SR logs, interactions, notes, QA summary | Real NVDA/JAWS/VoiceOver evidence | Yes | Yes until user shares | Virtual review documentation |
-| Performance benchmark export (when enabled in the current build) | JSON | Local benchmark samples/history | Accessibility verdicts | Usually no snippets; may include page context | Yes until user shares | Performance trend troubleshooting |
-| Release discussion summary export (when enabled in the current build) | Text + JSON | Local release-readiness summary context | Formal release approval/sign-off evidence | May include URL/title/context | Yes until user shares | Local release discussion prep |
+| Performance benchmark export (if visible) | JSON | Local benchmark samples/history | Accessibility verdicts | Usually no snippets; may include page context | Yes until user shares | Performance trend troubleshooting |
+| Release discussion summary export (if visible) | Text + JSON | Local release-readiness summary context | Formal release approval/sign-off evidence | May include URL/title/context | Yes until user shares | Local release discussion prep |
 
 ### Local data matrix
 
@@ -2787,11 +2787,11 @@ Table caption: Beta readiness status matrix for current private-beta and public-
 | Package audit | Partial | Yes | Yes | Must be rerun per candidate package; not implied by docs alone |
 | Local data/privacy | Partial | Yes | Yes | Local-first boundary documented; users must still handle export sensitivity |
 | Documentation | In progress | Yes | Yes | Must be updated in same change set for UI/taxonomy/export/storage changes |
-| Manual VoiceOver | Required before public release | Required for public release | Yes | Extension cannot provide real VoiceOver sign-off itself |
-| Manual NVDA | Required before public release | Required for public release | Yes | Extension cannot provide real NVDA sign-off itself |
-| Manual JAWS | Required before public release | Required for public release | Yes | Extension cannot provide real JAWS sign-off itself |
+| Manual VoiceOver | Pending evidence | Recommended | Yes | Extension cannot provide real VoiceOver sign-off itself |
+| Manual NVDA | Pending evidence | Recommended | Yes | Extension cannot provide real NVDA sign-off itself |
+| Manual JAWS | Pending evidence | Recommended | Yes | Extension cannot provide real JAWS sign-off itself |
 | `file://` behaviour | Partial support | Yes | Yes | Requires explicit file-URL permission and may still be limited |
-| Windows packaged runtime | Required before public release | Required for public release | Yes | Cross-platform runtime evidence still required per release candidate |
+| Windows packaged runtime | Pending evidence | Recommended | Yes | Cross-platform runtime evidence still required per release candidate |
 
 ## 7B. Diagrams
 
@@ -2939,16 +2939,16 @@ Table caption: Screenshot and visual asset matrix for current extension UI evide
 | Highlight element action | `highlight-element.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Issue action row showing the Highlight element button. | Highlight action links issue to page element. | Yes | Yes |
 | Ticket/handoff action | `ticket-dialog.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | More actions panel showing Create handoff draft action. | Visible ticket-style action is Create handoff draft. | Yes | Yes |
 | Panel resize/move controls | `panel-resize-move-controls.png` | `docs/ui-feature-guide.html` → Real extension screenshots → Diagnostics/exports | Panel geometry controls showing move and resize buttons. | Keyboard/pointer panel geometry controls. | Yes | Yes |
-| Human Judgement Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not available in this release: safe public capture set does not isolate this label as a stable single panel state. | Yes (feature verified) | N/A |
-| Engine-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not available in this release: trigger is runtime/state dependent and not reproducible in the safe demo capture set. | Yes (feature verified) | N/A |
-| State-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not available in this release: state-path examples vary by target app flow and cannot be captured safely without private app data. | Yes (feature verified) | N/A |
+| Human Judgement Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| Engine-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| State-limited Review | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
 | Deterministic Failures | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not separately visible as a standalone panel label; represented within confirmed issue cards. | Yes (feature verified) | N/A |
 | Corroborated Failures | `—` | `docs/ui-feature-guide.html` feature section | N/A (no screenshot) | Not separately visible as a standalone panel label; represented within confirmed issue cards. | Yes (feature verified) | N/A |
-| Local issue-state import/export | `—` | `docs/ui-feature-guide.html` export/workflow sections | N/A (no screenshot) | Not available in this release: import flow requires native file-selector interaction not included in the safe public capture set. | Yes (feature verified) | N/A |
-| Diagnostics export/copy controls | `—` | `docs/ui-feature-guide.html` diagnostics export sections | N/A (no screenshot) | Not available in this release: control-level capture deferred; diagnostics panel screenshots already document the module surface. | Yes (feature verified) | N/A |
-| Screen Reader Review export controls | `—` | `docs/ui-feature-guide.html` Screen Reader Review export section | N/A (no screenshot) | Not available in this release: export submenu states are not isolated in the current safe capture set. | Yes (feature verified) | N/A |
-| Performance benchmark export | `—` | `docs/ui-feature-guide.html` performance benchmark section | N/A (no screenshot) | Not visible in current verified public build surface; documented as conditional/when enabled in the current build. | Yes (bounded status verified) | N/A |
-| Release discussion summary export | `—` | `docs/ui-feature-guide.html` release discussion section | N/A (no screenshot) | Not available in this release: control exists in runtime path but is not included in the current public screenshot pack. | Yes (feature verified) | N/A |
+| Local issue-state import/export | `—` | `docs/ui-feature-guide.html` export/workflow sections | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| Diagnostics export/copy controls | `—` | `docs/ui-feature-guide.html` diagnostics export sections | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| Screen Reader Review export controls | `—` | `docs/ui-feature-guide.html` Screen Reader Review export section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
+| Performance benchmark export | `—` | `docs/ui-feature-guide.html` performance benchmark section | N/A (no screenshot) | Not visible in current verified public build surface; documented as conditional/if visible. | Yes (bounded status verified) | N/A |
+| Release discussion summary export | `—` | `docs/ui-feature-guide.html` release discussion section | N/A (no screenshot) | No screenshot is included for this feature in the current beta documentation. | Yes (feature verified) | N/A |
 
 ## 7D. Coverage assurance checklist
 
@@ -2989,7 +2989,7 @@ Table caption: Required feature coverage checklist for the current extension doc
 | Local issue-state import/export | Documented | Visible | Covered as local workflow portability. |
 | Diagnostics export/copy | Documented | Visible | Covered as support troubleshooting export surface. |
 | Screen Reader Review export | Documented | Visible | Covered in export section with limitations. |
-| Performance benchmark export | Documented (conditional) | Visibility depends on build/surface | Documented explicitly as conditional/when enabled in the current build. |
+| Performance benchmark export | Documented (conditional) | Visibility depends on build/surface | Documented explicitly as conditional/if visible. |
 | Release discussion summary export | Documented | Visible runtime path | Covered as local aid export, not formal sign-off. |
 | Highlight element | Documented | Visible | Covered as issue action. |
 | Turn into ticket / handoff action | Documented | Visible (label can vary by surface) | Covered with current label behavior. |
