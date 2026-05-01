@@ -2,6 +2,19 @@
 
 This directory is the static documentation-site root for GitHub Pages deployment.
 
+## Version and build identity
+
+- A11Y Cat Extension Beta
+- Version: `v1.0.0-beta` (source: `package.json` and `extension/manifest.json` version `1.0.0` with beta label)
+- Build: `4b05134` (source: current project commit short SHA)
+- Docs updated: `2026-05-01`
+
+## Maintainer and support
+
+- Maintained by Carla Gonçalves
+- Repository: [CarlasHub/a11y-cat-extension](https://github.com/CarlasHub/a11y-cat-extension)
+- Support and beta feedback: [GitHub Issues](https://github.com/CarlasHub/a11y-cat-extension/issues)
+
 ## Why this structure
 
 This repository uses `docs/` as the site root because GitHub Pages can serve directly from the `/docs` folder on the default branch without adding a site build pipeline, framework, deployment action, or static-site generator.
