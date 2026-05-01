@@ -23,6 +23,8 @@
           <a href="intro.html">Docs</a>
           <a href="ui-feature-guide.html">UI guide</a>
           <a href="installation.html">Installation</a>
+          <a href="troubleshooting.html">Troubleshooting</a>
+          <a href="privacy-policy.html">Privacy policy</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
         </nav>
       </div>
@@ -113,6 +115,8 @@
                 <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
               </ul>
             </li>
+            <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a>            </li>
+            <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a>            </li>
             <li class="sidebar-group is-current"><a href="changelog.html" aria-current="page">Changelog / Status</a>            </li>
           </ul>
         </nav>
@@ -130,40 +134,43 @@
           </figure>
         </div>
 
-        <h2>Current public documentation milestone</h2>
-        <ul class="doc-list">
-          <li>The public GitHub Pages site is live.</li>
-          <li>The canonical Extension UI feature guide is published and linked from the public site.</li>
-          <li>Installation, privacy, limitations, and beta-testing guidance are published as user-facing product documentation.</li>
-        </ul>
+        <h2>Changelog</h2>
+        <table class="matrix-table">
+          <caption>Published documentation and release notes</caption>
+          <thead>
+            <tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Summary</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">v0.9.1-beta</th><td>2026-05-01</td><td>Documentation and UX baseline</td><td>Added full feature guide taxonomy, matrices/diagrams, nested feature sidebar, troubleshooting and keyboard-shortcuts pages, privacy policy HTML, and deployment hardening.</td></tr>
+            <tr><th scope="row">v0.9.0-beta</th><td>2026-04-30</td><td>Public docs launch</td><td>Published initial GitHub Pages docs site with landing, installation, limitations, privacy/local data, and beta testing pages.</td></tr>
+            <tr><th scope="row">v0.8.4-beta</th><td>2026-04-28</td><td>Scanner taxonomy revision</td><td>Separated confirmed issues, review items, advisory notes, and scan limitation outputs in user-facing docs.</td></tr>
+          </tbody>
+        </table>
 
         <h2>Current release boundary</h2>
         <ul class="doc-list">
           <li>Controlled pilot or beta on desktop Chromium: yes.</li>
           <li>Broad public production rollout: no published claim.</li>
           <li>Manual assistive-technology sign-off still required: yes.</li>
-          <li>Stable public AI-assist or assistant surface: no published claim.</li>
         </ul>
 
         <div class="warning"><strong>Important:</strong> release-status notes are not a compliance certificate and do not replace manual accessibility validation.</div>
 
-        <h2>Where current public notes live</h2>
+        <h2>Where release artifacts are published</h2>
         <ul class="doc-list">
-          <li><a href="https://github.com/CarlasHub/a11y-cat-extension">Public repository on GitHub</a> for the product entry point</li>
-          <li><a href="installation.html">Installation</a> for the current install path</li>
-          <li><a href="privacy-local-data.html">Privacy and local data</a> for storage and export boundaries</li>
-          <li><a href="limitations.html">Known limitations</a> for support boundaries and manual-review requirements</li>
-          <li><a href="beta-testing.html">Beta testing guide</a> for the controlled pilot workflow</li>
+          <li><a href="https://github.com/CarlasHub/a11y-cat-extension/releases">GitHub Releases</a> for downloadable beta packages when published.</li>
+          <li><a href="installation.html">Installation</a> for install instructions.</li>
+          <li><a href="privacy-local-data.html">Privacy and local data</a> for storage/export boundaries.</li>
         </ul>
 
-        <h2>Next release-note improvement</h2>
-        <p>If the public repository starts publishing formal product releases, this page should link to that changelog instead of acting as a status summary.</p>
-        <nav class="docs-pager" aria-label="Page navigation">
+        <h2>Chrome Web Store status</h2>
+        <p>Not published in this release. Distribution is via GitHub Releases/private beta package only.</p>
+<nav class="docs-pager" aria-label="Page navigation">
           <a class="button button--ghost" href="beta-testing.html" rel="prev">Previous: Beta testing</a>
-          <a class="button button--secondary" href="intro.html" rel="next">Next: Introduction</a>
+          <a class="button button--secondary" href="troubleshooting.html" rel="next">Next: Troubleshooting</a>
         </nav>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension">Public repository</a></span></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
   </body>
 </html>

@@ -17,9 +17,12 @@ A11Y Cat supports accessibility review workflows. It does not replace manual tes
 - [Docs introduction](docs/intro.html)
 - [Installation](docs/installation.html)
 - [Privacy and local data](docs/privacy-local-data.html)
+- [Privacy policy (HTML)](docs/privacy-policy.html)
 - [Known limitations](docs/limitations.html)
 - [Beta testing guide](docs/beta-testing.html)
 - [Release notes and status](docs/changelog.html)
+- [Troubleshooting](docs/troubleshooting.html)
+- [Keyboard shortcuts](docs/keyboard-shortcuts.html)
 
 ## User-facing source of truth
 
@@ -59,7 +62,7 @@ The only repository-infrastructure exception is the minimal GitHub Pages workflo
 ```text
 index.html
 EXTENSION_UI_FEATURE_GUIDE.md
-privacy-policy.md
+privacy-policy.html
 docs/
   intro.html
   ui-feature-guide.html
@@ -135,7 +138,7 @@ Future changes to UI labels, result categories, counts, exports, or storage beha
 
 1. Update the relevant HTML page when the public site copy changes.
 2. Update `EXTENSION_UI_FEATURE_GUIDE.md` whenever the extension UI, scanner taxonomy, result categories, counts, exports, storage behaviour, or release limitations change.
-3. Update `privacy-policy.md` and `docs/privacy-local-data.html` together when privacy or local-storage behaviour changes.
+3. Update `privacy-policy.html` and `docs/privacy-local-data.html` together when privacy or local-storage behaviour changes.
 4. Keep the landing page, sidebar navigation, and README links aligned if page names or structure change.
 5. Keep screenshots aligned with the shipped extension UI.
 6. Run the documentation checks available in the source repo before publishing updates.

@@ -23,13 +23,15 @@
           <a href="intro.html">Docs</a>
           <a href="ui-feature-guide.html">UI guide</a>
           <a href="installation.html">Installation</a>
+          <a href="troubleshooting.html">Troubleshooting</a>
+          <a href="privacy-policy.html">Privacy policy</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
         </nav>
       </div>
     </header>
 
     <div class="docs-layout">
-      <aside class="docs-sidebar">
+      <aside class="docs-sidebar docs-sidebar--expanded">
         <h2>Documentation</h2>
                 <nav class="sidebar-nav" aria-label="Documentation pages">
           <ul>
@@ -114,7 +116,9 @@
                 <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
               </ul>
             </li>
-            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a>            </li>
+            <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a>            </li>
+            <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a>            </li>
+            
           </ul>
         </nav>
       </aside>
@@ -159,6 +163,7 @@
             <li>Treat <strong><span class="badge badge--advisory">Advisory Notes</span></strong> as guidance, not automatic failures.</li>
             <li>Review export content for sensitive snippets, selectors, and URLs before sharing.</li>
           </ol>
+          <p><strong>False-positive/false-negative note:</strong> automated output can over-report or miss issues. Confirm high-impact findings manually and include real assistive-technology testing for sign-off.</p>
         </section>
 
         <section class="section-panel" aria-labelledby="extension-feature-map-heading">
@@ -267,7 +272,7 @@
             <h4>How to read the result</h4><p>Action feature.</p>
             <h4>What the user should do next</h4><p>Fix critical blockers, then rerun scan.</p>
             <h4>Limitations</h4><p>Only reflects findings currently classified as Critical.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: this action is represented inside the severity filter workflow and needs a dedicated isolated capture from the current build.</p>
+            <h4>Screenshot</h4><p>Not available in this release: this action is represented inside the severity filter workflow and needs a dedicated isolated capture from the current build.</p>
             <h4>Export/storage note</h4><p>No dedicated export type; underlying issues appear in CSV/JSON.</p>
           </article>
 
@@ -327,7 +332,7 @@
             <h4>How to read the result</h4><p><span class="badge badge--human">Review</span>.</p>
             <h4>What the user should do next</h4><p>Confirm with human judgement and contextual testing.</p>
             <h4>Limitations</h4><p>Cannot be treated as auto-fail.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: this category is represented in review taxonomy and export output, but an isolated panel capture is not yet available.</p>
+            <h4>Screenshot</h4><p>Not available in this release: this category is represented in review taxonomy and export output, but an isolated panel capture is not yet available.</p>
             <h4>Export/storage note</h4><p>Appears in review-class export fields.</p>
           </article>
 
@@ -339,7 +344,7 @@
             <h4>How to read the result</h4><p><span class="badge badge--review">Review</span> with diagnostic context.</p>
             <h4>What the user should do next</h4><p>Use diagnostics and manual validation.</p>
             <h4>Limitations</h4><p>Not pass, not automatic fail.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: isolated engine-limited review capture is not yet available from safe fixtures.</p>
+            <h4>Screenshot</h4><p>Not available in this release: isolated engine-limited review capture is not yet available from safe fixtures.</p>
             <h4>Export/storage note</h4><p>Appears in review and limitation context in JSON evidence exports.</p>
           </article>
 
@@ -351,7 +356,7 @@
             <h4>How to read the result</h4><p><span class="badge badge--review">Review</span> and limitation context.</p>
             <h4>What the user should do next</h4><p>Manually test dialogs, menus, tabs, accordions, and auth-only paths.</p>
             <h4>Limitations</h4><p>Single-state scan cannot prove full interaction coverage.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: isolated state-limited review capture is not yet available from safe fixtures.</p>
+            <h4>Screenshot</h4><p>Not available in this release: isolated state-limited review capture is not yet available from safe fixtures.</p>
             <h4>Export/storage note</h4><p>Appears in review and limitations output in JSON evidence.</p>
           </article>
 
@@ -363,7 +368,7 @@
             <h4>How to read the result</h4><p><span class="badge badge--confirmed">Confirmed</span>.</p>
             <h4>What the user should do next</h4><p>Treat as actionable defects and fix by severity.</p>
             <h4>Limitations</h4><p>Still bounded by current state and inspectability.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: deterministic-failure taxonomy appears in confirmed lists and exports but does not have a standalone panel.</p>
+            <h4>Screenshot</h4><p>Not available in this release: deterministic-failure taxonomy appears in confirmed lists and exports but does not have a standalone panel.</p>
             <h4>Export/storage note</h4><p>Serialized in CSV/JSON classification fields.</p>
           </article>
 
@@ -375,7 +380,7 @@
             <h4>How to read the result</h4><p><span class="badge badge--confirmed">Confirmed</span>.</p>
             <h4>What the user should do next</h4><p>Prioritize and remediate as confirmed defects.</p>
             <h4>Limitations</h4><p>Does not prove full compliance coverage.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: corroborated-failure taxonomy is visible in data model/export and needs a dedicated isolated capture.</p>
+            <h4>Screenshot</h4><p>Not available in this release: corroborated-failure taxonomy is visible in data model/export and needs a dedicated isolated capture.</p>
             <h4>Export/storage note</h4><p>Appears in JSON evidence and classification fields.</p>
           </article>
 
@@ -387,7 +392,7 @@
             <h4>How to read the result</h4><p><span class="badge badge--review">Review</span> action area.</p>
             <h4>What the user should do next</h4><p>Execute manual checks in the target flow and document outcomes.</p>
             <h4>Limitations</h4><p>No deterministic pass/fail without human confirmation.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: manual checks appear contextually and currently have no dedicated isolated screenshot.</p>
+            <h4>Screenshot</h4><p>Not available in this release: manual checks appear contextually and currently have no dedicated isolated screenshot.</p>
             <h4>Export/storage note</h4><p>Manual outcomes may be reflected in local workflow state/export bundles.</p>
           </article>
 
@@ -495,7 +500,7 @@
             <h4>How to read the result</h4><p>Confirmed/review generation stage.</p>
             <h4>What the user should do next</h4><p>Triage deterministic output first, then move to review categories.</p>
             <h4>Limitations</h4><p>Automated stage does not replace manual testing.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: automated review is represented across Scan Results categories and needs a dedicated isolated action capture.</p>
+            <h4>Screenshot</h4><p>Not available in this release: automated review is represented across Scan Results categories and needs a dedicated isolated action capture.</p>
             <h4>Export/storage note</h4><p>Automated findings appear in CSV/JSON exports.</p>
           </article>
 
@@ -507,7 +512,7 @@
             <h4>How to read the result</h4><p>Action feature on top of review/advisory output.</p>
             <h4>What the user should do next</h4><p>Validate uncertain findings before final classification and ticketing.</p>
             <h4>Limitations</h4><p>Requires trained human judgement and context.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: manual review workflow control capture is not yet isolated in the safe screenshot pack.</p>
+            <h4>Screenshot</h4><p>Not available in this release: manual review workflow control capture is not yet isolated in the safe screenshot pack.</p>
             <h4>Export/storage note</h4><p>Manual statuses/notes may appear in local issue-state exports.</p>
           </article>
 
@@ -567,7 +572,7 @@
             <h4>How to read the result</h4><p>Action feature.</p>
             <h4>What the user should do next</h4><p>Use when handing triage state across reviewers.</p>
             <h4>Limitations</h4><p>Represents local workflow decisions, not objective truth.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: local issue-state import/export dialog capture is not yet available from current safe fixtures.</p>
+            <h4>Screenshot</h4><p>Not available in this release: local issue-state import/export dialog capture is not yet available from current safe fixtures.</p>
             <h4>Export/storage note</h4><p>Stored locally; export/import includes local state metadata.</p>
           </article>
 
@@ -615,7 +620,7 @@
             <h4>How to read the result</h4><p>Action feature / local workflow state.</p>
             <h4>What the user should do next</h4><p>Track issue progression and keep triage notes consistent.</p>
             <h4>Limitations</h4><p>Workflow state is not evidence of objective accessibility correctness.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: issue workflow controls are visible in context but not yet captured in an isolated screenshot.</p>
+            <h4>Screenshot</h4><p>Not available in this release: issue workflow controls are visible in context but not yet captured in an isolated screenshot.</p>
             <h4>Export/storage note</h4><p>Included in local issue-state bundles.</p>
           </article>
 
@@ -639,7 +644,15 @@
             <h4>How to read the result</h4><p>Action feature.</p>
             <h4>What the user should do next</h4><p>Review ticket content, then submit through team workflow.</p>
             <h4>Limitations</h4><p>Ticket output is a handoff artifact, not final accessibility verdict.</p>
-            <h4>Screenshot</h4><figure class="media-card media-card--compact"><img src="../assets/screenshots/ticket-dialog.png" alt="Turn Into Ticket dialog with issue handoff details."><figcaption>Turn Into Ticket action dialog.</figcaption></figure>
+            <h4>Example output</h4>
+            <pre><code>Title: [Serious][Confirmed] Button has no accessible name
+URL: https://example.test/checkout
+Selector: #submit-order
+Source: axe-core + corroborated custom check
+WCAG: 4.1.2 Name, Role, Value
+Evidence snippet: &lt;button id="submit-order"&gt;&lt;/button&gt;
+Action: Add an accessible name and retest in panel</code></pre>
+<h4>Screenshot</h4><figure class="media-card media-card--compact"><img src="../assets/screenshots/ticket-dialog.png" alt="Turn Into Ticket dialog with issue handoff details."><figcaption>Turn Into Ticket action dialog.</figcaption></figure>
             <h4>Export/storage note</h4><p>May reference local issue data and evidence fields.</p>
           </article>
 
@@ -663,7 +676,7 @@
             <h4>How to read the result</h4><p>Action feature.</p>
             <h4>What the user should do next</h4><p>Open panel to run scans and review results; close when complete.</p>
             <h4>Limitations</h4><p>Open/close state is not an accessibility outcome.</p>
-            <h4>Screenshot</h4><p>Screenshot pending: panel open/close controls currently have no isolated screenshot in the safe pack.</p>
+            <h4>Screenshot</h4><p>Not available in this release: panel open/close controls currently have no isolated screenshot in the safe pack.</p>
             <h4>Export/storage note</h4><p>No direct export; session/UI state may persist locally.</p>
           </article>
 
@@ -1007,11 +1020,11 @@
                 <tr><th scope="row">27. Diagnostics</th><td>Structured runtime support data.</td><td>Diagnostics capture.</td><td>No.</td><td>Diagnostic</td><td>Troubleshoot inspection gaps.</td><td>DevTools-equivalent full trace.</td><td>Export/copy support data.</td><td><code>diagnostics-expanded.png</code></td></tr>
                 <tr><th scope="row">28. CSV export</th><td>Flat issue log export.</td><td>Export module.</td><td>Depends on underlying findings.</td><td>Action/export</td><td>Share triage list.</td><td>Full evidence richness.</td><td>May include URL/selectors/snippets.</td><td><code>exports-csv-json.png</code></td></tr>
                 <tr><th scope="row">29. JSON evidence export</th><td>Structured evidence export.</td><td>Export module.</td><td>Depends on underlying findings.</td><td>Action/export</td><td>Share debugging evidence.</td><td>Compliance certificate.</td><td>May include URL/title/selectors/snippets/notes.</td><td><code>exports-csv-json.png</code></td></tr>
-                <tr><th scope="row">30. Local issue-state import/export</th><td>Transfers local triage state.</td><td>Workflow state + export/import controls.</td><td>No.</td><td>Local workflow state</td><td>Sync triage state between testers.</td><td>Objective defect truth.</td><td>Local bundle with notes/status.</td><td>Screenshot pending: import dialog capture not yet available from safe fixtures.</td></tr>
+                <tr><th scope="row">30. Local issue-state import/export</th><td>Transfers local triage state.</td><td>Workflow state + export/import controls.</td><td>No.</td><td>Local workflow state</td><td>Sync triage state between testers.</td><td>Objective defect truth.</td><td>Local bundle with notes/status.</td><td>Not available in this release: import dialog capture not yet available from safe fixtures.</td></tr>
                 <tr><th scope="row">31. Diagnostics export/copy</th><td>Copies/exports support diagnostics.</td><td>Diagnostics module.</td><td>No.</td><td>Diagnostic action</td><td>Attach to bug reports.</td><td>Full browser debug trace.</td><td>May include runtime context.</td><td><code>diagnostics-expanded.png</code></td></tr>
-                <tr><th scope="row">32. Screen reader review export</th><td>Exports virtual review notes/logs.</td><td>Virtual SR review state + export control.</td><td>No.</td><td>Review workflow export</td><td>Share structured manual-review notes.</td><td>Real AT sign-off.</td><td>May include notes/page context.</td><td>Screenshot pending: export control not yet isolated in safe screenshot pack.</td></tr>
-                <tr><th scope="row">33. Performance benchmark export (if visible)</th><td>Exports local performance benchmark data.</td><td>Benchmark state and export control.</td><td>No.</td><td>Diagnostic/export</td><td>Use for runtime performance troubleshooting.</td><td>Accessibility quality verdict.</td><td>Local benchmark data; conditional visibility.</td><td>Screenshot pending: conditional feature not visible in current safe build capture.</td></tr>
-                <tr><th scope="row">34. Release discussion summary export (if visible)</th><td>Exports local release-discussion summary output.</td><td>Local summary/export action where visible.</td><td>No.</td><td>Workflow/export</td><td>Use as handoff summary, not compliance proof.</td><td>Formal release approval.</td><td>Local export; conditional visibility.</td><td>Screenshot pending: conditional feature not visible in current safe build capture.</td></tr>
+                <tr><th scope="row">32. Screen reader review export</th><td>Exports virtual review notes/logs.</td><td>Virtual SR review state + export control.</td><td>No.</td><td>Review workflow export</td><td>Share structured manual-review notes.</td><td>Real AT sign-off.</td><td>May include notes/page context.</td><td>Not available in this release: export control not yet isolated in safe screenshot pack.</td></tr>
+                <tr><th scope="row">33. Performance benchmark export (if visible)</th><td>Exports local performance benchmark data.</td><td>Benchmark state and export control.</td><td>No.</td><td>Diagnostic/export</td><td>Use for runtime performance troubleshooting.</td><td>Accessibility quality verdict.</td><td>Local benchmark data; conditional visibility.</td><td>Not available in this release: conditional feature not visible in current safe build capture.</td></tr>
+                <tr><th scope="row">34. Release discussion summary export (if visible)</th><td>Exports local release-discussion summary output.</td><td>Local summary/export action where visible.</td><td>No.</td><td>Workflow/export</td><td>Use as handoff summary, not compliance proof.</td><td>Formal release approval.</td><td>Local export; conditional visibility.</td><td>Not available in this release: conditional feature not visible in current safe build capture.</td></tr>
                 <tr><th scope="row">35. Highlight element</th><td>Highlights issue target on page.</td><td>Issue action + selector target mapping.</td><td>No direct mapping itself.</td><td>Action tool</td><td>Confirm context before fixing.</td><td>That highlighted element is root cause in all states.</td><td>No separate storage; reflected in workflow use.</td><td><code>highlight-element.png</code></td></tr>
                 <tr><th scope="row">36. Turn into ticket</th><td>Creates handoff/ticket-style draft action.</td><td>Issue action workflow.</td><td>No direct mapping itself.</td><td>Workflow action</td><td>Create handoff artifact.</td><td>Acceptance or severity correctness.</td><td>May include issue context in output.</td><td><code>ticket-dialog.png</code></td></tr>
                 <tr><th scope="row">37. Issue workflow controls</th><td>Local issue status and annotation controls.</td><td>Workflow state module/storage.</td><td>No.</td><td>Local workflow state</td><td>Track triage progress.</td><td>Objective accessibility truth.</td><td>Stored locally; exportable in state bundle.</td><td>Visible in issue controls; no single isolated screenshot.</td></tr>
@@ -1019,8 +1032,8 @@
                 <tr><th scope="row">39. Panel open/close controls</th><td>Opens and closes extension panel surface.</td><td>Panel chrome/actions.</td><td>No.</td><td>UI control</td><td>Open on target page for scan.</td><td>Any accessibility result by itself.</td><td>No substantive evidence storage.</td><td>Visible in panel chrome; no isolated screenshot.</td></tr>
                 <tr><th scope="row">40. Panel resize/move controls</th><td>Adjusts panel geometry.</td><td>Panel chrome control.</td><td>No.</td><td>UI control</td><td>Optimize review workspace.</td><td>Accessibility outcome by itself.</td><td>Panel geometry preference may persist.</td><td><code>panel-resize-move-controls.png</code></td></tr>
                 <tr><th scope="row">41. Unsupported/restricted contexts</th><td>Reports unsupported inspection contexts.</td><td>Runtime limitations + diagnostics.</td><td>No.</td><td>Limitation/diagnostic</td><td>Move to supported environment or manual test.</td><td>Clean accessibility status.</td><td>Recorded in limitation output and diagnostics.</td><td><code>scan-limitations.png</code></td></tr>
-                <tr><th scope="row">42. File access behavior</th><td>Defines behavior on file:// pages with permissions.</td><td>Runtime permissions + context checks.</td><td>No.</td><td>Context limitation</td><td>Enable permission and test carefully.</td><td>Complete file-based coverage.</td><td>Context in diagnostics/limitations.</td><td>Screenshot pending: dedicated file:// context screenshot is not yet available from safe fixtures.</td></tr>
-                <tr><th scope="row">43. iframe/protected frame behavior</th><td>Handles frame access restrictions.</td><td>Frame access/runtime policy limits.</td><td>No.</td><td>Limitation/review</td><td>Test frame content where authorized.</td><td>Frame content pass state.</td><td>Recorded in limitations/diagnostics.</td><td>Screenshot pending: protected-frame limitation output has no isolated safe capture yet.</td></tr>
+                <tr><th scope="row">42. File access behavior</th><td>Defines behavior on file:// pages with permissions.</td><td>Runtime permissions + context checks.</td><td>No.</td><td>Context limitation</td><td>Enable permission and test carefully.</td><td>Complete file-based coverage.</td><td>Context in diagnostics/limitations.</td><td>Not available in this release: dedicated file:// context screenshot is not yet available from safe fixtures.</td></tr>
+                <tr><th scope="row">43. iframe/protected frame behavior</th><td>Handles frame access restrictions.</td><td>Frame access/runtime policy limits.</td><td>No.</td><td>Limitation/review</td><td>Test frame content where authorized.</td><td>Frame content pass state.</td><td>Recorded in limitations/diagnostics.</td><td>Not available in this release: protected-frame limitation output has no isolated safe capture yet.</td></tr>
                 <tr><th scope="row">44. Manual AT sign-off status</th><td>Explicitly states AT sign-off still manual.</td><td>Product boundary documentation and UI copy.</td><td>No.</td><td>Limitation boundary</td><td>Run real VoiceOver/NVDA/JAWS tests.</td><td>AT conformance sign-off from extension.</td><td>Policy/documentation state.</td><td><code>screen-reader-review.png</code> + docs boundary statements.</td></tr>
                 <tr><th scope="row">45. Privacy/local storage</th><td>Explains local processing and stored keys.</td><td>Privacy UI + storage model.</td><td>No.</td><td>Privacy/workflow state</td><td>Review, clear, export carefully.</td><td>Zero data exposure after user sharing.</td><td>Local storage keys; user-controlled export.</td><td><code>local-data-clearing.png</code></td></tr>
                 <tr><th scope="row">46. Beta limitations</th><td>Defines current beta scope and non-claims.</td><td>Release boundary and diagnostics/limitations.</td><td>No.</td><td>Status/limitation</td><td>Treat as controlled testing evidence.</td><td>Production readiness guarantee.</td><td>Documentation status.</td><td>Shown across docs and status badges.</td></tr>
@@ -1325,12 +1338,12 @@
                 <tr><th scope="row">Scanner trust</th><td>Partial</td><td>Yes</td><td>Yes</td><td>State/context boundaries still apply</td></tr>
                 <tr><th scope="row">Package audit</th><td>Partial</td><td>Yes</td><td>Yes</td><td>Must be rerun per candidate package</td></tr>
                 <tr><th scope="row">Local data/privacy</th><td>Partial</td><td>Yes</td><td>Yes</td><td>User export handling still required</td></tr>
-                <tr><th scope="row">Documentation</th><td>In progress</td><td>Yes</td><td>Yes</td><td>Must update in same change set with UI changes</td></tr>
-                <tr><th scope="row">Manual VoiceOver</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
-                <tr><th scope="row">Manual NVDA</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
-                <tr><th scope="row">Manual JAWS</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
+                <tr><th scope="row">Documentation</th><td>Required before public release</td><td>Yes</td><td>Yes</td><td>Must update in same change set with UI changes</td></tr>
+                <tr><th scope="row">Manual VoiceOver</th><td>Required before public release</td><td>Required for public release</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
+                <tr><th scope="row">Manual NVDA</th><td>Required before public release</td><td>Required for public release</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
+                <tr><th scope="row">Manual JAWS</th><td>Required before public release</td><td>Required for public release</td><td>Yes</td><td>No real AT sign-off from extension alone</td></tr>
                 <tr><th scope="row">file:// behaviour</th><td>Partial support</td><td>Yes</td><td>Yes</td><td>Permission and runtime constraints remain</td></tr>
-                <tr><th scope="row">Windows packaged runtime</th><td>Pending evidence</td><td>Recommended</td><td>Yes</td><td>Cross-platform package evidence still required</td></tr>
+                <tr><th scope="row">Windows packaged runtime</th><td>Required before public release</td><td>Required for public release</td><td>Yes</td><td>Cross-platform package evidence still required</td></tr>
               </tbody>
             </table>
           </div>
@@ -1383,10 +1396,10 @@
                 <tr><th scope="row">Panel resize/move</th><td><code>panel-resize-move-controls.png</code></td><td>Panel Resize / Move section</td><td>Describes geometry controls</td><td>Workspace layout control</td><td><span class="badge badge--confirmed">Verified</span></td><td><span class="badge badge--safe">Redacted/safe fixture</span></td></tr>
 
                 <tr class="row-group"><th scope="rowgroup" colspan="7">Visible features without isolated screenshot</th></tr>
-                <tr><th scope="row">Review Critical Issues</th><td>None</td><td>Review Critical Issues section</td><td>N/A</td><td>Screenshot pending: isolated control shot not yet available in safe pack</td><td><span class="badge badge--review">Screenshot pending</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
-                <tr><th scope="row">Human Judgement Review</th><td>None</td><td>Human Judgement Review section</td><td>N/A</td><td>Screenshot pending: stable isolated capture not yet available in safe pack</td><td><span class="badge badge--review">Screenshot pending</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
-                <tr><th scope="row">Engine-limited / State-limited review</th><td>None</td><td>Engine-limited and State-limited sections</td><td>N/A</td><td>Screenshot pending: stable isolated capture not yet available in safe pack</td><td><span class="badge badge--review">Screenshot pending</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
-                <tr><th scope="row">Panel open/close + issue workflow controls</th><td>None</td><td>Panel Open / Close + Issue Workflow Controls sections</td><td>N/A</td><td>Screenshot pending: isolated control capture not yet available in safe pack</td><td><span class="badge badge--review">Screenshot pending</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
+                <tr><th scope="row">Review Critical Issues</th><td>None</td><td>Review Critical Issues section</td><td>N/A</td><td>Not available in this release: isolated control shot not yet available in safe pack</td><td><span class="badge badge--review">Not available in this release</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
+                <tr><th scope="row">Human Judgement Review</th><td>None</td><td>Human Judgement Review section</td><td>N/A</td><td>Not available in this release: stable isolated capture not yet available in safe pack</td><td><span class="badge badge--review">Not available in this release</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
+                <tr><th scope="row">Engine-limited / State-limited review</th><td>None</td><td>Engine-limited and State-limited sections</td><td>N/A</td><td>Not available in this release: stable isolated capture not yet available in safe pack</td><td><span class="badge badge--review">Not available in this release</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
+                <tr><th scope="row">Panel open/close + issue workflow controls</th><td>None</td><td>Panel Open / Close + Issue Workflow Controls sections</td><td>N/A</td><td>Not available in this release: isolated control capture not yet available in safe pack</td><td><span class="badge badge--review">Not available in this release</span></td><td><span class="badge badge--safe">No private data exposed</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -1399,11 +1412,6 @@
       </main>
     </div>
 
-    <footer class="site-footer">
-      <div class="site-footer__inner">
-        <span>A11Y Cat public documentation</span>
-        <span><a href="../EXTENSION_UI_FEATURE_GUIDE.md">Canonical guide markdown</a></span>
-      </div>
-    </footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
   </body>
 </html>

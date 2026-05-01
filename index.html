@@ -21,8 +21,10 @@
         </a>
         <nav class="header-nav" aria-label="Primary">
           <a href="docs/intro.html">Docs</a>
-          <a href="docs/ui-feature-guide.html">UI feature guide</a>
-          <a href="docs/privacy-local-data.html">Privacy</a>
+          <a href="docs/ui-feature-guide.html">UI guide</a>
+          <a href="docs/installation.html">Installation</a>
+          <a href="docs/troubleshooting.html">Troubleshooting</a>
+          <a href="docs/privacy-policy.html">Privacy policy</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
         </nav>
       </div>
@@ -41,6 +43,7 @@
             </div>
             <p>
               A11Y Cat is a local-first accessibility inspection extension for developers, QA teams, and accessibility reviewers.
+              Target standard coverage in this release is WCAG 2.2 A/AA mapping where rule metadata is present (with inherited WCAG 2.1 mappings where applicable).
             </p>
             <p>
               A11Y Cat separates confirmed automated findings from review items, advisory notes, and scan limitations.
@@ -177,8 +180,8 @@
             <figcaption>Scan Results: grouped findings with counts and actions.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/scan-results-confirmed-issues.png" alt="Confirmed Issues grouping visible within the scan results panel.">
-            <figcaption>Confirmed Issues: deterministic findings separated from review output.</figcaption>
+            <img src="assets/screenshots/manual-review-items.png" alt="Manual and incomplete review items visible in the Scan Results panel.">
+            <figcaption>Manual/Review Items: context-dependent items that need human judgement before defect filing.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
             <img src="assets/screenshots/diagnostics-expanded.png" alt="Diagnostics section expanded with structured JSON support data.">
@@ -192,6 +195,7 @@
         <div class="feature-band">
           <p><strong>A11Y Cat does not replace manual accessibility testing or assistive-technology validation.</strong></p>
           <p><strong>Private beta builds are intended for controlled testing, not public production sign-off.</strong></p>
+          <p><strong>False positives and false negatives:</strong> automated scans can over-report or miss issues. Always validate high-impact findings manually and include real AT testing in sign-off.</p>
           <ul class="feature-list">
             <li>It does not prove full WCAG compliance.</li>
             <li>It does not replace real assistive-technology testing with VoiceOver, NVDA, or JAWS.</li>
@@ -203,8 +207,8 @@
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>A11Y Cat public documentation</span>
-        <span><a href="docs/intro.html">Docs</a> · <a href="docs/privacy-local-data.html">Privacy and local data</a> · <a href="docs/limitations.html">Known limitations</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span>
+        <span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span>
+        <span><a href="docs/intro.html">Docs</a> · <a href="docs/privacy-policy.html">Privacy policy</a> · <a href="docs/troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span>
       </div>
     </footer>
   </body>

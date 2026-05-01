@@ -1281,3 +1281,15 @@ figcaption {
     padding: 0.5rem 0.55rem;
   }
 }
+
+
+/* Sidebar collapse to avoid full 40+ link map on every page */
+.docs-sidebar .sidebar-sublist { display: none; }
+.docs-sidebar .sidebar-group.is-current .sidebar-sublist { display: block; }
+.docs-sidebar--expanded .sidebar-sublist { display: block; }
+
+/* stronger mobile table handling */
+@media (max-width: 720px) {
+  .table-wrap, .matrix-table { overflow-x: auto; display: block; }
+  .matrix-table th, .matrix-table td { min-width: 10rem; }
+}

@@ -23,6 +23,8 @@
           <a href="intro.html">Docs</a>
           <a href="ui-feature-guide.html">UI guide</a>
           <a href="installation.html">Installation</a>
+          <a href="troubleshooting.html">Troubleshooting</a>
+          <a href="privacy-policy.html">Privacy policy</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
         </nav>
       </div>
@@ -113,7 +115,9 @@
                 <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
               </ul>
             </li>
-            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a>            </li>
+            <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a>            </li>
+            <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a>            </li>
+            
           </ul>
         </nav>
       </aside>
@@ -131,7 +135,14 @@
           </figure>
         </div>
 
-        <h2>Build the extension locally</h2>
+        <h2>Get the beta package (non-developer path)</h2>
+        <ol>
+          <li>Open the public Releases page: <a href="https://github.com/CarlasHub/a11y-cat-extension/releases">github.com/CarlasHub/a11y-cat-extension/releases</a>.</li>
+          <li>Download the latest beta ZIP asset published for the release.</li>
+          <li>Unzip locally and load the unpacked folder from <code>chrome://extensions</code>.</li>
+        </ol>
+
+        <h2>Build the extension locally (developer path)</h2>
         <pre><code>npm install
 npm run build:extension
 npm run check:extension</code></pre>
@@ -144,6 +155,20 @@ npm run check:extension</code></pre>
           <li>Choose the built <code>dist-extension/</code> directory.</li>
           <li>Pin the extension from the toolbar if you need repeated access during testing.</li>
         </ol>
+
+        <h2>Browser compatibility</h2>
+        <table class="matrix-table">
+          <caption>Current browser support status</caption>
+          <thead>
+            <tr><th scope="col">Browser</th><th scope="col">Minimum version</th><th scope="col">Status</th><th scope="col">Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Chrome (desktop)</th><td>126+</td><td>Supported in private beta</td><td>Primary target runtime for this release.</td></tr>
+            <tr><th scope="row">Edge (Chromium)</th><td>126+ equivalent</td><td>Limited beta validation</td><td>Manual sideload expected; not fully qualified for public release.</td></tr>
+            <tr><th scope="row">Firefox</th><td>N/A</td><td>Not available in this release</td><td>No packaged Firefox build in this public repo.</td></tr>
+            <tr><th scope="row">Safari</th><td>N/A</td><td>Not available in this release</td><td>No Safari extension package in this release scope.</td></tr>
+          </tbody>
+        </table>
 
         <h2>What the release build requests</h2>
         <div class="docs-card-grid">
@@ -182,6 +207,6 @@ npm run test:extension:smoke</code></pre>
         </nav>
       </main>
     </div>
-    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation</span><span><a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
   </body>
 </html>

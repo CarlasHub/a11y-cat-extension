@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A11Y Cat Troubleshooting</title>
+    <meta name="description" content="Troubleshooting common A11Y Cat extension runtime and scan issues.">
+    <link rel="icon" href="../assets/img/icon.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html"><img class="brand__icon" src="../assets/img/icon.png" alt="A11Y Cat logo"><span class="brand__text"><span class="brand__label">Chrome extension documentation</span><span class="brand__title">A11Y Cat</span></span></a><nav class="header-nav" aria-label="Primary"><a href="intro.html">Docs</a><a href="ui-feature-guide.html">UI guide</a><a href="installation.html">Installation</a><a href="troubleshooting.html">Troubleshooting</a><a href="privacy-policy.html">Privacy policy</a><a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a></nav></div></header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar"><h2>Documentation</h2><nav class="sidebar-nav" aria-label="Documentation pages"><ul><li class="sidebar-group"><a href="intro.html">Introduction</a></li><li class="sidebar-group"><a href="installation.html">Installation</a></li><li class="sidebar-group"><a href="ui-feature-guide.html">Extension UI Feature Guide</a></li><li class="sidebar-group"><a href="privacy-local-data.html">Privacy and Local Data</a></li><li class="sidebar-group"><a href="limitations.html">Known Limitations</a></li><li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a></li><li class="sidebar-group is-current"><a href="troubleshooting.html" aria-current="page">Troubleshooting</a></li><li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li><li class="sidebar-group"><a href="changelog.html">Changelog / Status</a></li></ul></nav></aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero"><div><div class="eyebrow">Support</div><h1 class="page-title">Troubleshooting</h1><p class="page-summary">Common scan/runtime issues and direct actions to recover.</p></div></div>
+        <h2>Extension panel does not open</h2>
+        <ul class="doc-list"><li>Confirm the extension is enabled in <code>chrome://extensions</code>.</li><li>Reload the extension and refresh the page.</li><li>Try a standard <code>https://</code> page (not browser-internal pages).</li></ul>
+
+        <h2>Scan shows limitations or incomplete coverage</h2>
+        <ul class="doc-list"><li>Open Diagnostics and inspect runtime limitation signals.</li><li>Test additional interaction states manually (dialogs, tabs, menus, auth states).</li><li>Treat limitation output as coverage risk, not as a pass result.</li></ul>
+
+        <h2>Broken Links shows unverified or timeout</h2>
+        <ul class="doc-list"><li><code>unverified</code> means the link was not fetched (for example cross-origin).</li><li><code>timeout</code> means verification did not complete in time.</li><li>Validate final behavior manually before filing as accessibility failure.</li></ul>
+
+        <h2>Export includes sensitive data</h2>
+        <ul class="doc-list"><li>CSV/JSON may include URL/title/selectors/snippets.</li><li>Review and redact before sharing externally.</li></ul>
+
+        <h2>Need support diagnostics for issue reports</h2>
+        <ul class="doc-list"><li>Use Diagnostics export/copy from the extension panel.</li><li>Attach the output and reproduction steps to your issue report.</li></ul>
+
+        <h2>Contact</h2>
+        <p>Support and privacy enquiries: <a href="mailto:info@carlashub.com">info@carlashub.com</a>.</p>
+      </main>
+    </div>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
+  </body>
+</html>

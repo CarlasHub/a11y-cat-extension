@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A11Y Cat Privacy Policy</title>
+    <meta name="description" content="Privacy policy for A11Y Cat extension public beta.">
+    <link rel="icon" href="../assets/img/icon.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="A11Y Cat logo">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="troubleshooting.html">Troubleshooting</a>
+          <a href="privacy-policy.html">Privacy policy</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar">
+        <h2>Documentation</h2>
+        <nav class="sidebar-nav" aria-label="Documentation pages">
+          <ul>
+            <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+            <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+            <li class="sidebar-group"><a href="ui-feature-guide.html">Extension UI Feature Guide</a></li>
+            <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and Local Data</a></li>
+            <li class="sidebar-group"><a href="limitations.html">Known Limitations</a></li>
+            <li class="sidebar-group"><a href="beta-testing.html">Beta Testing</a></li>
+            <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+            <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
+            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Policy</div>
+            <h1 class="page-title">Privacy policy</h1>
+            <p class="page-summary">A11Y Cat processes scan data locally in the browser runtime. This policy covers what is stored locally, what can be exported, and what is not sent to developer infrastructure.</p>
+            <div class="callout"><strong>Effective date:</strong> 1 May 2026</div>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/screenshots/local-data-clearing.png" alt="A11Y Cat local data controls showing clear-data option in the extension panel.">
+            <figcaption>Local data controls are available in the extension panel.</figcaption>
+          </figure>
+        </div>
+
+        <h2>Controller and contact</h2>
+        <ul class="doc-list">
+          <li><strong>Maintainer:</strong> CarlasHub Accessibility Engineering</li>
+          <li><strong>Privacy and support contact:</strong> <a href="mailto:info@carlashub.com">info@carlashub.com</a></li>
+          <li><strong>Project repository:</strong> <a href="https://github.com/CarlasHub/a11y-cat-extension">CarlasHub/a11y-cat-extension</a></li>
+        </ul>
+
+        <h2>Data processing summary</h2>
+        <ul class="doc-list">
+          <li>Scan analysis runs locally in your browser profile.</li>
+          <li>Findings, notes, and workflow state are stored locally via extension storage.</li>
+          <li>Exports are created only on explicit user action.</li>
+          <li>The public package does not include analytics or telemetry.</li>
+          <li>The public package does not require a developer backend or database.</li>
+        </ul>
+
+        <h2>Legal basis and scope (GDPR / UK GDPR)</h2>
+        <p>This extension is a local tool. Personal data handling is user-controlled on the local device. Where GDPR or UK GDPR applies, processing is limited to user-initiated local inspection and optional user-initiated export. The maintainer does not receive scan data automatically from the public package.</p>
+
+        <h2>Storage keys and purpose</h2>
+        <table class="matrix-table">
+          <caption>Current public storage keys</caption>
+          <thead>
+            <tr><th scope="col">Key</th><th scope="col">Purpose</th><th scope="col">May include page-derived data</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><code>a11yCatExtSettingsV1</code></th><td>Theme, route auto-scan preference, panel geometry</td><td>Indirectly</td></tr>
+            <tr><th scope="row"><code>a11yCatScanHistoryV1</code></th><td>Recent scan history</td><td>Yes</td></tr>
+            <tr><th scope="row"><code>a11yCatScanHistoryArchiveV1</code></th><td>Archived scan history</td><td>Yes</td></tr>
+            <tr><th scope="row"><code>a11yCatWorkflowStateV1</code></th><td>Issue status, notes, filter preferences</td><td>Yes</td></tr>
+            <tr><th scope="row"><code>a11yCatVirtualSrReviewStateV1</code></th><td>Virtual Screen Reader Review notes/state</td><td>Yes</td></tr>
+            <tr><th scope="row"><code>a11yCatPerfBenchmarksV1</code></th><td>Local benchmark history</td><td>Possibly</td></tr>
+            <tr><th scope="row"><code>a11yCatSpellingAllowlistV1</code></th><td>User spelling allowlist</td><td>Possibly</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Legacy/internal historical keys</h2>
+        <p>Some historical keys can appear in older profiles from internal builds. They are not part of the current public beta storage contract and are not required for normal operation:</p>
+        <ul class="doc-list">
+          <li><code>a11yCatVirtualSrSessionsV1</code> (<code>chrome.storage.session</code>)</li>
+          <li><code>__a11y_cat_vsr_stale_v1</code> (<code>sessionStorage</code>)</li>
+          <li><code>a11y_cat_assistant_url</code> (<code>localStorage</code>, legacy internal assistant URL marker)</li>
+        </ul>
+        <p>If present, these keys represent historical/internal state from older profiles. They are outside the current public-beta data model and can be removed by clearing local extension data.</p>
+
+        <h2>Plain-language permissions explanation</h2>
+        <ul class="doc-list">
+          <li><code>activeTab</code>: lets the extension inspect the current tab only after you click the extension action.</li>
+          <li><code>scripting</code>: injects the packaged scanner runtime into the active page context.</li>
+          <li><code>storage</code>: stores local settings, history, notes, and workflow state on your device.</li>
+        </ul>
+
+        <h2>Exports and sharing risk</h2>
+        <p>Exports can include selectors, snippets, page URL, and page title. Review export files before sharing outside your team.</p>
+
+        <h2>How to clear data</h2>
+        <p>Use <strong>Scan Results → Privacy and data use → Clear all local extension data</strong>, or remove the extension to clear extension-managed storage.</p>
+      </main>
+    </div>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
+  </body>
+</html>

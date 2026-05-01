@@ -23,6 +23,8 @@
           <a href="intro.html">Docs</a>
           <a href="ui-feature-guide.html">UI guide</a>
           <a href="installation.html">Installation</a>
+          <a href="troubleshooting.html">Troubleshooting</a>
+          <a href="privacy-policy.html">Privacy policy</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub</a>
         </nav>
       </div>
@@ -113,7 +115,9 @@
                 <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
               </ul>
             </li>
-            <li class="sidebar-group"><a href="changelog.html">Changelog / Status</a>            </li>
+            <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a>            </li>
+            <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a>            </li>
+            
           </ul>
         </nav>
       </aside>
@@ -126,8 +130,7 @@
               It combines deterministic scan output with review buckets, local history, local exports, and explicit limitation reporting.
             </p>
             <div class="callout">
-              <strong>Documentation rule:</strong> update the <a href="ui-feature-guide.html">Extension UI feature guide</a> in the same change set whenever UI labels,
-              result categories, counts, exports, storage behaviour, or release limitations change.
+              <strong>WCAG target:</strong> this extension is documented against WCAG 2.2 level A/AA mappings where rule metadata is available. It also references WCAG 2.1 mappings when inherited by axe-core metadata.
             </div>
           </div>
           <figure class="media-card">
@@ -156,7 +159,10 @@
           </article>
         </div>
 
-        <h2>Result classification matrix</h2>
+        <h2>About this documentation</h2>
+        <p>This public documentation is maintained by <strong>CarlasHub Accessibility Engineering</strong>.</p>
+        <p><strong>Docs accessibility conformance statement:</strong> this docs site targets WCAG 2.1 AA for structure, keyboard navigation, focus visibility, contrast, and semantic content. Conformance is reviewed on each release update.</p>
+<h2>Result classification matrix</h2>
         <p class="matrix-intro">Use this matrix to decide whether an item is automatically confirmed or still requires manual judgement.</p>
         <table class="matrix-table">
           <caption>Result category comparison</caption>
@@ -301,7 +307,7 @@
 
         <h2>How to start using it</h2>
         <ol>
-          <li>Install the unpacked extension or the current agreed beta build.</li>
+          <li>Install the unpacked extension or download the latest beta package from <a href="https://github.com/CarlasHub/a11y-cat-extension/releases">github.com/CarlasHub/a11y-cat-extension/releases</a>.</li>
           <li>Open the extension from the browser toolbar on a supported page.</li>
           <li>Run the deterministic scan.</li>
           <li>Review Confirmed Issues first, then review buckets, limitations, and exports.</li>
@@ -313,11 +319,6 @@
         </nav>
       </main>
     </div>
-    <footer class="site-footer">
-      <div class="site-footer__inner">
-        <span>A11Y Cat public documentation</span>
-        <span><a href="../index.html">Landing page</a> · <a href="ui-feature-guide.html">UI guide</a></span>
-      </div>
-    </footer>
+    <footer class="site-footer"><div class="site-footer__inner"><span>A11Y Cat public documentation · Version v0.9.1-beta (2026-05-01) · Maintained by CarlasHub Accessibility Engineering</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="troubleshooting.html">Troubleshooting</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span></div></footer>
   </body>
 </html>
