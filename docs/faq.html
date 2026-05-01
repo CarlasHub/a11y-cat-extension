@@ -162,8 +162,14 @@
         <h2>Does A11Y Cat prove WCAG compliance?</h2>
         <p>No. A11Y Cat supports accessibility review workflows and triage. It does not prove full compliance. Review findings in context and complete manual accessibility testing and real assistive-technology validation.</p>
 
+        <h2>Does A11Y Cat replace manual testing?</h2>
+        <p>No. Automated scanning reduces triage time, but manual accessibility testing is still required for interaction flow, context, and assistive-technology behavior.</p>
+
+        <h2>Does A11Y Cat replace screen reader testing?</h2>
+        <p>No. The extension’s Screen Reader Review is a virtual review aid, not real VoiceOver, NVDA, or JAWS validation evidence.</p>
+
         <h2>What WCAG version does A11Y Cat target?</h2>
-        <p>The bundled axe-core engine includes rules for WCAG 2.0, 2.1, and 2.2 where available. A11Y Cat reporting is tuned for A/AA workflow triage while preserving WCAG mappings in finding metadata.</p>
+        <p>The bundled axe-core configuration runs WCAG A/AA tags for WCAG 2.0, 2.1, and 2.2 where available. A11Y Cat preserves WCAG mappings in finding metadata, but does not provide conformance certification.</p>
 
         <h2>Is Screen Reader Review the same as testing with a real screen reader?</h2>
         <p>No. Screen Reader Review is a virtual review aid. It is not VoiceOver, NVDA, or JAWS evidence. Real assistive-technology testing is still required for sign-off.</p>
@@ -174,6 +180,18 @@
         <h2>Does the extension send data to a server?</h2>
         <p>The public release build processes data locally. It does not automatically send scan data to a developer server or database. Exports leave the device only when users choose to share them.</p>
 
+        <h2>Does A11Y Cat use analytics?</h2>
+        <p>No analytics or telemetry endpoint is included in the public beta package documentation scope.</p>
+
+        <h2>What does local-first mean?</h2>
+        <p>Local-first means scan processing, classification, and storage are handled in the local browser extension runtime. Data only leaves the machine when a user chooses to export or share output.</p>
+
+        <h2>Why are some items review or advisory instead of confirmed failures?</h2>
+        <p>Some checks depend on context, state, visual interpretation, or incomplete runtime evidence. Those findings are classified as review/advisory to prevent false certainty.</p>
+
+        <h2>What is Visual Composition Review?</h2>
+        <p>Visual Composition Review groups items that may require visual judgment (for example layout relationships and visual meaning) and are not automatically confirmed failures.</p>
+
         <h2>Can I use this on internal or authenticated pages?</h2>
         <p>You can only test pages you are authorized to inspect. Restricted contexts, protected frames, and state boundaries may limit what the scanner can inspect.</p>
 
@@ -183,11 +201,23 @@
         <h2>What does a review item mean?</h2>
         <p>A review item means automation detected a potential issue that requires manual judgment. Do not treat review items as confirmed defects until verified.</p>
 
+        <h2>What does Previous Scan compare?</h2>
+        <p>Previous Scan compares the current scan to the latest saved scan in the same <code>origin + pathname</code> scope. Query strings and hash fragments are ignored for matching.</p>
+
+        <h2>How do I get the beta package?</h2>
+        <p>Approved testers use the current release package route documented on <a href="installation.html">Installation</a> (GitHub Releases/private approved package path for this beta).</p>
+
         <h2>Where do I report bugs?</h2>
         <p>Use <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>. Remove sensitive URLs, selectors, and snippets before posting public reports.</p>
 
+        <h2>What should I avoid scanning?</h2>
+        <p>Do not scan pages or environments you are not authorized to inspect. Do not publish sensitive URLs, selectors, snippets, credentials, or confidential content in public issue reports.</p>
+
         <h2>What is stored locally and for how long?</h2>
         <p>Settings, history, workflow notes, and optional review state are stored in extension local storage until the user clears data or removes the extension. See <a href="privacy-local-data.html">Privacy and Local Data</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+        <h2>Support and contact</h2>
+        <p>Maintained by Carla Gonçalves. Support and beta feedback route: <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>.</p>
       </main>
     </div>
     <footer class="site-footer">
