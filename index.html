@@ -27,144 +27,178 @@
         </nav>
       </div>
     </header>
+
     <main id="main-content" class="landing-shell">
-      <section class="hero">
+      <section class="hero" aria-labelledby="landing-hero-title">
         <div class="hero-grid">
           <div class="hero-panel">
-            <div class="eyebrow">Public product documentation</div>
             <div class="hero-brand-lockup">
-              <img src="assets/img/icon.png" alt="A11Y Cat extension icon">
+              <img src="assets/img/icon.png" alt="A11Y Cat logo">
               <div>
-                <h1>A11Y Cat</h1>
-                <p class="lead"><strong>Local-first accessibility inspection extension.</strong></p>
+                <h1 id="landing-hero-title">A11Y Cat</h1>
+                <p class="lead"><strong>Local-first accessibility inspection extension</strong></p>
               </div>
             </div>
             <p>
-              A11Y Cat is a local-first accessibility inspection extension for developers, QA teams, and accessibility reviewers.
+              A11Y Cat helps developers, QA teams, and accessibility reviewers inspect live pages with clear separation between confirmed findings,
+              review-required items, advisory notes, and explicit scan limitations.
             </p>
-            <p>
-              It separates confirmed automated findings from review items, advisory notes, and scan limitations.
-              Results are labelled by source and confidence so teams can see what was detected automatically and what still needs human judgement.
-            </p>
-            <div class="warning">
-              <strong>Support boundary:</strong> A11Y Cat supports accessibility review workflows. It does not replace manual testing, real assistive-technology validation, or full WCAG conformance review.
-            </div>
-            <div class="status-row" aria-label="Release status badges">
+            <div class="status-row" aria-label="Hero status">
               <span class="badge badge--beta">Private beta</span>
-              <span class="badge badge--local">Local-first</span>
-              <span class="badge badge--server">No developer server</span>
-              <span class="badge badge--manual">Manual testing still required</span>
             </div>
             <div class="button-row">
               <a class="button button--primary" href="docs/intro.html">Read the docs</a>
-              <a class="button button--secondary" href="docs/ui-feature-guide.html">Open the UI feature guide</a>
-              <a class="button button--ghost" href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a>
+              <a class="button button--ghost" href="https://github.com/CarlasHub/a11y-cat-extension">View GitHub repository</a>
+            </div>
+            <div class="callout">
+              <strong>Privacy boundary:</strong> No developer server, no developer database, local processing in the browser runtime.
             </div>
           </div>
           <figure class="media-card hero-visual">
-            <img src="assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension panel opened on a safe demo page in Chrome.">
-            <figcaption>Current extension UI on a safe fixture page. The site uses real extension screenshots, not mockups.</figcaption>
+            <img src="assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension panel opened from the Chrome toolbar on a demo page.">
+            <figcaption>Extension panel overview in the current private beta build.</figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="section-block">
-        <h2 class="section-heading">What the extension covers</h2>
-        <div class="feature-grid" aria-label="Core extension capabilities">
+      <section class="section-block" aria-labelledby="trust-strip-title">
+        <h2 id="trust-strip-title" class="section-heading">Trust and status</h2>
+        <div class="badge-strip" role="list" aria-label="Product trust badges">
+          <span class="badge badge--beta" role="listitem">Private beta</span>
+          <span class="badge badge--local" role="listitem">Local-first</span>
+          <span class="badge badge--server" role="listitem">No developer database</span>
+          <span class="badge badge--server" role="listitem">No analytics/telemetry</span>
+          <span class="badge badge--manual" role="listitem">Manual testing still required</span>
+        </div>
+      </section>
+
+      <section class="section-block" aria-labelledby="feature-grid-title">
+        <h2 id="feature-grid-title" class="section-heading">Feature overview</h2>
+        <div class="feature-grid" aria-label="Core extension capability cards">
           <article>
-            <h3>axe-core scanning</h3>
-            <p>Preserves rule provenance and separates direct engine output from product-owned review logic.</p>
+            <h3>axe-core scan results</h3>
+            <p>Runs bundled axe-core and preserves engine provenance in grouped output.</p>
           </article>
           <article>
             <h3>Confirmed issues</h3>
-            <p>Keeps confirmed automated findings separate from review-only and advisory output.</p>
+            <p>Shows high-confidence deterministic findings separately from review-only results.</p>
           </article>
           <article>
-            <h3>Review items</h3>
-            <p>Shows incomplete, visual, state-limited, and human-judgement findings without overstating certainty.</p>
+            <h3>Manual/review items</h3>
+            <p>Keeps incomplete, visual, contextual, and state-limited items in review buckets.</p>
+          </article>
+          <article>
+            <h3>Severity filters</h3>
+            <p>Lets teams prioritize Critical, Serious, Moderate, Minor, and review counts.</p>
           </article>
           <article>
             <h3>Exports</h3>
-            <p>Provides CSV, JSON evidence, local issue-state, diagnostics, and virtual review exports as explicit user actions.</p>
+            <p>Provides CSV issue logs, JSON evidence bundles, diagnostics, and local issue-state exports.</p>
           </article>
           <article>
             <h3>Local history</h3>
-            <p>Stores previous scans locally for comparison on the same origin and path.</p>
-          </article>
-          <article>
-            <h3>Language and spelling review</h3>
-            <p>Flags language mismatch and spelling review output without treating them as automatic compliance failures.</p>
-          </article>
-          <article>
-            <h3>Metadata and broken links</h3>
-            <p>Exposes metadata review and broken-link verification as separate modules with documented boundaries.</p>
-          </article>
-          <article>
-            <h3>Diagnostics</h3>
-            <p>Shows structured runtime signals, support data, and explicit scan limitations.</p>
+            <p>Stores scoped scan history locally for previous-scan comparison by origin and pathname.</p>
           </article>
           <article>
             <h3>Screen Reader Review aid</h3>
-            <p>Provides a virtual review aid for QA workflows. It is not a substitute for VoiceOver, NVDA, or JAWS testing.</p>
+            <p>Supports structured virtual review workflows. It is not real VoiceOver, NVDA, or JAWS testing.</p>
+          </article>
+          <article>
+            <h3>Metadata and broken links</h3>
+            <p>Surfaces metadata quality and link verification outcomes with explicit limitations.</p>
+          </article>
+          <article>
+            <h3>Language and spelling review</h3>
+            <p>Flags language mismatch and spelling concerns as review/advisory signals, not automatic WCAG failures.</p>
+          </article>
+          <article>
+            <h3>Diagnostics and limitations</h3>
+            <p>Reports runtime constraints and partial-inspection boundaries for technical troubleshooting.</p>
           </article>
         </div>
       </section>
 
-      <section class="section-block">
-        <h2 class="section-heading">Current extension evidence</h2>
-        <div class="screenshot-grid" aria-label="Current extension screenshots">
+      <section class="section-block" aria-labelledby="scanner-clarity-title">
+        <h2 id="scanner-clarity-title" class="section-heading">Scanner clarity</h2>
+        <p class="matrix-intro">Use this matrix to interpret results before creating defects or compliance statements.</p>
+        <table class="matrix-table">
+          <caption>Result classification model</caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Meaning</th>
+              <th scope="col">Confidence</th>
+              <th scope="col">Primary action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Confirmed findings</th>
+              <td>Automated findings with deterministic confidence from axe violations and deterministic checks.</td>
+              <td>Highest automated confidence</td>
+              <td>Fix first by severity and retest.</td>
+            </tr>
+            <tr>
+              <th scope="row">Review items</th>
+              <td>Incomplete, visual, context-dependent, or state-limited results needing human judgement.</td>
+              <td>Manual verification required</td>
+              <td>Inspect manually before marking as defect.</td>
+            </tr>
+            <tr>
+              <th scope="row">Advisory notes</th>
+              <td>Quality guidance such as metadata, spelling, or language refinement signals.</td>
+              <td>Guidance only</td>
+              <td>Use for quality improvement, not automatic fail claims.</td>
+            </tr>
+            <tr>
+              <th scope="row">Limitations</th>
+              <td>Runtime or context boundaries where the scanner could not fully inspect the page.</td>
+              <td>Coverage boundary signal</td>
+              <td>Run manual checks in missing contexts.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section-block" aria-labelledby="screenshots-title">
+        <h2 id="screenshots-title" class="section-heading">Real extension screenshots</h2>
+        <div class="screenshot-grid" aria-label="Current extension evidence screenshots">
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/scan-results-confirmed-issues.png" alt="Scan Results overview showing grouped findings and result counts in the extension panel.">
-            <figcaption>Scan Results combines confirmed issues, review items, counts, filters, exports, and local actions.</figcaption>
+            <img src="assets/screenshots/extension-panel-overview.png" alt="Extension panel overview with navigation tabs and scan controls.">
+            <figcaption>Overview: extension panel as opened from the toolbar.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/broken-links.png" alt="Broken Links section showing broken, timeout, restricted, skipped, and unverified link states.">
-            <figcaption>Broken Links keeps verification outcomes explicit instead of collapsing them into pass or fail.</figcaption>
+            <img src="assets/screenshots/scan-results-confirmed-issues.png" alt="Scan Results overview showing grouped counts and categories.">
+            <figcaption>Scan Results: grouped findings with counts and actions.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/metadata-check.png" alt="Metadata Check results showing grouped metadata findings and structured-data review.">
-            <figcaption>Metadata Check documents missing or invalid metadata as review or advisory output, not as automatic accessibility failure.</figcaption>
+            <img src="assets/screenshots/scan-results-confirmed-issues.png" alt="Confirmed Issues grouping visible within the scan results panel.">
+            <figcaption>Confirmed Issues: deterministic findings separated from review output.</figcaption>
+          </figure>
+          <figure class="media-card media-card--compact">
+            <img src="assets/screenshots/diagnostics-expanded.png" alt="Diagnostics section expanded with structured JSON support data.">
+            <figcaption>Diagnostics: runtime limitation signals and support JSON for troubleshooting.</figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="section-block">
-        <h2 class="section-heading">What is documented here</h2>
+      <section class="section-block" aria-labelledby="limitations-title">
+        <h2 id="limitations-title" class="section-heading">What this tool does not prove</h2>
         <div class="feature-band">
           <ul class="feature-list">
-            <li><strong>Dashboard</strong>, <strong>Scan Results</strong>, <strong>Headings</strong>, <strong>Language</strong>, <strong>Alt Text Analysis</strong></li>
-            <li><strong>Screen Reader Review</strong>, <strong>Metadata Check</strong>, <strong>Broken Links</strong>, <strong>Page Text Scale</strong>, <strong>Manual Checks</strong></li>
-            <li><strong>Diagnostics</strong>, <strong>local history</strong>, <strong>exports</strong>, <strong>theme/settings controls</strong>, and <strong>panel geometry controls</strong></li>
+            <li>It does not prove full WCAG compliance.</li>
+            <li>It does not replace manual accessibility testing.</li>
+            <li>It does not replace real assistive-technology testing with VoiceOver, NVDA, or JAWS.</li>
+            <li>Private beta limitations remain and must be treated as release constraints.</li>
           </ul>
-          <p><a class="button button--ghost" href="docs/ui-feature-guide.html">See the full feature-by-feature guide</a></p>
-        </div>
-      </section>
-
-      <section class="section-block">
-        <h2 class="section-heading">Use the right page</h2>
-        <div class="card-grid" aria-label="Documentation highlights">
-          <article class="card">
-            <h3>Start with the docs</h3>
-            <p>Read what the extension is for, who it is for, what it helps with, and what it does not prove.</p>
-            <p><a href="docs/intro.html">Open the docs introduction</a></p>
-          </article>
-          <article class="card">
-            <h3>Use the canonical guide</h3>
-            <p>Open the UI guide when a label, category, count, export, or action needs an exact implementation-backed explanation.</p>
-            <p><a href="docs/ui-feature-guide.html">Open the UI feature guide</a></p>
-          </article>
-          <article class="card">
-            <h3>Check privacy and limits</h3>
-            <p>Review local processing, stored data, restricted contexts, and the limits of automated inspection before sharing results.</p>
-            <p><a href="docs/privacy-local-data.html">Open privacy and local data</a></p>
-          </article>
         </div>
       </section>
     </main>
+
     <footer class="site-footer">
       <div class="site-footer__inner">
         <span>A11Y Cat public documentation</span>
-        <span><a href="docs/intro.html">Docs home</a> · <a href="docs/ui-feature-guide.html">UI guide</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span>
+        <span><a href="docs/intro.html">Docs</a> · <a href="docs/privacy-local-data.html">Privacy and local data</a> · <a href="docs/limitations.html">Known limitations</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension">GitHub repository</a></span>
       </div>
     </footer>
   </body>
