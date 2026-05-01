@@ -408,8 +408,8 @@
             <h4>Where the data comes from</h4><p>A11Y Cat corroboration logic and source attribution.</p>
             <h4>How to read the result</h4><p><span class="badge badge--confirmed">Confirmed</span>.</p>
             <h4>What the user should do next</h4><p>Prioritize and remediate as confirmed defects.</p>
-            <h4>Limitations</h4><p>Does not prove full compliance coverage.</p>
-            <h4>Example</h4><p>Axe-core flags an image for missing accessible text and the custom alt-text analyzer flags the same image for the same reason in the same scan. That finding is classified as corroborated.</p>
+            <h4>Limitations</h4><p>Corroborated does not mean a human has verified the issue, and it does not prove full compliance coverage.</p>
+            <h4>Example</h4><p>A corroborated failure is a confirmed issue where more than one signal supports the same finding. For example, axe-core may report an image-related failure and A11Y Cat's custom alt-text analysis may independently identify the same element as lacking meaningful text alternative evidence in the same scan.</p>
             <h4>Screenshot</h4><p>Not available in this release: corroborated-failure taxonomy is visible in data model/export and needs a dedicated isolated capture.</p>
             <h4>Export/storage note</h4><p>Appears in JSON evidence and classification fields.</p>
           </article>
