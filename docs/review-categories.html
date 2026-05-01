@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review categories</title>
+    <meta name="doc-version" content="v1.0.0-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/review-categories.html">
+    <meta property="og:title" content="Review categories">
+    <meta property="og:description" content="Manual/incomplete and review taxonomy categories that require human judgement.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-ui-feature-guide-dark.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/review-categories.html">
+    <meta name="description" content="Manual/incomplete and review taxonomy categories that require human judgement.">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body class="docs-page docs-page--guide">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
+        </nav>
+        <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar docs-sidebar--guide">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>Guide pages</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="ui-feature-guide.html">Overview</a></li>
+            <li><a href="results-and-severity.html">Results and severity</a></li>
+            <li><a href="review-categories.html" aria-current="page">Review categories</a></li>
+            <li><a href="scanner-tools.html">Scanner tools</a></li>
+            <li><a href="screen-reader-review.html">Screen Reader Review</a></li>
+            <li><a href="exports-and-local-data.html">Exports and local data</a></li>
+            <li><a href="diagnostics-and-limitations.html">Diagnostics and limitations</a></li>
+            <li><a href="previous-scan-and-history.html">Previous scan and history</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>On this page</summary>
+          <ul class="sidebar-sublist">
+                <li><a href="#manual-incomplete-review">Manual/Incomplete/Review</a></li>
+                <li><a href="#visual-and-human-review">Visual and human review</a></li>
+                <li><a href="#engine-and-state-limited">Engine and state-limited</a></li>
+                <li><a href="#advisory-notes">Advisory Notes</a></li>
+                <li><a href="#what-to-do-next">What to do next</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+</aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Review taxonomy</div>
+            <h1 class="page-title">Review categories</h1>
+            <p class="page-summary">Review buckets indicate uncertainty or contextual dependence and require manual judgement before filing defects.</p>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/img/screenshots/extension-manual-review-dark.png" alt="Manual and review items displayed in the extension panel.">
+            <figcaption>Review categories prevent false certainty by separating uncertain findings from confirmed failures.</figcaption>
+          </figure>
+        </div>
+
+        <h2 id="manual-incomplete-review">Manual / Incomplete / Review Items</h2>
+        <p>These items represent checks automation could not safely resolve in the current state. Treat them as review tasks, not automatic failures or passes.</p>
+
+        <h2 id="visual-and-human-review">Visual Composition Review and Human Judgement Review</h2>
+        <ul class="doc-list">
+          <li><strong>Visual Composition Review:</strong> layout/spacing/focus visibility/grouping relationships needing human visual judgement.</li>
+          <li><strong>Human Judgement Review:</strong> semantics, naming quality, link purpose, content clarity, and context-driven behavior requiring person-led validation.</li>
+        </ul>
+        <figure class="media-card media-card--compact">
+          <img src="../assets/img/screenshots/extension-visual-composition-review-dark.png" alt="Visual Composition Review item list in dark mode.">
+          <figcaption>Visual and human-judgement review outputs are workflow prompts, not final defect verdicts.</figcaption>
+        </figure>
+
+        <h2 id="engine-and-state-limited">Engine-limited and State-limited Review</h2>
+        <p><strong>Engine-limited:</strong> scanner/runtime could not fully evaluate due missing computed information or blocked inspection context.</p>
+        <p><strong>State-limited:</strong> only the current UI state was scanned; hidden or unopened states may contain additional issues.</p>
+
+        <h2 id="advisory-notes">Advisory Notes</h2>
+        <p>Advisories are quality guidance signals. They are useful for consistency and governance but are not automatically WCAG failures.</p>
+
+        <h2 id="what-to-do-next">What to do next</h2>
+        <ol>
+          <li>Reproduce the context where the review item appeared.</li>
+          <li>Document manual findings and rationale.</li>
+          <li>Escalate confirmed defects after human validation.</li>
+        </ol>
+
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="results-and-severity.html" rel="prev">Previous: Results and severity</a>
+          <a class="button button--secondary" href="scanner-tools.html" rel="next">Next: Scanner tools</a>
+        </nav>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

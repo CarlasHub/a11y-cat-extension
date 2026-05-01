@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exports and local data</title>
+    <meta name="doc-version" content="v1.0.0-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/exports-and-local-data.html">
+    <meta property="og:title" content="Exports and local data">
+    <meta property="og:description" content="Export formats, data boundaries, local history/local state, and clearing local data controls.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-ui-feature-guide-dark.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/exports-and-local-data.html">
+    <meta name="description" content="Export formats, data boundaries, local history/local state, and clearing local data controls.">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body class="docs-page docs-page--guide">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
+        </nav>
+        <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar docs-sidebar--guide">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>Guide pages</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="ui-feature-guide.html">Overview</a></li>
+            <li><a href="results-and-severity.html">Results and severity</a></li>
+            <li><a href="review-categories.html">Review categories</a></li>
+            <li><a href="scanner-tools.html">Scanner tools</a></li>
+            <li><a href="screen-reader-review.html">Screen Reader Review</a></li>
+            <li><a href="exports-and-local-data.html" aria-current="page">Exports and local data</a></li>
+            <li><a href="diagnostics-and-limitations.html">Diagnostics and limitations</a></li>
+            <li><a href="previous-scan-and-history.html">Previous scan and history</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>On this page</summary>
+          <ul class="sidebar-sublist">
+                <li><a href="#export-formats">Export formats</a></li>
+                <li><a href="#local-history-and-clear">Local history and clear</a></li>
+                <li><a href="#sensitive-content-note">Sensitive content note</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+</aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Exports and storage</div>
+            <h1 class="page-title">Exports and local data</h1>
+            <p class="page-summary">Exports are local-user actions. This page defines what each export contains and what local state may be stored.</p>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/img/screenshots/extension-exports-csv-json-dark.png" alt="CSV and JSON export controls visible in dark mode.">
+            <figcaption>Use export formats intentionally and review for sensitive selectors/snippets before sharing.</figcaption>
+          </figure>
+        </div>
+
+        <h2 id="export-formats">Export formats</h2>
+        <table class="matrix-table">
+          <caption>Primary export surfaces</caption>
+          <thead><tr><th scope="col">Export</th><th scope="col">Contains</th><th scope="col">Does not prove</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">CSV issue log</th><td>Flat issue list for triage</td><td>Compliance guarantee</td></tr>
+            <tr><th scope="row">JSON evidence bundle</th><td>Structured findings, categories, source attribution</td><td>Conformance certification</td></tr>
+            <tr><th scope="row">Local issue-state bundle</th><td>Workflow annotations/state</td><td>Independent scan verification</td></tr>
+            <tr><th scope="row">Support diagnostics</th><td>Runtime diagnostic signals</td><td>Complete DevTools/network history</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="local-history-and-clear">Local history and clear local data</h2>
+        <p>History and workflow state are stored locally in extension storage keys. Users can clear local data from extension controls to remove saved scan/workflow state.</p>
+        <figure class="media-card media-card--compact">
+          <img src="../assets/img/screenshots/extension-clear-local-data-dark.png" alt="Clear local data action in extension settings/privacy area.">
+          <figcaption>Clearing local data removes saved local history and workflow state from the extension storage scope.</figcaption>
+        </figure>
+
+        <h2 id="sensitive-content-note">Sensitive content note</h2>
+        <div class="warning"><strong>Privacy boundary:</strong> exports may include page URL/title, selectors, snippets, and workflow notes. Once a file is shared, handling is outside extension control.</div>
+
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="screen-reader-review.html" rel="prev">Previous: Screen Reader Review</a>
+          <a class="button button--secondary" href="diagnostics-and-limitations.html" rel="next">Next: Diagnostics and limitations</a>
+        </nav>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Results and severity</title>
+    <meta name="doc-version" content="v1.0.0-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/results-and-severity.html">
+    <meta property="og:title" content="Results and severity">
+    <meta property="og:description" content="Confirmed issue handling, severity counts, filters, and deterministic/corroborated classifications.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-ui-feature-guide-dark.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/results-and-severity.html">
+    <meta name="description" content="Confirmed issue handling, severity counts, filters, and deterministic/corroborated classifications.">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body class="docs-page docs-page--guide">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
+        </nav>
+        <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar docs-sidebar--guide">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>Guide pages</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="ui-feature-guide.html">Overview</a></li>
+            <li><a href="results-and-severity.html" aria-current="page">Results and severity</a></li>
+            <li><a href="review-categories.html">Review categories</a></li>
+            <li><a href="scanner-tools.html">Scanner tools</a></li>
+            <li><a href="screen-reader-review.html">Screen Reader Review</a></li>
+            <li><a href="exports-and-local-data.html">Exports and local data</a></li>
+            <li><a href="diagnostics-and-limitations.html">Diagnostics and limitations</a></li>
+            <li><a href="previous-scan-and-history.html">Previous scan and history</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>On this page</summary>
+          <ul class="sidebar-sublist">
+                <li><a href="#confirmed-issues">Confirmed Issues</a></li>
+                <li><a href="#severity-counts">Severity counts and filters</a></li>
+                <li><a href="#deterministic-and-corroborated">Deterministic and corroborated</a></li>
+                <li><a href="#result-reading-workflow">Result-reading workflow</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+</aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Results</div>
+            <h1 class="page-title">Results and severity</h1>
+            <p class="page-summary">Confirmed outputs are the first triage surface. This page explains severity counts and confirmed-finding classes.</p>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/img/screenshots/extension-confirmed-issues-dark.png" alt="Confirmed Issues list with severity chips and grouped findings.">
+            <figcaption>Use this page when you need to prioritize confirmed findings for engineering action.</figcaption>
+          </figure>
+        </div>
+
+        <h2 id="confirmed-issues">Confirmed Issues</h2>
+        <p>Confirmed Issues contain findings with the highest automated confidence available in the tested page state. They are actionable, but still require contextual review before compliance statements.</p>
+
+        <h2 id="severity-counts">Severity counts and filters</h2>
+        <p>The severity bar groups confirmed findings into Critical, Serious, Moderate, and Minor buckets. Counts are computed from currently visible confirmed findings in the active scan state.</p>
+        <figure class="media-card media-card--compact">
+          <img src="../assets/img/screenshots/extension-severity-filters-dark.png" alt="Severity filter controls showing Critical, Serious, Moderate, and Minor counts.">
+          <figcaption>Severity filters narrow the confirmed list to prioritize remediation order.</figcaption>
+        </figure>
+
+        <h2 id="deterministic-and-corroborated">Deterministic and corroborated findings</h2>
+        <table class="matrix-table">
+          <caption>Confirmed-finding classes</caption>
+          <thead>
+            <tr><th scope="col">Class</th><th scope="col">Meaning</th><th scope="col">User action</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Deterministic</th><td>Rule evaluation produced a direct confirmed failure signal in current state.</td><td>Fix and retest.</td></tr>
+            <tr><th scope="row">Corroborated</th><td>More than one signal supports the same confirmed issue in the same scan.</td><td>Prioritize for remediation; still validate context.</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="result-reading-workflow">Result-reading workflow</h2>
+        <ol>
+          <li>Filter to <span class="severity severity--critical">Critical</span> and <span class="severity severity--serious">Serious</span> first.</li>
+          <li>Open each issue detail and use highlight/locate actions.</li>
+          <li>Export evidence only after checking for sensitive snippets/selectors.</li>
+          <li>Retest after fixes.</li>
+        </ol>
+
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="ui-feature-guide.html" rel="prev">Previous: UI guide overview</a>
+          <a class="button button--secondary" href="review-categories.html" rel="next">Next: Review categories</a>
+        </nav>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

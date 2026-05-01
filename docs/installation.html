@@ -8,18 +8,20 @@
     <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/installation.html">
     <meta property="og:title" content="A11Y Cat Installation">
     <meta property="og:description" content="Installation guide for the A11Y Cat Chrome MV3 extension.">
-    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-landing-dark.png">
     <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/installation.html">
     <meta name="description" content="Installation guide for the A11Y Cat Chrome MV3 extension.">
-    <link rel="icon" href="../assets/img/icon.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
-  <body>
+  <body class="docs-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="site-header__inner">
         <a class="brand" href="../index.html">
-          <img class="brand__icon" src="../assets/img/icon.png" alt="A11Y Cat logo">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
           <span class="brand__text">
             <span class="brand__label">Chrome extension documentation</span>
             <span class="brand__title">A11Y Cat</span>
@@ -30,123 +32,27 @@
           <a href="ui-feature-guide.html">UI Feature Guide</a>
           <a href="installation.html">Installation</a>
           <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
         <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
       </div>
     </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar">
+      <aside class="docs-sidebar docs-sidebar--simple">
   <h2>Documentation</h2>
   <nav class="sidebar-nav" aria-label="Documentation sections">
     <ul>
       <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
-      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
       <li class="sidebar-group is-current"><a href="installation.html" aria-current="page">Installation</a></li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="understanding-results.html">Understanding Results</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
-            <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
-            <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
-            <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
-            <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
-            <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="ui-feature-guide.html">UI Feature Guide</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
-            <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
-            <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
-            <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
-            <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
-            <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
-            <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
-            <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
-            <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
-            <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
-            <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
-            <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
-            <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
-            <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
-            <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
-            <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
-            <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
-            <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
-            <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
-            <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
-            <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
-            <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
-            <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
-            <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
-            <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
-            <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
-            <li><a href="ui-feature-guide.html#exports">Exports</a></li>
-            <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
-            <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
-            <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
-            <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
-            <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
-            <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
-            <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
-            <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
-            <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
-            <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
-            <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
-            <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="privacy-local-data.html">Privacy and Local Data</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
-            <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
-            <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
-            <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="limitations.html">Known Limitations</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
-            <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
-            <li><a href="limitations.html#file-access">File Access</a></li>
-            <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
-            <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
-            <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
-          </ul>
-        </details>
-      </li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
       <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="beta-testing.html">Beta Testing</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
-            <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
-            <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
-            <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
-      <li class="sidebar-group"><a href="changelog.html">Changelog</a></li>
-      <li class="sidebar-group"><a href="privacy-policy.html">Privacy Policy</a></li>
-      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility Statement</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
     </ul>
   </nav>
 </aside>
@@ -159,16 +65,31 @@
             <div class="warning"><strong>Current boundary:</strong> install and test the extension as a controlled beta build unless you have a separate approved release channel.</div>
           </div>
           <figure class="media-card">
-            <img src="../assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension icon selected from the browser toolbar and opening its panel.">
+            <img src="../assets/img/screenshots/extension-panel-open-dark.png" alt="A11Y Cat extension icon selected from the browser toolbar and opening its panel.">
             <figcaption>The extension opens from the browser toolbar into the current page context.</figcaption>
           </figure>
         </div>
 
-        <h2>Get the beta package (non-developer path)</h2>
+        <h2>Recommended: Private beta install</h2>
+        <p>Private beta packages are distributed to approved testers only. If you are part of the beta, use the package link or direct package handoff provided by the maintainer.</p>
+        <table class="matrix-table">
+          <caption>Current beta distribution channels</caption>
+          <thead>
+            <tr><th scope="col">Channel</th><th scope="col">Status</th><th scope="col">How access works</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Chrome Web Store private listing</th><td>Not used in this release</td><td>No private store listing is currently documented for v1.0.0-beta.</td></tr>
+            <tr><th scope="row">GitHub Releases ZIP</th><td>Primary beta channel</td><td>Approved testers download the signed beta package from <a href="https://github.com/CarlasHub/a11y-cat-extension/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a>.</td></tr>
+            <tr><th scope="row">Direct approved beta package</th><td>Fallback channel</td><td>If the release asset is unavailable, request the approved package from the maintainer through <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>.</td></tr>
+          </tbody>
+        </table>
+        <p>Current beta package identity: <code>a11y-cat-mv3-v1.0.0.zip</code> (extension version <code>1.0.0</code>).</p>
         <ol>
-          <li>Open the public Releases page: <a href="https://github.com/CarlasHub/a11y-cat-extension/releases" target="_blank" rel="noopener noreferrer">github.com/CarlasHub/a11y-cat-extension/releases</a>.</li>
-          <li>Download the latest beta ZIP asset published for the release.</li>
-          <li>Unzip locally and load the unpacked folder from <code>chrome://extensions</code>.</li>
+          <li>Confirm you are an approved beta tester.</li>
+          <li>Open <a href="https://github.com/CarlasHub/a11y-cat-extension/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> and download <code>a11y-cat-mv3-v1.0.0.zip</code>.</li>
+          <li>If that file is not available, stop and request the approved beta package from the maintainer; do not switch to a developer source build as a substitute beta package.</li>
+          <li>Unzip the package locally.</li>
+          <li>Open <code>chrome://extensions</code>, enable <strong>Developer mode</strong>, click <strong>Load unpacked</strong>, and select the unzipped package folder.</li>
         </ol>
 
         <h2>Minimum requirements</h2>
@@ -185,35 +106,15 @@
           </tbody>
         </table>
 
-        <h2>Build the extension locally (developer path)</h2>
-        <pre><code>npm install
-npm run build:extension
-npm run check:extension</code></pre>
-
-        <h2>Load the unpacked extension</h2>
+        <h2>Verify the installed version</h2>
         <ol>
-          <li>Open <code>chrome://extensions</code>.</li>
-          <li>Enable <strong>Developer mode</strong>.</li>
-          <li>Select <strong>Load unpacked</strong>.</li>
-          <li>Choose the built <code>dist-extension/</code> directory.</li>
-          <li>Pin the extension from the toolbar if you need repeated access during testing.</li>
+          <li>In <code>chrome://extensions</code>, open the A11Y Cat extension card and confirm <strong>Version 1.0.0</strong> is displayed.</li>
+          <li>Confirm the installed package filename is <code>a11y-cat-mv3-v1.0.0.zip</code>.</li>
+          <li>Check the included package metadata file (<code>a11y-cat-mv3-v1.0.0.zip.metadata.json</code>) for the exact build commit when you need build-level traceability.</li>
         </ol>
+        <p>Report installation issues through <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> with extension version, browser version, operating system, and the failing step.</p>
 
-        <h2>Browser compatibility</h2>
-        <table class="matrix-table">
-          <caption>Current browser support status</caption>
-          <thead>
-            <tr><th scope="col">Browser</th><th scope="col">Minimum version</th><th scope="col">Status</th><th scope="col">Notes</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Chrome (desktop)</th><td>126+</td><td>Supported in private beta</td><td>Primary target runtime for this release.</td></tr>
-            <tr><th scope="row">Edge (Chromium)</th><td>126+ equivalent</td><td>Limited beta validation</td><td>Manual sideload expected; not fully qualified for public release.</td></tr>
-            <tr><th scope="row">Firefox</th><td>N/A</td><td>Not available in this release</td><td>No packaged Firefox build in this public repo.</td></tr>
-            <tr><th scope="row">Safari</th><td>N/A</td><td>Not available in this release</td><td>No Safari extension package in this release scope.</td></tr>
-          </tbody>
-        </table>
-
-        <h2>What the release build requests</h2>
+        <h2>What permissions you will see</h2>
         <div class="docs-card-grid">
           <article class="card">
             <h3><code>activeTab</code></h3>
@@ -233,7 +134,18 @@ npm run check:extension</code></pre>
           The public release build does <strong>not</strong> declare broad <code>host_permissions</code>, hosted-service permissions, analytics permissions, or remote code execution permissions.
         </div>
 
-        <h2>Verify the local install</h2>
+        <h2>Developer build from source</h2>
+        <p><strong>Developer build only.</strong> This path is for contributors and internal diagnostics, not for standard beta tester rollout.</p>
+        <pre><code>npm install
+npm run build:extension
+npm run check:extension</code></pre>
+        <ol>
+          <li>Open <code>chrome://extensions</code>.</li>
+          <li>Enable <strong>Developer mode</strong>.</li>
+          <li>Select <strong>Load unpacked</strong>.</li>
+          <li>Choose the built <code>dist-extension/</code> directory.</li>
+        </ol>
+        <p>Developer verification commands:</p>
         <pre><code>npm run build:extension:test
 npm run check:extension:test
 npm run test:extension:smoke</code></pre>
@@ -243,9 +155,28 @@ npm run test:extension:smoke</code></pre>
           <li><code>npm run test:extension:smoke</code>: runs smoke tests for extension startup and core routes; passing output reports all smoke checks passing.</li>
         </ul>
 
+        <h2>Supported browsers</h2>
+        <table class="matrix-table">
+          <caption>Current browser support status</caption>
+          <thead>
+            <tr><th scope="col">Browser</th><th scope="col">Minimum version</th><th scope="col">Status</th><th scope="col">Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Chrome (desktop)</th><td>126+</td><td>Supported in private beta</td><td>Primary target runtime for this release.</td></tr>
+            <tr><th scope="row">Edge (Chromium)</th><td>126+ equivalent</td><td>Limited beta validation</td><td>Manual sideload expected; not fully qualified for public release.</td></tr>
+            <tr><th scope="row">Firefox</th><td>N/A</td><td>Not supported in this release</td><td>No packaged Firefox build in this public repo.</td></tr>
+            <tr><th scope="row">Safari</th><td>N/A</td><td>Not supported in this release</td><td>No Safari extension package in this release scope.</td></tr>
+          </tbody>
+        </table>
+        <p>For full browser and operating-system status, see <a href="compatibility.html">Compatibility and WCAG scan scope</a>.</p>
+
+        <h2>WCAG scope in this build</h2>
+        <p>The bundled scanner runs axe-core with WCAG A/AA tags for 2.0, 2.1, and 2.2 in this release configuration. It reports mapped criteria where available, but it does not prove WCAG conformance.</p>
+        <p>See <a href="compatibility.html">Compatibility and WCAG scan scope</a> for the exact tag list used by the runtime.</p>
+
         <h2>Extensions page screenshot</h2>
         <figure class="media-card media-card--compact">
-          <img src="../assets/screenshots/chrome-extensions-developer-mode.png" alt="Chrome extensions management page with Developer mode enabled and A11Y Cat listed as a loaded unpacked extension.">
+          <img src="../assets/img/screenshots/docs-installation-dark.png" alt="Chrome extensions management page with Developer mode enabled and A11Y Cat listed as a loaded unpacked extension.">
           <figcaption>Installation evidence: Developer mode enabled in <code>chrome://extensions</code> with A11Y Cat loaded.</figcaption>
         </figure>
 
@@ -256,13 +187,20 @@ npm run test:extension:smoke</code></pre>
           <li>Scan, filters, exports, and local data controls are visible.</li>
         </ul>
 
-        <h2>If the extension does not load</h2>
+        <h2>Troubleshooting installation</h2>
         <ul class="doc-list">
           <li>If the extension does not appear in <code>chrome://extensions</code>, reload the unpacked folder and verify Developer mode is enabled.</li>
           <li>If the panel opens but scan actions are unavailable, refresh the target page and retry from a supported <code>https://</code> page context.</li>
           <li>If a build folder is rejected, rerun build commands and confirm the selected directory contains the generated extension manifest.</li>
         </ul>
-        <p>For deeper runtime issues, open <a href="troubleshooting.html">Troubleshooting</a>.</p>
+        <p>For deeper runtime issues, open <a href="troubleshooting.html">Troubleshooting</a> and include extension version, browser version, and OS in the report.</p>
+
+        <h2>Known install limitations</h2>
+        <ul class="doc-list">
+          <li>Private beta distribution is controlled; testers without approved access cannot install from a public store listing in this release.</li>
+          <li>Restricted pages such as <code>chrome://</code> and other protected browser contexts do not support panel injection.</li>
+          <li>The extension package is Chromium-focused in this release; Firefox and Safari packages are not shipped here.</li>
+        </ul>
         <nav class="docs-pager" aria-label="Page navigation">
           <a class="button button--ghost" href="intro.html" rel="prev">Previous: Introduction</a>
           <a class="button button--secondary" href="understanding-results.html" rel="next">Next: Understanding results</a>
@@ -271,8 +209,8 @@ npm run test:extension:smoke</code></pre>
     </div>
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>Maintained by Carla Gonçalves · A11Y Cat Extension Beta · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues (opens in a new tab)">Support and beta feedback: GitHub Issues</a></span>
-        <span><a href="../index.html">Home</a> · <a href="../docs/intro.html">Docs</a> · <a href="../docs/privacy-local-data.html">Privacy</a> · <a href="../docs/limitations.html">Known Limitations</a> · <a href="../docs/changelog.html">Changelog</a> · <a href="../docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
       </div>
     </footer>
   </body>

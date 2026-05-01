@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scanner tools</title>
+    <meta name="doc-version" content="v1.0.0-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/scanner-tools.html">
+    <meta property="og:title" content="Scanner tools">
+    <meta property="og:description" content="Feature-specific scanner tools: broken links, metadata, language, spelling, reflow, alt text, and heading structure.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-ui-feature-guide-dark.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/scanner-tools.html">
+    <meta name="description" content="Feature-specific scanner tools: broken links, metadata, language, spelling, reflow, alt text, and heading structure.">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body class="docs-page docs-page--guide">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
+        </nav>
+        <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar docs-sidebar--guide">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>Guide pages</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="ui-feature-guide.html">Overview</a></li>
+            <li><a href="results-and-severity.html">Results and severity</a></li>
+            <li><a href="review-categories.html">Review categories</a></li>
+            <li><a href="scanner-tools.html" aria-current="page">Scanner tools</a></li>
+            <li><a href="screen-reader-review.html">Screen Reader Review</a></li>
+            <li><a href="exports-and-local-data.html">Exports and local data</a></li>
+            <li><a href="diagnostics-and-limitations.html">Diagnostics and limitations</a></li>
+            <li><a href="previous-scan-and-history.html">Previous scan and history</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>On this page</summary>
+          <ul class="sidebar-sublist">
+                <li><a href="#broken-links">Broken Links</a></li>
+                <li><a href="#metadata-check">Metadata Check</a></li>
+                <li><a href="#language-and-spelling">Language and spelling</a></li>
+                <li><a href="#reflow-alt-headings">Reflow/Alt/Headings</a></li>
+                <li><a href="#tool-source-matrix">Tool source matrix</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+</aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Scanner tools</div>
+            <h1 class="page-title">Scanner tools</h1>
+            <p class="page-summary">This page documents feature-level tool outputs and how to interpret each one.</p>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/img/screenshots/extension-broken-links-dark.png" alt="Broken Links panel output with status classes.">
+            <figcaption>Scanner tools provide focused signals and must be interpreted with confidence labels and limitations.</figcaption>
+          </figure>
+        </div>
+
+        <h2 id="broken-links">Broken Links</h2>
+        <p>Broken Links checks same-origin targets with HEAD/GET requests in page context. Cross-origin links are reported as unverified by design. Timeout means no response within the check window.</p>
+
+        <h2 id="metadata-check">Metadata Check</h2>
+        <p>Metadata checks review Open Graph tags, Schema.org, and JSON-LD structure. Missing or malformed metadata is advisory/review unless your project treats it as a hard requirement.</p>
+
+        <h2 id="language-and-spelling">Language Mismatch and Spelling Check</h2>
+        <p>Language checks evaluate <code>lang</code> presence/validity and context mismatch. Spelling checks are advisory and language-support dependent; unsupported languages are skipped rather than forced to English.</p>
+        <figure class="media-card media-card--compact">
+          <img src="../assets/img/screenshots/extension-language-mismatch-dark.png" alt="Language mismatch findings shown in extension output.">
+          <figcaption>Language and spelling outputs are review/advisory signals and do not automatically prove failures.</figcaption>
+        </figure>
+
+        <h2 id="reflow-alt-headings">Page Text Scale / Reflow, Alt Text, Heading Structure</h2>
+        <ul class="doc-list">
+          <li><strong>Page Text Scale / Reflow:</strong> identifies layout stress and scaling/reflow risks in current viewport state.</li>
+          <li><strong>Alt Text Analysis:</strong> checks missing or weak text alternatives; quality still needs contextual review.</li>
+          <li><strong>Heading Structure:</strong> inspects heading order/hierarchy for navigability concerns.</li>
+        </ul>
+
+        <h2 id="tool-source-matrix">Tool source matrix</h2>
+        <table class="matrix-table">
+          <caption>Scanner tools and source engines</caption>
+          <thead><tr><th scope="col">Tool</th><th scope="col">Primary source</th><th scope="col">Typical classification</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Broken Links</th><td>Custom runtime checks</td><td>Review / advisory / limitation</td></tr>
+            <tr><th scope="row">Metadata</th><td>Custom parser checks</td><td>Advisory / review</td></tr>
+            <tr><th scope="row">Language</th><td>Custom language checks</td><td>Review / advisory</td></tr>
+            <tr><th scope="row">Spelling</th><td>Local spelling engine</td><td>Advisory</td></tr>
+            <tr><th scope="row">Alt text / headings / reflow</th><td>axe-core + custom logic</td><td>Confirmed and/or review</td></tr>
+          </tbody>
+        </table>
+
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="review-categories.html" rel="prev">Previous: Review categories</a>
+          <a class="button button--secondary" href="screen-reader-review.html" rel="next">Next: Screen Reader Review</a>
+        </nav>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

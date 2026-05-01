@@ -8,18 +8,20 @@
     <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/index.html">
     <meta property="og:title" content="A11Y Cat Documentation">
     <meta property="og:description" content="A11Y Cat public documentation for the Chrome extension: UI guide, installation, privacy, limitations, and beta testing.">
-    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-landing-dark.png">
     <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/index.html">
     <meta name="description" content="A11Y Cat public documentation for the Chrome extension: UI guide, installation, privacy, limitations, and beta testing.">
-    <link rel="icon" href="assets/img/icon.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="assets/img/favicon-dark-32.png">
+    <link rel="icon" href="assets/img/favicon-light-32.png">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
-  <body>
+  <body class="docs-home">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="site-header__inner">
         <a class="brand" href="index.html">
-          <img class="brand__icon" src="assets/img/icon.png" alt="A11Y Cat logo">
+          <img class="brand__icon" src="assets/img/icon.png" alt="">
           <span class="brand__text">
             <span class="brand__label">Chrome extension documentation</span>
             <span class="brand__title">A11Y Cat</span>
@@ -30,24 +32,12 @@
           <a href="docs/ui-feature-guide.html">UI Feature Guide</a>
           <a href="docs/installation.html">Installation</a>
           <a href="docs/privacy-local-data.html">Privacy</a>
+          <a href="docs/limitations.html">Known limitations</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
         <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
       </div>
     </header>
-    <nav class="sidebar-nav" aria-label="Documentation sections">
-      <ul>
-        <li class="sidebar-group"><a href="docs/intro.html">Introduction</a></li>
-        <li class="sidebar-group"><a href="docs/installation.html">Installation</a></li>
-        <li class="sidebar-group"><a href="docs/understanding-results.html">Understanding Results</a></li>
-        <li class="sidebar-group"><a href="docs/ui-feature-guide.html">UI Feature Guide</a></li>
-        <li class="sidebar-group"><a href="docs/privacy-local-data.html">Privacy and Local Data</a></li>
-        <li class="sidebar-group"><a href="docs/limitations.html">Known Limitations</a></li>
-        <li class="sidebar-group"><a href="docs/beta-testing.html">Beta Testing</a></li>
-        <li class="sidebar-group"><a href="docs/changelog.html">Changelog</a></li>
-      </ul>
-    </nav>
-
     <main id="main-content" class="landing-shell">
       <section class="hero" aria-labelledby="landing-hero-title">
         <div class="hero-grid">
@@ -73,16 +63,17 @@
               <span class="badge badge--beta">Private beta</span>
             </div>
             <div class="button-row">
-              <a class="button button--primary" href="docs/installation.html">Get the beta</a>
+              <a class="button button--primary" href="docs/installation.html">Install private beta</a>
               <a class="button button--secondary" href="docs/intro.html">Read the docs</a>
               <a class="button button--ghost" href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
             </div>
+            <p><strong>Current beta build:</strong> v1.0.0-beta · 4b05134 · 2026-05-01</p>
             <div class="callout">
-              <strong>Privacy boundary:</strong> No developer server, no developer database, local processing in the browser runtime.
+              <strong>Privacy boundary:</strong> No developer-operated scan server, no developer database, local scan processing in the browser runtime. Optional assistant actions can call a user-configured local endpoint.
             </div>
           </div>
           <figure class="media-card hero-visual">
-            <img src="assets/screenshots/extension-panel-overview.png" alt="A11Y Cat extension panel opened from the Chrome toolbar on a demo page.">
+            <img src="assets/img/screenshots/extension-panel-open-dark.png" alt="A11Y Cat extension panel opened in dark mode from the Chrome toolbar on a demo page.">
             <figcaption>Extension panel overview in the current private beta build.</figcaption>
           </figure>
         </div>
@@ -92,26 +83,27 @@
         <h2 id="trust-strip-title" class="section-heading">Trust and status</h2>
         <div class="docs-card-grid" aria-label="Product trust statements">
           <article class="card">
-            <h3><span class="badge badge--beta" aria-hidden="true">Private beta</span></h3>
-            <p>This release is a controlled beta. It is not available on the Chrome Web Store. See Installation for the current access path.</p>
+            <h3><a href="docs/installation.html"><span class="badge badge--beta" aria-hidden="true">Private beta</span></a></h3>
+            <p>This release is a controlled beta. It is not available on the Chrome Web Store. <a href="docs/installation.html">Read the installation guide for the current access path.</a></p>
           </article>
           <article class="card">
-            <h3><span class="badge badge--local" aria-hidden="true">Local-first</span></h3>
-            <p>All scan processing runs in the local browser runtime. No page data is sent to external services by the public release build.</p>
+            <h3><a href="docs/privacy-local-data.html"><span class="badge badge--local" aria-hidden="true">Local-first</span></a></h3>
+            <p>All scan processing runs in the local browser runtime. No scan data is automatically sent to developer-operated services. Optional assistant actions can send selected issue context to a user-configured local endpoint. <a href="docs/privacy-local-data.html">See privacy and local data details.</a></p>
           </article>
           <article class="card">
-            <h3><span class="badge badge--server" aria-hidden="true">No developer database</span></h3>
-            <p>The extension uses browser extension local storage only. No developer-operated database receives your scan data.</p>
+            <h3><a href="docs/privacy-policy.html"><span class="badge badge--server" aria-hidden="true">No developer database</span></a></h3>
+            <p>The extension uses browser extension local storage only. No developer-operated database receives your scan data. <a href="docs/privacy-policy.html">Read the privacy policy.</a></p>
           </article>
           <article class="card">
-            <h3><span class="badge badge--server" aria-hidden="true">No analytics/telemetry</span></h3>
-            <p>The public release build includes no analytics library, tracking script, or telemetry endpoint.</p>
+            <h3><a href="docs/privacy-policy.html"><span class="badge badge--server" aria-hidden="true">No analytics/telemetry</span></a></h3>
+            <p>The public release build includes no analytics library, tracking script, or telemetry endpoint. <a href="docs/privacy-policy.html">See policy scope and limitations.</a></p>
           </article>
           <article class="card">
-            <h3><span class="badge badge--manual" aria-hidden="true">Manual testing still required</span></h3>
-            <p>A11Y Cat aids accessibility review. It does not replace manual testing with VoiceOver, NVDA, or JAWS.</p>
+            <h3><a href="docs/limitations.html"><span class="badge badge--manual" aria-hidden="true">Manual testing still required</span></a></h3>
+            <p>A11Y Cat aids accessibility review. It does not replace manual testing with VoiceOver, NVDA, or JAWS. <a href="docs/limitations.html">Read known limitations.</a></p>
           </article>
         </div>
+        <p><strong>Maintained by Carla Gonçalves.</strong> Support and beta feedback: <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub Issues for support and beta feedback (opens in a new tab)">GitHub Issues</a>.</p>
       </section>
 
       <section class="section-block" aria-labelledby="feature-grid-title">
@@ -163,7 +155,7 @@
       <section class="section-block" aria-labelledby="scanner-clarity-title">
         <h2 id="scanner-clarity-title" class="section-heading">Scanner clarity</h2>
         <p class="matrix-intro">Use this matrix to interpret results before creating defects or compliance statements.</p>
-        <p><strong>WCAG and axe-core scope:</strong> this build uses bundled axe-core rules for WCAG 2.0/2.1/2.2 across levels A, AA, and AAA where those rules are available; A11Y Cat reporting focuses on A/AA triage workflows.</p>
+        <p><strong>WCAG and axe-core scope:</strong> this build uses bundled axe-core rules for WCAG 2.0/2.1/2.2 across levels A and AA where those rules are available; A11Y Cat reporting focuses on A/AA triage workflows.</p>
         <table class="matrix-table">
           <caption>Result classification model</caption>
           <thead>
@@ -207,22 +199,35 @@
         <h2 id="screenshots-title" class="section-heading">Real extension screenshots</h2>
         <div class="screenshot-grid" aria-label="Current extension evidence screenshots">
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/extension-panel-overview.png" alt="Extension panel overview with navigation tabs and scan controls.">
-            <figcaption>Overview: extension panel as opened from the toolbar.</figcaption>
+            <img src="assets/img/screenshots/extension-confirmed-issues-dark.png" alt="Confirmed Issues list in dark mode with issue cards and severity context.">
+            <figcaption>Confirmed Issues: deterministic findings grouped with severity context for triage.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/scan-results-confirmed-issues.png" alt="Scan Results overview showing grouped counts and categories.">
+            <img src="assets/img/screenshots/extension-scan-results-dark.png" alt="Scan Results overview showing grouped counts and categories in dark mode.">
             <figcaption>Scan Results: grouped findings with counts and actions.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/manual-review-items.png" alt="Manual and incomplete review items visible in the Scan Results panel.">
+            <img src="assets/img/screenshots/extension-manual-review-dark.png" alt="Manual and incomplete review items visible in the Scan Results panel in dark mode.">
             <figcaption>Manual/Review Items: context-dependent items that need human judgement before defect filing.</figcaption>
           </figure>
           <figure class="media-card media-card--compact">
-            <img src="assets/screenshots/diagnostics-expanded.png" alt="Diagnostics section expanded with structured JSON support data.">
+            <img src="assets/img/screenshots/extension-diagnostics-expanded-dark.png" alt="Diagnostics section expanded with structured JSON support data in dark mode.">
             <figcaption>Diagnostics: runtime limitation signals and support JSON for troubleshooting.</figcaption>
           </figure>
         </div>
+      </section>
+
+      <section class="section-block" aria-labelledby="demo-video-title">
+        <h2 id="demo-video-title" class="section-heading">Dark-mode demo video</h2>
+        <p class="matrix-intro">This short demo captures a real dark-mode extension run on a safe fixture page.</p>
+        <figure class="media-card">
+          <video controls preload="metadata" playsinline width="100%" poster="assets/img/video-poster-dark.png">
+            <source src="assets/video/a11y-cat-demo-dark.mp4" type="video/mp4">
+            Your browser cannot play this video. Use the transcript link below.
+          </video>
+          <figcaption>Flow: open extension, scan, triage confirmed issues, review items, limitations, exports, and local data controls.</figcaption>
+        </figure>
+        <p><a href="docs/demo-transcript.html">Read demo transcript</a></p>
       </section>
 
       <section class="section-block" aria-labelledby="limitations-title">
@@ -242,8 +247,8 @@
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>Maintained by Carla Gonçalves · A11Y Cat Extension Beta · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues (opens in a new tab)">Support and beta feedback: GitHub Issues</a></span>
-        <span><a href="index.html">Home</a> · <a href="docs/intro.html">Docs</a> · <a href="docs/privacy-local-data.html">Privacy</a> · <a href="docs/limitations.html">Known Limitations</a> · <a href="docs/changelog.html">Changelog</a> · <a href="docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="docs/intro.html">Docs</a> · <a href="docs/privacy-local-data.html">Privacy</a> · <a href="docs/limitations.html">Known limitations</a> · <a href="docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
       </div>
     </footer>
   </body>

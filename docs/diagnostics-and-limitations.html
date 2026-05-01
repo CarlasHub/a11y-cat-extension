@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diagnostics and limitations</title>
+    <meta name="doc-version" content="v1.0.0-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/diagnostics-and-limitations.html">
+    <meta property="og:title" content="Diagnostics and limitations">
+    <meta property="og:description" content="Runtime diagnostic signals, restricted contexts, frames, and scan limitation behavior.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-ui-feature-guide-dark.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/diagnostics-and-limitations.html">
+    <meta name="description" content="Runtime diagnostic signals, restricted contexts, frames, and scan limitation behavior.">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body class="docs-page docs-page--guide">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
+        </nav>
+        <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar docs-sidebar--guide">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>Guide pages</summary>
+          <ul class="sidebar-sublist">
+            <li><a href="ui-feature-guide.html">Overview</a></li>
+            <li><a href="results-and-severity.html">Results and severity</a></li>
+            <li><a href="review-categories.html">Review categories</a></li>
+            <li><a href="scanner-tools.html">Scanner tools</a></li>
+            <li><a href="screen-reader-review.html">Screen Reader Review</a></li>
+            <li><a href="exports-and-local-data.html">Exports and local data</a></li>
+            <li><a href="diagnostics-and-limitations.html" aria-current="page">Diagnostics and limitations</a></li>
+            <li><a href="previous-scan-and-history.html">Previous scan and history</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="sidebar-group sidebar-group--disclosure sidebar-group--guide-anchors">
+        <details class="sidebar-details" open>
+          <summary>On this page</summary>
+          <ul class="sidebar-sublist">
+                <li><a href="#runtime-signals">Runtime signals</a></li>
+                <li><a href="#restricted-contexts">Restricted contexts</a></li>
+                <li><a href="#limitations-and-user-action">Limitations and action</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+</aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Diagnostics</div>
+            <h1 class="page-title">Diagnostics and limitations</h1>
+            <p class="page-summary">Diagnostics provide structured runtime signals and limitation context for troubleshooting scan coverage.</p>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/img/screenshots/extension-diagnostics-expanded-dark.png" alt="Diagnostics panel expanded with runtime events and limitation context.">
+            <figcaption>Use diagnostics and limitations together to decide what still needs manual inspection.</figcaption>
+          </figure>
+        </div>
+
+        <h2 id="runtime-signals">Runtime signals</h2>
+        <p>Diagnostics are structured runtime signals from the extension scan flow. They are not a complete browser DevTools log and may miss pre-attach or protected-frame events.</p>
+
+        <h2 id="restricted-contexts">Restricted contexts</h2>
+        <ul class="doc-list">
+          <li><code>chrome://</code>, Web Store, and other protected pages can block scanning.</li>
+          <li><code>file://</code> requires explicit browser file access permission.</li>
+          <li>Cross-origin and protected frames can be partially or fully inaccessible.</li>
+        </ul>
+
+        <h2 id="limitations-and-user-action">Scan limitations and user action</h2>
+        <p>Limitation output means the scanner could not fully evaluate scope. It is neither a pass nor an automatic fail.</p>
+        <ol>
+          <li>Read limitation text and diagnostics together.</li>
+          <li>Manually test missing states/contexts where authorized.</li>
+          <li>Document unresolved coverage constraints in handoff notes.</li>
+        </ol>
+
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="exports-and-local-data.html" rel="prev">Previous: Exports and local data</a>
+          <a class="button button--secondary" href="previous-scan-and-history.html" rel="next">Next: Previous scan and history</a>
+        </nav>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -8,18 +8,20 @@
     <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/404.html">
     <meta property="og:title" content="A11Y Cat - Page not found">
     <meta property="og:description" content="A11Y Cat docs page not found.">
-    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-landing-dark.png">
     <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/404.html">
     <meta name="description" content="A11Y Cat docs page not found.">
-    <link rel="icon" href="assets/img/icon.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="assets/img/favicon-dark-32.png">
+    <link rel="icon" href="assets/img/favicon-light-32.png">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
-  <body>
+  <body class="docs-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="site-header__inner">
         <a class="brand" href="index.html">
-          <img class="brand__icon" src="assets/img/icon.png" alt="A11Y Cat logo">
+          <img class="brand__icon" src="assets/img/icon.png" alt="">
           <span class="brand__text">
             <span class="brand__label">Chrome extension documentation</span>
             <span class="brand__title">A11Y Cat</span>
@@ -30,30 +32,31 @@
           <a href="docs/ui-feature-guide.html">UI Feature Guide</a>
           <a href="docs/installation.html">Installation</a>
           <a href="docs/privacy-local-data.html">Privacy</a>
+          <a href="docs/limitations.html">Known limitations</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
         <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
       </div>
     </header>
-    <nav class="sidebar-nav" aria-label="Documentation sections">
-      <ul>
-        <li class="sidebar-group"><a href="docs/intro.html">Introduction</a></li>
-        <li class="sidebar-group"><a href="docs/installation.html">Installation</a></li>
-        <li class="sidebar-group"><a href="docs/understanding-results.html">Understanding Results</a></li>
-        <li class="sidebar-group"><a href="docs/ui-feature-guide.html">UI Feature Guide</a></li>
-        <li class="sidebar-group"><a href="docs/privacy-local-data.html">Privacy and Local Data</a></li>
-        <li class="sidebar-group"><a href="docs/limitations.html">Known Limitations</a></li>
-        <li class="sidebar-group"><a href="docs/beta-testing.html">Beta Testing</a></li>
-        <li class="sidebar-group"><a href="docs/changelog.html">Changelog</a></li>
-      </ul>
-    </nav>
     <main id="main-content" class="landing-shell">
-      <section class="hero"><div class="hero-grid"><div class="hero-panel"><h1>Page not found</h1><p>The requested page does not exist in this documentation release.</p><div class="button-row"><a class="button button--primary" href="index.html">Go to landing page</a><a class="button button--secondary" href="docs/intro.html">Go to docs</a></div></div></div></section>
+      <section class="section-block">
+        <div class="hero-panel not-found-panel">
+          <h1>Page not found</h1>
+          <p>The page you requested is not available in this documentation build. Use one of the recovery links below.</p>
+          <div class="button-row">
+            <a class="button button--primary" href="docs/intro.html">Go to docs home</a>
+            <a class="button button--secondary" href="docs/installation.html">Installation</a>
+            <a class="button button--secondary" href="docs/ui-feature-guide.html">UI Feature Guide</a>
+            <a class="button button--secondary" href="docs/limitations.html">Known limitations</a>
+            <a class="button button--ghost" href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>Maintained by Carla Gonçalves · A11Y Cat Extension Beta · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues (opens in a new tab)">Support and beta feedback: GitHub Issues</a></span>
-        <span><a href="index.html">Home</a> · <a href="docs/intro.html">Docs</a> · <a href="docs/privacy-local-data.html">Privacy</a> · <a href="docs/limitations.html">Known Limitations</a> · <a href="docs/changelog.html">Changelog</a> · <a href="docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="docs/intro.html">Docs</a> · <a href="docs/privacy-local-data.html">Privacy</a> · <a href="docs/limitations.html">Known limitations</a> · <a href="docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
       </div>
     </footer>
   </body>

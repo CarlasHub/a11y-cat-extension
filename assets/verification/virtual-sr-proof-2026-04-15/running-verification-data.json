@@ -1,0 +1,22 @@
+{
+  "proofRun": {
+    "command": "npx playwright test tests/playwright/tmp-virtual-sr-running.spec.js --config=playwright.config.js --project=chromium-release",
+    "result": "passed"
+  },
+  "assertionsPassed": {
+    "startReviewReachedRunning": true,
+    "prevActNextEnabledInRunning": true,
+    "topEndEnabledInRunning": true,
+    "mirrorPopulatedDuringRunning": true,
+    "phraseLogAccumulatedDuringRunning": true,
+    "ttsToggleVisibleAndToggleable": true,
+    "stopReviewReachedStopped": true,
+    "staleAfterReload": true,
+    "staleAfterUrlChange": true,
+    "panelReopenRestoredSessionState": true
+  },
+  "notes": [
+    "`running` assertions were evaluated before stale-state navigation steps.",
+    "Final screenshot state after URL-change flow is stale by design."
+  ]
+}

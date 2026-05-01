@@ -8,18 +8,20 @@
     <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/privacy-policy.html">
     <meta property="og:title" content="A11Y Cat Privacy Policy">
     <meta property="og:description" content="Privacy policy for A11Y Cat extension public beta.">
-    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/screenshots/extension-panel-overview.png">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-landing-dark.png">
     <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/privacy-policy.html">
     <meta name="description" content="Privacy policy for A11Y Cat extension public beta.">
-    <link rel="icon" href="../assets/img/icon.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
   </head>
-  <body>
+  <body class="docs-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="site-header__inner">
         <a class="brand" href="../index.html">
-          <img class="brand__icon" src="../assets/img/icon.png" alt="A11Y Cat logo">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
           <span class="brand__text">
             <span class="brand__label">Chrome extension documentation</span>
             <span class="brand__title">A11Y Cat</span>
@@ -30,123 +32,27 @@
           <a href="ui-feature-guide.html">UI Feature Guide</a>
           <a href="installation.html">Installation</a>
           <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
           <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
         </nav>
         <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
       </div>
     </header>
     <div class="docs-layout">
-      <aside class="docs-sidebar">
+      <aside class="docs-sidebar docs-sidebar--simple">
   <h2>Documentation</h2>
   <nav class="sidebar-nav" aria-label="Documentation sections">
     <ul>
       <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
-      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
       <li class="sidebar-group"><a href="installation.html">Installation</a></li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="understanding-results.html">Understanding Results</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="understanding-results.html#confirmed-issues">Confirmed Issues</a></li>
-            <li><a href="understanding-results.html#manual-review-items">Manual / Incomplete / Review Items</a></li>
-            <li><a href="understanding-results.html#advisory-notes">Advisory Notes</a></li>
-            <li><a href="understanding-results.html#scan-limitations">Scan Limitations</a></li>
-            <li><a href="understanding-results.html#severity-levels">Severity Levels</a></li>
-            <li><a href="understanding-results.html#source-engines">Source Engines</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="ui-feature-guide.html">UI Feature Guide</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="ui-feature-guide.html#dashboard">Dashboard</a></li>
-            <li><a href="ui-feature-guide.html#scan-results">Scan Results</a></li>
-            <li><a href="ui-feature-guide.html#confirmed-issues">Confirmed Issues</a></li>
-            <li><a href="ui-feature-guide.html#severity-filters">Severity Filters</a></li>
-            <li><a href="ui-feature-guide.html#review-critical-issues">Review Critical Issues</a></li>
-            <li><a href="ui-feature-guide.html#review-manual-incomplete-items">Review Manual / Incomplete Items</a></li>
-            <li><a href="ui-feature-guide.html#inspect-scan-limitations">Inspect Scan Limitations</a></li>
-            <li><a href="ui-feature-guide.html#compare-with-previous-scan">Compare With Previous Scan</a></li>
-            <li><a href="ui-feature-guide.html#visual-composition-review">Visual Composition Review</a></li>
-            <li><a href="ui-feature-guide.html#human-judgement-review">Human Judgement Review</a></li>
-            <li><a href="ui-feature-guide.html#engine-limited-review">Engine-limited Review</a></li>
-            <li><a href="ui-feature-guide.html#state-limited-review">State-limited Review</a></li>
-            <li><a href="ui-feature-guide.html#deterministic-failures">Deterministic Failures</a></li>
-            <li><a href="ui-feature-guide.html#corroborated-failures">Corroborated Failures</a></li>
-            <li><a href="ui-feature-guide.html#manual-checks">Manual Checks</a></li>
-            <li><a href="ui-feature-guide.html#alt-text-analysis">Alt Text Analysis</a></li>
-            <li><a href="ui-feature-guide.html#heading-structure">Heading Structure</a></li>
-            <li><a href="ui-feature-guide.html#language-mismatch">Language Mismatch</a></li>
-            <li><a href="ui-feature-guide.html#spelling-check">Spelling Check</a></li>
-            <li><a href="ui-feature-guide.html#page-text-scale-or-page-reflow">Page Text Scale / Page Reflow</a></li>
-            <li><a href="ui-feature-guide.html#metadata-check">Metadata Check</a></li>
-            <li><a href="ui-feature-guide.html#broken-links">Broken Links</a></li>
-            <li><a href="ui-feature-guide.html#screen-reader-review">Screen Reader Review</a></li>
-            <li><a href="ui-feature-guide.html#automated-review">Automated Review</a></li>
-            <li><a href="ui-feature-guide.html#manual-review">Manual Review</a></li>
-            <li><a href="ui-feature-guide.html#diagnostics">Diagnostics</a></li>
-            <li><a href="ui-feature-guide.html#exports">Exports</a></li>
-            <li><a href="ui-feature-guide.html#csv-issue-log">CSV Issue Log</a></li>
-            <li><a href="ui-feature-guide.html#json-evidence-bundle">JSON Evidence Bundle</a></li>
-            <li><a href="ui-feature-guide.html#local-issue-state-bundle">Local Issue-State Bundle</a></li>
-            <li><a href="ui-feature-guide.html#support-diagnostics">Support Diagnostics</a></li>
-            <li><a href="ui-feature-guide.html#local-history">Local History</a></li>
-            <li><a href="ui-feature-guide.html#local-data-clearing">Local Data Clearing</a></li>
-            <li><a href="ui-feature-guide.html#issue-workflow-controls">Issue Workflow Controls</a></li>
-            <li><a href="ui-feature-guide.html#highlight-element">Highlight Element</a></li>
-            <li><a href="ui-feature-guide.html#turn-into-ticket">Turn Into Ticket</a></li>
-            <li><a href="ui-feature-guide.html#settings-theme-controls">Settings / Theme Controls</a></li>
-            <li><a href="ui-feature-guide.html#panel-open-close">Panel Open / Close</a></li>
-            <li><a href="ui-feature-guide.html#panel-resize-move">Panel Resize / Move</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="privacy-local-data.html">Privacy and Local Data</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="privacy-local-data.html#local-processing">Local Processing</a></li>
-            <li><a href="privacy-local-data.html#storage-keys">Storage Keys</a></li>
-            <li><a href="privacy-local-data.html#exports-and-sensitive-data">Exports and Sensitive Data</a></li>
-            <li><a href="privacy-local-data.html#clearing-data">Clearing Data</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="limitations.html">Known Limitations</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="limitations.html#manual-at-evidence">Manual AT Evidence</a></li>
-            <li><a href="limitations.html#restricted-pages">Restricted Pages</a></li>
-            <li><a href="limitations.html#file-access">File Access</a></li>
-            <li><a href="limitations.html#iframes-and-protected-frames">Iframes and Protected Frames</a></li>
-            <li><a href="limitations.html#unsupported-languages">Unsupported Languages</a></li>
-            <li><a href="limitations.html#review-only-findings">Review-only Findings</a></li>
-          </ul>
-        </details>
-      </li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
       <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
-      <li class="sidebar-group sidebar-group--disclosure">
-        <a href="beta-testing.html">Beta Testing</a>
-        <details class="sidebar-details">
-          <summary>Section links</summary>
-          <ul class="sidebar-sublist">
-            <li><a href="beta-testing.html#install-the-beta">Install the Beta</a></li>
-            <li><a href="beta-testing.html#what-to-test">What to Test</a></li>
-            <li><a href="beta-testing.html#what-not-to-scan">What Not to Scan</a></li>
-            <li><a href="beta-testing.html#bug-report-template">Bug Report Template</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="sidebar-group"><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
-      <li class="sidebar-group"><a href="changelog.html">Changelog</a></li>
-      <li class="sidebar-group is-current"><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
-      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility Statement</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
     </ul>
   </nav>
 </aside>
@@ -159,7 +65,7 @@
             <div class="callout"><strong>Effective date:</strong> 1 May 2026</div>
           </div>
           <figure class="media-card">
-            <img src="../assets/screenshots/local-data-clearing.png" alt="A11Y Cat local data controls showing clear-data option in the extension panel.">
+            <img src="../assets/img/screenshots/extension-clear-local-data-dark.png" alt="A11Y Cat local data controls showing clear-data option in the extension panel.">
             <figcaption>Local data controls are available in the extension panel.</figcaption>
           </figure>
         </div>
@@ -177,12 +83,15 @@
           <li>Scan analysis runs locally in your browser profile.</li>
           <li>Findings, notes, and workflow state are stored locally via extension storage.</li>
           <li>Exports are created only on explicit user action.</li>
+          <li>Optional assistant actions, when enabled and configured by the user, can send selected issue context to a user-provided local assistant endpoint.</li>
           <li>The public package does not include analytics or telemetry.</li>
-          <li>The public package does not require a developer backend or database.</li>
+          <li>The public package does not require a developer-operated backend or database for deterministic scan processing.</li>
         </ul>
 
         <h2>Legal basis and scope (GDPR / UK GDPR)</h2>
+        <p>This policy describes the current public beta package. Earlier internal development builds may have used experimental keys or test-only settings that are not part of the current public beta.</p>
         <p>This extension is a local tool. Personal data handling is user-controlled on the local device. Where GDPR or UK GDPR applies, processing is limited to user-initiated local inspection and optional user-initiated export. The maintainer does not receive scan data automatically from the public package.</p>
+        <p>This documentation is not legal advice. Organisations using A11Y Cat should review whether their own use of exports, screenshots, issue evidence, or page content is compatible with their internal data protection policies.</p>
 
         <h2>Storage keys, purpose, and retention</h2>
         <table class="matrix-table">
@@ -202,7 +111,7 @@
         </table>
 
         <h2>Historical key note</h2>
-        <p>Earlier internal development builds used storage keys that are not present in the current public release. If you previously installed an internal build, clearing all extension data from the extension UI removes residual keys.</p>
+        <p>Earlier internal development builds used storage keys that are not present in the current public beta package. If you previously installed an internal build, clearing all extension data from the extension UI removes residual keys.</p>
 
         <h2>Plain-language permissions explanation</h2>
         <ul class="doc-list">
@@ -212,17 +121,17 @@
         </ul>
 
         <h2>Exports and sharing risk</h2>
-        <p>Exports can include selectors, snippets, page URL, and page title. Review export files before sharing outside your team.</p>
+        <p>Exports can include selectors, snippets, page URL, and page title. Review export files before sharing outside your team. After a file is downloaded or shared, handling of that file is controlled by the user and their organisation.</p>
 
         <h2>Network requests during scanning</h2>
-        <p>The Broken Links review sends same-origin <code>HEAD</code> or <code>GET</code> requests to verify destination health. These requests originate from the page context, not from A11Y Cat infrastructure. Cross-origin links are not fetched and remain <code>unverified</code>. No request data is sent to developer-controlled servers by the public package.</p>
+        <p>The Broken Links review sends same-origin <code>HEAD</code> or <code>GET</code> requests to verify destination health. These requests originate from the page context, not from A11Y Cat infrastructure. Cross-origin links are not fetched and remain <code>unverified</code>. No request data is sent to developer-controlled servers by deterministic scan processing in the public package. Optional assistant actions can call a user-provided local assistant endpoint.</p>
 
         <h2>How to clear data</h2>
         <p>Use <strong>Scan Results → Privacy and data use → Clear all local extension data</strong>, or remove the extension to clear extension-managed storage.</p>
 
         <h2>What this build does not do</h2>
         <ul class="doc-list">
-          <li>It does not upload scan results to a developer backend by default.</li>
+          <li>It does not automatically upload scan results to a developer-operated backend.</li>
           <li>It does not include analytics or telemetry endpoints in the public release build.</li>
           <li>It does not claim automated compliance certification.</li>
         </ul>
@@ -230,8 +139,8 @@
     </div>
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>Maintained by Carla Gonçalves · A11Y Cat Extension Beta · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues (opens in a new tab)">Support and beta feedback: GitHub Issues</a></span>
-        <span><a href="../index.html">Home</a> · <a href="../docs/intro.html">Docs</a> · <a href="../docs/privacy-local-data.html">Privacy</a> · <a href="../docs/limitations.html">Known Limitations</a> · <a href="../docs/changelog.html">Changelog</a> · <a href="../docs/accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a></span>
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
       </div>
     </footer>
   </body>

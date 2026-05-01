@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A11Y Cat Compatibility and WCAG Scope</title>
+    <meta name="doc-version" content="v1.0.0-beta">
+    <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/compatibility.html">
+    <meta property="og:title" content="A11Y Cat Compatibility and WCAG Scope">
+    <meta property="og:description" content="Browser and operating-system compatibility matrix plus implementation-accurate WCAG scan scope.">
+    <meta property="og:image" content="https://carlashub.github.io/a11y-cat-extension/assets/img/screenshots/docs-landing-dark.png">
+    <meta property="og:url" content="https://carlashub.github.io/a11y-cat-extension/docs/compatibility.html">
+    <meta name="description" content="Browser and operating-system compatibility matrix plus implementation-accurate WCAG scan scope.">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="../assets/img/favicon-light-32.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
+    <link rel="icon" href="../assets/img/favicon-light-32.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../index.html">
+          <img class="brand__icon" src="../assets/img/icon.png" alt="">
+          <span class="brand__text">
+            <span class="brand__label">Chrome extension documentation</span>
+            <span class="brand__title">A11Y Cat</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="intro.html">Docs</a>
+          <a href="ui-feature-guide.html">UI Feature Guide</a>
+          <a href="installation.html">Installation</a>
+          <a href="privacy-local-data.html">Privacy</a>
+          <a href="limitations.html">Known limitations</a>
+          <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a>
+        </nav>
+        <span class="doc-version-chip" aria-label="Documentation version">Docs v1.0.0-beta · 4b05134 · 2026-05-01</span>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar docs-sidebar--simple">
+  <h2>Documentation</h2>
+  <nav class="sidebar-nav" aria-label="Documentation sections">
+    <ul>
+      <li class="sidebar-group"><a href="intro.html">Introduction</a></li>
+      <li class="sidebar-group"><a href="installation.html">Installation</a></li>
+      <li class="sidebar-group"><a href="ui-feature-guide.html">UI Feature Guide</a></li>
+      <li class="sidebar-group"><a href="privacy-local-data.html">Privacy and local data</a></li>
+      <li class="sidebar-group"><a href="limitations.html">Known limitations</a></li>
+      <li class="sidebar-group"><a href="beta-testing.html">Beta testing</a></li>
+      <li class="sidebar-group"><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li class="sidebar-group"><a href="faq.html">FAQ</a></li>
+      <li class="sidebar-group"><a href="accessibility-statement.html">Accessibility statement</a></li>
+      <li class="sidebar-group"><a href="changelog.html">Changelog / Release status</a></li>
+    </ul>
+  </nav>
+</aside>
+      <main id="main-content" class="docs-main">
+        <div class="page-hero">
+          <div>
+            <div class="eyebrow">Compatibility</div>
+            <h1 class="page-title">Compatibility and WCAG scan scope</h1>
+            <p class="page-summary">Implementation-accurate browser/platform compatibility and axe-core WCAG tag scope for the current private beta build.</p>
+          </div>
+          <figure class="media-card">
+            <img src="../assets/img/screenshots/extension-panel-open-dark.png" alt="A11Y Cat extension panel opened in a Chromium browser session.">
+            <figcaption>Compatibility statements in this page apply to the current extension package and documented beta workflow.</figcaption>
+          </figure>
+        </div>
+
+        <h2>Environment compatibility matrix</h2>
+        <table class="matrix-table">
+          <caption>Current private beta compatibility status</caption>
+          <thead>
+            <tr>
+              <th scope="col">Environment</th>
+              <th scope="col">Status</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Chrome desktop</th><td>Supported for private beta</td><td>Primary MV3 extension target.</td></tr>
+            <tr><th scope="row">Microsoft Edge Chromium</th><td>Expected, needs broader verification</td><td>Chromium runtime is compatible, but validation depth is lower than Chrome in this beta.</td></tr>
+            <tr><th scope="row">Firefox</th><td>Not supported</td><td>No Firefox extension adaptation/package is shipped in this release.</td></tr>
+            <tr><th scope="row">Safari</th><td>Not supported</td><td>No Safari extension package is shipped in this release.</td></tr>
+            <tr><th scope="row">Windows</th><td>Pending packaged runtime verification</td><td>Private beta testing is possible, but packaged runtime verification is not fully closed for release sign-off.</td></tr>
+            <tr><th scope="row">macOS</th><td>Supported for private beta testing</td><td>Current private beta validation has been run on macOS-hosted Chromium workflows.</td></tr>
+            <tr><th scope="row">Linux</th><td>Limited, not primary beta target</td><td>No broad Linux qualification claim is made for this release.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>WCAG scan scope (implementation truth)</h2>
+        <p>A11Y Cat runs axe-core with <code>runOnly</code> tags set to <code>wcag2a</code>, <code>wcag2aa</code>, <code>wcag21a</code>, <code>wcag21aa</code>, <code>wcag22a</code>, and <code>wcag22aa</code> in the shared scan runtime.</p>
+        <p>The scan requests axe result types <code>violations</code>, <code>incomplete</code>, <code>passes</code>, and <code>inapplicable</code>, and the extension classifies that output into confirmed issues, review items, advisory notes, and limitations.</p>
+        <div class="warning"><strong>No conformance guarantee:</strong> A11Y Cat reports mapped Web Content Accessibility Guidelines (WCAG) criteria where available. It does not prove WCAG conformance and does not replace manual accessibility or assistive-technology testing.</div>
+
+        <h2>Where this scope is used</h2>
+        <ul class="doc-list">
+          <li><a href="understanding-results.html">Understanding Results</a> for confirmed/review/advisory boundaries.</li>
+          <li><a href="ui-feature-guide.html">UI Feature Guide</a> for feature-by-feature result handling and exports.</li>
+          <li><a href="limitations.html">Known limitations</a> for unsupported contexts and manual validation requirements.</li>
+        </ul>
+
+        <nav class="docs-pager" aria-label="Page navigation">
+          <a class="button button--ghost" href="installation.html" rel="prev">Previous: Installation</a>
+          <a class="button button--secondary" href="understanding-results.html" rel="next">Next: Understanding results</a>
+        </nav>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>A11Y Cat public documentation · Version: v1.0.0-beta · Build: 4b05134 · Docs updated: 2026-05-01 · Maintained by Carla Gonçalves</span>
+        <span><a href="intro.html">Docs</a> · <a href="privacy-local-data.html">Privacy</a> · <a href="limitations.html">Known limitations</a> · <a href="accessibility-statement.html">Accessibility statement</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository</a> · <a href="https://github.com/CarlasHub/a11y-cat-extension/issues" target="_blank" rel="noopener noreferrer" aria-label="Support and feedback on GitHub Issues (opens in a new tab)">Support and feedback</a></span>
+      </div>
+    </footer>
+  </body>
+</html>
