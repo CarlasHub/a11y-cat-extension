@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+coverage/
+playwright-report/
+test-results/
+qa-evidence/
+release/artifacts/
+*.log
+*.zip
