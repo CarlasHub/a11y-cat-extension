@@ -19,7 +19,7 @@
   --cat-review: #a371f7;
   --cat-advisory: #d29922;
   --cat-limitation: #f85149;
-  --cat-beta: #d29922;
+  --cat-warning: #d29922;
 
   /* Docs aliases */
   --bg-default: var(--cat-bg);
@@ -497,7 +497,6 @@ pre code {
   border: 1px solid transparent;
 }
 
-.badge--beta,
 .status-pill--warning {
   background: var(--attention-muted);
   color: var(--attention-emphasis);

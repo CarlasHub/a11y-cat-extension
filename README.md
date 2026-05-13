@@ -1,38 +1,26 @@
 # A11Y Cat Extension
 
-Public documentation and Chrome Web Store support assets for A11Y Cat Extension.
+Public documentation, privacy information, support guidance, screenshots, and store-support assets for A11Y Cat Extension.
 
-This repository intentionally contains only public-facing documentation, static site files, screenshots, and store-support assets. The full extension implementation, tests, release tooling, backend experiments, and private planning material are not published here.
+A11Y Cat Extension supports accessibility review by running current-page checks, organizing automated and guided/manual evidence, and exporting review data. It does not certify WCAG conformance, detect every accessibility issue, or replace manual accessibility testing with real assistive technologies.
 
 ## Public Site
 
-The documentation site is published at:
+Documentation site:
 
 https://carlashub.github.io/a11y-cat-extension/
 
-Key public pages include:
+Key pages:
 
-- Privacy policy
-- Support and troubleshooting
-- Extension feature guide
-- Scanner methodology
-- Results and severity guidance
-- Diagnostics and limitations
-- Chrome Web Store submission notes
-
-## Scope
-
-A11Y Cat Extension supports accessibility review by running automated checks, organizing guided/manual review evidence, and exporting review data. It does not certify WCAG conformance, detect every accessibility issue, or replace manual accessibility testing with real assistive technologies.
+- [Privacy policy](https://carlashub.github.io/a11y-cat-extension/docs/privacy-policy.html)
+- [Support](https://carlashub.github.io/a11y-cat-extension/docs/support.html)
+- [Feature guide](https://carlashub.github.io/a11y-cat-extension/docs/ui-feature-guide.html)
+- [Scanner methodology](https://carlashub.github.io/a11y-cat-extension/docs/scanner-methodology.html)
+- [Results and severity](https://carlashub.github.io/a11y-cat-extension/docs/results-and-severity.html)
+- [Known limitations](https://carlashub.github.io/a11y-cat-extension/docs/limitations.html)
 
 ## Repository Boundary
 
-This public repository should not contain:
+This repository intentionally contains only public-facing documentation and assets. It does not contain the private extension implementation, private release evidence, local environment files, or internal planning documents.
 
-- Extension source implementation
-- Tests or Playwright artifacts
-- Backend or assistant experiments
-- Private release evidence
-- Local environment files
-- Internal planning documents
-
-If any private implementation or generated QA material appears here, treat it as a publishing mistake and remove it before making the repository public.
+If private implementation material or generated QA evidence appears here, treat it as a publishing mistake and remove it before release.
