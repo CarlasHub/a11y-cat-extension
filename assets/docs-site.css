@@ -2310,6 +2310,15 @@ figcaption {
   padding-bottom: 1.8rem;
 }
 
+.site-footer .footer-credit {
+  margin-top: 0.65rem;
+  font-size: var(--type-sm);
+}
+
+.site-footer .footer-credit a {
+  font-weight: 750;
+}
+
 .media-feature-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
