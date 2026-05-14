@@ -14,6 +14,7 @@ Key pages:
 
 - [Privacy policy](https://carlashub.github.io/a11y-cat-extension/docs/privacy-policy.html)
 - [Support](https://carlashub.github.io/a11y-cat-extension/docs/support.html)
+- [Chrome Web Store prep](https://carlashub.github.io/a11y-cat-extension/docs/chrome-store-submission.html)
 - [Feature guide](https://carlashub.github.io/a11y-cat-extension/docs/ui-feature-guide.html)
 - [Scanner methodology](https://carlashub.github.io/a11y-cat-extension/docs/scanner-methodology.html)
 - [Results and severity](https://carlashub.github.io/a11y-cat-extension/docs/results-and-severity.html)
