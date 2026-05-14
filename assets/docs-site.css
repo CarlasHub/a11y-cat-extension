@@ -1910,6 +1910,16 @@ figcaption {
   display: block;
 }
 
+.feature-video-card {
+  max-width: 72rem;
+}
+
+.feature-video-card video {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-bottom: 1px solid var(--border-default);
+}
+
 /* stronger mobile table handling */
 @media (max-width: 720px) {
   .table-wrap,
