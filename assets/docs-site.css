@@ -2313,6 +2313,7 @@ figcaption {
 .site-footer .footer-credit {
   margin-top: 0.65rem;
   font-size: var(--type-sm);
+  text-align: center;
 }
 
 .site-footer .footer-credit a {
