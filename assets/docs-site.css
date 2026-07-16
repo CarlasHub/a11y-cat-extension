@@ -990,12 +990,18 @@ figcaption {
   color: var(--fg-default);
 }
 
-.docs-main :target {
+.docs-main :target,
+.doc-main :target,
+.doc-article :target {
   scroll-margin-top: 6.6rem;
 }
 
 .docs-main h2:target,
-.docs-main h3:target {
+.docs-main h3:target,
+.doc-main h2:target,
+.doc-main h3:target,
+.doc-article h2:target,
+.doc-article h3:target {
   outline: 2px solid var(--focus-ring);
   border-radius: 0.45rem;
   background: var(--bg-subtle);
@@ -2121,6 +2127,10 @@ figcaption {
   gap: 0.85rem;
 }
 
+.guide-entry-grid--compact {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
 .guide-entry-grid a {
   display: grid;
   gap: 0.35rem;
@@ -2229,6 +2239,51 @@ figcaption {
 .doc-article h2 {
   margin-top: 0;
   line-height: 1.2;
+}
+
+.workflow-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1rem 0 1.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.workflow-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--bg-default) 84%, var(--bg-subtle) 16%);
+}
+
+.workflow-list h3 {
+  margin: 0 0 0.35rem;
+  color: var(--fg-default);
+}
+
+.workflow-list p {
+  margin: 0;
+  color: var(--fg-muted);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--accent-muted);
+  border: 1px solid rgba(47, 129, 247, 0.42);
+  color: #cfe6ff;
+  font-size: var(--type-sm);
+  font-weight: 850;
+  line-height: 1;
 }
 
 .table-scroll {
@@ -2511,6 +2566,10 @@ figcaption {
 
   .doc-article {
     padding: 1rem;
+  }
+
+  .workflow-list li {
+    grid-template-columns: 1fr;
   }
 }
 
