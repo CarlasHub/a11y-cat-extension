@@ -99,6 +99,11 @@
         <section class="section-panel" aria-labelledby="workspace-dashboard">
           <h2 id="workspace-dashboard">A11Y Workspace / Dashboard</h2>
           <p>The workspace is a local extension page opened through <strong>Open Workspace</strong>. It is not injected into the reviewed page and it is not one of the first-row panel sections. This is where deeper overview, issue-log, comparison, report-builder, diagnostics, and saved-scan workflows live when the small panel is not enough.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It gives teams a larger review surface for triage, comparison, reporting, and diagnostics when the injected panel is too small for the full workflow.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Indirect support only. It organizes evidence tied to any captured criteria and helps reviewers retest and communicate issues consistently.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Overview counts, issue log, previous-scan comparison, report-builder flows, diagnostics, and saved local workflow context.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open the workspace after you have a scan worth comparing or handing off</h3><p>Use it when you need more than a quick panel review, especially for issue logs, previous-scan comparison, report building, or diagnostics.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Use the overview and issue log as local review navigation, not as a second scan engine</h3><p>The workspace reflects the latest saved extension snapshot and local workflow state for the current scope. It helps reviewers move through the evidence already captured.</p></div></li>
@@ -117,6 +122,11 @@
         <section class="section-panel" aria-labelledby="scan-results">
           <h2 id="scan-results">Scan Results</h2>
           <p>Scan Results is the main automated review surface. It groups confirmed issues, review items, advisory output, limitations, and diagnostics for the current rendered page state and gives reviewers the direct path to selectors, issue details, highlight actions, exports, and QA handoff controls.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It is the fastest route to current-page issues and the detail engineers need to reproduce and fix them.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Broad automated coverage. Common mappings include 1.1.1, 1.3.1, 2.4.4, and 4.1.2 where the runtime has deterministic evidence.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Confirmed issues, needs-review items, filters, selectors, snippets, highlights, and export or handoff actions.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Run the scan on the page state you actually want to review</h3><p>The extension uses temporary <code>activeTab</code> access and packaged local script injection for that live page state only. Route changes, auth changes, and dynamic states can change the result set.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Review confirmed issues first, then check what moved into review-only buckets</h3><p>High-confidence scanner evidence stays separate from work that still needs human judgement so obvious defects are not buried under ambiguous items.</p></div></li>
@@ -135,6 +145,11 @@
         <section class="section-panel" aria-labelledby="manual-checks">
           <h2 id="manual-checks">Manual Checks</h2>
           <p>Manual Checks holds structured review workflow material that the automated scan cannot close out safely. It exists so incomplete or context-dependent evidence does not get flattened into a false pass/fail claim.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It keeps human-review work visible when automation cannot safely decide the result on its own.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Criteria that often need judgement, such as 1.3.1, 1.4.3, 2.4.4, and 3.3.x depending on the issue being reviewed.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Structured review cards, supporting selectors or snippets where available, and explicit next-step guidance instead of a pass/fail verdict.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open Manual Checks after Scan Results or a tool routes work there</h3><p>Use it when the extension has enough evidence to guide the reviewer but not enough to prove the outcome deterministically.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Read the structured guidance cards before deciding defect status</h3><p>Manual checks explain what to inspect next, which selectors or snippets matter, and which parts of the user journey still need direct confirmation.</p></div></li>
@@ -152,6 +167,11 @@
         <section class="section-panel" aria-labelledby="screen-reader-review-aid">
           <h2 id="screen-reader-review-aid">Screen Reader Review</h2>
           <p>Screen Reader Review is a structured review aid, not a replacement for NVDA, JAWS, VoiceOver, TalkBack, Narrator, keyboard-only testing, or real user-task testing.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It helps reviewers plan non-visual checks before they move into real assistive-technology testing.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Commonly supports 1.3.1, 2.4.3, and 4.1.2 review, but real NVDA, JAWS, VoiceOver, or equivalent behavior still decides the release claim.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Guided review prompts, note-taking support, and preparation for a real browser plus screen-reader test.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open the aid after you understand the page structure and main findings</h3><p>Use it once the automated scan, manual checks, and structural evidence have given you enough context to plan a real assistive-technology check.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Review expected reading order and capture notes</h3><p>Use the guided surface to organise what you expect to hear or reach in the user journey, then record observations and follow-up work.</p></div></li>
@@ -169,6 +189,11 @@
         <section class="section-panel" aria-labelledby="keyboard-focus-order">
           <h2 id="keyboard-focus-order">Keyboard &amp; Focus Order</h2>
           <p>Keyboard &amp; Focus Order is the page-level focus evidence section. It builds a focusable inventory, runs a bounded programmatic focus-order capture for the current page state, separates confirmed findings from review-only findings, and keeps extension-owned UI plus page-side focus badges out of the captured evidence set.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It surfaces focus-order and focus-visibility risks early without requiring a full widget interaction audit first.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Strongest fit is 2.1.1, 2.4.3, 2.4.7, 2.4.11, and 4.1.2 for the captured page state.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Focusable inventory, captured order, focus badges, confirmed versus review findings, and exportable focus evidence.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Run Capture focus order on the page state you want to review</h3><p>This creates a bounded focus sequence for the current page state. It is not the same as the real debugger-dispatched Tab traversal that lives in Interaction Checks.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Review the summary and finding cards before opening the full sequence</h3><p>Confirmed findings are limited to states the capture can actually prove, such as positive <code>tabindex</code>, focusable <code>aria-hidden</code> content, or a fully obscured focused target.</p></div></li>
@@ -186,6 +211,11 @@
         <section class="section-panel" aria-labelledby="interaction-checks">
           <h2 id="interaction-checks">Interaction Checks</h2>
           <p>Interaction Checks is the bounded keyboard-interaction evidence section. It combines real trusted-key traversal where available, safe widget audits, workflow traces, saved run history, and previous-run comparison so QA can capture repeatable interaction evidence without pretending the tool crawled every user task.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It captures bounded keyboard interaction evidence for widgets and flows that simple scanning cannot prove safely.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Mainly 2.1.1, 2.4.3, 2.4.7, and 4.1.2, especially for stateful controls, dialogs, and focus-return behavior.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Tab traversal cards, widget audits, workflow traces, run conditions, saved history, and previous-run comparison notes.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Choose the right submode before you run it</h3><p>Use <strong>Tab traversal</strong> for ordered keyboard-path evidence, <strong>Widget audits</strong> for safe Enter/Space/Escape state checks, <strong>Workflow runner</strong> for bounded flows such as dialog open/tab/Escape, and <strong>History &amp; comparison</strong> when regression tracking matters.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Set the run condition and scope explicitly</h3><p>You can change traversal preset depth, audit one selected safe widget or a bounded top-3 batch, and rerun under the current page state or a mobile simulated viewport condition.</p></div></li>
@@ -207,6 +237,11 @@
         <section class="section-panel" aria-labelledby="headings">
           <h2 id="headings">Headings</h2>
           <p>The Headings surface helps reviewers inspect semantic structure, visible H1 use, skipped levels, ARIA headings, hidden headings, and heading-like visual text that does not map cleanly to markup.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It confirms whether the page outline supports navigation, scanning, and content hierarchy for non-visual users.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Most directly supports 1.3.1, 2.4.1, and 2.4.6, with useful context for heading navigation in screen readers.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Ordered heading structure, H1 coverage, skipped-level warnings, and semantic-versus-visual hierarchy review.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open Headings when structure and navigation matter</h3><p>Use it for long pages, dashboards, documentation, and flows where screen-reader or keyboard users depend on a sensible outline.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Review semantic order and visible hierarchy together</h3><p>Check whether the heading sequence supports the content and whether the visual hierarchy suggests a conflicting structure.</p></div></li>
@@ -224,6 +259,11 @@
         <section class="section-panel" aria-labelledby="language">
           <h2 id="language">Language</h2>
           <p>The Language tab covers text-quality checks that are useful in accessibility review but need careful interpretation because they can be language-, project-, or content-dependent. In the current public documentation set, that surface includes both language mismatch review and local spelling review.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It catches metadata and copy issues that affect pronunciation, comprehension, and user trust.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>The clearest link is 3.1.1 and 3.1.2, with advisory copy-quality support where spelling weakens comprehension.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Declared-language review, likely mismatch signals, spelling flags, and context-dependent editorial judgement.</p></article>
+          </div>
           <div class="guide-subsection">
             <h3 id="language-mismatch">Language mismatch workflow</h3>
             <ol class="workflow-list">
@@ -251,6 +291,11 @@
         <section class="section-panel" aria-labelledby="alt-text-analysis">
           <h2 id="alt-text-analysis">Alt Text Analysis</h2>
           <p>Alt Text Analysis separates missing or clearly broken image alternatives from context-dependent cases such as decorative images, linked images, SVG or icon patterns, complex graphics, and background-image situations that need reviewer judgement.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It separates obvious missing text alternatives from image cases that depend on context and user intent.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>The primary mapping is 1.1.1, with related link-purpose context when images act as links or controls.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Image classifications, missing or weak alt evidence, contextual review items, and remediation-ready image detail.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open Alt Text Analysis when the page uses meaningful imagery</h3><p>This surface is most useful on content-heavy pages, product cards, dashboards, and marketing pages where images carry information.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Check image role and context before judging the text alternative</h3><p>Review whether the image is informative, functional, decorative, redundant, or complex before deciding what a good alternative should be.</p></div></li>
@@ -268,6 +313,11 @@
         <section class="section-panel" aria-labelledby="metadata-check">
           <h2 id="metadata-check">Metadata Check</h2>
           <p>Metadata Check reviews document-level information such as title, description, canonical URL, Open Graph, Twitter card, and structured data. It helps reviewers catch page-quality and orientation problems that matter to users and downstream sharing surfaces.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It catches orientation and naming problems before they affect tabs, previews, and handoff quality.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>The clearest WCAG link is 2.4.2, with supporting naming and consistency review where metadata and visible labels drift apart.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Title, description, canonical, preview, and schema checks plus page-title and H1 consistency signals.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open Metadata Check after the scan</h3><p>Use it when you want page-level naming and preview information, not just DOM-level accessibility findings.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Review missing, malformed, or conflicting fields</h3><p>Look for missing titles or descriptions, broken canonical values, weak preview metadata, or mismatches between page title and the visible H1.</p></div></li>
@@ -285,6 +335,11 @@
         <section class="section-panel" aria-labelledby="broken-links">
           <h2 id="broken-links">Broken Links</h2>
           <p>Broken Links focuses on supported link-status evidence and is most useful when navigation reliability or dead-end paths matter to the user journey.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It finds dead ends and unstable navigation paths that can block task completion.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>It usually supports 2.4.4 and related navigation review rather than serving as a standalone WCAG verdict by itself.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Same-origin link checks, broken versus valid states, and clear limitation labels for blocked or incomplete results.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open Broken Links when navigation reliability matters</h3><p>Use it to review same-origin links and supported request-status evidence from the browser context.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Check whether the evidence is complete</h3><p>Cross-origin, authenticated, blocked, timeout, or rate-limited states can produce limitations or incomplete evidence instead of a confirmed broken-link result.</p></div></li>
@@ -302,6 +357,11 @@
         <section class="section-panel" aria-labelledby="browser-preference-qa">
           <h2 id="browser-preference-qa">Browser Preferences QA</h2>
           <p>Browser Preferences QA is the utility-evidence surface for preference-state review. It owns the utility selection, expected-vs-found summary, tester observations, release evidence gates, and local exports. Page-side badges, outlines, helper status, collapse, and reset behaviour are documented under Page Review Overlays.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It gives reviewers a controlled place to inspect motion, colour, text-spacing, and preference-sensitive page behavior.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Common mappings include 1.4.3, 1.4.11, 1.4.12, 2.2.2, 2.3.3, and 2.4.7 depending on the utility you run.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Utility selection, expected-versus-found summaries, tester observations, release evidence gates, and local exports.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Choose the utility or preset that matches the review question</h3><p>Use the section for reduced motion, dark mode, high contrast, forced colours, text spacing, focus-review support, and related preference-state evidence for the current tab.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Apply the utility and review expected versus found</h3><p>The section is designed to keep the tester grounded in what the utility was supposed to show, what the page actually did, and whether the mismatch is only a heuristic review signal or something stronger.</p></div></li>
@@ -324,6 +384,11 @@
         <section class="section-panel" aria-labelledby="page-review-overlays">
           <h2 id="page-review-overlays">Page Review Overlays</h2>
           <p>Page Review Overlays is the page-side visual review companion. It controls the injected helper, active overlay status, page badges, outlines, review summaries, collapse, and reset behaviour for the active tab without mixing that page-side presentation layer into Browser Preferences QA utility evidence.</p>
+          <div class="guide-intro-grid">
+            <article class="guide-intro-card"><h3>Why it is needed</h3><p>It lets reviewers stress the live page visually without turning every overlay signal into a claimed failure.</p></article>
+            <article class="guide-intro-card"><h3>WCAG focus</h3><p>Review-only support across 1.3.1, 1.4.x, 2.1.1, 2.4.x, 3.3.x, and 4.1.2 depending on the active overlay mode.</p></article>
+            <article class="guide-intro-card"><h3>What to expect</h3><p>Page-side helper controls, badges, outlines, overlay summaries, and reset actions for headings, links, forms, focus, and related heuristics.</p></article>
+          </div>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open the helper when you need page-side review context</h3><p>The helper uses the dedicated root <code>a11y-cat-browser-preference-qa-root</code> and <code>a11y-cat-</code> prefixed classes so the extension can stress the page visually without counting its own helper as page content.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Choose the overlay mode that matches the review task</h3><p>Available overlay categories cover reduced motion, dark mode review, high contrast review, forced colours review, text spacing review, focus review, hidden focusable review, headings, landmarks, links, buttons, forms, and ARIA-state review.</p></div></li>
