@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UI Feature Guide - A11Y Cat Extension technical guide</title>
-  <meta name="description" content="Tab-by-tab guidance for the visible extension features, supporting libraries and browser APIs, review workflows, evidence types, and limitations.">
+  <meta name="description" content="Section-by-section guidance for the active A11Y Cat Extension surfaces, supporting libraries and browser APIs, reviewer workflows, evidence boundaries, and local support tools.">
   <link rel="canonical" href="https://carlashub.github.io/a11y-cat-extension/docs/ui-feature-guide.html">
   <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="../assets/img/favicon-dark-32.png">
   <link rel="icon" href="../assets/img/favicon-dark-32.png">
@@ -25,103 +25,183 @@
           <div>
             <p class="eyebrow">Public documentation</p>
             <h1>UI Feature Guide</h1>
-            <p class="lead">Use this page when you need the real surface-by-surface guide. It follows the visible extension panel order, explains what to click, names the local libraries or browser APIs behind each surface, and keeps the accessibility boundary explicit for both technical and non-technical reviewers.</p>
+            <p class="lead">Use this page when you need the real section-by-section guide. It maps the shipped panel surfaces and linked local workspace to the browser APIs, local libraries, reviewer steps, evidence classes, and accessibility boundaries that matter to both technical and non-technical users.</p>
           </div>
           <nav class="guide-local-nav" aria-labelledby="guide-local-nav-title">
             <p class="guide-local-nav__eyebrow">On this page</p>
             <h2 id="guide-local-nav-title">Guide navigation</h2>
             <ol>
-              <li><a href="#actual-tab-order">Actual tab order</a></li>
+              <li><a href="#actual-top-level-sections">Actual sections</a></li>
               <li><a href="#how-to-use-this-guide">How to use this guide</a></li>
               <li><a href="#result-classification-quick-reference">Result classification</a></li>
               <li><a href="#interface-stack">Libraries and APIs</a></li>
-              <li><a href="#dashboard">Dashboard</a></li>
+              <li><a href="#workspace-dashboard">Workspace / Dashboard</a></li>
               <li><a href="#scan-results">Scan Results</a></li>
+              <li><a href="#manual-checks">Manual Checks</a></li>
+              <li><a href="#screen-reader-review-aid">Screen Reader Review</a></li>
+              <li><a href="#keyboard-focus-order">Keyboard &amp; Focus Order</a></li>
+              <li><a href="#interaction-checks">Interaction Checks</a></li>
               <li><a href="#headings">Headings</a></li>
               <li><a href="#language">Language</a></li>
               <li><a href="#alt-text-analysis">Alt Text Analysis</a></li>
-              <li><a href="#screen-reader-review-aid">Screen Reader Review</a></li>
               <li><a href="#metadata-check">Metadata Check</a></li>
               <li><a href="#broken-links">Broken Links</a></li>
-              <li><a href="#browser-preference-qa">Browser Preference QA</a></li>
+              <li><a href="#browser-preference-qa">Browser Preferences QA</a></li>
+              <li><a href="#page-review-overlays">Page Review Overlays</a></li>
               <li><a href="#history-and-evidence-workflows">History, exports, diagnostics</a></li>
               <li><a href="#shared-review-controls">Shared controls</a></li>
             </ol>
           </nav>
         </div>
 
-        <section class="section-panel" aria-labelledby="actual-tab-order">
-          <h2 id="actual-tab-order">Actual tab order and related workflows</h2>
-          <p>The visible panel currently exposes these top-level surfaces in the review flow: <strong>Dashboard</strong>, <strong>Scan Results</strong>, <strong>Headings</strong>, <strong>Language</strong>, <strong>Alt Text Analysis</strong>, <strong>Screen Reader Review</strong>, <strong>Metadata Check</strong>, <strong>Broken Links</strong>, and <strong>Browser Preference QA</strong>. History, exports, diagnostics, panel controls, theme, and local-data tools sit underneath or alongside those surfaces rather than appearing as a separate first-row tab.</p>
+        <section class="section-panel" aria-labelledby="actual-top-level-sections">
+          <h2 id="actual-top-level-sections">Actual top-level sections and related workflows</h2>
+          <p>The shipped extension panel currently exposes these review sections: <strong>Scan Results</strong>, <strong>Broken Links</strong>, <strong>Metadata Check</strong>, <strong>Language</strong>, <strong>Keyboard &amp; Focus Order</strong>, <strong>Interaction Checks</strong>, <strong>Headings</strong>, <strong>Browser Preferences QA</strong>, <strong>Page Review Overlays</strong>, <strong>Alt Text Analysis</strong>, <strong>Manual Checks</strong>, and <strong>Screen Reader Review</strong>. The panel opens one section at a time, so inactive sections are hidden while the active section owns the available content area.</p>
+          <p><strong>A11Y Workspace / Dashboard</strong> is still part of the product, but it opens as a separate local extension page behind <strong>Open Workspace</strong> rather than as a first-row injected panel tab. Ask A11Y Cat, filters, exports, theme, handoff actions, and local-data controls also sit outside the top-level section row.</p>
+          <p>On first toolbar launch, the extension runs the base page scan and pre-populates Scan Results, Metadata Check, Broken Links, Headings, Language, and Alt Text Analysis for the current page state. Section buttons rerun their own checks when you need fresh evidence.</p>
           <div class="guide-surface-grid">
-            <a class="guide-surface-card" href="#dashboard"><strong>Dashboard</strong><span>Snapshot counts, coverage, last scan, and jump actions for the current page state.</span></a>
-            <a class="guide-surface-card" href="#scan-results"><strong>Scan Results</strong><span>Confirmed issues, manual review queues, issue actions, and core triage workflow.</span></a>
-            <a class="guide-surface-card" href="#headings"><strong>Headings</strong><span>Document outline, H1 structure, skipped levels, and semantic hierarchy review.</span></a>
-            <a class="guide-surface-card" href="#language"><strong>Language</strong><span>Language mismatch plus spelling review inside the same text-quality surface.</span></a>
-            <a class="guide-surface-card" href="#alt-text-analysis"><strong>Alt Text Analysis</strong><span>Image alternative review for informative, decorative, linked, and complex cases.</span></a>
-            <a class="guide-surface-card" href="#screen-reader-review-aid"><strong>Screen Reader Review</strong><span>Guided non-visual review preparation before or alongside real AT testing.</span></a>
-            <a class="guide-surface-card" href="#metadata-check"><strong>Metadata Check</strong><span>Title, preview, canonical, schema, and page-level naming checks.</span></a>
-            <a class="guide-surface-card" href="#broken-links"><strong>Broken Links</strong><span>Supported same-origin link-status evidence plus limitation reporting.</span></a>
-            <a class="guide-surface-card" href="#browser-preference-qa"><strong>Browser Preference QA</strong><span>Text scale, preference simulation, and visual-composition review aids.</span></a>
-            <a class="guide-surface-card" href="#history-and-evidence-workflows"><strong>History, exports, diagnostics</strong><span>Comparison, local evidence handling, scan limitations, and support context.</span></a>
+            <a class="guide-surface-card" href="#workspace-dashboard"><strong>Workspace / Dashboard</strong><span>Local extension page for overview, issue log, comparison, report building, diagnostics, and saved scan context.</span></a>
+            <a class="guide-surface-card" href="#scan-results"><strong>Scan Results</strong><span>Current-page automated findings, grouped evidence, filters, selectors, and handoff actions.</span></a>
+            <a class="guide-surface-card" href="#manual-checks"><strong>Manual Checks</strong><span>Structured review work that the automated scan cannot close safely on its own.</span></a>
+            <a class="guide-surface-card" href="#screen-reader-review-aid"><strong>Screen Reader Review</strong><span>Guided non-visual review support and note-taking before or alongside real assistive technology.</span></a>
+            <a class="guide-surface-card" href="#keyboard-focus-order"><strong>Keyboard &amp; Focus Order</strong><span>Bounded page-level focus inventory, focus capture, badges, and exportable focus evidence.</span></a>
+            <a class="guide-surface-card" href="#interaction-checks"><strong>Interaction Checks</strong><span>Debugger-backed tab traversal, widget audits, workflow traces, run history, and regression comparison.</span></a>
+            <a class="guide-surface-card" href="#headings"><strong>Headings</strong><span>Outline structure, H1 coverage, skipped levels, and semantic hierarchy review.</span></a>
+            <a class="guide-surface-card" href="#language"><strong>Language</strong><span>Declared-language mismatch plus local spelling guidance for comprehension review.</span></a>
+            <a class="guide-surface-card" href="#alt-text-analysis"><strong>Alt Text Analysis</strong><span>Deterministic and contextual image alternative evidence for informative and decorative cases.</span></a>
+            <a class="guide-surface-card" href="#metadata-check"><strong>Metadata Check</strong><span>Page title, preview, canonical, schema, and naming consistency review.</span></a>
+            <a class="guide-surface-card" href="#broken-links"><strong>Broken Links</strong><span>Supported same-origin link checks with explicit limitation handling for blocked states.</span></a>
+            <a class="guide-surface-card" href="#browser-preference-qa"><strong>Browser Preferences QA</strong><span>Utility evidence, tester observations, release evidence gates, and preference-state exports.</span></a>
+            <a class="guide-surface-card" href="#page-review-overlays"><strong>Page Review Overlays</strong><span>Page-side helper, badges, outlines, simulations, and heuristic review actions.</span></a>
           </div>
-          <p class="guide-link-row"><a href="../assets/extension/feature-extension-panel-opened-page.png">View extension panel surface map</a></p>
+          <p class="guide-link-row"><a href="../assets/extension/feature-extension-panel-opened-page.png">View current panel overview screenshot</a><a href="../assets/extension/feature-previous-scan-comparison.png">View workspace comparison screenshot</a></p>
         </section>
 
         <section class="section-panel" aria-labelledby="how-to-use-this-guide">
           <h2 id="how-to-use-this-guide">How to use this guide</h2>
           <ol class="workflow-list">
-            <li><span class="step-number">1</span><div><h3>Match the guide to the visible surface you are using</h3><p>Each section below maps to a visible panel surface or persistent control, not an internal module name. That makes the guide usable first for QA testers, reviewers, and product stakeholders who are looking at the UI directly.</p></div></li>
-            <li><span class="step-number">2</span><div><h3>Use the implementation notes when you need technical traceability</h3><p>The guide still names the shipped libraries and Chrome APIs so engineers and release reviewers can connect the public documentation back to the runtime model.</p></div></li>
-            <li><span class="step-number">3</span><div><h3>Keep the evidence boundary in view</h3><p>Confirmed issues, needs-review items, advisory output, limitations, and diagnostics do not mean the same thing. Read the evidence class before turning anything into a defect, release claim, or accessibility statement.</p></div></li>
+            <li><span class="step-number">1</span><div><h3>Match the guide to the visible surface you are using</h3><p>Each section below maps to a real panel section, page-side helper, or linked workspace area so reviewers can move from the UI they see to the right documentation without translating internal module names first.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Use the technical notes when traceability matters</h3><p>The guide names the shipped browser APIs, local libraries, and evidence types so engineers, release reviewers, and auditors can connect the public documentation back to the actual runtime model.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Keep the evidence boundary explicit</h3><p>Confirmed, review, advisory, limitation, diagnostic, and workflow output do not mean the same thing. Read the evidence class before turning any result into a defect, release claim, or accessibility statement.</p></div></li>
           </ol>
         </section>
 
         <section class="section-panel" aria-labelledby="result-classification-quick-reference">
           <h2 id="result-classification-quick-reference">Result classification quick reference</h2>
-          <div class="table-scroll"><table><thead><tr><th scope="col">Classification</th><th scope="col">Meaning</th><th scope="col">Needs human review?</th><th scope="col">Primary action</th></tr></thead><tbody><tr><th scope="row">Confirmed</th><td>Highest-confidence issue evidence for the current rendered state.</td><td>Review context and user impact before release decisions.</td><td>Prioritise remediation, retest, and record evidence.</td></tr><tr><th scope="row">Needs review</th><td>Evidence that needs human judgement before being treated as a failure.</td><td>Yes.</td><td>Inspect manually, then decide whether a real defect exists.</td></tr><tr><th scope="row">Advisory</th><td>Helpful quality or readiness signal that should not be treated as a definite WCAG failure.</td><td>Usually.</td><td>Use as guidance or backlog input.</td></tr><tr><th scope="row">Limitation</th><td>A known boundary of what the extension could not test or prove.</td><td>Yes, if the uncovered state matters.</td><td>Use another test method and avoid coverage overclaims.</td></tr><tr><th scope="row">Diagnostic</th><td>Technical support information about runtime state, permissions, export support, or scan coverage.</td><td>Not as a page failure.</td><td>Use for troubleshooting, support, and repeatability.</td></tr></tbody></table></div>
+          <div class="table-scroll"><table><thead><tr><th scope="col">Classification</th><th scope="col">Meaning</th><th scope="col">Needs human review?</th><th scope="col">Primary action</th></tr></thead><tbody><tr><th scope="row">Confirmed</th><td>Highest-confidence issue evidence for the current rendered state.</td><td>Review context and user impact before release decisions.</td><td>Prioritise remediation, retest, and record evidence.</td></tr><tr><th scope="row">Needs review</th><td>Evidence that still needs human judgement before it becomes a defect.</td><td>Yes.</td><td>Inspect manually, then decide whether a real defect exists.</td></tr><tr><th scope="row">Advisory</th><td>Helpful quality or readiness signal that should not be treated as a definite WCAG failure.</td><td>Usually.</td><td>Use as guidance or backlog input.</td></tr><tr><th scope="row">Limitation</th><td>A known boundary of what the extension could not inspect, calculate, or prove.</td><td>Yes, if the uncovered state matters.</td><td>Use another method and avoid coverage overclaims.</td></tr><tr><th scope="row">Diagnostic</th><td>Technical support information about runtime state, permissions, exports, or scan coverage.</td><td>Not as a page failure.</td><td>Use for troubleshooting, support, and repeatability.</td></tr><tr><th scope="row">Workflow</th><td>Local review, handoff, note, or report-building state rather than a page verdict.</td><td>Yes.</td><td>Use to coordinate QA work, not to declare conformance.</td></tr></tbody></table></div>
         </section>
 
         <section class="section-panel" aria-labelledby="interface-stack">
           <h2 id="interface-stack">Libraries and browser APIs behind the interface</h2>
-          <div class="table-scroll"><table><thead><tr><th scope="col">Runtime area</th><th scope="col">Primary library or API</th><th scope="col">Why it exists in the product</th><th scope="col">Visible tabs or controls</th></tr></thead><tbody><tr><th scope="row">Launch and page access</th><td><code>chrome.action</code>, <code>activeTab</code>, <code>chrome.scripting</code>, Manifest V3 service worker</td><td>Open the panel after explicit user action and inject packaged local scripts into the active tab.</td><td>All visible tabs start here.</td></tr><tr><th scope="row">Automated accessibility rules</th><td>Bundled <code>axe-core</code> 4.11.x</td><td>Produce WCAG-tagged automated findings for the current rendered page state.</td><td>Dashboard summaries, Scan Results, and contrast evidence in the main scanner.</td></tr><tr><th scope="row">Feature logic and result shaping</th><td>A11Y Cat runtime modules</td><td>Aggregate counts, classify findings, inspect metadata, headings, images, links, language, diagnostics, and history.</td><td>Dashboard, Scan Results, Headings, Language, Alt Text Analysis, Metadata Check, Broken Links, diagnostics, history.</td></tr><tr><th scope="row">Language and spelling review</th><td>Local language heuristics and a CSpell-derived local engine</td><td>Review visible text for likely language mismatch and spelling concerns without a remote API.</td><td>Language tab.</td></tr><tr><th scope="row">Screen Reader Review aid</th><td>Guidepup virtual screen reader bundle and browser TTS where available</td><td>Support structured review preparation and note-taking before or alongside real assistive technology testing.</td><td>Screen Reader Review.</td></tr><tr><th scope="row">Browser-preference review</th><td><code>chrome.debugger</code>, extension-side preview state, computed style inspection, reduced-motion signals</td><td>Support manual QA for zoom, text spacing, font size, reduced motion, colour scheme, forced colours, and visual-composition checks.</td><td>Browser Preference QA, Page Text Scale, visual-composition review.</td></tr><tr><th scope="row">Local storage and evidence output</th><td><code>chrome.storage.local</code> and local CSV/JSON/HTML export builders</td><td>Store review state locally and create user-triggered evidence artefacts without a developer scan server.</td><td>Dashboard compare actions, Previous scan/history, exports, local data, clear-data controls, diagnostics export.</td></tr></tbody></table></div>
+          <div class="table-scroll"><table><thead><tr><th scope="col">Runtime area</th><th scope="col">Primary library or API</th><th scope="col">Why it exists in the product</th><th scope="col">Visible sections or controls</th></tr></thead><tbody><tr><th scope="row">Launch and page access</th><td><code>chrome.action</code>, <code>activeTab</code>, <code>chrome.scripting</code>, Manifest V3 service worker</td><td>Open the panel after explicit user action and inject packaged local scripts into the active tab only for that current page state.</td><td>All injected panel sections start here.</td></tr><tr><th scope="row">Automated scan and classification</th><td>Bundled <code>axe-core</code> 4.11.x plus A11Y Cat runtime classifiers</td><td>Produce automated findings, classify evidence, and populate the main grouped result surfaces without a remote scan server.</td><td>Scan Results, Manual Checks, Headings, Language, Alt Text Analysis, Metadata Check, Broken Links.</td></tr><tr><th scope="row">Keyboard and focus capture</th><td>A11Y Cat focus-inventory modules, programmatic focus capture, and page-state exclusion rules</td><td>Build bounded page-level focus order evidence while keeping extension-owned UI and page-side badges out of the captured set.</td><td>Keyboard &amp; Focus Order.</td></tr><tr><th scope="row">Interaction audits</th><td><code>chrome.debugger</code>, A11Y Cat interaction-check models, widget-state runner, labelled DOM fallback</td><td>Dispatch trusted Tab, Shift+Tab, Enter, Space, and Escape evidence where available, keep fallback provenance visible, and compare saved runs for regressions.</td><td>Interaction Checks.</td></tr><tr><th scope="row">Preference utilities and page overlays</th><td><code>chrome.debugger</code>, extension-side preview state, computed style inspection, injected page helper, reduced-motion and focus-review utilities</td><td>Support browser-preference review, page-side helper controls, visual badges, outlines, and heuristic review workflows without claiming automatic proof.</td><td>Browser Preferences QA, Page Review Overlays, interaction review conditions.</td></tr><tr><th scope="row">Language and spelling review</th><td>Local language heuristics and a CSpell-derived local engine</td><td>Review visible text for likely language mismatch and spelling concerns without a remote API.</td><td>Language.</td></tr><tr><th scope="row">Screen reader review aid</th><td>Guidepup virtual screen reader bundle and browser TTS where available</td><td>Support structured non-visual review preparation and note-taking before or alongside real assistive technology testing.</td><td>Screen Reader Review.</td></tr><tr><th scope="row">Local storage, workspace, and exports</th><td><code>chrome.storage.local</code>, local history modules, dashboard/workspace snapshot builders, CSV/JSON/HTML export builders</td><td>Store local workflow state, run history, workspace snapshots, and user-triggered evidence exports without a developer server.</td><td>Open Workspace, previous scan/history, exports, QA report, clear-data controls, diagnostics.</td></tr></tbody></table></div>
         </section>
 
-        <section class="section-panel" aria-labelledby="dashboard">
-          <h2 id="dashboard">Dashboard</h2>
-          <p>Dashboard is the routing surface for the current page scan. It does not replace detailed evidence; it tells the reviewer where to go next by summarising confirmed issues, review items, limitations, coverage state, and the last saved scan snapshot.</p>
+        <section class="section-panel" aria-labelledby="workspace-dashboard">
+          <h2 id="workspace-dashboard">A11Y Workspace / Dashboard</h2>
+          <p>The workspace is a local extension page opened through <strong>Open Workspace</strong>. It is not injected into the reviewed page and it is not one of the first-row panel sections. This is where deeper overview, issue-log, comparison, report-builder, diagnostics, and saved-scan workflows live when the small panel is not enough.</p>
           <ol class="workflow-list">
-            <li><span class="step-number">1</span><div><h3>Open Dashboard first after a scan completes</h3><p>Use it to understand whether the page needs immediate attention, whether coverage was complete, and whether there is a previous saved scan you can compare against.</p></div></li>
-            <li><span class="step-number">2</span><div><h3>Read the summary cards before diving into issue detail</h3><p>Confirmed issues, review/incomplete items, advisory items, limitations, coverage state, and last scan timestamp help non-technical and technical reviewers orient quickly.</p></div></li>
-            <li><span class="step-number">3</span><div><h3>Use the primary actions to route the review</h3><p>Dashboard can send reviewers straight to scan results, critical issues, manual/incomplete items, scan limitations, or previous-scan comparison instead of forcing them to hunt for the next step.</p></div></li>
-            <li><span class="step-number">4</span><div><h3>Treat Dashboard as summary evidence, not defect proof</h3><p>The counts and recommendations are only as accurate as the last scan state that produced them.</p></div></li>
+            <li><span class="step-number">1</span><div><h3>Open the workspace after you have a scan worth comparing or handing off</h3><p>Use it when you need more than a quick panel review, especially for issue logs, previous-scan comparison, report building, or diagnostics.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Use the overview and issue log as local review navigation, not as a second scan engine</h3><p>The workspace reflects the latest saved extension snapshot and local workflow state for the current scope. It helps reviewers move through the evidence already captured.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Compare like-for-like states</h3><p>Use the same route, auth state, viewport, and interaction state when comparing previous and current runs. Otherwise the delta may describe a different page state rather than a real regression.</p></div></li>
+            <li><span class="step-number">4</span><div><h3>Treat the workspace as local review support, not as a page-level proof surface</h3><p>It helps organise evidence, exports, and history, but it still depends on the underlying captured run and does not replace fresh testing on the live page state.</p></div></li>
           </ol>
           <div class="guide-fact-grid">
-            <article class="guide-fact-card"><h3>Powered by</h3><p>A11Y Cat result aggregation, history routing, limitation summaries, and <code>chrome.storage.local</code> for saved comparison state.</p></article>
-            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Helps reviewers prioritise work, understand coverage, and move through the correct next action without flattening every result type into the same severity.</p></article>
-            <article class="guide-fact-card"><h3>Evidence value</h3><p>High-value orientation surface for both technical and non-technical users, but still summary-level rather than item-level proof.</p></article>
-            <article class="guide-fact-card"><h3>Manual boundary</h3><p>Dashboard summaries still reflect only the saved current-state scan and can change when route, auth, viewport, or page behaviour changes.</p></article>
+            <article class="guide-fact-card"><h3>Powered by</h3><p>Dashboard/workspace view models, local workflow state, local history, report-builder state, diagnostics, and <code>chrome.storage.local</code> workspace snapshots.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Supports triage, comparison, evidence packaging, and clearer communication about what changed and what still needs retest.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>High-value review coordination surface, especially for repeated reviews and cross-team handoff.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>The workspace reflects local saved state. It does not prove that the live page still matches the snapshot or that every route, breakpoint, or workflow was covered.</p></article>
           </div>
-          <p class="guide-link-row"><a href="../assets/extension/feature-previous-scan-comparison.png">View Dashboard with comparison actions</a><a href="../assets/extension/feature-extension-panel-opened-page.png">View Dashboard in the full panel list</a></p>
+          <p class="guide-link-row"><a href="../assets/extension/feature-previous-scan-comparison.png">View workspace comparison screenshot</a><a href="previous-scan-and-history.html">Read previous scan and history guide</a><a href="exports-and-local-data.html">Read exports and local data guide</a></p>
         </section>
 
         <section class="section-panel" aria-labelledby="scan-results">
           <h2 id="scan-results">Scan Results</h2>
-          <p>Scan Results is the main triage surface. It is where reviewers open confirmed issues, inspect manual/incomplete items, use severity and source filters, and trigger issue-level actions such as inspect, highlight, selector copy, and structured handoff.</p>
+          <p>Scan Results is the main automated review surface. It groups confirmed issues, review items, advisory output, limitations, and diagnostics for the current rendered page state and gives reviewers the direct path to selectors, issue details, highlight actions, exports, and QA handoff controls.</p>
           <ol class="workflow-list">
-            <li><span class="step-number">1</span><div><h3>Run the scan on the page state you actually want to review</h3><p>The user action triggers temporary <code>activeTab</code> access and packaged local script injection for that page state only.</p></div></li>
-            <li><span class="step-number">2</span><div><h3>Review confirmed issues first</h3><p>The extension keeps high-confidence scanner evidence separate from manual-review work so obvious defects are not buried under ambiguous items.</p></div></li>
-            <li><span class="step-number">3</span><div><h3>Open manual/incomplete items when context matters</h3><p>These items need human judgement before they become real defects. They are especially important for contrast ambiguity, link purpose, contextual image meaning, and state-dependent UI.</p></div></li>
-            <li><span class="step-number">4</span><div><h3>Use issue actions and filters to move from review to handoff</h3><p>Inspect details, narrow the list, highlight the target element, copy selectors, or prepare local workflow state and exports where supported.</p></div></li>
+            <li><span class="step-number">1</span><div><h3>Run the scan on the page state you actually want to review</h3><p>The extension uses temporary <code>activeTab</code> access and packaged local script injection for that live page state only. Route changes, auth changes, and dynamic states can change the result set.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Review confirmed issues first, then check what moved into review-only buckets</h3><p>High-confidence scanner evidence stays separate from work that still needs human judgement so obvious defects are not buried under ambiguous items.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Use selectors, snippets, filters, and detail views to move from triage to remediation</h3><p>Issue details expose rule IDs, selectors, supporting snippets, severity, evidence provenance, and issue actions such as inspect, highlight, selector copy, or QA report inclusion.</p></div></li>
+            <li><span class="step-number">4</span><div><h3>Route unresolved review work into Manual Checks, Screen Reader Review, or the relevant feature-specific section</h3><p>Scan Results is the hub, not the end of the workflow. Ambiguous evidence still needs a reviewer decision before it becomes a real defect or release claim.</p></div></li>
           </ol>
           <div class="guide-fact-grid">
             <article class="guide-fact-card"><h3>Powered by</h3><p><code>chrome.action</code>, <code>activeTab</code>, <code>chrome.scripting</code>, bundled <code>axe-core</code>, and A11Y Cat result-shaping modules.</p></article>
-            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>This is the main entry point for high-confidence implementation problems and the first place reviewers can separate confirmed scanner issues from guided review work.</p></article>
-            <article class="guide-fact-card"><h3>Evidence value</h3><p>Strongest item-level page-state evidence in the extension, plus the most direct route to selectors, snippets, severity, and provenance.</p></article>
-            <article class="guide-fact-card"><h3>Manual boundary</h3><p>The surface still represents only the current rendered state. Hidden routes, delayed states, authenticated paths, and real AT behaviour still need separate review.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>This is the main route to current-page automated evidence and the first point where reviewers can separate confirmed issues from guided review work.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>Strongest item-level evidence in the extension for the current rendered state, plus the most direct route to selectors, source, and exportable detail.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>The surface still represents only the current rendered state. Hidden routes, deferred content, real keyboard flow, real AT behaviour, and unsupported contexts need separate review.</p></article>
           </div>
-          <p>Confirmed contrast evidence also appears in Scan Results when the runtime has strong enough proof. The former Contrast Inspector tab is not exposed in the active extension, so uncertain visual-composition cases remain review or diagnostic evidence instead of being overstated as confirmed failures.</p>
-          <p class="guide-link-row"><a href="../assets/extension/current/panel-scan-results.png">View current Scan Results screenshot</a><a href="../assets/extension/feature-confirmed-issues-section.png">View confirmed issues section</a><a href="../assets/extension/feature-manual-incomplete-review-items.png">View manual/incomplete review items</a><a href="../assets/extension/feature-highlight-element-action.png">View highlight action</a></p>
+          <p class="guide-link-row"><a href="../assets/extension/current/panel-scan-results.png">View current Scan Results screenshot</a><a href="../assets/extension/feature-confirmed-issues-section.png">View confirmed issues section</a><a href="../assets/extension/feature-highlight-element-action.png">View highlight action</a></p>
+        </section>
+
+        <section class="section-panel" aria-labelledby="manual-checks">
+          <h2 id="manual-checks">Manual Checks</h2>
+          <p>Manual Checks holds structured review workflow material that the automated scan cannot close out safely. It exists so incomplete or context-dependent evidence does not get flattened into a false pass/fail claim.</p>
+          <ol class="workflow-list">
+            <li><span class="step-number">1</span><div><h3>Open Manual Checks after Scan Results or a tool routes work there</h3><p>Use it when the extension has enough evidence to guide the reviewer but not enough to prove the outcome deterministically.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Read the structured guidance cards before deciding defect status</h3><p>Manual checks explain what to inspect next, which selectors or snippets matter, and which parts of the user journey still need direct confirmation.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Record the outcome in your QA workflow, not in the tool alone</h3><p>The section organises work and can support exports or highlights, but the actual pass/fail decision still belongs to the reviewer and their release process.</p></div></li>
+          </ol>
+          <div class="guide-fact-grid">
+            <article class="guide-fact-card"><h3>Powered by</h3><p>A11Y Cat manual-review generation, issue-routing logic, and local workflow support where the runtime cannot safely auto-confirm the result.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Keeps review-only evidence visible and honest instead of hiding it behind a scanner summary or overstating it as a deterministic failure.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>Review workflow material, not a direct conformance verdict.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>The section organises the work. It does not auto-confirm pass/fail and it does not replace real task-based accessibility testing.</p></article>
+          </div>
+          <p class="guide-link-row"><a href="../assets/extension/feature-manual-incomplete-review-items.png">View manual review screenshot</a></p>
+        </section>
+
+        <section class="section-panel" aria-labelledby="screen-reader-review-aid">
+          <h2 id="screen-reader-review-aid">Screen Reader Review</h2>
+          <p>Screen Reader Review is a structured review aid, not a replacement for NVDA, JAWS, VoiceOver, TalkBack, Narrator, keyboard-only testing, or real user-task testing.</p>
+          <ol class="workflow-list">
+            <li><span class="step-number">1</span><div><h3>Open the aid after you understand the page structure and main findings</h3><p>Use it once the automated scan, manual checks, and structural evidence have given you enough context to plan a real assistive-technology check.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Review expected reading order and capture notes</h3><p>Use the guided surface to organise what you expect to hear or reach in the user journey, then record observations and follow-up work.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Compare with real assistive-technology behaviour</h3><p>Use the target browser and assistive-technology combination for the release decision. Differences found there outrank the virtual aid.</p></div></li>
+          </ol>
+          <div class="guide-fact-grid">
+            <article class="guide-fact-card"><h3>Powered by</h3><p>Guidepup virtual screen reader support, browser TTS where available, and local note-taking or export flows.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Helps reviewers prepare non-visual reading-order and interaction checks before or alongside real AT testing.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>Structured review preparation and review-note evidence.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>It never proves real AT output. Real browser/AT combinations still decide the release claim.</p></article>
+          </div>
+          <p class="guide-link-row"><a href="../assets/extension/current/screen-reader-review.png">View current Screen Reader Review screenshot</a></p>
+        </section>
+
+        <section class="section-panel" aria-labelledby="keyboard-focus-order">
+          <h2 id="keyboard-focus-order">Keyboard &amp; Focus Order</h2>
+          <p>Keyboard &amp; Focus Order is the page-level focus evidence section. It builds a focusable inventory, runs a bounded programmatic focus-order capture for the current page state, separates confirmed findings from review-only findings, and keeps extension-owned UI plus page-side focus badges out of the captured evidence set.</p>
+          <ol class="workflow-list">
+            <li><span class="step-number">1</span><div><h3>Run Capture focus order on the page state you want to review</h3><p>This creates a bounded focus sequence for the current page state. It is not the same as the real debugger-dispatched Tab traversal that lives in Interaction Checks.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Review the summary and finding cards before opening the full sequence</h3><p>Confirmed findings are limited to states the capture can actually prove, such as positive <code>tabindex</code>, focusable <code>aria-hidden</code> content, or a fully obscured focused target.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Use Show focus badges only after a capture exists</h3><p>The numbered page-side badges help visual inspection, but they are excluded from the focus inventory so they do not contaminate the captured evidence.</p></div></li>
+            <li><span class="step-number">4</span><div><h3>Export or report the bounded evidence only when it helps the review record</h3><p>Technical details can export focus evidence, add the section to the QA report, or include full focus-order detail when the extra traceability is useful.</p></div></li>
+          </ol>
+          <div class="guide-fact-grid">
+            <article class="guide-fact-card"><h3>Powered by</h3><p>A11Y Cat keyboard-focus analysis, focusable inventory capture, programmatic focus sequencing, and runtime-owned-UI exclusion rules.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Supports keyboard reachability, focus order, focus visibility, and focus-obscuring review for the current page state.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>Mixed evidence: confirmed when the runtime can prove the problem, review when the signal still needs human judgement, and unable-to-determine where the runtime cannot safely prove the state.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>The section does not prove every widget state, every route, every real <code>:focus-visible</code> result, or every screen-reader outcome. Real tabbing and Interaction Checks still matter.</p></article>
+          </div>
+        </section>
+
+        <section class="section-panel" aria-labelledby="interaction-checks">
+          <h2 id="interaction-checks">Interaction Checks</h2>
+          <p>Interaction Checks is the bounded keyboard-interaction evidence section. It combines real trusted-key traversal where available, safe widget audits, workflow traces, saved run history, and previous-run comparison so QA can capture repeatable interaction evidence without pretending the tool crawled every user task.</p>
+          <ol class="workflow-list">
+            <li><span class="step-number">1</span><div><h3>Choose the right submode before you run it</h3><p>Use <strong>Tab traversal</strong> for ordered keyboard-path evidence, <strong>Widget audits</strong> for safe Enter/Space/Escape state checks, <strong>Workflow runner</strong> for bounded flows such as dialog open/tab/Escape, and <strong>History &amp; comparison</strong> when regression tracking matters.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Set the run condition and scope explicitly</h3><p>You can change traversal preset depth, audit one selected safe widget or a bounded top-3 batch, and rerun under the current page state or a mobile simulated viewport condition.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Review keyboard path, key-state details, and boundary notes together</h3><p>Watch for focus loss, hidden focus, positive <code>tabindex</code>, unnamed focused controls, early loops, state-unchanged warnings, missing Escape restore, focus-return gaps, or labelled DOM/scripted fallback evidence.</p></div></li>
+            <li><span class="step-number">4</span><div><h3>Use saved-run history and export only when the bounded evidence is useful</h3><p>Interaction evidence JSON and QA report inclusion help when QA needs repeatable proof of a regression or a stable handoff record for a known page state.</p></div></li>
+          </ol>
+          <div class="guide-subsection">
+            <h3>Interaction review conditions</h3>
+            <p>The section includes a scoped review-conditions subpanel for reduced motion, text spacing, focus review, hidden focusable review, helper open, and reset. Use the full Page Review Overlays section when your interaction review also depends on headings, landmarks, links, forms, or ARIA-state overlays.</p>
+          </div>
+          <div class="guide-fact-grid">
+            <article class="guide-fact-card"><h3>Powered by</h3><p><code>chrome.debugger</code>, A11Y Cat interaction-check models, widget-state recipes, before/after state snapshots, saved local run history, and explicit fallback provenance.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Supports keyboard operability, focus order, focus return, dialog/widget state review, and regression tracking for interaction-sensitive flows.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>Actual keyboard traversal evidence plus review and limitation notes for bounded widget and workflow audits.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>The tool sends bounded Tab/Shift+Tab only for traversal and audits one selected safe target or a bounded top-3 batch. It does not type into fields, submit forms, crawl the site, or replace manual assistive-technology testing.</p></article>
+          </div>
         </section>
 
         <section class="section-panel" aria-labelledby="headings">
@@ -185,23 +265,6 @@
           <p class="guide-link-row"><a href="../assets/extension/current/alt-text-analysis.png">View current Alt Text Analysis screenshot</a></p>
         </section>
 
-        <section class="section-panel" aria-labelledby="screen-reader-review-aid">
-          <h2 id="screen-reader-review-aid">Screen Reader Review</h2>
-          <p>Screen Reader Review is a structured review aid, not a replacement for NVDA, JAWS, VoiceOver, TalkBack, Narrator, keyboard-only testing, or real user-task testing.</p>
-          <ol class="workflow-list">
-            <li><span class="step-number">1</span><div><h3>Open the aid after you understand the page structure</h3><p>Use it once the main scan and structural evidence have given you enough context to plan a real assistive-technology check.</p></div></li>
-            <li><span class="step-number">2</span><div><h3>Review expected reading order and capture notes</h3><p>Use the guided surface to organise what you expect to hear or reach in the user journey, then record observations and next steps.</p></div></li>
-            <li><span class="step-number">3</span><div><h3>Compare with real AT behaviour</h3><p>Run the target browser and assistive-technology combination for the release decision and treat differences as higher-priority evidence than the aid itself.</p></div></li>
-          </ol>
-          <div class="guide-fact-grid">
-            <article class="guide-fact-card"><h3>Powered by</h3><p>Guidepup virtual screen reader support, browser TTS where available, and local note-taking or export flows.</p></article>
-            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Helps reviewers plan non-visual reading-order and interaction checks before or alongside real AT testing.</p></article>
-            <article class="guide-fact-card"><h3>Evidence value</h3><p>Structured review preparation and review-note evidence.</p></article>
-            <article class="guide-fact-card"><h3>Manual boundary</h3><p>It never proves real AT output. Real browser/AT combinations still decide the release claim.</p></article>
-          </div>
-          <p class="guide-link-row"><a href="../assets/extension/current/screen-reader-review.png">View current Screen Reader Review screenshot</a></p>
-        </section>
-
         <section class="section-panel" aria-labelledby="metadata-check">
           <h2 id="metadata-check">Metadata Check</h2>
           <p>Metadata Check reviews document-level information such as title, description, canonical URL, Open Graph, Twitter card, and structured data. It helps reviewers catch page-quality and orientation problems that matter to users and downstream sharing surfaces.</p>
@@ -221,7 +284,7 @@
 
         <section class="section-panel" aria-labelledby="broken-links">
           <h2 id="broken-links">Broken Links</h2>
-          <p>Broken Links is its own surface in the current panel. It focuses on supported link-status evidence and is most useful when navigation reliability or dead-end paths matter to the user journey.</p>
+          <p>Broken Links focuses on supported link-status evidence and is most useful when navigation reliability or dead-end paths matter to the user journey.</p>
           <ol class="workflow-list">
             <li><span class="step-number">1</span><div><h3>Open Broken Links when navigation reliability matters</h3><p>Use it to review same-origin links and supported request-status evidence from the browser context.</p></div></li>
             <li><span class="step-number">2</span><div><h3>Check whether the evidence is complete</h3><p>Cross-origin, authenticated, blocked, timeout, or rate-limited states can produce limitations or incomplete evidence instead of a confirmed broken-link result.</p></div></li>
@@ -237,36 +300,50 @@
         </section>
 
         <section class="section-panel" aria-labelledby="browser-preference-qa">
-          <h2 id="browser-preference-qa">Browser Preference QA</h2>
-          <p>Browser Preference QA helps reviewers simulate or inspect accessibility-related presentation scenarios such as zoom, text spacing, font size, reduced motion, colour scheme, forced colours, and contrast-preference conditions. The current documented workflow also includes page-text-scale and visual-composition review utilities.</p>
+          <h2 id="browser-preference-qa">Browser Preferences QA</h2>
+          <p>Browser Preferences QA is the utility-evidence surface for preference-state review. It owns the utility selection, expected-vs-found summary, tester observations, release evidence gates, and local exports. Page-side badges, outlines, helper status, collapse, and reset behaviour are documented under Page Review Overlays.</p>
           <ol class="workflow-list">
-            <li><span class="step-number">1</span><div><h3>Choose the scenario that matches the review question</h3><p>Use this surface when you need to inspect how a page responds to readable-text and reduced-motion conditions or when you need QA evidence for browser-preference behaviour.</p></div></li>
-            <li><span class="step-number">2</span><div><h3>Apply the preview or inspection utility</h3><p>The tool can use extension-side preview state, page-text-scale controls, computed style inspection, reduced-motion inventory, or debugger-backed emulation where supported.</p></div></li>
-            <li><span class="step-number">3</span><div><h3>Review visual composition carefully</h3><p>Check clipping, overlap, hidden content, motion persistence, forced-colour readability, and mixed contrast evidence before deciding whether the output is ready for engineering handoff.</p></div></li>
-            <li><span class="step-number">4</span><div><h3>Record the outcome as manual QA evidence</h3><p>This surface supports review and documentation; it is not a fully automatic pass/fail result.</p></div></li>
+            <li><span class="step-number">1</span><div><h3>Choose the utility or preset that matches the review question</h3><p>Use the section for reduced motion, dark mode, high contrast, forced colours, text spacing, focus-review support, and related preference-state evidence for the current tab.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Apply the utility and review expected versus found</h3><p>The section is designed to keep the tester grounded in what the utility was supposed to show, what the page actually did, and whether the mismatch is only a heuristic review signal or something stronger.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Save observations and complete release evidence gates where relevant</h3><p>The documented gates include tester observation, reset cleanup, browser-level evidence where required, and real forced-colours or assistive-technology proof when the selected utility scope depends on them.</p></div></li>
+            <li><span class="step-number">4</span><div><h3>Reset all before continuing</h3><p>Reset removes the active preview classes and helper state from the page without reloading it, reducing the risk of carrying review conditions into the next check accidentally.</p></div></li>
           </ol>
           <div class="guide-subsection">
-            <h3>Page Text Scale</h3>
-            <p>Page Text Scale lets reviewers change page typography for accessibility scenarios without resizing the extension UI itself. It is useful for inspecting readability, reflow, and content clipping while keeping the review chrome stable.</p>
-          </div>
-          <div class="guide-subsection">
-            <h3>Visual composition review</h3>
-            <p>Where contrast or composition evidence is mixed, the extension can route the item into a visual-composition review state instead of overstating certainty. Reviewers should inspect the page visually and, where relevant, with keyboard or screen-reader context before accepting or dismissing the issue.</p>
+            <h3>Release evidence gates</h3>
+            <p>Browser Preferences QA is explicit about what it cannot prove. Forced-colours and assistive-technology gates are user-controlled acknowledgements that real external proof was completed; they are not automation pretending to be Windows High Contrast, browser forced-colours proof, or NVDA/JAWS/VoiceOver validation.</p>
           </div>
           <div class="guide-fact-grid">
-            <article class="guide-fact-card"><h3>Powered by</h3><p><code>chrome.debugger</code> where supported, extension-side preview state, computed style inspection, reduced-motion inventory, and visual-composition evidence shaping.</p></article>
-            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Supports readability and motion-reduction review for low-vision users, cognitive users, and users with vestibular sensitivities.</p></article>
-            <article class="guide-fact-card"><h3>Evidence value</h3><p>Manual QA and review-routing evidence, including text-scale and visual-composition context.</p></article>
-            <article class="guide-fact-card"><h3>Manual boundary</h3><p>Preview styles are review aids, not proof that a browser-level preference or real user setup behaves identically in production.</p></article>
+            <article class="guide-fact-card"><h3>Powered by</h3><p><code>chrome.debugger</code> where supported, extension-side preview state, computed style inspection, reduced-motion inventory, utility models, and local evidence/export builders.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Supports readable-text, motion-reduction, colour-mode, focus, and presentation review for low-vision, cognitive, and vestibular-sensitive users.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>Review and release-readiness evidence with explicit gates rather than automatic pass/fail claims.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>The section does not replace real browser zoom/reflow, real forced-colours mode, real keyboard-only testing, or real assistive-technology testing.</p></article>
           </div>
-          <p class="guide-link-row"><a href="../assets/extension/current/browser-preference-controls.png">View current Browser Preference QA screenshot</a><a href="../assets/extension/feature-page-text-scale.png">View Page Text Scale utility</a><a href="../assets/extension/feature-visual-composition-review.png">View visual-composition review state</a></p>
+          <p class="guide-link-row"><a href="../assets/extension/current/browser-preference-controls.png">View current Browser Preferences QA screenshot</a></p>
+        </section>
+
+        <section class="section-panel" aria-labelledby="page-review-overlays">
+          <h2 id="page-review-overlays">Page Review Overlays</h2>
+          <p>Page Review Overlays is the page-side visual review companion. It controls the injected helper, active overlay status, page badges, outlines, review summaries, collapse, and reset behaviour for the active tab without mixing that page-side presentation layer into Browser Preferences QA utility evidence.</p>
+          <ol class="workflow-list">
+            <li><span class="step-number">1</span><div><h3>Open the helper when you need page-side review context</h3><p>The helper uses the dedicated root <code>a11y-cat-browser-preference-qa-root</code> and <code>a11y-cat-</code> prefixed classes so the extension can stress the page visually without counting its own helper as page content.</p></div></li>
+            <li><span class="step-number">2</span><div><h3>Choose the overlay mode that matches the review task</h3><p>Available overlay categories cover reduced motion, dark mode review, high contrast review, forced colours review, text spacing review, focus review, hidden focusable review, headings, landmarks, links, buttons, forms, and ARIA-state review.</p></div></li>
+            <li><span class="step-number">3</span><div><h3>Inspect badges and summaries, then confirm with real user methods</h3><p>The overlays help reviewers see where the likely issues are, but the result remains review/heuristic evidence until it is confirmed with manual keyboard, browser, forced-colours, or assistive-technology testing where relevant.</p></div></li>
+            <li><span class="step-number">4</span><div><h3>Reset page controls before moving on</h3><p>Reset clears the active helper state, overlay classes, and review badges so the next test starts clean.</p></div></li>
+          </ol>
+          <div class="guide-fact-grid">
+            <article class="guide-fact-card"><h3>Powered by</h3><p>Injected page helper root, visible badges, outlines, active overlay status, latest page-side summary, focus-review utilities, and helper reset/collapse controls.</p></article>
+            <article class="guide-fact-card"><h3>Accessibility relevance</h3><p>Supports page-side review for readable text, focus, structure, navigation, forms, states, and presentation-specific accessibility risks.</p></article>
+            <article class="guide-fact-card"><h3>Evidence value</h3><p>Review and heuristic evidence only. Overlay findings are not final accessibility verdicts.</p></article>
+            <article class="guide-fact-card"><h3>Manual boundary</h3><p>Forced-colours review remains a simulation, focus review can still miss true <code>:focus-visible</code> behaviour, and overlays do not replace real keyboard-only, zoom/reflow, or assistive-technology testing.</p></article>
+          </div>
+          <p class="guide-link-row"><a href="../assets/extension/current/browser-preference-controls.png">View related page-review controls screenshot</a><a href="../assets/extension/feature-highlight-element-action.png">View page highlight action</a></p>
         </section>
 
         <section class="section-panel" aria-labelledby="history-and-evidence-workflows">
           <h2 id="history-and-evidence-workflows">History, exports, diagnostics, and support workflows</h2>
-          <p>These features support traceability, handoff, and support. They matter because accessibility review is usually iterative: you need to compare scans, preserve notes, export authorised evidence, and explain coverage limits without overstating what the tool proved.</p>
+          <p>These features support traceability, handoff, and support. Accessibility review is iterative: you need to compare scans, preserve notes, export authorised evidence, and explain coverage limits without overstating what the tool proved.</p>
           <div class="guide-subsection">
-            <h3 id="previous-scan-history">Previous Scan and History</h3>
+            <h3 id="previous-scan-history">Previous scan and history</h3>
             <ol class="workflow-list">
               <li><span class="step-number">1</span><div><h3>Compare like-for-like states</h3><p>Use the same route, auth state, viewport, and interaction state when comparing two scans.</p></div></li>
               <li><span class="step-number">2</span><div><h3>Read changed counts with limitations in mind</h3><p>Changes can reflect product changes, but they can also reflect different page state, coverage, or runtime conditions.</p></div></li>
@@ -276,7 +353,7 @@
             <h3 id="exports-local-state">Exports and local state</h3>
             <ol class="workflow-list">
               <li><span class="step-number">1</span><div><h3>Choose the export type that fits the audience</h3><p>CSV helps spreadsheet or ticket triage, JSON preserves structured evidence, QA report HTML supports human-readable handoff, and diagnostics or review-state exports support reproduction.</p></div></li>
-              <li><span class="step-number">2</span><div><h3>Confirm the data is authorised to leave the browser</h3><p>URLs, selectors, snippets, diagnostics, screenshots, notes, and workflow state can all be sensitive after export.</p></div></li>
+              <li><span class="step-number">2</span><div><h3>Confirm the data is authorised to leave the browser</h3><p>URLs, selectors, snippets, diagnostics, notes, and workflow state can all be sensitive after export.</p></div></li>
               <li><span class="step-number">3</span><div><h3>Clear local data when the review window ends</h3><p>Use clear-data controls and your organisation's retention policy together.</p></div></li>
             </ol>
           </div>
@@ -298,13 +375,13 @@
 
         <section class="section-panel" aria-labelledby="shared-review-controls">
           <h2 id="shared-review-controls">Shared review controls across the panel</h2>
-          <p>Several important features are not a dedicated first-row tab, but they still shape how reviewers work and how accessible evidence gets handed off.</p>
+          <p>Several important features are not a dedicated first-row section, but they still shape how reviewers work and how accessible evidence moves into handoff, export, or local follow-up workflows.</p>
           <div class="guide-subsection">
             <h3 id="filters-and-details">Filters, issue details, and counts</h3>
             <div class="guide-fact-grid">
               <article class="guide-fact-card"><h3>Severity and classification filters</h3><p>Narrow the list to confirmed issues, needs-review items, advisory signals, or a specific impact level. Filters change the view, not the underlying classification.</p></article>
               <article class="guide-fact-card"><h3>Issue details</h3><p>Expose selectors, snippets, rule IDs, notes, limitation context, and module-specific evidence for remediation or review.</p></article>
-              <article class="guide-fact-card"><h3>Summary counts</h3><p>Counts appear in Dashboard and scanner sections to help reviewers prioritise work quickly.</p></article>
+              <article class="guide-fact-card"><h3>Summary counts</h3><p>Counts appear across the panel and workspace to help reviewers prioritise work quickly without flattening every result type into the same severity.</p></article>
               <article class="guide-fact-card"><h3>Manual boundary</h3><p>Selectors, snippets, and counts can become stale after page changes or a different scan state.</p></article>
             </div>
           </div>
@@ -318,11 +395,11 @@
             </div>
           </div>
           <div class="guide-subsection">
-            <h3 id="status-and-panel-controls">Result status, panel controls, theme, and clear data</h3>
+            <h3 id="workspace-assistant-and-panel-controls">Workspace, assistant, panel controls, theme, and clear data</h3>
             <div class="guide-fact-grid">
-              <article class="guide-fact-card"><h3>Result status and details</h3><p>The persistent footer area reports whether results are ready, idle, blocked, or limited and can open extra operational detail.</p></article>
-              <article class="guide-fact-card"><h3>Panel position and size</h3><p>Resize and move controls make the panel easier to use beside dense pages or high-zoom review workflows.</p></article>
-              <article class="guide-fact-card"><h3>Theme and display settings</h3><p>Help reviewers keep the tool readable while they inspect the page.</p></article>
+              <article class="guide-fact-card"><h3>Open Workspace</h3><p>Launches the local dashboard workspace page using the latest saved extension snapshot instead of injecting a second large review surface into the tested page.</p></article>
+              <article class="guide-fact-card"><h3>Ask A11Y Cat</h3><p>Optional local assistant drawer for supported page facts, scan triage, bundled WCAG-reference questions, issue explanations, and bounded handoff drafting. It is advisory support, not proof.</p></article>
+              <article class="guide-fact-card"><h3>Panel position, theme, and result status</h3><p>Resize, move, theme, and status controls help reviewers keep the tool readable while they inspect dense pages or high-zoom states.</p></article>
               <article class="guide-fact-card"><h3>Clear local data</h3><p>Supports privacy and retention hygiene after the review ends, but does not affect copies already exported outside the browser.</p></article>
             </div>
           </div>

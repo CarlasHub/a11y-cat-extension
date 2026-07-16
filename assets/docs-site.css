@@ -2251,6 +2251,9 @@ figcaption {
 .guide-local-nav {
   position: sticky;
   top: 6.6rem;
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   padding: 1rem;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
@@ -2589,6 +2592,10 @@ figcaption {
 .feature-matrix a {
   align-self: end;
   font-weight: 800;
+}
+
+.feature-matrix a + a {
+  margin-top: 0.1rem;
 }
 
 .store-asset-list {
