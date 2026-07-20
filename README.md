@@ -4,6 +4,13 @@ Public documentation, privacy information, support guidance, screenshots, and in
 
 A11Y Cat Extension supports accessibility review by running current-page checks, organizing automated and guided/manual evidence, and exporting review data. It does not certify WCAG conformance, detect every accessibility issue, or replace manual accessibility testing with real assistive technologies.
 
+## Current documented package
+
+- Documented package version: `2.0.0`
+- Latest release verification: Sunday, July 19, 2026
+- Public docs refresh: Monday, July 20, 2026
+- Current release gate summary: package validation, Guidepup virtual screen-reader release gate, full extension regression suite, and smoke suite all passed for the documented package.
+
 ## Public Site
 
 Documentation site:
